@@ -24,7 +24,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col justify-center max-w-6xl mx-auto px-4 md:px-8">
       {/* Left-aligned text section */}
       <div className="mb-12 text-left">
-        <h1 className="text-5xl md:text-7xl font-light mb-8 leading-tight">
+        <h1 className="md:text-7xl font-light mb-8 text-[48px]">
           Nico Shi{" "}
           <span className="text-3xl md:text-4xl font-light text-gray-300 block mt-2">
             is a multi-disciplinary designer building{" "}
@@ -33,7 +33,6 @@ export default function Home() {
           </span>
         </h1>
       </div>
-
       {/* Layered Case Studies */}
       <div className="relative w-full max-w-4xl" style={{ perspective: '1000px' }}>
         {caseStudies.map((study, index) => (
