@@ -16,7 +16,7 @@ export default function Home() {
         </h1>
       </div>
       {/* Single Case Study */}
-      <div className="relative w-full max-w-4xl">
+      <div className="w-full max-w-4xl">
         <div className="bg-white/5 border border-white/20 rounded-3xl p-8 md:p-12 min-h-[400px] backdrop-blur-sm">
           <div>
             <h2 className="text-2xl md:text-3xl font-light mb-4">
@@ -37,11 +37,11 @@ export default function Home() {
         </div>
         
         {/* MORE Button */}
-        <div className="absolute bottom-4 left-8">
+        <div className="flex justify-end mt-6">
           <Link href="/case-studies">
             <button className="flex items-center gap-2 text-white hover:opacity-70 transition-opacity">
-              <ArrowRight className="w-6 h-6" />
               <span className="text-lg font-light">MORE</span>
+              <ArrowRight className="w-6 h-6" />
             </button>
           </Link>
         </div>
