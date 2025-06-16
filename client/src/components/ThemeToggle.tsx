@@ -12,8 +12,8 @@ export function useTheme() {
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    document.documentElement.classList.toggle("light", theme === "light");
+    document.body.classList.remove("dark", "light");
+    document.body.classList.add(theme);
   }, [theme]);
 
   const toggleTheme = () => {
