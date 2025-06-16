@@ -1,7 +1,9 @@
 import { Link, useLocation } from "wouter";
+import ThemeToggle, { useTheme } from "./ThemeToggle";
 
 export default function Navigation() {
   const [location] = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   const navItems = [
     { href: "/", label: "HOME", path: "/" },
@@ -11,25 +13,29 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-4">
-      <div className="bg-white/10 border border-white/20 rounded-full px-6 py-3 backdrop-blur-sm">
-        <ul className="flex justify-between items-center text-sm">
-          {navItems.map((item) => {
-            const isActive = location === item.path;
-            return (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={`nav-link tracking-wide ${
-                    isActive ? "active" : ""
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+    <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-4xl px-4">
+      <div className="flex justify-between items-center">
+        <div className="bg-white/10 dark:bg-white/10 light:bg-black/10 border border-white/20 dark:border-white/20 light:border-black/20 rounded-full px-6 py-3 backdrop-blur-sm">
+          <ul className="flex justify-between items-center text-sm space-x-6">
+            {navItems.map((item) => {
+              const isActive = location === item.path;
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`nav-link tracking-wide text-white dark:text-white light:text-gray-800 ${
+                      isActive ? "active" : ""
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        
+        <ThemeToggle theme={theme} onToggle={toggleTheme} />
       </div>
     </nav>
   );
