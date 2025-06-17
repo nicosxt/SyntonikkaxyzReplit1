@@ -17,20 +17,20 @@ export default function Home() {
       </div>
       {/* Single Case Study */}
       <div className="w-full max-w-4xl">
-        <div className="bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/20 dark:border-white/20 light:border-black/20 rounded-3xl p-8 md:p-12 min-h-[400px] backdrop-blur-sm">
+        <div className="bg-black/5 dark:bg-white/5 border border-black/20 dark:border-white/20 rounded-3xl p-8 md:p-12 min-h-[400px] backdrop-blur-sm">
           <div>
-            <h2 className="text-2xl md:text-3xl font-light mb-4 text-white dark:text-white light:text-gray-800">
+            <h2 className="text-2xl md:text-3xl font-light mb-4 text-gray-800 dark:text-white">
               Case Study: Edge City
             </h2>
-            <div className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-lg">
+            <div className="text-gray-600 dark:text-gray-400 text-lg">
               <p className="mb-4">
                 A comprehensive branding project focusing on creating a futuristic identity 
                 that bridges physical and digital experiences.
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-white/10 dark:bg-white/10 light:bg-black/10 rounded-full text-sm">Brand Identity</span>
-                <span className="px-3 py-1 bg-white/10 dark:bg-white/10 light:bg-black/10 rounded-full text-sm">Digital Design</span>
-                <span className="px-3 py-1 bg-white/10 dark:bg-white/10 light:bg-black/10 rounded-full text-sm">XR Integration</span>
+                <span className="px-3 py-1 bg-black/10 dark:bg-white/10 rounded-full text-sm">Brand Identity</span>
+                <span className="px-3 py-1 bg-black/10 dark:bg-white/10 rounded-full text-sm">Digital Design</span>
+                <span className="px-3 py-1 bg-black/10 dark:bg-white/10 rounded-full text-sm">XR Integration</span>
               </div>
             </div>
           </div>
@@ -39,7 +39,7 @@ export default function Home() {
         {/* MORE Button */}
         <div className="flex justify-end mt-6">
           <Link href="/case-studies">
-            <button className="flex items-center gap-2 text-white dark:text-white light:text-gray-800 hover:opacity-70 transition-opacity">
+            <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-opacity">
               <span className="text-lg font-light">MORE</span>
               <ArrowRight className="w-6 h-6" />
             </button>
