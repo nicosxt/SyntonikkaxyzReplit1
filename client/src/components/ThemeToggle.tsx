@@ -12,8 +12,11 @@ export function useTheme() {
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
-    document.body.classList.remove("dark", "light");
-    document.body.classList.add(theme);
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }, [theme]);
 
   const toggleTheme = () => {
@@ -30,10 +33,10 @@ interface ThemeToggleProps {
 
 export default function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
   return (
-    <div className="bg-white/10 dark:bg-white/10 light:bg-black/10 border border-white/20 dark:border-white/20 light:border-black/20 rounded-full px-3 py-2 backdrop-blur-sm">
+    <div className="bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-full px-3 py-2 backdrop-blur-sm">
       <button
         onClick={onToggle}
-        className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-gray-800"
+        className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/20 focus:ring-offset-2"
         style={{
           backgroundColor: theme === "light" ? "#34d399" : "#6b7280",
         }}

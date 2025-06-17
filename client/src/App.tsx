@@ -11,7 +11,7 @@ import Info from "@/pages/Info";
 
 function Router() {
   return (
-    <div className="min-h-screen bg-black dark:bg-black light:bg-[#e8dcc6] text-white dark:text-white light:text-gray-800 transition-colors duration-300">
+    <div className="min-h-screen bg-[#e8dcc6] text-gray-800 dark:bg-black dark:text-white transition-colors duration-300">
       <Navigation />
       <main className="pt-20 px-4 pb-8">
         <Switch>
