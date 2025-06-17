@@ -6,7 +6,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col justify-center max-w-6xl mx-auto px-4 md:px-8">
       {/* Left-aligned text section */}
       <div className="mb-12 text-left">
-        <h1 className="md:text-7xl font-light mb-8 text-gray-800 dark:text-white text-[38px]">
+        <h1 className="text-[38px] font-light mb-8 text-gray-800 dark:text-white">
           Nico Shi{" "}
           <span className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2">
             is a multi-disciplinary designer building{" "}
