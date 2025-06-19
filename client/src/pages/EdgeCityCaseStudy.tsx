@@ -5,13 +5,16 @@ import ClickableImage from "../components/ClickableImage";
 
 export default function EdgeCityCaseStudy() {
   const caseStudy = getCaseStudyById("edge-city");
-  
+
   if (!caseStudy) {
     return <div>Case study not found</div>;
   }
 
   return (
-    <div className="min-h-screen max-w-4xl mx-auto flex flex-col" style={{ marginLeft: '15%', marginRight: '15%' }}>
+    <div
+      className="min-h-screen max-w-4xl mx-auto flex flex-col"
+      style={{ marginLeft: "15%", marginRight: "15%" }}
+    >
       <div className="content-block p-8 md:p-12">
         {/* Back button */}
         <Link href="/case-studies">
@@ -29,7 +32,10 @@ export default function EdgeCityCaseStudy() {
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-8">
           {caseStudy.tags.map((tag) => (
-            <span key={tag} className="px-3 py-1 bg-black/10 dark:bg-white/10 rounded-full text-sm text-gray-800 dark:text-white">
+            <span
+              key={tag}
+              className="px-3 py-1 bg-black/10 dark:bg-white/10 rounded-full text-sm text-gray-800 dark:text-white"
+            >
               {tag}
             </span>
           ))}
@@ -37,20 +43,24 @@ export default function EdgeCityCaseStudy() {
 
         {/* Role */}
         <div className="mb-8">
-          <h3 className="text-xl font-medium mb-2 text-gray-800 dark:text-white">ROLE:</h3>
+          <h3 className="text-xl font-medium mb-2 text-gray-800 dark:text-white">
+            ROLE:
+          </h3>
           <p className="text-gray-600 dark:text-gray-400">{caseStudy.role}</p>
         </div>
 
         {/* Examples */}
         <div className="mb-12">
-          <h3 className="text-xl font-medium mb-4 text-gray-800 dark:text-white">EXAMPLES:</h3>
+          <h3 className="text-xl font-medium mb-4 text-gray-800 dark:text-white">
+            EXAMPLES:
+          </h3>
           <div className="space-y-3 text-gray-600 dark:text-gray-400">
             {caseStudy.examples.map((example, index) => (
               <p key={index}>
                 {example.url ? (
-                  <a 
-                    href={example.url} 
-                    target="_blank" 
+                  <a
+                    href={example.url}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-800 dark:text-white hover:opacity-70 transition-opacity underline"
                   >
@@ -66,7 +76,7 @@ export default function EdgeCityCaseStudy() {
 
         {/* Full width hero image */}
         <div className="mb-8">
-          <ClickableImage 
+          <ClickableImage
             src="/src/assets/images/case-studies/edge-city/edgeesmeralda-landing.jpg"
             alt="Edge City branding example"
             className="bg-white/5 rounded-2xl aspect-video w-full flex items-center justify-center border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
@@ -76,28 +86,30 @@ export default function EdgeCityCaseStudy() {
         {/* Description paragraph */}
         <div className="mb-12">
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Edge City is a society incubator that hosts month-long pop-up city style un-conferences all around the world, innovating on the way people learn, work, live and gather together.
+            Edge City is a society incubator that hosts month-long pop-up city
+            style un-conferences all around the world, innovating on the way
+            people learn, work, live and gather together.
           </p>
         </div>
 
         {/* 2x2 grid of placeholder images */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <ClickableImage 
+          <ClickableImage
             src="/src/assets/images/case-studies/edge-city/edgecitybhutan.jpg"
             alt="Edge City Bhutan"
             placeholderText="Edge City Bhutan"
           />
-          <ClickableImage 
+          <ClickableImage
             src="/src/assets/images/case-studies/edge-city/edgecitypatagonia.jpg"
             alt="Edge City Patagonia"
             placeholderText="Edge City Patagonia"
           />
-          <ClickableImage 
+          <ClickableImage
             src="/src/assets/images/case-studies/edge-city/edgecityweb_cover.jpg"
             alt="Edge City Web Cover"
             placeholderText="Edge City Web Cover"
           />
-          <ClickableImage 
+          <ClickableImage
             src="/src/assets/images/case-studies/edge-city/edgecityweb_gallery.jpg"
             alt="Edge City Web Gallery"
             placeholderText="Edge City Web Gallery"
@@ -107,24 +119,27 @@ export default function EdgeCityCaseStudy() {
         {/* Additional text section */}
         <div className="mb-12">
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Working in this fast-growing start-up, my role is to help define a visual direction, and design assets on the fly when demands come in. I started off by exploring visual directions early on with moodboarding and researching the Edge City philosophy.
+            Working in this fast-growing start-up, my role is to help define a
+            visual direction, and design assets on the fly when demands come in.
+            I started off by exploring visual directions early on with
+            moodboarding and researching the Edge City philosophy.
           </p>
         </div>
 
         {/* Horizontal branding images */}
         <div className="flex gap-6 mb-12 overflow-x-auto">
-          <ClickableImage 
-            src="@assets/edgecity-branding1_1750376017145.jpg"
+          <ClickableImage
+            src="/src/assets/images/case-studies/edge-city/edgecity-branding1.jpg"
             alt="Edge City Branding Moodboard 1"
             className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
-          <ClickableImage 
-            src="@assets/edgecity-branding2_1750376017145.jpg"
+          <ClickableImage
+            src="/src/assets/images/case-studies/edge-city/edgecity-branding2.jpg"
             alt="Edge City Branding Philosophy"
             className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
-          <ClickableImage 
-            src="@assets/edgecity-branding3_1750376017145.jpg"
+          <ClickableImage
+            src="/src/assets/images/case-studies/edge-city/edgecity-branding3.jpg"
             alt="Edge City Visual Identity"
             className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />

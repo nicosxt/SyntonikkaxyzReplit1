@@ -38,7 +38,7 @@ export default function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
         onClick={onToggle}
         className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/20 focus:ring-offset-2 bg-[#8fb6ff]"
         style={{
-          backgroundColor: theme === "light" ? "#3b82f6" : "#6b7280",
+          backgroundColor: theme === "light" ? "#ffb3ce" : "#6b7280",
         }}
       >
         <span

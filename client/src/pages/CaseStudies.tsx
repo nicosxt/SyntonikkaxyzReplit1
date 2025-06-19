@@ -38,7 +38,15 @@ export default function CaseStudies() {
                   </div>
                   
                   <div className="bg-white/5 rounded-2xl aspect-video flex items-center justify-center border border-white/10">
-                    <span className="text-gray-500">Preview Image</span>
+                    {caseStudy.previewImage ? (
+                      <img
+                        src={caseStudy.previewImage}
+                        alt={`${caseStudy.title} preview`}
+                        className="w-full h-full object-cover rounded-2xl"
+                      />
+                    ) : (
+                      <span className="text-gray-500">Preview Image</span>
+                    )}
                   </div>
                 </div>
               </div>

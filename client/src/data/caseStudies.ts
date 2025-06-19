@@ -11,6 +11,7 @@ export interface CaseStudy {
   examples: CaseStudyExample[];
   link: string;
   preview: string;
+  previewImage?: string;
 }
 
 export const caseStudiesData: CaseStudy[] = [
@@ -29,6 +30,7 @@ export const caseStudiesData: CaseStudy[] = [
       { text: "Edge City Media", url: "https://www.edgecity.live/media" },
     ],
     preview: "edgecity.live",
+    previewImage: "/src/assets/images/case-studies/edge-city/edgeesmeralda-landing.jpg",
     link: "/case-studies/edge-city",
   },
   {
