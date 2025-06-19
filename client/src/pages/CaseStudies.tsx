@@ -78,14 +78,13 @@ export default function CaseStudies() {
         </div>
       </div>
       
-      {/* MORE Arrow at bottom */}
+      {/* Back Arrow at bottom */}
       <div className="flex justify-end mt-6">
         <button 
-          onClick={nextCase}
+          onClick={prevCase}
           className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-opacity"
         >
-          <span className="text-lg font-light">MORE</span>
-          <ArrowRight className="w-6 h-6" />
+          <ChevronLeft className="w-6 h-6" />
         </button>
       </div>
     </div>
