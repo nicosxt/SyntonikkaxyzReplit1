@@ -45,7 +45,20 @@ export default function AgarthaCaseStudy() {
           <h3 className="text-xl font-medium mb-4 text-gray-800 dark:text-white">EXAMPLES:</h3>
           <div className="space-y-3 text-gray-600 dark:text-gray-400">
             {caseStudy.examples.map((example, index) => (
-              <p key={index}>{example}</p>
+              <p key={index}>
+                {example.url ? (
+                  <a 
+                    href={example.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-800 dark:text-white hover:opacity-70 transition-opacity underline"
+                  >
+                    {example.text}
+                  </a>
+                ) : (
+                  example.text
+                )}
+              </p>
             ))}
           </div>
         </div>

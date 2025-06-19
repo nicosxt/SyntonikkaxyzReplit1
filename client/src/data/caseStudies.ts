@@ -1,9 +1,14 @@
+export interface CaseStudyExample {
+  text: string;
+  url?: string;
+}
+
 export interface CaseStudy {
   id: string;
   title: string;
   role: string;
   tags: string[];
-  examples: string[];
+  examples: CaseStudyExample[];
   link: string;
   preview: string;
 }
@@ -15,12 +20,12 @@ export const caseStudiesData: CaseStudy[] = [
     role: "Brand Designer",
     tags: ["#Branding", "#Graphics"],
     examples: [
-      "web & graphics design -- edgecity.live",
-      "web & graphics design -- edgeesmeralda.com",
-      "graphics design -- Edge City Media",
-      "trailer video -- Edge Esmeralda trailer"
+      { text: "edgecity.live", url: "https://edgecity.live" },
+      { text: "esmeralda.com", url: "https://esmeralda.com" },
+      { text: "Edge Esmeralda Trailer", url: "https://x.com/ethereum/status/1927026215744889233" },
+      { text: "Edge City Media", url: "https://www.edgecity.live/media" }
     ],
-    preview: "web & graphics design -- edgecity.live",
+    preview: "edgecity.live",
     link: "/case-studies/edge-city"
   },
   {
@@ -29,8 +34,8 @@ export const caseStudiesData: CaseStudy[] = [
     role: "Founder",
     tags: ["#Branding", "#Design"],
     examples: [
-      "web & graphics design -- agartha.one",
-      "graphics design -- Grid Free Minds"
+      { text: "agartha.one", url: "https://agartha.one" },
+      { text: "Grid Free Minds" }
     ],
     preview: "web & graphics design -- agartha.one",
     link: "/case-studies/agartha"
