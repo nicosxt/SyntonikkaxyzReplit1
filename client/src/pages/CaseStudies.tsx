@@ -1,92 +1,97 @@
-import { Link } from "wouter";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, ArrowRight, ArrowLeft } from "lucide-react";
 
 const caseStudies = [
   {
     id: 1,
-    title: "CASE STUDY: EDGE CITY",
+    title: "Case Study: Edge City",
     overview: "A comprehensive branding project for Edge City, focusing on creating a futuristic identity that bridges physical and digital experiences through innovative design systems.",
-    tags: ["#Branding", "#Graphics"],
-    role: "Brand Designer",
-    link: "/case-studies/edge-city"
+    tags: ["Brand Identity", "Digital Design", "XR Integration"],
   },
   {
     id: 2,
-    title: "CASE STUDY: AGARTHA",
-    overview: "An immersive art installation exploring the intersection of AI and human creativity through interactive digital experiences and machine learning algorithms in a mythical underground world.",
-    tags: ["#XR Design", "#Immersive Art", "#AI Integration"],
-    role: "Creative Technologist",
-    link: "/case-studies/agartha"
+    title: "Case Study: Neural Networks",
+    overview: "An immersive art installation exploring the intersection of AI and human creativity through interactive digital experiences and machine learning algorithms.",
+    tags: ["AI Art", "Interactive Design", "Installation"],
   },
   {
     id: 3,
     title: "Case Study: Metaverse Pavilion",
     overview: "A virtual reality experience design for a cutting-edge tech conference, creating immersive brand experiences in virtual spaces.",
     tags: ["VR Design", "Event Design", "3D Modeling"],
-    role: "XR Designer",
-    link: "#"
   },
 ];
 
 export default function CaseStudies() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextCase = () => {
+    setCurrentIndex((prev) => (prev + 1) % caseStudies.length);
+  };
+
+  const prevCase = () => {
+    setCurrentIndex((prev) => (prev - 1 + caseStudies.length) % caseStudies.length);
+  };
+
+  const currentCase = caseStudies[currentIndex];
+
   return (
-    <div className="min-h-screen max-w-6xl mx-auto" style={{ marginLeft: '15%', marginRight: '15%' }}>
-      <div className="p-8 md:p-12">
-        <h1 className="text-3xl md:text-4xl font-light mb-12 text-gray-800 dark:text-white">
-          Case Studies
+    <div className="min-h-screen max-w-4xl mx-auto flex flex-col justify-center" style={{ marginLeft: '15%', marginRight: '15%' }}>
+      <div className="content-block p-8 md:p-12 min-h-[600px]">
+        <h1 className="text-3xl md:text-4xl font-light mb-8">
+          {currentCase.title}
         </h1>
 
-        {/* Case Studies Grid */}
-        <div className="space-y-12">
-          {caseStudies.map((caseStudy) => (
-            <div key={caseStudy.id} className="content-block p-8 md:p-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Content */}
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-light mb-4 text-gray-800 dark:text-white">
-                    {caseStudy.title}
-                  </h2>
-                  
-                  <div className="mb-4">
-                    <span className="text-lg text-gray-600 dark:text-gray-300">
-                      ROLE: {caseStudy.role}
-                    </span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {caseStudy.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 bg-white/10 rounded-full text-sm"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                    {caseStudy.overview}
-                  </p>
-
-                  {/* View Case Study Button */}
-                  <Link href={caseStudy.link}>
-                    <button 
-                      className="inline-flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-opacity border border-white/20 px-4 py-2 rounded-lg"
-                      disabled={caseStudy.link === "#"}
-                    >
-                      <span>View Case Study</span>
-                      <span>→</span>
-                    </button>
-                  </Link>
-                </div>
-
-                {/* Preview Image */}
-                <div className="bg-white/5 rounded-2xl aspect-video flex items-center justify-center border border-white/10">
-                  <span className="text-gray-500">Case Study Preview</span>
-                </div>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-xl font-medium mb-4">Project Overview</h3>
+            <p className="text-gray-300 leading-relaxed mb-6">
+              {currentCase.overview}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {currentCase.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 bg-white/10 rounded-full text-sm"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
+          </div>
+          <div className="bg-white/5 rounded-2xl aspect-video flex items-center justify-center border border-white/10">
+            <span className="text-gray-500">Case Study Visual</span>
+          </div>
+        </div>
+
+        {/* Case study navigation dots */}
+        <div className="flex justify-center mt-8 space-x-2">
+          {caseStudies.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                index === currentIndex ? "bg-white" : "bg-white/30"
+              }`}
+            />
           ))}
         </div>
+      </div>
+      
+      {/* Arrow at bottom */}
+      <div className="flex justify-between mt-6">
+        <button 
+          onClick={prevCase}
+          className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-opacity"
+        >
+          <ArrowLeft className="w-6 h-6" />
+        </button>
+        <button 
+          onClick={nextCase}
+          className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-opacity"
+        >
+          <ArrowRight className="w-6 h-6" />
+        </button>
       </div>
     </div>
   );
