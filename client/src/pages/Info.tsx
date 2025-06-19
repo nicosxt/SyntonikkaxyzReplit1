@@ -25,7 +25,7 @@ export default function Info() {
         </div>
 
         {/* Scrollable content section */}
-        <div className="max-h-96 overflow-y-auto bg-white/5 dark:bg-white/5 rounded-2xl p-6" style={{ borderColor: 'var(--border-color)', borderWidth: '1px' }}>
+        <div className="max-h-96 overflow-y-auto content-block p-6">
           <div className="space-y-4" style={{ color: 'var(--text-muted)' }}>
             <h3 className="text-lg font-medium mb-3" style={{ color: 'var(--text-primary)' }}>Design Philosophy</h3>
             <p>

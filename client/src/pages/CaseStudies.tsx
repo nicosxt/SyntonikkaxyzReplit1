@@ -46,7 +46,7 @@ export default function CaseStudies() {
         </button>
       </div>
 
-      <div className="bg-white/5 border border-white/20 rounded-3xl p-8 md:p-12 min-h-[600px]">
+      <div className="content-block p-8 md:p-12 min-h-[600px]">
         <h1 className="text-3xl md:text-4xl font-light mb-8">
           {currentCase.title}
         </h1>

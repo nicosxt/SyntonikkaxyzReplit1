@@ -130,4 +130,8 @@
   .nav-arrow {
     @apply p-4 hover:opacity-70 transition-opacity cursor-pointer;
   }
+  
+  .content-block {
+    @apply bg-black/5 dark:bg-white/5 border border-black/20 dark:border-white/20 rounded-3xl backdrop-blur-sm;
+  }
 }

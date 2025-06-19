@@ -17,7 +17,7 @@ export default function Home() {
       </div>
       {/* Single Case Study */}
       <div className="w-full max-w-4xl">
-        <div className="bg-black/5 dark:bg-white/5 border border-black/20 dark:border-white/20 rounded-3xl p-8 md:p-12 min-h-[400px] backdrop-blur-sm">
+        <div className="content-block p-8 md:p-12 min-h-[400px]">
           <div>
             <h2 className="text-2xl md:text-3xl font-light mb-4 text-gray-800 dark:text-white">
               Case Study: Edge City
