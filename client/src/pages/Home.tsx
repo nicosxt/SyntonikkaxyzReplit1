@@ -7,11 +7,10 @@ export default function Home() {
       {/* Left-aligned text section */}
       <div className="mb-12 text-left">
           <span className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2">
-            Nico Shi is a multi-disciplinary designer building{" "}
+             <span className="italic font-light text-gray-800 dark:text-white">Nico Shi</span> is a multi-disciplinary designer building{" "}
             <span className="italic font-light text-gray-800 dark:text-white">Protopian</span>
             {" "}brands with AI, XR, and immersive art.
           </span>
-        </h1>
       </div>
       {/* Single Case Study */}
       <div className="w-full max-w-4xl">

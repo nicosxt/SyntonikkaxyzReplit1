@@ -2,21 +2,21 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const services = [
   "Graphics Design",
-  "Web Design & Development", 
+  "Web Design", 
   "Logo & Branding",
   "Art Direction",
-  "Consulting",
   "AR / VR",
-  "Event Design",
-  "More...",
+  "Experience Design",
+  "Consulting",
+  "Surprises! 🪄"
 ];
 
 export default function Services() {
   return (
     <div className="min-h-screen max-w-4xl mx-auto flex flex-col justify-center" style={{ marginLeft: '15%', marginRight: '15%' }}>
       <div className="mb-12">
-        <h1 className="text-3xl md:text-4xl font-light mb-6 leading-tight">
-          Interdisciplinary and comprehensive<br />
+        <h1 className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2">
+          <span className="italic font-light text-gray-800 dark:text-white">Interdisciplinary</span> and <span className="italic font-light text-gray-800 dark:text-white">Comprehensive</span><br />
           feel-good, bespoke designs for cutting-<br />
           edge ideas.
         </h1>
