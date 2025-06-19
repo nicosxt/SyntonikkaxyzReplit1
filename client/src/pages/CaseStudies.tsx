@@ -11,11 +11,11 @@ const caseStudies = [
   },
   {
     id: 2,
-    title: "Case Study: Neural Networks",
-    overview: "An immersive art installation exploring the intersection of AI and human creativity through interactive digital experiences and machine learning algorithms.",
-    tags: ["AI Art", "Interactive Design", "Installation"],
+    title: "CASE STUDY: AGARTHA",
+    overview: "An immersive art installation exploring the intersection of AI and human creativity through interactive digital experiences and machine learning algorithms in a mythical underground world.",
+    tags: ["#XR Design", "#Immersive Art", "#AI Integration"],
     role: "Creative Technologist",
-    link: "#"
+    link: "/case-studies/agartha"
   },
   {
     id: 3,

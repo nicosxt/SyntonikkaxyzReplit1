@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Home from "@/pages/Home";
 import CaseStudies from "@/pages/CaseStudies";
 import EdgeCityCaseStudy from "@/pages/EdgeCityCaseStudy";
+import AgarthaCaseStudy from "@/pages/AgarthaCaseStudy";
 import Services from "@/pages/Services";
 import Info from "@/pages/Info";
 import cloudsBg from "@assets/sky-clouds-washed.jpg";
@@ -31,6 +32,7 @@ function Router() {
             <Route path="/" component={Home} />
             <Route path="/case-studies" component={CaseStudies} />
             <Route path="/case-studies/edge-city" component={EdgeCityCaseStudy} />
+            <Route path="/case-studies/agartha" component={AgarthaCaseStudy} />
             <Route path="/services" component={Services} />
             <Route path="/info" component={Info} />
             <Route>
