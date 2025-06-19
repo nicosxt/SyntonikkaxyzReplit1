@@ -6,12 +6,13 @@ export default function Home() {
     <div className="min-h-screen flex flex-col justify-center max-w-6xl mx-auto px-4 md:px-8" style={{ marginLeft: '15%', marginRight: '15%' }}>
       {/* Left-aligned text section */}
       <div className="mb-12 text-left">
-          <span className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2">
-             <span className="italic font-light text-gray-800 dark:text-white">Nico Shi</span> is a multi-disciplinary designer building{" "}
-            <span className="italic font-light text-gray-800 dark:text-white">Protopian</span>
-            {" "}brands with AI, XR, and immersive art.
-          </span>
+        <span className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2">
+          <span className="italic font-light text-gray-800 dark:text-white">Nico Shi</span> is a multi-disciplinary designer building{" "}
+          <span className="italic font-light text-gray-800 dark:text-white">Protopian</span>
+          {" "}brands with AI, XR, and immersive art.
+        </span>
       </div>
+      
       {/* Single Case Study */}
       <div className="w-full max-w-4xl">
         <div className="content-block p-8 md:p-12 min-h-[400px]">

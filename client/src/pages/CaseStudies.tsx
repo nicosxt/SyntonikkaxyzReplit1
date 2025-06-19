@@ -78,7 +78,7 @@ export default function CaseStudies() {
         </div>
       </div>
       
-      {/* Arrow at bottom */
+      {/* Arrow at bottom */}
       <div className="flex justify-between mt-6">
         <button 
           onClick={prevCase}
