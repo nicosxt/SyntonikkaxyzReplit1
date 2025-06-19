@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight, ArrowLeft } from "lucide-react";
 
 const caseStudies = [
   {
@@ -78,13 +78,18 @@ export default function CaseStudies() {
         </div>
       </div>
       
-      {/* MORE Arrow at bottom */}
-      <div className="flex justify-end mt-6">
+      {/* Arrow at bottom */
+      <div className="flex justify-between mt-6">
+        <button 
+          onClick={prevCase}
+          className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-opacity"
+        >
+          <ArrowLeft className="w-6 h-6" />
+        </button>
         <button 
           onClick={nextCase}
           className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-opacity"
         >
-          <span className="text-lg font-light">MORE</span>
           <ArrowRight className="w-6 h-6" />
         </button>
       </div>
