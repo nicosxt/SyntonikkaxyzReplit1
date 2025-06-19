@@ -66,7 +66,10 @@ export default function EdgeCityCaseStudy() {
 
         {/* Image placeholders */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <ClickableImage placeholderText="Edge City Image 1" />
+          <ClickableImage 
+            src="/src/assets/images/case-studies/edge-city/main-statement-1.jpg"
+            alt="Edge City branding example"
+          />
           <ClickableImage placeholderText="Edge City Image 2" />
           <ClickableImage placeholderText="Edge City Image 3" />
           <ClickableImage placeholderText="Edge City Image 4" />
