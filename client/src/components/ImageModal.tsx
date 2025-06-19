@@ -31,21 +31,23 @@ export default function ImageModal({ isOpen, onClose, imageSrc, altText }: Image
 
   return (
     <div 
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+      style={{ zIndex: 9999 }}
       onClick={onClose}
     >
-      <div className="relative max-w-[90vw] max-h-[90vh]">
+      <div className="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center">
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
+          className="absolute top-4 right-4 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 transition-colors"
+          style={{ zIndex: 10000 }}
         >
           <X className="w-6 h-6" />
         </button>
         
         {/* Image container */}
         <div 
-          className="bg-white/5 rounded-lg border border-white/10 overflow-hidden"
+          className="bg-white/5 rounded-lg border border-white/10 overflow-hidden max-w-full max-h-full flex items-center justify-center"
           onClick={(e) => e.stopPropagation()}
         >
           {imageSrc ? (
