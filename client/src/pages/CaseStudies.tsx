@@ -64,18 +64,6 @@ export default function CaseStudies() {
           </div>
         </div>
 
-        {/* Case study navigation dots */}
-        <div className="flex justify-center mt-8 space-x-2">
-          {caseStudies.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                index === currentIndex ? "bg-white" : "bg-white/30"
-              }`}
-            />
-          ))}
-        </div>
       </div>
       
       {/* Arrow at bottom */}
