@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Navigation from "@/components/Navigation";
 import Home from "@/pages/Home";
 import CaseStudies from "@/pages/CaseStudies";
+import EdgeCityCaseStudy from "@/pages/EdgeCityCaseStudy";
 import Services from "@/pages/Services";
 import Info from "@/pages/Info";
 import cloudsBg from "@assets/sky-clouds-washed.jpg";
@@ -29,6 +30,7 @@ function Router() {
           <Switch>
             <Route path="/" component={Home} />
             <Route path="/case-studies" component={CaseStudies} />
+            <Route path="/case-studies/edge-city" component={EdgeCityCaseStudy} />
             <Route path="/services" component={Services} />
             <Route path="/info" component={Info} />
             <Route>
