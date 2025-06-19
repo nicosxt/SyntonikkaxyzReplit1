@@ -55,6 +55,9 @@
   --dark-700: hsl(0, 0%, 11.8%);
   --dark-600: hsl(0, 0%, 16.5%);
   --dark-500: hsl(0, 0%, 20.4%);
+  
+  /* Hide background image in dark mode */
+  --tw-bg-image: none;
 }
 
 .light {

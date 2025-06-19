@@ -15,7 +15,7 @@ function Router() {
     <div 
       className="min-h-screen text-gray-800 dark:bg-black dark:text-white transition-colors duration-300"
       style={{
-        backgroundImage: `url(${cloudsBg})`,
+        backgroundImage: `var(--tw-bg-image, url(${cloudsBg}))`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -23,7 +23,7 @@ function Router() {
       }}
     >
       {/* Dark mode overlay */}
-      <div className="min-h-screen bg-transparent dark:bg-black/80 transition-colors duration-300">
+      <div className="min-h-screen bg-transparent transition-colors duration-300"></div>
         <Navigation />
         <main className="pt-20 px-4 pb-8">
           <Switch>
