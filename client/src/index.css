@@ -58,6 +58,12 @@
   
   /* Hide background image in dark mode */
   --tw-bg-image: none;
+  
+  /* Dark mode specific colors */
+  --text-primary: hsl(0, 0%, 100%);
+  --text-secondary: hsl(0, 0%, 85%);
+  --text-muted: hsl(0, 0%, 70%);
+  --border-color: hsl(0, 0%, 85%);
 }
 
 .light {
@@ -81,6 +87,12 @@
   --destructive-foreground: hsl(60, 9.1%, 97.8%);
   --ring: hsl(0, 0%, 20%);
   --radius: 0.5rem;
+  
+  /* Light mode specific colors */
+  --text-primary: hsl(0, 0%, 15%);
+  --text-secondary: hsl(0, 0%, 25%);
+  --text-muted: hsl(0, 0%, 35%);
+  --border-color: hsl(0, 0%, 30%);
 }
 
 @layer base {

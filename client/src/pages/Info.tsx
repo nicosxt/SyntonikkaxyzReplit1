@@ -13,21 +13,21 @@ export default function Info() {
         <div className="mb-8"></div>
 
         <div className="mb-8">
-          <p className="text-xl text-gray-300 mb-6">
+          <p className="text-xl text-muted-foreground mb-6">
             My approach to design is rooted in the belief that creativity and technology 
             should work in harmony to create meaningful experiences that push boundaries 
             and challenge conventional thinking.
           </p>
-          <p className="text-lg text-gray-400 mb-6">
+          <p className="text-lg text-muted-foreground opacity-80 mb-6">
             Below you'll find more detailed information about my design philosophy, 
             creative process, and the experiences that have shaped my work.
           </p>
         </div>
 
         {/* Scrollable content section */}
-        <div className="max-h-96 overflow-y-auto bg-white/5 border border-white/20 rounded-2xl p-6">
-          <div className="space-y-4 text-gray-300">
-            <h3 className="text-lg font-medium text-white mb-3">Design Philosophy</h3>
+        <div className="max-h-96 overflow-y-auto bg-white/5 dark:bg-white/5 bg-black/5 border border-border rounded-2xl p-6">
+          <div className="space-y-4 text-muted-foreground">
+            <h3 className="text-lg font-medium text-foreground mb-3">Design Philosophy</h3>
             <p>
               I believe in creating designs that are not just visually striking, but also 
               intellectually stimulating and emotionally resonant. My work explores the 
@@ -35,7 +35,7 @@ export default function Info() {
               to create better futures.
             </p>
             
-            <h3 className="text-lg font-medium text-white mb-3 mt-6">Creative Process</h3>
+            <h3 className="text-lg font-medium text-foreground mb-3 mt-6">Creative Process</h3>
             <p>
               My process begins with deep research and understanding of the problem space. 
               I then explore multiple conceptual directions before converging on solutions 
@@ -44,7 +44,7 @@ export default function Info() {
               exceeds expectations.
             </p>
             
-            <h3 className="text-lg font-medium text-white mb-3 mt-6">Technology & Innovation</h3>
+            <h3 className="text-lg font-medium text-foreground mb-3 mt-6">Technology & Innovation</h3>
             <p>
               I'm passionate about emerging technologies like AI, XR, and immersive experiences. 
               These tools aren't just technical solutions - they're new languages for creative 
@@ -52,7 +52,7 @@ export default function Info() {
               capabilities to every project.
             </p>
             
-            <h3 className="text-lg font-medium text-white mb-3 mt-6">Lifestyle & Inspiration</h3>
+            <h3 className="text-lg font-medium text-foreground mb-3 mt-6">Lifestyle & Inspiration</h3>
             <p>
               Inspiration comes from everywhere - art galleries, nature, conversations with 
               interesting people, travel, and constant learning. I maintain a curious mindset 

@@ -13,7 +13,7 @@ import cloudsBg from "@assets/sky-clouds-1_1750118588419.jpg";
 function Router() {
   return (
     <div 
-      className="min-h-screen text-gray-800 dark:bg-black dark:text-white transition-colors duration-300"
+      className="min-h-screen text-foreground bg-background transition-colors duration-300"
       style={{
         backgroundImage: `var(--tw-bg-image, url(${cloudsBg}))`,
         backgroundSize: 'cover',
@@ -35,7 +35,7 @@ function Router() {
               <div className="min-h-screen flex items-center justify-center">
                 <div className="text-center">
                   <h1 className="text-4xl font-light mb-4">404</h1>
-                  <p className="text-gray-400 dark:text-gray-400">Page not found</p>
+                  <p className="text-muted-foreground">Page not found</p>
                 </div>
               </div>
             </Route>
