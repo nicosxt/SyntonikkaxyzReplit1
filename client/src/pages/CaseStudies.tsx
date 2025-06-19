@@ -36,7 +36,7 @@ export default function CaseStudies() {
   const currentCase = caseStudies[currentIndex];
 
   return (
-    <div className="min-h-screen max-w-4xl mx-auto">
+    <div className="min-h-screen max-w-4xl mx-auto" style={{ marginLeft: '15%', marginRight: '15%' }}>
       <div className="flex items-center justify-between mb-8">
         <button onClick={prevCase} className="nav-arrow">
           <ChevronLeft className="w-8 h-8" />

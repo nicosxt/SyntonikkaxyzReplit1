@@ -13,7 +13,7 @@ const services = [
 
 export default function Services() {
   return (
-    <div className="min-h-screen max-w-4xl mx-auto flex flex-col justify-center">
+    <div className="min-h-screen max-w-4xl mx-auto flex flex-col justify-center" style={{ marginLeft: '15%', marginRight: '15%' }}>
       <div className="mb-12">
         <h1 className="text-3xl md:text-4xl font-light mb-6 leading-tight">
           Interdisciplinary and comprehensive<br />
