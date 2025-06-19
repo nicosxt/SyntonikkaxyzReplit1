@@ -8,7 +8,7 @@ import Home from "@/pages/Home";
 import CaseStudies from "@/pages/CaseStudies";
 import Services from "@/pages/Services";
 import Info from "@/pages/Info";
-import cloudsBg from "@assets/sky-clouds-1_1750118588419.jpg";
+import cloudsBg from "@assets/sky-clouds-washed.jpg";
 
 function Router() {
   return (
