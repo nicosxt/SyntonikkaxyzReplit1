@@ -1,13 +1,9 @@
 import { Link, useLocation } from "wouter";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle, { useTheme } from "./ThemeToggle";
 
-interface NavigationProps {
-  theme: "light" | "dark";
-  onThemeToggle: () => void;
-}
-
-export default function Navigation({ theme, onThemeToggle }: NavigationProps) {
+export default function Navigation() {
   const [location] = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   const navItems = [
     { href: "/", label: "HOME", path: "/" },
@@ -39,7 +35,7 @@ export default function Navigation({ theme, onThemeToggle }: NavigationProps) {
           </ul>
         </div>
         
-        <ThemeToggle theme={theme} onToggle={onThemeToggle} />
+        <ThemeToggle theme={theme} onToggle={toggleTheme} />
       </div>
     </nav>
   );
