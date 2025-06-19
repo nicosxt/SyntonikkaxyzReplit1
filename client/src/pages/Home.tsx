@@ -6,10 +6,8 @@ export default function Home() {
     <div className="min-h-screen flex flex-col justify-center max-w-6xl mx-auto px-4 md:px-8" style={{ marginLeft: '15%', marginRight: '15%' }}>
       {/* Left-aligned text section */}
       <div className="mb-12 text-left">
-        <h1 className="text-[38px] font-light mb-8 text-gray-800 dark:text-white">
-          Nico Shi{" "}
           <span className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2">
-            is a multi-disciplinary designer building{" "}
+            Nico Shi is a multi-disciplinary designer building{" "}
             <span className="italic font-light text-gray-800 dark:text-white">Protopian</span>
             {" "}brands with AI, XR, and immersive art.
           </span>
