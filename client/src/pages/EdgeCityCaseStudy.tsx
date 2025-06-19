@@ -67,7 +67,7 @@ export default function EdgeCityCaseStudy() {
         {/* Full width hero image */}
         <div className="mb-8">
           <ClickableImage 
-            src="/src/assets/images/case-studies/edge-city/main-statement-1.jpg"
+            src="/src/assets/images/case-studies/edge-city/edgeesmeralda-landing.jpg"
             alt="Edge City branding example"
             className="bg-white/5 rounded-2xl aspect-video w-full flex items-center justify-center border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
@@ -82,10 +82,26 @@ export default function EdgeCityCaseStudy() {
 
         {/* 2x2 grid of placeholder images */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <ClickableImage placeholderText="Edge City Image 1" />
-          <ClickableImage placeholderText="Edge City Image 2" />
-          <ClickableImage placeholderText="Edge City Image 3" />
-          <ClickableImage placeholderText="Edge City Image 4" />
+          <ClickableImage 
+            src="/src/assets/images/case-studies/edge-city/edgecitybhutan.jpg"
+            alt="Edge City Bhutan"
+            placeholderText="Edge City Bhutan"
+          />
+          <ClickableImage 
+            src="/src/assets/images/case-studies/edge-city/edgecitypatagonia.jpg"
+            alt="Edge City Patagonia"
+            placeholderText="Edge City Patagonia"
+          />
+          <ClickableImage 
+            src="/src/assets/images/case-studies/edge-city/edgecityweb_cover.jpg"
+            alt="Edge City Web Cover"
+            placeholderText="Edge City Web Cover"
+          />
+          <ClickableImage 
+            src="/src/assets/images/case-studies/edge-city/edgecityweb_gallery.jpg"
+            alt="Edge City Web Gallery"
+            placeholderText="Edge City Web Gallery"
+          />
         </div>
       </div>
     </div>

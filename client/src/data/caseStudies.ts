@@ -21,12 +21,15 @@ export const caseStudiesData: CaseStudy[] = [
     tags: ["#Branding", "#Graphics"],
     examples: [
       { text: "edgecity.live", url: "https://edgecity.live" },
-      { text: "esmeralda.com", url: "https://esmeralda.com" },
-      { text: "Edge Esmeralda Trailer", url: "https://x.com/ethereum/status/1927026215744889233" },
-      { text: "Edge City Media", url: "https://www.edgecity.live/media" }
+      { text: "edgeesmeralda.com", url: "https://edgeesmeralda.com" },
+      {
+        text: "Edge Esmeralda Trailer",
+        url: "https://x.com/ethereum/status/1927026215744889233",
+      },
+      { text: "Edge City Media", url: "https://www.edgecity.live/media" },
     ],
     preview: "edgecity.live",
-    link: "/case-studies/edge-city"
+    link: "/case-studies/edge-city",
   },
   {
     id: "agartha",
@@ -35,13 +38,13 @@ export const caseStudiesData: CaseStudy[] = [
     tags: ["#Branding", "#Design"],
     examples: [
       { text: "agartha.one", url: "https://agartha.one" },
-      { text: "Grid Free Minds" }
+      { text: "Grid Free Minds" },
     ],
     preview: "agartha.one",
-    link: "/case-studies/agartha"
-  }
+    link: "/case-studies/agartha",
+  },
 ];
 
 export const getCaseStudyById = (id: string): CaseStudy | undefined => {
-  return caseStudiesData.find(study => study.id === id);
+  return caseStudiesData.find((study) => study.id === id);
 };
