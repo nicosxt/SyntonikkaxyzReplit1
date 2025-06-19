@@ -47,7 +47,7 @@ function Router() {
       )}
       
       <div className="min-h-screen bg-transparent transition-colors duration-300 relative z-10">
-        <Navigation theme={theme} onThemeToggle={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
+        <Navigation theme={theme} onThemeToggle={() => setTheme(prev => prev === 'light' ? 'dark' : 'light')} />
         <main className="pt-20 px-4 pb-8">
           <Switch>
             <Route path="/" component={Home} />
