@@ -10,10 +10,10 @@ export default function CaseStudies() {
           Case Studies
         </h1>
 
-        <div className="space-y-12">
+        <div className="space-y-[100px]">
           {caseStudiesData.map((caseStudy) => (
             <Link key={caseStudy.id} href={caseStudy.link}>
-              <div className="content-block p-8 md:p-12 hover:opacity-80 transition-opacity cursor-pointer">
+              <div className="content-block p-8 md:p-12 hover:opacity-80 transition-opacity cursor-pointer mt-[50px] mb-[50px]">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
                     <h2 className="text-2xl md:text-3xl font-light mb-4 text-gray-800 dark:text-white">
