@@ -124,7 +124,7 @@
   }
   
   .service-button {
-    @apply w-full bg-transparent border border-black/20 dark:border-white/20 rounded-full px-6 py-3 text-left hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-200;
+    @apply w-full bg-transparent border border-black/20 dark:border-white/20 rounded-full px-6 py-3 text-left hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-200 backdrop-blur-sm;
   }
   
   .nav-arrow {
@@ -133,5 +133,9 @@
   
   .content-block {
     @apply bg-black/5 dark:bg-white/5 border border-black/20 dark:border-white/20 rounded-3xl backdrop-blur-sm;
+  }
+  
+  .blur-background {
+    @apply backdrop-blur-sm;
   }
 }
