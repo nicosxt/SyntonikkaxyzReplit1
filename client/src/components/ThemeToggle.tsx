@@ -1,5 +1,3 @@
-
-
 interface ThemeToggleProps {
   theme: "light" | "dark";
   onToggle: () => void;
@@ -12,7 +10,7 @@ export default function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
         onClick={onToggle}
         className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/20 focus:ring-offset-2 bg-[#ffb5d8]"
         style={{
-          backgroundColor: theme === "light" ? "#3b82f6" : "#6b7280",
+          backgroundColor: theme === "light" ? "#ffa8d9" : "#6b7280",
         }}
       >
         <span
