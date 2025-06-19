@@ -1,5 +1,6 @@
 import { Link, useLocation } from "wouter";
-import ThemeToggle, { useTheme } from "./ThemeToggle";
+import ThemeToggle from "./ThemeToggle";
+import { useTheme } from "../hooks/use-theme";
 
 export default function Navigation() {
   const [location] = useLocation();
