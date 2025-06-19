@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 import { getCaseStudyById } from "../data/caseStudies";
+import ClickableImage from "../components/ClickableImage";
 
 export default function EdgeCityCaseStudy() {
   const caseStudy = getCaseStudyById("edge-city");
@@ -65,18 +66,10 @@ export default function EdgeCityCaseStudy() {
 
         {/* Image placeholders */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <div className="bg-white/5 rounded-2xl aspect-video flex items-center justify-center border border-white/10">
-            <span className="text-gray-500">Image Placeholder 1</span>
-          </div>
-          <div className="bg-white/5 rounded-2xl aspect-video flex items-center justify-center border border-white/10">
-            <span className="text-gray-500">Image Placeholder 2</span>
-          </div>
-          <div className="bg-white/5 rounded-2xl aspect-video flex items-center justify-center border border-white/10">
-            <span className="text-gray-500">Image Placeholder 3</span>
-          </div>
-          <div className="bg-white/5 rounded-2xl aspect-video flex items-center justify-center border border-white/10">
-            <span className="text-gray-500">Image Placeholder 4</span>
-          </div>
+          <ClickableImage placeholderText="Edge City Image 1" />
+          <ClickableImage placeholderText="Edge City Image 2" />
+          <ClickableImage placeholderText="Edge City Image 3" />
+          <ClickableImage placeholderText="Edge City Image 4" />
         </div>
       </div>
     </div>
