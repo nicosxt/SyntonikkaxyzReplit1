@@ -8,12 +8,9 @@ const socialLinks = [
 
 export default function Info() {
   return (
-    <div className="min-h-screen max-w-4xl mx-auto flex flex-col justify-center">
+    <div className="min-h-screen max-w-4xl mx-auto flex flex-col justify-center" style={{ marginLeft: '15%', marginRight: '15%' }}>
       <div className="mb-12">
-        <h1 className="text-3xl md:text-4xl font-light mb-8 leading-tight">
-          Here's my strategy, experiences, lifestyle and<br />
-          philosophy
-        </h1>
+        <div className="mb-8"></div>
 
         <div className="mb-8">
           <p className="text-xl text-gray-300 mb-6">
