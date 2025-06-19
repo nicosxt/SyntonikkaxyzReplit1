@@ -23,7 +23,7 @@ function Router() {
       }}
     >
       {/* Dark mode overlay */}
-      <div className="min-h-screen bg-transparent transition-colors duration-300"></div>
+      <div className="min-h-screen bg-transparent transition-colors duration-300">
         <Navigation />
         <main className="pt-20 px-4 pb-8">
           <Switch>
