@@ -36,7 +36,7 @@ export default function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
     <div className="bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-full px-3 py-2 backdrop-blur-sm">
       <button
         onClick={onToggle}
-        className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/20 focus:ring-offset-2 bg-[#fff3b5]"
+        className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/20 focus:ring-offset-2 bg-[#ffb5d8]"
         style={{
           backgroundColor: theme === "light" ? "#3b82f6" : "#6b7280",
         }}
