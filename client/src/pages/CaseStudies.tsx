@@ -1,24 +1,6 @@
 import { Link } from "wouter";
 import { ExternalLink } from "lucide-react";
-
-const caseStudies = [
-  {
-    id: 1,
-    title: "CASE STUDY: EDGE CITY",
-    role: "Brand Designer",
-    tags: ["#Branding", "#Graphics"],
-    preview: "web & graphics design -- edgecity.live",
-    link: "/case-studies/edge-city"
-  },
-  {
-    id: 2,
-    title: "CASE STUDY: AGARTHA",
-    role: "Founder", 
-    tags: ["#Branding", "#Design"],
-    preview: "web & graphics design -- agartha.one",
-    link: "/case-studies/agartha"
-  },
-];
+import { caseStudiesData } from "../data/caseStudies";
 
 export default function CaseStudies() {
   return (
@@ -29,7 +11,7 @@ export default function CaseStudies() {
         </h1>
 
         <div className="space-y-12">
-          {caseStudies.map((caseStudy) => (
+          {caseStudiesData.map((caseStudy) => (
             <div key={caseStudy.id} className="content-block p-8 md:p-12">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>

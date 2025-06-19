@@ -1,7 +1,14 @@
 import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
+import { getCaseStudyById } from "../data/caseStudies";
 
 export default function AgarthaCaseStudy() {
+  const caseStudy = getCaseStudyById("agartha");
+  
+  if (!caseStudy) {
+    return <div>Case study not found</div>;
+  }
+
   return (
     <div className="min-h-screen max-w-4xl mx-auto flex flex-col" style={{ marginLeft: '15%', marginRight: '15%' }}>
       <div className="content-block p-8 md:p-12">
@@ -15,31 +22,31 @@ export default function AgarthaCaseStudy() {
 
         {/* Title */}
         <h1 className="text-3xl md:text-4xl font-light mb-4 text-gray-800 dark:text-white">
-          CASE STUDY: AGARTHA
+          {caseStudy.title}
         </h1>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-8">
-          <span className="px-3 py-1 bg-black/10 dark:bg-white/10 rounded-full text-sm text-gray-800 dark:text-white">
-            #Branding
-          </span>
-          <span className="px-3 py-1 bg-black/10 dark:bg-white/10 rounded-full text-sm text-gray-800 dark:text-white">
-            #Design
-          </span>
+          {caseStudy.tags.map((tag) => (
+            <span key={tag} className="px-3 py-1 bg-black/10 dark:bg-white/10 rounded-full text-sm text-gray-800 dark:text-white">
+              {tag}
+            </span>
+          ))}
         </div>
 
         {/* Role */}
         <div className="mb-8">
           <h3 className="text-xl font-medium mb-2 text-gray-800 dark:text-white">ROLE:</h3>
-          <p className="text-gray-600 dark:text-gray-400">Founder</p>
+          <p className="text-gray-600 dark:text-gray-400">{caseStudy.role}</p>
         </div>
 
         {/* Examples */}
         <div className="mb-12">
           <h3 className="text-xl font-medium mb-4 text-gray-800 dark:text-white">EXAMPLES:</h3>
           <div className="space-y-3 text-gray-600 dark:text-gray-400">
-            <p>web & graphics design -- agartha.one</p>
-            <p>graphics design -- Grid Free Minds</p>
+            {caseStudy.examples.map((example, index) => (
+              <p key={index}>{example}</p>
+            ))}
           </div>
         </div>
 
