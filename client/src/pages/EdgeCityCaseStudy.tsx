@@ -64,12 +64,25 @@ export default function EdgeCityCaseStudy() {
           </div>
         </div>
 
-        {/* Image placeholders */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        {/* Full width hero image */}
+        <div className="mb-8">
           <ClickableImage 
             src="/src/assets/images/case-studies/edge-city/main-statement-1.jpg"
             alt="Edge City branding example"
+            className="bg-white/5 rounded-2xl aspect-video w-full flex items-center justify-center border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
+        </div>
+
+        {/* Description paragraph */}
+        <div className="mb-12">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Edge City is a society incubator that hosts month-long pop-up city style un-conferences all around the world, innovating on the way people learn, work, live and gather together.
+          </p>
+        </div>
+
+        {/* 2x2 grid of placeholder images */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <ClickableImage placeholderText="Edge City Image 1" />
           <ClickableImage placeholderText="Edge City Image 2" />
           <ClickableImage placeholderText="Edge City Image 3" />
           <ClickableImage placeholderText="Edge City Image 4" />
