@@ -37,7 +37,7 @@ export const caseStudiesData: CaseStudy[] = [
       { text: "agartha.one", url: "https://agartha.one" },
       { text: "Grid Free Minds" }
     ],
-    preview: "web & graphics design -- agartha.one",
+    preview: "agartha.one",
     link: "/case-studies/agartha"
   }
 ];
