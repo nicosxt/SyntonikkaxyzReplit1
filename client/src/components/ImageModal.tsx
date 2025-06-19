@@ -1,5 +1,7 @@
+
 import { X } from "lucide-react";
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -29,10 +31,17 @@ export default function ImageModal({ isOpen, onClose, imageSrc, altText }: Image
 
   if (!isOpen) return null;
 
-  return (
+  const modalContent = (
     <div 
       className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
-      style={{ zIndex: 9999 }}
+      style={{ 
+        zIndex: 9999,
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+      }}
       onClick={onClose}
     >
       <div className="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center">
@@ -65,4 +74,6 @@ export default function ImageModal({ isOpen, onClose, imageSrc, altText }: Image
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 }
