@@ -103,6 +103,32 @@ export default function EdgeCityCaseStudy() {
             placeholderText="Edge City Web Gallery"
           />
         </div>
+
+        {/* Additional text section */}
+        <div className="mb-12">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Working in this fast-growing start-up, my role is to help define a visual direction, and design assets on the fly when demands come in. I started off by exploring visual directions early on with moodboarding and researching the Edge City philosophy.
+          </p>
+        </div>
+
+        {/* Horizontal branding images */}
+        <div className="flex gap-6 mb-12 overflow-x-auto">
+          <ClickableImage 
+            src="@assets/edgecity-branding1_1750376017145.jpg"
+            alt="Edge City Branding Moodboard 1"
+            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+          />
+          <ClickableImage 
+            src="@assets/edgecity-branding2_1750376017145.jpg"
+            alt="Edge City Branding Philosophy"
+            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+          />
+          <ClickableImage 
+            src="@assets/edgecity-branding3_1750376017145.jpg"
+            alt="Edge City Visual Identity"
+            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+          />
+        </div>
       </div>
     </div>
   );
