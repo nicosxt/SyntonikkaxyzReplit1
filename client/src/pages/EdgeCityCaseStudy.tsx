@@ -110,7 +110,7 @@ export default function EdgeCityCaseStudy() {
             placeholderText="Edge City Patagonia"
           />
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/edgecityweb_cover.jpg"
+            src="/images/case-studies/edge-city/edgecityweb_cover.jpg"
             alt="Edge City Web Cover"
             placeholderText="Edge City Web Cover"
           />
@@ -155,32 +155,32 @@ export default function EdgeCityCaseStudy() {
         {/* Horizontal scroll - Edge Esmeralda 2025 images */}
         <div className="flex gap-6 mb-12 overflow-x-auto">
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/ee25_children.jpg"
+            src="/images/case-studies/edge-city/ee25_children.jpg"
             alt="Edge Esmeralda 2025 - Children"
             className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/ee25_dacc.jpg"
+            src="/images/case-studies/edge-city/ee25_dacc.jpg"
             alt="Edge Esmeralda 2025 - DACC"
             className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/ee25_decentralized-ai.jpg"
+            src="/images/case-studies/edge-city/ee25_decentralized-ai.jpg"
             alt="Edge Esmeralda 2025 - Decentralized AI"
             className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/ee25_governance-games.jpg"
+            src="/images/case-studies/edge-city/ee25_governance-games.jpg"
             alt="Edge Esmeralda 2025 - Governance Games"
             className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/ee25_ignite-talks.jpg"
+            src="/images/case-studies/edge-city/ee25_ignite-talks.jpg"
             alt="Edge Esmeralda 2025 - Ignite Talks"
             className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/ee25_neuro.jpg"
+            src="/images/case-studies/edge-city/ee25_neuro.jpg"
             alt="Edge Esmeralda 2025 - Neuro"
             className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
