@@ -95,17 +95,17 @@ export default function EdgeCityCaseStudy() {
         {/* 2x2 grid of placeholder images */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/edgeesmeralda-landing.jpg"
+            src="/images/case-studies/edge-city/edgeesmeralda-landing.jpg"
             alt="Edge Esmeralda Landing Page"
             placeholderText="Edge Esmeralda"
           />
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/edgecitybhutan.jpg"
+            src="/images/case-studies/edge-city/edgecitybhutan.jpg"
             alt="Edge City Bhutan"
             placeholderText="Edge City Bhutan"
           />
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/edgecitypatagonia.jpg"
+            src="/images/case-studies/edge-city/edgecitypatagonia.jpg"
             alt="Edge City Patagonia"
             placeholderText="Edge City Patagonia"
           />
