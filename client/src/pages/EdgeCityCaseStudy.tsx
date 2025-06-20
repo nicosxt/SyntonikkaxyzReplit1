@@ -77,7 +77,7 @@ export default function EdgeCityCaseStudy() {
         {/* Full width hero image */}
         <div className="mb-8">
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/edgeesmeralda-landing.jpg"
+            src="/src/assets/images/case-studies/edge-city/edge2.0-branding.jpg"
             alt="Edge City branding example"
             className="bg-white/5 rounded-2xl aspect-video w-full flex items-center justify-center border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
@@ -95,6 +95,11 @@ export default function EdgeCityCaseStudy() {
         {/* 2x2 grid of placeholder images */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           <ClickableImage
+            src="/src/assets/images/case-studies/edge-city/edgeesmeralda-landing.jpg"
+            alt="Edge Esmeralda Landing Page"
+            placeholderText="Edge Esmeralda"
+          />
+          <ClickableImage
             src="/src/assets/images/case-studies/edge-city/edgecitybhutan.jpg"
             alt="Edge City Bhutan"
             placeholderText="Edge City Bhutan"
@@ -108,11 +113,6 @@ export default function EdgeCityCaseStudy() {
             src="/src/assets/images/case-studies/edge-city/edgecityweb_cover.jpg"
             alt="Edge City Web Cover"
             placeholderText="Edge City Web Cover"
-          />
-          <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/edgecityweb_gallery.jpg"
-            alt="Edge City Web Gallery"
-            placeholderText="Edge City Web Gallery"
           />
         </div>
 
@@ -144,6 +144,49 @@ export default function EdgeCityCaseStudy() {
             className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
         </div>
+
+        {/* Description paragraph */}
+        <div className="mb-12">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Over time, I’ve developed a custom pipeline with various AI tools of shipping assets on demand that are cohesive within the brand identity.
+          </p>
+        </div>
+
+        {/* Horizontal scroll - Edge Esmeralda 2025 images */}
+        <div className="flex gap-6 mb-12 overflow-x-auto">
+          <ClickableImage
+            src="/src/assets/images/case-studies/edge-city/ee25_children.jpg"
+            alt="Edge Esmeralda 2025 - Children"
+            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+          />
+          <ClickableImage
+            src="/src/assets/images/case-studies/edge-city/ee25_dacc.jpg"
+            alt="Edge Esmeralda 2025 - DACC"
+            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+          />
+          <ClickableImage
+            src="/src/assets/images/case-studies/edge-city/ee25_decentralized-ai.jpg"
+            alt="Edge Esmeralda 2025 - Decentralized AI"
+            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+          />
+          <ClickableImage
+            src="/src/assets/images/case-studies/edge-city/ee25_governance-games.jpg"
+            alt="Edge Esmeralda 2025 - Governance Games"
+            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+          />
+          <ClickableImage
+            src="/src/assets/images/case-studies/edge-city/ee25_ignite-talks.jpg"
+            alt="Edge Esmeralda 2025 - Ignite Talks"
+            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+          />
+          <ClickableImage
+            src="/src/assets/images/case-studies/edge-city/ee25_neuro.jpg"
+            alt="Edge Esmeralda 2025 - Neuro"
+            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+          />
+        </div>
+
+        
       </div>
     </div>
   );

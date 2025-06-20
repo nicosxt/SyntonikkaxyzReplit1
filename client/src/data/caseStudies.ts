@@ -30,7 +30,8 @@ export const caseStudiesData: CaseStudy[] = [
       { text: "Edge City Media", url: "https://www.edgecity.live/media" },
     ],
     preview: "edgecity.live",
-    previewImage: "/src/assets/images/case-studies/edge-city/edgeesmeralda-landing.jpg",
+    previewImage:
+      "/src/assets/images/case-studies/edge-city/edge2.0-branding.jpg",
     link: "/case-studies/edge-city",
   },
   {
