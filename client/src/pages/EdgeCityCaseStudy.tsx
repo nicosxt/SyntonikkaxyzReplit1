@@ -77,7 +77,7 @@ export default function EdgeCityCaseStudy() {
         {/* Full width hero image */}
         <div className="mb-8">
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/edge2.0-branding.jpg"
+            src="/images/case-studies/edge-city/edge2.0-branding.jpg"
             alt="Edge City branding example"
             className="bg-white/5 rounded-2xl aspect-video w-full flex items-center justify-center border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
@@ -129,17 +129,17 @@ export default function EdgeCityCaseStudy() {
         {/* Horizontal branding images */}
         <div className="flex gap-6 mb-12 overflow-x-auto">
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/edgecity-branding1.jpg"
+            src="/images/case-studies/edge-city/edgecity-branding1.jpg"
             alt="Edge City Branding Moodboard 1"
             className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/edgecity-branding2.jpg"
+            src="/images/case-studies/edge-city/edgecity-branding2.jpg"
             alt="Edge City Branding Philosophy"
             className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
           <ClickableImage
-            src="/src/assets/images/case-studies/edge-city/edgecity-branding3.jpg"
+            src="/images/case-studies/edge-city/edgecity-branding3.jpg"
             alt="Edge City Visual Identity"
             className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
           />
