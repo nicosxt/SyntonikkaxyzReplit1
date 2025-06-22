@@ -100,6 +100,11 @@ export default function EdgeCityCaseStudy() {
             placeholderText="Edge Esmeralda"
           />
           <ClickableImage
+            src="/images/case-studies/edge-city/edgecityweb_cover.jpg"
+            alt="Edge City Web Cover"
+            placeholderText="Edge City Web Cover"
+          />
+          <ClickableImage
             src="/images/case-studies/edge-city/edgecitybhutan.jpg"
             alt="Edge City Bhutan"
             placeholderText="Edge City Bhutan"
@@ -108,11 +113,6 @@ export default function EdgeCityCaseStudy() {
             src="/images/case-studies/edge-city/edgecitypatagonia.jpg"
             alt="Edge City Patagonia"
             placeholderText="Edge City Patagonia"
-          />
-          <ClickableImage
-            src="/images/case-studies/edge-city/edgecityweb_cover.jpg"
-            alt="Edge City Web Cover"
-            placeholderText="Edge City Web Cover"
           />
         </div>
 
@@ -148,7 +148,9 @@ export default function EdgeCityCaseStudy() {
         {/* Description paragraph */}
         <div className="mb-12">
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Over time, I’ve developed a custom pipeline with various AI tools of shipping assets on demand that are cohesive within the brand identity.
+            Over time, I’ve developed a custom pipeline with various AI tools of
+            shipping assets on demand that are cohesive within the brand
+            identity.
           </p>
         </div>
 
@@ -186,7 +188,72 @@ export default function EdgeCityCaseStudy() {
           />
         </div>
 
-        
+        {/* Program Assets Grid Section */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-bold mb-8 text-white">Edge Esmeralda 2025 Program Assets</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Agrivision_Agtech Week.jpg"
+              alt="Agrivision Agtech Week"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Art on the Edge 0.jpg"
+              alt="Art on the Edge"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Cities_of_Tomorrow1.jpg"
+              alt="Cities of Tomorrow"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Consciousness_Week.png"
+              alt="Consciousness Week"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Cosmos_Institute.png"
+              alt="Cosmos Institute"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Decentralized_AI_2.jpg"
+              alt="Decentralized AI"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_HealthTrack.jpg"
+              alt="HealthTrack"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_LongJourney.png"
+              alt="Long Journey"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Protocol_Worlds.png"
+              alt="Protocol Worlds"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Revitalizing American Economies.jpg"
+              alt="Revitalizing American Economies"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Roots_of_Progress.png"
+              alt="Roots of Progress"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Tomorrowland.jpg"
+              alt="Tomorrowland"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
