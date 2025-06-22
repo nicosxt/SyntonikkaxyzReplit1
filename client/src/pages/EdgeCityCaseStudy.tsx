@@ -80,7 +80,7 @@ export default function EdgeCityCaseStudy() {
         </div>
 
         {/* Horizontal branding images */}
-        <div className="flex gap-6 mb-6 overflow-x-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
           <ClickableImage
             src="/images/case-studies/edge-city/edgecity-branding1.jpg"
             alt="Edge City Branding Moodboard 1"
@@ -99,7 +99,7 @@ export default function EdgeCityCaseStudy() {
         </div>
 
         {/* Branding Assets */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
           <ClickableImage
             src="/images/case-studies/edge-city/branding_floatingislands.jpg"
             alt="Floating Islands"
@@ -110,6 +110,11 @@ export default function EdgeCityCaseStudy() {
             alt="Textures"
             placeholderText="Textures"
           />
+          <ClickableImage
+            src="/images/case-studies/edge-city/edgecity-assets.jpg"
+            alt="Textures"
+            placeholderText="Textures"
+          />
         </div>
 
         {/* Additional text section */}
@@ -117,6 +122,8 @@ export default function EdgeCityCaseStudy() {
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
             Understanding and resonating deeply with Edge City's brand philosophy. I work closely
             with the team to design landing images as visual anchors for each event & partner.
+            <br />
+            Landing pages for Edge City programs:
           </p>
         </div>
 
@@ -220,7 +227,7 @@ export default function EdgeCityCaseStudy() {
         {/* Program Assets Grid Section */}
         <div className="mb-6">
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-              Track Arts for <a href = "https://edgeesmeralda.com" className="underline">Edge Esmeralda 2025</a>:
+              Art for themed tracks for <a href = "https://edgeesmeralda.com" className="underline">Edge Esmeralda 2025</a>:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ClickableImage
@@ -289,7 +296,7 @@ export default function EdgeCityCaseStudy() {
         {/* EE25 Additional Assets Grid Section */}
         <div className="mb-6">
           <h3 className="text-gray-600 dark:text-gray-400 font-medium mb-6">
-          <a href = "https://edgeesmeralda.com" className="underline">Edge Esmeralda 2025</a> Additional Assets:
+          Program assets for space decoration at <a href = "https://edgeesmeralda.com" className="underline">Edge Esmeralda 2025</a>:
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <ClickableImage
@@ -338,7 +345,7 @@ export default function EdgeCityCaseStudy() {
         {/* Additional References */}
         <div className="mb-6">
           <h3 className="text-xl font-medium mb-4 text-gray-800 dark:text-white">
-            ADDITIONAL REFERENCES:
+            PROJECT LINKS:
           </h3>
           <div className="space-y-3 text-gray-600 dark:text-gray-400">
             {caseStudy.examples.map((example, index) => (
