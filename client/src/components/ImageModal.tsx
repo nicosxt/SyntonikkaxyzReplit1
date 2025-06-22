@@ -63,7 +63,8 @@ export default function ImageModal({ isOpen, onClose, imageSrc, altText }: Image
             <img
               src={imageSrc}
               alt={altText || "Full size image"}
-              className="max-w-full max-h-[80vh] object-contain"
+              className="max-w-full max-h-[80vh] object-contain image-full"
+              loading="eager"
             />
           ) : (
             <div className="w-[80vw] h-[60vh] flex items-center justify-center text-gray-400">

@@ -56,11 +56,10 @@ export default function ClickableImage({
               alt={alt || "Case study image"}
               loading="lazy"
               onLoad={handleImageLoad}
-              className={`w-full h-full object-cover rounded-2xl transition-all duration-500 hover:scale-105 ${
+              className={`w-full h-full object-cover rounded-2xl transition-all duration-500 hover:scale-105 image-thumbnail ${
                 isImageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
               style={{
-                imageRendering: 'auto',
                 willChange: 'transform',
                 // Optimize for thumbnail display
                 maxWidth: '100%',
