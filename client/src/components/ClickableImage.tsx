@@ -45,6 +45,16 @@ export default function ClickableImage({
       >
         {src ? (
           <div className="relative w-full h-full">
+            <img
+              ref={imgRef}
+              src={src}
+              alt={alt || "Clickable image"}
+              loading="lazy"
+              onLoad={handleImageLoad}
+              className={`w-full h-full object-cover rounded-2xl image-thumbnail transition-opacity duration-300 ${
+                isImageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
             {!isImageLoaded && (
               <div className="absolute inset-0 bg-white/5 rounded-2xl flex items-center justify-center image-skeleton">
                 <div className="w-8 h-8 border-2 border-white/20 border-t-white/60 rounded-full animate-spin"></div>
