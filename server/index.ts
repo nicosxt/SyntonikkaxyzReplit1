@@ -1,6 +1,9 @@
 import express, { type Request, Response, NextFunction } from "express";
+import path from "path";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const app = express();
 app.use(express.json());
@@ -52,8 +55,7 @@ app.use((req, res, next) => {
   // doesn't interfere with the other routes
   if (app.get("env") === "development") {
     // Serve static files from public directory in development
-    const path = await import("path");
-    app.use(express.static(path.resolve(import.meta.dirname, "..", "public")));
+    app.use(express.static(path.resolve(__dirname, "..", "public")));
     await setupVite(app, server);
   } else {
     serveStatic(app);
@@ -62,7 +64,7 @@ app.use((req, res, next) => {
   // ALWAYS serve the app on port 5000
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = 5000;
+  const port = 5001;
   server.listen({
     port,
     host: "0.0.0.0",
