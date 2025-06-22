@@ -168,7 +168,7 @@ export default function EdgeCityCaseStudy() {
               className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
             />
             <ClickableImage
-              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Cities_of_Tomorrow1.jpg"
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Cities of Tomorrow1.jpg"
               alt="Cities of Tomorrow"
               className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
             />
