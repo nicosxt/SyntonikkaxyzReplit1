@@ -10,18 +10,18 @@ import EdgeCityCaseStudy from "@/pages/EdgeCityCaseStudy";
 import AgarthaCaseStudy from "@/pages/AgarthaCaseStudy";
 import Services from "@/pages/Services";
 import Info from "@/pages/Info";
-import cloudsBg from "@assets/sky-clouds-washed.jpg";
+import cloudsBg from "@assets/sky-clouds-washed.jpeg";
 
 function Router() {
   return (
-    <div 
+    <div
       className="min-h-screen text-foreground bg-background transition-colors duration-300"
       style={{
         backgroundImage: `var(--tw-bg-image, url(${cloudsBg}))`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
       }}
     >
       {/* Dark mode overlay */}
@@ -31,7 +31,10 @@ function Router() {
           <Switch>
             <Route path="/" component={Home} />
             <Route path="/case-studies" component={CaseStudies} />
-            <Route path="/case-studies/edge-city" component={EdgeCityCaseStudy} />
+            <Route
+              path="/case-studies/edge-city"
+              component={EdgeCityCaseStudy}
+            />
             <Route path="/case-studies/agartha" component={AgarthaCaseStudy} />
             <Route path="/services" component={Services} />
             <Route path="/info" component={Info} />

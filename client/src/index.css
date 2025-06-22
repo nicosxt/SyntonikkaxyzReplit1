@@ -44,6 +44,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Optimize image loading and rendering */
+@layer utilities {
+  .image-thumbnail {
+    /* Optimize for small size display */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    /* Hint browser to prioritize faster decoding over quality for thumbnails */
+    image-rendering: crisp-edges;
+  }
+  
+  .image-full {
+    /* Optimize for quality when viewing full size */
+    image-rendering: auto;
+    image-rendering: high-quality;
+  }
+  
+  /* Loading skeleton for images */
+  .image-skeleton {
+    background: linear-gradient(90deg, 
+      rgba(255,255,255,0.05) 25%, 
+      rgba(255,255,255,0.1) 50%, 
+      rgba(255,255,255,0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+  }
+  
+  @keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+}
+
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(20, 14.3%, 4.1%);
