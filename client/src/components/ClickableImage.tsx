@@ -50,22 +50,6 @@ export default function ClickableImage({
                 <div className="w-8 h-8 border-2 border-white/20 border-t-white/60 rounded-full animate-spin"></div>
               </div>
             )}
-            <img
-              ref={imgRef}
-              src={src}
-              alt={alt || "Case study image"}
-              loading="lazy"
-              onLoad={handleImageLoad}
-              className={`w-full h-full object-cover rounded-2xl transition-all duration-500 hover:scale-105 image-thumbnail ${
-                isImageLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              style={{
-                willChange: 'transform',
-                // Optimize for thumbnail display
-                maxWidth: '100%',
-                height: '100%'
-              }}
-            />
           </div>
         ) : (
           <span className="text-gray-500">{placeholderText}</span>

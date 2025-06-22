@@ -154,43 +154,8 @@ export default function EdgeCityCaseStudy() {
           </p>
         </div>
 
-        {/* Horizontal scroll - Edge Esmeralda 2025 images */}
-        <div className="flex gap-6 mb-12 overflow-x-auto">
-          <ClickableImage
-            src="/images/case-studies/edge-city/ee25_children.jpg"
-            alt="Edge Esmeralda 2025 - Children"
-            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
-          />
-          <ClickableImage
-            src="/images/case-studies/edge-city/ee25_dacc.jpg"
-            alt="Edge Esmeralda 2025 - DACC"
-            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
-          />
-          <ClickableImage
-            src="/images/case-studies/edge-city/ee25_decentralized-ai.jpg"
-            alt="Edge Esmeralda 2025 - Decentralized AI"
-            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
-          />
-          <ClickableImage
-            src="/images/case-studies/edge-city/ee25_governance-games.jpg"
-            alt="Edge Esmeralda 2025 - Governance Games"
-            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
-          />
-          <ClickableImage
-            src="/images/case-studies/edge-city/ee25_ignite-talks.jpg"
-            alt="Edge Esmeralda 2025 - Ignite Talks"
-            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
-          />
-          <ClickableImage
-            src="/images/case-studies/edge-city/ee25_neuro.jpg"
-            alt="Edge Esmeralda 2025 - Neuro"
-            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
-          />
-        </div>
-
         {/* Program Assets Grid Section */}
         <div className="mb-12">
-          <h3 className="text-2xl font-bold mb-8 text-white">Edge Esmeralda 2025 Program Assets</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ClickableImage
               src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Agrivision_Agtech Week.jpg"
