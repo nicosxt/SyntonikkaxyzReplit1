@@ -12,10 +12,10 @@ export default function EdgeCityCaseStudy() {
 
   return (
     <div
-      className="min-h-screen max-w-4xl mx-auto flex flex-col"
-      style={{ marginLeft: "15%", marginRight: "15%" }}
+      className="min-h-screen mx-auto flex flex-col"
+      style={{ marginLeft: "3%", marginRight: "3%" }}
     >
-      <div className="content-block p-8 md:p-12">
+      <div className="p-8 md:p-12">
         {/* Back button */}
         <Link href="/case-studies">
           <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-opacity mb-8">
