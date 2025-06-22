@@ -40,7 +40,7 @@ export default function CaseStudies() {
                   <div className="bg-white/5 rounded-2xl aspect-video flex items-center justify-center border border-white/10">
                     {caseStudy.previewImage ? (
                       <img
-                        src={caseStudy.previewImage}
+                        src="/images/case-studies/edge-city/edge2.0-branding-thumbnail.jpg"
                         alt={`${caseStudy.title} preview`}
                         className="w-full h-full object-cover rounded-2xl"
                       />
