@@ -49,31 +49,6 @@ export default function EdgeCityCaseStudy() {
           <p className="text-gray-600 dark:text-gray-400">{caseStudy.role}</p>
         </div>
 
-        {/* Examples */}
-        <div className="mb-12">
-          <h3 className="text-xl font-medium mb-4 text-gray-800 dark:text-white">
-            EXAMPLES:
-          </h3>
-          <div className="space-y-3 text-gray-600 dark:text-gray-400">
-            {caseStudy.examples.map((example, index) => (
-              <p key={index}>
-                {example.url ? (
-                  <a
-                    href={example.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-800 dark:text-white hover:opacity-70 transition-opacity underline"
-                  >
-                    {example.text}
-                  </a>
-                ) : (
-                  example.text
-                )}
-              </p>
-            ))}
-          </div>
-        </div>
-
         {/* Full width hero image */}
         <div className="mb-8">
           <ClickableImage
@@ -84,16 +59,69 @@ export default function EdgeCityCaseStudy() {
         </div>
 
         {/* Description paragraph */}
-        <div className="mb-12">
+        <div className="mb-6">
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
             Edge City is a society incubator that hosts month-long pop-up city
             style un-conferences all around the world, innovating on the way
-            people learn, work, live and gather together.
+            people learn, work, live, and gather.
+            <br />
+            The 4 pillars of Edge City Ethos are:
+            <ul>
+              <li>• Co-creation</li>
+              <li>• Multidisciplinary</li>
+              <li>• Default Healthy</li>
+              <li>• Multi-generational</li>
+            </ul>
+            Working in this fast-growing start-up, I have to design assets on the fly when demands come in.
+            To make sure I can deliver a cohesive brand identity, I started off by exploring visual directions with
+            moodboarding and researching the Edge City philosophy. I also worked closely with the team to define a visual direction, and design assets on the fly when demands come in.
+            <br />
+          </p>
+        </div>
+
+        {/* Horizontal branding images */}
+        <div className="flex gap-6 mb-6 overflow-x-auto">
+          <ClickableImage
+            src="/images/case-studies/edge-city/edgecity-branding1.jpg"
+            alt="Edge City Branding Moodboard 1"
+            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+          />
+          <ClickableImage
+            src="/images/case-studies/edge-city/edgecity-branding2.jpg"
+            alt="Edge City Branding Philosophy"
+            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+          />
+          <ClickableImage
+            src="/images/case-studies/edge-city/edgecity-branding3.jpg"
+            alt="Edge City Visual Identity"
+            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+          />
+        </div>
+
+        {/* Branding Assets */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <ClickableImage
+            src="/images/case-studies/edge-city/branding_floatingislands.jpg"
+            alt="Floating Islands"
+            placeholderText="Floating Islands"
+          />
+          <ClickableImage
+            src="/images/case-studies/edge-city/branding_textures.jpg"
+            alt="Textures"
+            placeholderText="Textures"
+          />
+        </div>
+
+        {/* Additional text section */}
+        <div className="mb-6">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Understanding and resonating deeply with Edge City's brand philosophy. I work closely
+            with the team to design landing images as visual anchors for each event & partner.
           </p>
         </div>
 
         {/* 2x2 grid of placeholder images */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <ClickableImage
             src="/images/case-studies/edge-city/edgeesmeralda-landing.jpg"
             alt="Edge Esmeralda Landing Page"
@@ -114,48 +142,86 @@ export default function EdgeCityCaseStudy() {
             alt="Edge City Patagonia"
             placeholderText="Edge City Patagonia"
           />
-        </div>
-
-        {/* Additional text section */}
-        <div className="mb-12">
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Working in this fast-growing start-up, my role is to help define a
-            visual direction, and design assets on the fly when demands come in.
-            I started off by exploring visual directions early on with
-            moodboarding and researching the Edge City philosophy.
-          </p>
-        </div>
-
-        {/* Horizontal branding images */}
-        <div className="flex gap-6 mb-12 overflow-x-auto">
           <ClickableImage
-            src="/images/case-studies/edge-city/edgecity-branding1.jpg"
-            alt="Edge City Branding Moodboard 1"
-            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            src="/images/case-studies/edge-city/edgecity_hackquest.jpg"
+            alt="Edge City Bhutan"
+            placeholderText="Edge City Bhutan"
           />
           <ClickableImage
-            src="/images/case-studies/edge-city/edgecity-branding2.jpg"
-            alt="Edge City Branding Philosophy"
-            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
-          />
-          <ClickableImage
-            src="/images/case-studies/edge-city/edgecity-branding3.jpg"
-            alt="Edge City Visual Identity"
-            className="bg-white/5 rounded-2xl h-64 flex-shrink-0 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            src="/images/case-studies/edge-city/edgecity_article_landing.jpg"
+            alt="Edge City Bhutan"
+            placeholderText="Edge City Bhutan"
           />
         </div>
 
         {/* Description paragraph */}
-        <div className="mb-12">
+        <div className="mb-6">
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Over time, I’ve developed a custom pipeline with various AI tools of
-            shipping assets on demand that are cohesive within the brand
-            identity.
+            Over time, I've developed a custom creative pipeline to ship cohesive assets on demand.
+            <br />
+            The tools I use includes: Photoshop, Figma, Midjourney, ChatGPT, and Stable Diffusion.
           </p>
         </div>
 
+        {/* Partners Grid Section */}
+        <div className="mb-6">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+            Assets for Sponsors & Partners of Edge City:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <ClickableImage
+              src="/images/case-studies/edge-city/partners/Sponsor_16x9_Uniswap.jpg"
+              alt="Uniswap Sponsor"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/partners/Sponsor_16x9_SaunaDAO.jpg"
+              alt="SaunaDAO Sponsor"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/partners/Sponsor_16x9_Protocol_Labs.jpg"
+              alt="Protocol Labs Sponsor"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/partners/Sponsor_16x9_Metamask.jpg"
+              alt="Metamask Sponsor"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/partners/Sponsor_16x9_Lisk.jpg"
+              alt="Lisk Sponsor"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/partners/Sponsor_16x9_Gensyn.jpg"
+              alt="Gensyn Sponsor"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/partners/Sponsor_16x9_Eigenlayer.jpg"
+              alt="Eigenlayer Sponsor"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/partners/Sponsor_16x9_CyberFund.jpg"
+              alt="CyberFund Sponsor"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/partners/Sponsor_16x9_Arbitrum.jpg"
+              alt="Arbitrum Sponsor"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+          </div>
+        </div>
+
         {/* Program Assets Grid Section */}
-        <div className="mb-12">
+        <div className="mb-6">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+              Track Arts for <a href = "https://edgeesmeralda.com" className="underline">Edge Esmeralda 2025</a>:
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ClickableImage
               src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Agrivision_Agtech Week.jpg"
@@ -219,6 +285,81 @@ export default function EdgeCityCaseStudy() {
             />
           </div>
         </div>
+
+        {/* EE25 Additional Assets Grid Section */}
+        <div className="mb-6">
+          <h3 className="text-gray-600 dark:text-gray-400 font-medium mb-6">
+          <a href = "https://edgeesmeralda.com" className="underline">Edge Esmeralda 2025</a> Additional Assets:
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_additionalassets/wallart1.jpg"
+              alt="Wall Art 1"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_additionalassets/wallart3.jpg"
+              alt="Wall Art 3"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_additionalassets/wallart4.jpg"
+              alt="Wall Art 4"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_additionalassets/wallart5.jpg"
+              alt="Wall Art 5"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_additionalassets/wallart6.jpg"
+              alt="Wall Art 6"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_additionalassets/wallart8.jpg"
+              alt="Wall Art 8"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_additionalassets/wallart9.jpg"
+              alt="Wall Art 9"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+            <ClickableImage
+              src="/images/case-studies/edge-city/ee25_additionalassets/wallart10.jpg"
+              alt="Wall Art 10"
+              className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            />
+          </div>
+        </div>
+
+        {/* Additional References */}
+        <div className="mb-6">
+          <h3 className="text-xl font-medium mb-4 text-gray-800 dark:text-white">
+            ADDITIONAL REFERENCES:
+          </h3>
+          <div className="space-y-3 text-gray-600 dark:text-gray-400">
+            {caseStudy.examples.map((example, index) => (
+              <p key={index}>
+                {example.url ? (
+                  <a
+                    href={example.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-800 dark:text-white hover:opacity-70 transition-opacity underline"
+                  >
+                    {example.text}
+                  </a>
+                ) : (
+                  example.text
+                )}
+              </p>
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );
