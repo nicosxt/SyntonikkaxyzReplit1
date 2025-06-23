@@ -93,6 +93,13 @@ This is a modern portfolio website for Nico Shi, a multi-disciplinary designer s
 - **Ports**: Frontend on 5000, API on 5001 (proxied to port 80/3000 externally)
 - **Database URL**: Configured via `DATABASE_URL` environment variable
 - **Build Commands**: `npm run build` for production, `npm run dev` for development
+- **Deployment Target**: design.syntonikka.xyz via Replit Deployments
+
+### Deployment Preparation
+- **Production Build**: Static assets built to `dist/public` via Vite
+- **Server Bundle**: Express server bundled to `dist/index.js` via esbuild
+- **Asset Optimization**: Images and fonts optimized for production serving
+- **Custom Domain**: Configured for design.syntonikka.xyz subdomain
 
 ### Image Optimization Strategy
 The application uses a lightweight, CSS-based image optimization approach rather than build-time processing:
