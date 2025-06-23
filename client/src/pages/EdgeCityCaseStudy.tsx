@@ -61,7 +61,7 @@ export default function EdgeCityCaseStudy() {
         {/* Description paragraph */}
         <div className="mb-6">
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Edge City is a society incubator that hosts month-long pop-up city
+            <a href="https://edgecity.live" target="_blank" rel="noopener noreferrer" className="text-gray-800 dark:text-white hover:opacity-70 transition-opacity underline">Edge City</a> is a society incubator that hosts month-long pop-up city
             style un-conferences all around the world, innovating on the way
             people learn, work, live, and gather.
             <br />

@@ -1,9 +1,9 @@
 const socialLinks = [
-  { name: "X", href: "#" },
-  { name: "Substack", href: "#" },
-  { name: "Snapchat", href: "#" },
-  { name: "Instagram", href: "#" },
-  { name: "Resume", href: "#" },
+  { name: "X", href: "http://x.com/syntonikka/" },
+  { name: "Substack", href: "https://agartha1.substack.com/" },
+  { name: "Snapchat", href: "https://www.snapchat.com/add/nicooo9999?locale=en-US" },
+  { name: "Instagram", href: "https://www.instagram.com/syntonikka" },
+  { name: "Resume", href: "https://docs.google.com/document/d/10kNPjpL49cTcRf7B8hNdjXJYIqILHR2f4fmwjf1KR_Y/edit?usp=sharing" },
 ];
 
 export default function Info() {
@@ -17,17 +17,10 @@ export default function Info() {
 
         <div className="mb-8">
           <p
-            className="text-xl mb-6"
-            style={{ color: "var(--text-secondary)" }}
+            className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2"
           >
-            My approach to design is rooted in the belief that creativity and
-            technology should work in harmony to create meaningful experiences
-            that push boundaries and challenge conventional thinking.
-          </p>
-          <p className="text-lg mb-6" style={{ color: "var(--text-muted)" }}>
-            Below you'll find more detailed information about my design
-            philosophy, creative process, and the experiences that have shaped
-            my work.
+            Magic happens when <span className="italic font-light text-gray-800 dark:text-white">Raw Intuitive Human Creativity</span> meets 
+            <span className="italic font-light text-gray-800 dark:text-white"> Cutting-Edge Frontier Technology</span>.
           </p>
         </div>
 
@@ -41,10 +34,8 @@ export default function Info() {
               Design Philosophy
             </h3>
             <p>
-              I believe in creating designs that are not just visually striking,
-              but also intellectually stimulating and emotionally resonant. My
-              work explores the intersection of technology and humanity, always
-              asking how we can use design to create better futures.
+            I believe great designs should be both intellectually stimulating and emotionally resonant. 
+            My work explores the intersection of technology and humanity—--always asking how we can use design to create more flourishing futures.
             </p>
 
             <h3
@@ -54,39 +45,35 @@ export default function Info() {
               Creative Process
             </h3>
             <p>
-              My process begins with deep research and understanding of the
-              problem space. I then explore multiple conceptual directions
-              before converging on solutions that are both innovative and
-              practical. Collaboration is key - I work closely with clients,
-              developers, and other creatives to ensure the final outcome
-              exceeds expectations.
+            My process begins with deep research and a thorough understanding of the problem space. 
+            Collaboration is key---I work closely with clients, partners, and other creatives
+            to ensure the final outcome aligns with the mission and exceeds expectations.
             </p>
 
             <h3
               className="text-lg font-medium mb-3 mt-6"
               style={{ color: "var(--text-primary)" }}
             >
-              Technology & Innovation
+              Staying at the Cutting Edge
             </h3>
             <p>
-              I'm passionate about emerging technologies like AI, XR, and
-              immersive experiences. These tools aren't just technical solutions
-              - they're new languages for creative expression. I stay at the
-              forefront of these developments to bring cutting-edge capabilities
-              to every project.
+            I’m passionate about emerging technologies like AI, XR, and immersive experiences. 
+            These tools are not just technical solutions but also new languages for creative expression. 
+            I stay at the forefront of these developments to bring cutting-edge capabilities to every project.
             </p>
 
             <h3
               className="text-lg font-medium mb-3 mt-6"
               style={{ color: "var(--text-primary)" }}
             >
-              Lifestyle & Inspiration
+              A Creative Lifestyle
             </h3>
             <p>
-              Inspiration comes from everywhere - art galleries, nature,
-              conversations with interesting people, travel, and constant
-              learning. I maintain a curious mindset and am always exploring new
-              mediums, technologies, and ways of thinking about design problems.
+              Inspiration comes from everywhere - nature, science, technology, magical gatherings, archetypical stories,
+              meditation and peak experiences, diverse cultures...
+              <br />
+              I'm always immersed in narratives that inspire new forms of art, 
+              and 'ways of being' in flourishing environments.
             </p>
           </div>
         </div>

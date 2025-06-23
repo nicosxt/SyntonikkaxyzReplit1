@@ -37,7 +37,7 @@ export const caseStudiesData: CaseStudy[] = [
     id: "agartha",
     title: "CASE STUDY: AGARTHA",
     role: "Founder",
-    tags: ["#Branding", "#Design"],
+    tags: ["#Branding", "#Graphics","#Worldbuilding"],
     examples: [
       { text: "agartha.one", url: "https://agartha.one" },
       { text: "Grid Free Minds", url: "https://agartha1.substack.com" },
