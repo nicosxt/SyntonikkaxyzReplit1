@@ -16,6 +16,8 @@ import cloudsBg from "@assets/sky-clouds-washed.jpeg";
 
 function Router() {
   const { theme } = useTheme();
+  
+  console.log('App Router: Current theme is', theme);
 
   return (
     <div
@@ -29,7 +31,9 @@ function Router() {
       }}
     >
       {/* Starfield background for dark mode */}
-      {theme === "dark" && <StarfieldBackground />}
+      {theme === "dark" && (
+        <StarfieldBackground />
+      )}
       
       {/* Dark mode overlay */}
       <div className="min-h-screen bg-transparent transition-colors duration-300">

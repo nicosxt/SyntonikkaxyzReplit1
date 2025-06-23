@@ -20,15 +20,24 @@ export default function StarfieldBackground({ className = '' }: StarfieldBackgro
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      console.log('StarfieldBackground: Canvas ref not found');
+      return;
+    }
 
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (!ctx) {
+      console.log('StarfieldBackground: Canvas context not found');
+      return;
+    }
+
+    console.log('StarfieldBackground: Initializing canvas');
 
     // Set canvas size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      console.log(`StarfieldBackground: Canvas resized to ${canvas.width}x${canvas.height}`);
     };
 
     resizeCanvas();
@@ -47,11 +56,13 @@ export default function StarfieldBackground({ className = '' }: StarfieldBackgro
           fadeSpeed: Math.random() * 0.02 + 0.005, // Random fade speed
         });
       }
+      console.log(`StarfieldBackground: Initialized ${starsRef.current.length} stars`);
     };
 
     initStars();
 
     // Animation loop
+    let frameCount = 0;
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -77,7 +88,13 @@ export default function StarfieldBackground({ className = '' }: StarfieldBackgro
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
         ctx.fill();
+        ctx.closePath();
       });
+
+      frameCount++;
+      if (frameCount === 1) {
+        console.log(`StarfieldBackground: First frame rendered with ${starsRef.current.length} stars`);
+      }
 
       animationRef.current = requestAnimationFrame(animate);
     };
@@ -96,8 +113,17 @@ export default function StarfieldBackground({ className = '' }: StarfieldBackgro
   return (
     <canvas
       ref={canvasRef}
-      className={`fixed top-0 left-0 w-full h-full pointer-events-none z-[-1] ${className}`}
-      style={{ display: 'block' }}
+      className={`${className}`}
+      style={{ 
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 1,
+        pointerEvents: 'none',
+        display: 'block'
+      }}
     />
   );
 }
