@@ -20,50 +20,35 @@ export default function StarfieldBackground({ className = '' }: StarfieldBackgro
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) {
-      console.log('StarfieldBackground: Canvas ref not found');
-      return;
-    }
+    if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
-    if (!ctx) {
-      console.log('StarfieldBackground: Canvas context not found');
-      return;
-    }
+    if (!ctx) return;
 
-    console.log('StarfieldBackground: Initializing canvas');
+    // Set fixed canvas size to avoid constant resizing
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    // Set canvas size
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      console.log(`StarfieldBackground: Canvas resized to ${canvas.width}x${canvas.height}`);
-    };
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    // Initialize stars
+    // Initialize stars once
     const initStars = () => {
       starsRef.current = [];
       for (let i = 0; i < 200; i++) {
         starsRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          radius: Math.random() * 3.9 + 0.1, // 0.1 to 4px radius
+          radius: Math.random() * 3.9 + 0.1,
           opacity: Math.random(),
           fadeDirection: Math.random() > 0.5 ? 1 : -1,
-          fadeSpeed: Math.random() * 0.02 + 0.005, // Random fade speed
+          fadeSpeed: Math.random() * 0.01 + 0.005,
         });
       }
-      console.log(`StarfieldBackground: Initialized ${starsRef.current.length} stars`);
     };
 
     initStars();
 
     // Animation loop
-    let frameCount = 0;
     const animate = () => {
+      // Clear canvas completely
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       starsRef.current.forEach(star => {
@@ -74,36 +59,43 @@ export default function StarfieldBackground({ className = '' }: StarfieldBackgro
         if (star.opacity <= 0) {
           star.opacity = 0;
           star.fadeDirection = 1;
-          // Random delay before starting to fade in
-          star.fadeSpeed = Math.random() * 0.02 + 0.005;
         } else if (star.opacity >= 1) {
           star.opacity = 1;
           star.fadeDirection = -1;
-          // Random delay before starting to fade out
-          star.fadeSpeed = Math.random() * 0.02 + 0.005;
         }
 
-        // Draw star
+        // Draw star with enhanced visibility
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
         ctx.fill();
-        ctx.closePath();
+        
+        // Add a subtle glow for visibility
+        if (star.opacity > 0.5) {
+          ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity * 0.3})`;
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius * 2, 0, Math.PI * 2);
+          ctx.fill();
+        }
       });
-
-      frameCount++;
-      if (frameCount === 1) {
-        console.log(`StarfieldBackground: First frame rendered with ${starsRef.current.length} stars`);
-      }
 
       animationRef.current = requestAnimationFrame(animate);
     };
 
     animate();
 
+    // Handle resize
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initStars(); // Reinitialize stars for new canvas size
+    };
+
+    window.addEventListener('resize', handleResize);
+
     // Cleanup
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('resize', handleResize);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
@@ -120,7 +112,7 @@ export default function StarfieldBackground({ className = '' }: StarfieldBackgro
         left: 0,
         width: '100vw',
         height: '100vh',
-        zIndex: 1,
+        zIndex: 15,
         pointerEvents: 'none',
         display: 'block'
       }}

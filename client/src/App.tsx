@@ -35,8 +35,8 @@ function Router() {
         <StarfieldBackground />
       )}
       
-      {/* Dark mode overlay */}
-      <div className="min-h-screen bg-transparent transition-colors duration-300">
+      {/* Content overlay */}
+      <div className="min-h-screen bg-transparent transition-colors duration-300 relative z-10">
         <Navigation />
         <main className="pt-20 px-4 pb-8">
           <Switch>
