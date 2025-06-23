@@ -13,7 +13,7 @@ export default function EdgeCityCaseStudy() {
   return (
     <div
       className="min-h-screen mx-auto flex flex-col"
-      style={{ marginLeft: "3%", marginRight: "3%" }}
+      style={{ marginLeft: "15%", marginRight: "15%" }}
     >
       <div className="p-8 md:p-12">
         {/* Back button */}

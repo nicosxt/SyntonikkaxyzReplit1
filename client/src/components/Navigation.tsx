@@ -14,7 +14,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50" style={{ width: '80%' }}
+      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50" style={{ width: '70%' }}
     >
       <div className="flex justify-between items-center">
         <div className="bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-full px-6 py-3 backdrop-blur-sm">

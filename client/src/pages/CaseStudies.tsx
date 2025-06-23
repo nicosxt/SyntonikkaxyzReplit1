@@ -4,7 +4,7 @@ import { caseStudiesData } from "../data/caseStudies";
 
 export default function CaseStudies() {
   return (
-    <div className="min-h-screen mx-auto" style={{ marginLeft: '10%', marginRight: '10%' }}>
+    <div className="min-h-screen mx-auto" style={{ marginLeft: '15%', marginRight: '15%' }}>
       <div className="p-8 md:p-12">
         <h1 className="text-3xl md:text-4xl font-light mb-12 text-gray-800 dark:text-white">
           Case Studies
