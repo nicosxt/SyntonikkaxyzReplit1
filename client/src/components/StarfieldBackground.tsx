@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 interface Star {
   x: number;
@@ -13,7 +13,9 @@ interface StarfieldBackgroundProps {
   className?: string;
 }
 
-export default function StarfieldBackground({ className = '' }: StarfieldBackgroundProps) {
+export default function StarfieldBackground({
+  className = "",
+}: StarfieldBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
   const starsRef = useRef<Star[]>([]);
@@ -22,7 +24,7 @@ export default function StarfieldBackground({ className = '' }: StarfieldBackgro
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     // Set fixed canvas size to avoid constant resizing
@@ -32,14 +34,14 @@ export default function StarfieldBackground({ className = '' }: StarfieldBackgro
     // Initialize stars once
     const initStars = () => {
       starsRef.current = [];
-      for (let i = 0; i < 200; i++) {
+      for (let i = 0; i < 160; i++) {
         starsRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          radius: Math.random() * 3.9 + 0.1,
+          radius: Math.random() * 1 + 0.3,
           opacity: Math.random(),
           fadeDirection: Math.random() > 0.5 ? 1 : -1,
-          fadeSpeed: Math.random() * 0.01 + 0.005,
+          fadeSpeed: Math.random() * 0.001 + 0.005,
         });
       }
     };
@@ -51,7 +53,7 @@ export default function StarfieldBackground({ className = '' }: StarfieldBackgro
       // Clear canvas completely
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      starsRef.current.forEach(star => {
+      starsRef.current.forEach((star) => {
         // Update opacity for blinking effect
         star.opacity += star.fadeDirection * star.fadeSpeed;
 
@@ -69,7 +71,7 @@ export default function StarfieldBackground({ className = '' }: StarfieldBackgro
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fill();
-        
+
         // Add a subtle glow for visibility
         if (star.opacity > 0.5) {
           ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity * 0.3})`;
@@ -91,11 +93,11 @@ export default function StarfieldBackground({ className = '' }: StarfieldBackgro
       initStars(); // Reinitialize stars for new canvas size
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Cleanup
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
@@ -106,15 +108,15 @@ export default function StarfieldBackground({ className = '' }: StarfieldBackgro
     <canvas
       ref={canvasRef}
       className={`${className}`}
-      style={{ 
-        position: 'fixed',
+      style={{
+        position: "fixed",
         top: 0,
         left: 0,
-        width: '100vw',
-        height: '100vh',
+        width: "100vw",
+        height: "100vh",
         zIndex: 15,
-        pointerEvents: 'none',
-        display: 'block'
+        pointerEvents: "none",
+        display: "block",
       }}
     />
   );

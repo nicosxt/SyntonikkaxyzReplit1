@@ -101,6 +101,20 @@ The application uses a lightweight, CSS-based image optimization approach rather
 - **Hover Preloading**: Smooth modal transitions through preloading
 - **Responsive Rendering**: Optimized classes for thumbnail vs full-size viewing
 
+## Recent Changes
+- **June 23, 2025**: Added comprehensive animation system
+  - Homepage text now animates left-to-right with staggered word animations
+  - Navigation bar slides down smoothly on page load with individual nav item animations
+  - Created global CSS animation utilities (fade-in, slide-in, scale-in, float, pulse-soft)
+  - Built reusable `usePageAnimation` hook for consistent animations across pages
+  - Enhanced hover effects on buttons with subtle transforms
+
+## Animation System
+- **CSS Animation Classes**: `.animate-fade-in`, `.animate-slide-in-left/right/up/down`, `.animate-scale-in`, `.animate-float`, `.animate-pulse-soft`
+- **Stagger Delays**: `.animate-delay-100` through `.animate-delay-800` for sequential animations
+- **React Hook**: `usePageAnimation` for consistent page load animations with customizable delays
+- **Implementation**: Homepage demonstrates sophisticated text animations, navigation uses smooth entrance effects
+
 ## Changelog
 - June 23, 2025. Initial setup
 
