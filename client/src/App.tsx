@@ -4,6 +4,8 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navigation from "@/components/Navigation";
+import StarfieldBackground from "@/components/StarfieldBackground";
+import { useTheme } from "@/components/ThemeToggle";
 import Home from "@/pages/Home";
 import CaseStudies from "@/pages/CaseStudies";
 import EdgeCityCaseStudy from "@/pages/EdgeCityCaseStudy";
@@ -13,6 +15,8 @@ import Info from "@/pages/Info";
 import cloudsBg from "@assets/sky-clouds-washed.jpeg";
 
 function Router() {
+  const { theme } = useTheme();
+
   return (
     <div
       className="min-h-screen text-foreground bg-background transition-colors duration-300"
@@ -24,6 +28,9 @@ function Router() {
         backgroundAttachment: "fixed",
       }}
     >
+      {/* Starfield background for dark mode */}
+      {theme === "dark" && <StarfieldBackground />}
+      
       {/* Dark mode overlay */}
       <div className="min-h-screen bg-transparent transition-colors duration-300">
         <Navigation />
