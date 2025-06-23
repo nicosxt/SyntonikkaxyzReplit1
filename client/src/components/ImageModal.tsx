@@ -1,4 +1,3 @@
-
 import { X } from "lucide-react";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
@@ -63,7 +62,7 @@ export default function ImageModal({ isOpen, onClose, imageSrc, altText }: Image
             <img
               src={imageSrc}
               alt={altText || "Full size image"}
-              className="max-w-full max-h-[80vh] object-contain image-full"
+              className="max-w-full max-h-[80vh] object-contain"
               loading="eager"
             />
           ) : (

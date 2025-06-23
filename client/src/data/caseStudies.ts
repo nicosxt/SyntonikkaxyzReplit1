@@ -40,7 +40,7 @@ export const caseStudiesData: CaseStudy[] = [
     tags: ["#Branding", "#Design"],
     examples: [
       { text: "agartha.one", url: "https://agartha.one" },
-      { text: "Grid Free Minds" },
+      { text: "Grid Free Minds", url: "https://agartha1.substack.com" },
     ],
     preview: "agartha.one",
     previewImage: "/images/case-studies/agartha/agartha-cover-thumbnail.jpg",
