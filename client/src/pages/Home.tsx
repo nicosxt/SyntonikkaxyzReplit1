@@ -30,7 +30,7 @@ export default function Home() {
           {textParts.map((part, index) => (
             <span
               key={index}
-              className={`inline transition-opacity duration-[4000ms] ease-out ${part.className} ${
+              className={`inline transition-opacity duration-[2000ms] ease-out ${part.className} ${
                 isLoaded 
                   ? 'opacity-100' 
                   : 'opacity-0'
@@ -43,7 +43,7 @@ export default function Home() {
       </div>
         
       {/* MORE Button */}
-      <div className={`flex justify-end mt-6 transition-opacity duration-[4000ms] ease-out ${
+      <div className={`flex justify-end mt-6 transition-opacity duration-[2000ms] ease-out ${
         isLoaded 
           ? 'opacity-100' 
           : 'opacity-0'
