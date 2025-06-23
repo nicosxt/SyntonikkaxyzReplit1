@@ -30,7 +30,7 @@ export default function Home() {
           {textParts.map((part, index) => (
             <span
               key={index}
-              className={`inline-block transition-all duration-500 ease-out ${part.className} ${
+              className={`inline transition-all duration-500 ease-out ${part.className} ${
                 isLoaded 
                   ? 'opacity-100 translate-x-0' 
                   : 'opacity-0 -translate-x-4'
