@@ -15,10 +15,10 @@ export default function Home() {
   }, []);
 
   const textParts = [
-    { text: "Nico Shi", className: "italic font-light text-gray-800 dark:text-white", delay: 0 },
-    { text: " is a multi-disciplinary designer building ", className: "", delay: 300 },
-    { text: "Protopian", className: "italic font-light text-gray-800 dark:text-white", delay: 600 },
-    { text: " brands with AI, XR, and immersive art.", className: "", delay: 900 }
+    { text: "Nico Shi", className: "italic font-light text-gray-800 dark:text-white" },
+    { text: " is a multi-disciplinary designer building ", className: "" },
+    { text: "Protopian", className: "italic font-light text-gray-800 dark:text-white" },
+    { text: " brands with AI, XR, and immersive art.", className: "" }
   ];
 
   return (
@@ -30,15 +30,11 @@ export default function Home() {
           {textParts.map((part, index) => (
             <span
               key={index}
-              className={`inline transition-all duration-1200 ease-out ${part.className} ${
+              className={`inline transition-opacity duration-[4000ms] ease-out ${part.className} ${
                 isLoaded 
-                  ? 'opacity-100 translate-x-0' 
-                  : 'opacity-0 -translate-x-4'
+                  ? 'opacity-100' 
+                  : 'opacity-0'
               }`}
-              style={{ 
-                transitionDelay: `${part.delay}ms`,
-                transform: isLoaded ? 'translateX(0)' : 'translateX(-16px)'
-              }}
             >
               {part.text}
             </span>
@@ -47,12 +43,11 @@ export default function Home() {
       </div>
         
       {/* MORE Button */}
-      <div className={`flex justify-end mt-6 transition-all duration-1200 ease-out ${
+      <div className={`flex justify-end mt-6 transition-opacity duration-[4000ms] ease-out ${
         isLoaded 
-          ? 'opacity-100 translate-x-0' 
-          : 'opacity-0 translate-x-8'
-      }`}
-      style={{ transitionDelay: '1200ms' }}>
+          ? 'opacity-100' 
+          : 'opacity-0'
+      }`}>
         <Link href="/case-studies">
           <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:translate-x-1">
             <span className="text-lg font-light">MORE</span>
