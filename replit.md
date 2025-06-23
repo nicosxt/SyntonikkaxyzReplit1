@@ -102,12 +102,13 @@ The application uses a lightweight, CSS-based image optimization approach rather
 - **Responsive Rendering**: Optimized classes for thumbnail vs full-size viewing
 
 ## Recent Changes
-- **June 23, 2025**: Added comprehensive animation system
-  - Homepage text now animates left-to-right with staggered word animations
-  - Navigation bar slides down smoothly on page load with individual nav item animations
-  - Created global CSS animation utilities (fade-in, slide-in, scale-in, float, pulse-soft)
-  - Built reusable `usePageAnimation` hook for consistent animations across pages
-  - Enhanced hover effects on buttons with subtle transforms
+- **June 23, 2025**: Implemented comprehensive site-wide animation system
+  - Homepage text animations: 50% slower timing with 300ms staggered delays for smooth left-to-right reveal
+  - Navigation bar: Graceful slide-down entrance with individual nav item stagger animations
+  - All pages now feature consistent fade-in animations: Case Studies, Services, Info pages
+  - Created global CSS animation utilities for consistent motion design
+  - Built reusable `usePageAnimation` hook with customizable delays and stagger timing
+  - Enhanced hover effects: scale transforms on buttons and interactive elements
 
 ## Animation System
 - **CSS Animation Classes**: `.animate-fade-in`, `.animate-slide-in-left/right/up/down`, `.animate-scale-in`, `.animate-float`, `.animate-pulse-soft`
