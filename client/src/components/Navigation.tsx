@@ -13,7 +13,10 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full" style={{ marginLeft: '10%', marginRight: '10%', width: '80%' }}>
+    <nav
+      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full"
+      style={{ marginLeft: "10%", marginRight: "10%" }}
+    >
       <div className="flex justify-between items-center">
         <div className="bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-full px-6 py-3 backdrop-blur-sm">
           <ul className="flex justify-between items-center text-sm space-x-6">
