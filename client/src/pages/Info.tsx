@@ -1,3 +1,5 @@
+import { usePageAnimation } from "../hooks/usePageAnimation";
+
 const socialLinks = [
   { name: "X", href: "http://x.com/syntonikka/" },
   { name: "Substack", href: "https://agartha1.substack.com/" },
@@ -13,6 +15,8 @@ const socialLinks = [
 ];
 
 export default function Info() {
+  const { isLoaded, getAnimationClasses } = usePageAnimation({ delay: 200, staggerDelay: 100 });
+
   return (
     <div
       className="min-h-screen mx-auto flex flex-col justify-center"
@@ -22,7 +26,9 @@ export default function Info() {
         <div className="mb-8"></div>
 
         <div className="mb-8">
-          <p className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2">
+          <p className={`text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2 transition-all duration-1000 ease-out ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+          }`}>
             Magic happens when{" "}
             <span className="italic font-light text-gray-800 dark:text-white">
               Raw Intuitive Human Creativity
@@ -37,7 +43,12 @@ export default function Info() {
         </div>
 
         {/* Scrollable content section */}
-        <div className="max-h-96 overflow-y-auto content-block p-6">
+        <div 
+          className={`max-h-96 overflow-y-auto content-block p-6 transition-all duration-1000 ease-out ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+          style={{ transitionDelay: '300ms' }}
+        >
           <div className="space-y-4" style={{ color: "var(--text-muted)" }}>
             <h3
               className="text-lg font-medium mb-3"
@@ -99,16 +110,22 @@ export default function Info() {
 
       {/* Social Links */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-md">
-        {socialLinks.map((link) => (
-          <a
-            key={link.name}
-            href={link.href}
-            className="text-center py-2 hover:opacity-70 transition-opacity"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            {link.name}
-          </a>
-        ))}
+        {socialLinks.map((link, index) => {
+          const animationProps = getAnimationClasses(index + 5, 'slide-in-up');
+          return (
+            <a
+              key={link.name}
+              href={link.href}
+              className={`text-center py-2 hover:opacity-70 hover:scale-105 transition-all duration-200 ${animationProps.className}`}
+              style={{ 
+                color: "var(--text-secondary)",
+                ...animationProps.style
+              }}
+            >
+              {link.name}
+            </a>
+          );
+        })}
       </div>
     </div>
   );

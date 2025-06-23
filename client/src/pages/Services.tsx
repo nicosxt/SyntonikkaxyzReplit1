@@ -39,15 +39,18 @@ export default function Services() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-        {services.map((service, index) => (
-          <div 
-            key={index} 
-            className="service-item"
-            {...getAnimationClasses(index + 1, 'slide-in-up')}
-          >
-            <button className={`service-button hover:scale-105 ${getAnimationClasses(index + 1, 'slide-in-up').className}`}>{service}</button>
-          </div>
-        ))}
+        {services.map((service, index) => {
+          const animationProps = getAnimationClasses(index + 1, 'slide-in-up');
+          return (
+            <div 
+              key={index} 
+              className={`service-item ${animationProps.className}`}
+              style={animationProps.style}
+            >
+              <button className="service-button hover:scale-105 transition-all duration-200">{service}</button>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
