@@ -19,7 +19,7 @@ export const caseStudiesData: CaseStudy[] = [
     id: "edge-city",
     title: "CASE STUDY: EDGE CITY",
     role: "Brand Designer",
-    tags: ["#Branding", "#Graphics"],
+    tags: ["#Brand", "#Web", "#Graphics"],
     examples: [
       { text: "edgecity.live", url: "https://edgecity.live" },
       { text: "edgeesmeralda.com", url: "https://edgeesmeralda.com" },
@@ -43,6 +43,7 @@ export const caseStudiesData: CaseStudy[] = [
       { text: "Grid Free Minds" },
     ],
     preview: "agartha.one",
+    previewImage: "/images/case-studies/agartha/agartha-cover-thumbnail.jpg",
     link: "/case-studies/agartha",
   },
 ];

@@ -4,7 +4,7 @@ import { caseStudiesData } from "../data/caseStudies";
 
 export default function CaseStudies() {
   return (
-    <div className="min-h-screen max-w-4xl mx-auto" style={{ marginLeft: '15%', marginRight: '15%' }}>
+    <div className="min-h-screen mx-auto" style={{ marginLeft: '10%', marginRight: '10%' }}>
       <div className="p-8 md:p-12">
         <h1 className="text-3xl md:text-4xl font-light mb-12 text-gray-800 dark:text-white">
           Case Studies
@@ -40,7 +40,7 @@ export default function CaseStudies() {
                   <div className="bg-white/5 rounded-2xl aspect-video flex items-center justify-center border border-white/10">
                     {caseStudy.previewImage ? (
                       <img
-                        src="/images/case-studies/edge-city/edge2.0-branding-thumbnail.jpg"
+                        src={caseStudy.previewImage}
                         alt={`${caseStudy.title} preview`}
                         className="w-full h-full object-cover rounded-2xl"
                       />
