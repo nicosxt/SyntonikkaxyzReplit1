@@ -9,9 +9,39 @@ interface AnimatedTextProps {
   letterSpeed?: number;
 }
 
+// Utility function to prevent word breaking
+function createWordBoundarySpans(text: string) {
+  const words = text.split(' ');
+  const spans: { char: string; isWordEnd: boolean; wordIndex: number }[] = [];
+  
+  words.forEach((word, wordIndex) => {
+    // Add characters of the word
+    for (let i = 0; i < word.length; i++) {
+      spans.push({
+        char: word[i],
+        isWordEnd: i === word.length - 1,
+        wordIndex
+      });
+    }
+    
+    // Add space after word (except for last word)
+    if (wordIndex < words.length - 1) {
+      spans.push({
+        char: ' ',
+        isWordEnd: true,
+        wordIndex
+      });
+    }
+  });
+  
+  return spans;
+}
+
 function AnimatedText({ text, className = "", delay, letterSpeed = 50 }: AnimatedTextProps) {
   const [visibleLetters, setVisibleLetters] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
+
+  const charSpans = createWordBoundarySpans(text);
 
   useEffect(() => {
     const startTimer = setTimeout(() => {
@@ -24,30 +54,57 @@ function AnimatedText({ text, className = "", delay, letterSpeed = 50 }: Animate
   useEffect(() => {
     if (!isStarted) return;
 
-    if (visibleLetters < text.length) {
+    if (visibleLetters < charSpans.length) {
       const timer = setTimeout(() => {
         setVisibleLetters(prev => prev + 1);
       }, letterSpeed);
 
       return () => clearTimeout(timer);
     }
-  }, [isStarted, visibleLetters, text.length, letterSpeed]);
+  }, [isStarted, visibleLetters, charSpans.length, letterSpeed]);
+
+  // Group characters by words for proper wrapping
+  const wordGroups: { chars: typeof charSpans; wordIndex: number }[] = [];
+  let currentWord: typeof charSpans = [];
+  let currentWordIndex = -1;
+
+  charSpans.forEach((span, index) => {
+    if (span.wordIndex !== currentWordIndex) {
+      if (currentWord.length > 0) {
+        wordGroups.push({ chars: currentWord, wordIndex: currentWordIndex });
+      }
+      currentWord = [];
+      currentWordIndex = span.wordIndex;
+    }
+    currentWord.push({ ...span, originalIndex: index });
+  });
+  
+  if (currentWord.length > 0) {
+    wordGroups.push({ chars: currentWord, wordIndex: currentWordIndex });
+  }
 
   return (
     <span className={className}>
-      {text.split('').map((char, index) => (
-        <span
-          key={index}
-          className={`inline-block transition-all duration-300 ease-out ${
-            index < visibleLetters 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-4'
-          }`}
-          style={{
-            transitionDelay: `${Math.max(0, (index - visibleLetters) * 20)}ms`
-          }}
-        >
-          {char === ' ' ? '\u00A0' : char}
+      {wordGroups.map((wordGroup, groupIndex) => (
+        <span key={groupIndex} className="inline-block" style={{ whiteSpace: 'nowrap' }}>
+          {wordGroup.chars.map((span, charIndex) => {
+            const originalIndex = (span as any).originalIndex;
+            return (
+              <span
+                key={originalIndex}
+                className={`inline-block transition-all duration-300 ease-out ${
+                  originalIndex < visibleLetters 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-4'
+                }`}
+                style={{
+                  transitionDelay: `${Math.max(0, (originalIndex - visibleLetters) * 20)}ms`
+                }}
+              >
+                {span.char === ' ' ? '\u00A0' : span.char}
+              </span>
+            );
+          })}
         </span>
       ))}
     </span>
