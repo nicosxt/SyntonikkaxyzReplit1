@@ -12,33 +12,39 @@ interface AnimatedTextProps {
 
 // Utility function to prevent word breaking
 function createWordBoundarySpans(text: string) {
-  const words = text.split(' ');
+  const words = text.split(" ");
   const spans: { char: string; isWordEnd: boolean; wordIndex: number }[] = [];
-  
+
   words.forEach((word, wordIndex) => {
     // Add characters of the word
     for (let i = 0; i < word.length; i++) {
       spans.push({
         char: word[i],
         isWordEnd: i === word.length - 1,
-        wordIndex
+        wordIndex,
       });
     }
-    
+
     // Add space after word (except for last word)
     if (wordIndex < words.length - 1) {
       spans.push({
-        char: ' ',
+        char: " ",
         isWordEnd: true,
-        wordIndex
+        wordIndex,
       });
     }
   });
-  
+
   return spans;
 }
 
-function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpeed(), startOffset = 0 }: AnimatedTextProps) {
+function AnimatedText({
+  text,
+  className = "",
+  delay,
+  letterSpeed = getLetterSpeed(),
+  startOffset = 0,
+}: AnimatedTextProps) {
   const [globalVisibleLetters, setGlobalVisibleLetters] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
 
@@ -56,7 +62,7 @@ function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpee
     if (!isStarted) return;
 
     const timer = setTimeout(() => {
-      setGlobalVisibleLetters(prev => prev + 1);
+      setGlobalVisibleLetters((prev) => prev + 1);
     }, letterSpeed);
 
     return () => clearTimeout(timer);
@@ -77,7 +83,7 @@ function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpee
     }
     currentWord.push({ ...span, originalIndex: index });
   });
-  
+
   if (currentWord.length > 0) {
     wordGroups.push({ chars: currentWord, wordIndex: currentWordIndex });
   }
@@ -85,7 +91,11 @@ function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpee
   return (
     <span className={className}>
       {wordGroups.map((wordGroup, groupIndex) => (
-        <span key={groupIndex} className="inline-block" style={{ whiteSpace: 'nowrap' }}>
+        <span
+          key={groupIndex}
+          className="inline-block"
+          style={{ whiteSpace: "nowrap" }}
+        >
           {wordGroup.chars.map((span, charIndex) => {
             const originalIndex = (span as any).originalIndex;
             const globalIndex = startOffset + originalIndex;
@@ -94,15 +104,15 @@ function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpee
               <span
                 key={originalIndex}
                 className={`inline-block transition-all duration-300 ease-out ${
-                  isVisible 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-4'
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4"
                 }`}
                 style={{
-                  transitionDelay: `${Math.max(0, (globalIndex - globalVisibleLetters) * 20)}ms`
+                  transitionDelay: `${Math.max(0, (globalIndex - globalVisibleLetters) * 20)}ms`,
                 }}
               >
-                {span.char === ' ' ? '\u00A0' : span.char}
+                {span.char === " " ? "\u00A0" : span.char}
               </span>
             );
           })}
@@ -115,6 +125,7 @@ function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpee
 const socialLinks = [
   { name: "X", href: "http://x.com/syntonikka/" },
   { name: "Substack", href: "https://agartha1.substack.com/" },
+  { name: "Mixcloud", href: "https://www.mixcloud.com/nicole-xin-tong-shi/" },
   {
     name: "Snapchat",
     href: "https://www.snapchat.com/add/nicooo9999?locale=en-US",
@@ -127,7 +138,10 @@ const socialLinks = [
 ];
 
 export default function Info() {
-  const { isLoaded, getAnimationClasses } = usePageAnimation({ delay: 200, staggerDelay: 100 });
+  const { isLoaded, getAnimationClasses } = usePageAnimation({
+    delay: 200,
+    staggerDelay: 100,
+  });
 
   return (
     <div
@@ -139,45 +153,40 @@ export default function Info() {
 
         <div className="mb-8">
           <p className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2">
-            <AnimatedText 
-              text="Magic happens when " 
+            <AnimatedText
+              text="Magic happens when "
               className=""
               delay={300}
               letterSpeed={40}
             />
-            <AnimatedText 
-              text="Raw Intuitive Human Creativity" 
+            <AnimatedText
+              text="Raw Intuitive Human Creativity"
               className="italic font-light text-gray-800 dark:text-white"
               delay={1200}
               letterSpeed={30}
             />
-            <AnimatedText 
-              text=" meets " 
+            <AnimatedText
+              text=" meets "
               className=""
               delay={2400}
               letterSpeed={40}
             />
-            <AnimatedText 
-              text="Cutting-Edge Frontier Technology" 
+            <AnimatedText
+              text="Cutting-Edge Frontier Technology"
               className="italic font-light text-gray-800 dark:text-white"
               delay={2800}
               letterSpeed={30}
             />
-            <AnimatedText 
-              text="." 
-              className=""
-              delay={3800}
-              letterSpeed={40}
-            />
+            <AnimatedText text="." className="" delay={3800} letterSpeed={40} />
           </p>
         </div>
 
         {/* Scrollable content section */}
-        <div 
+        <div
           className={`max-h-96 overflow-y-auto content-block p-6 transition-all duration-1000 ease-out ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
-          style={{ transitionDelay: '300ms' }}
+          style={{ transitionDelay: "300ms" }}
         >
           <div className="space-y-4" style={{ color: "var(--text-muted)" }}>
             <h3
@@ -239,17 +248,17 @@ export default function Info() {
       </div>
 
       {/* Social Links */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-md">
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-4 max-w-md">
         {socialLinks.map((link, index) => {
-          const animationProps = getAnimationClasses(index + 5, 'slide-in-up');
+          const animationProps = getAnimationClasses(index + 5, "slide-in-up");
           return (
             <a
               key={link.name}
               href={link.href}
               className={`text-center py-2 hover:opacity-70 hover:scale-105 transition-all duration-200 ${animationProps.className}`}
-              style={{ 
+              style={{
                 color: "var(--text-secondary)",
-                ...animationProps.style
+                ...animationProps.style,
               }}
             >
               {link.name}
