@@ -1,4 +1,57 @@
 import { usePageAnimation } from "../hooks/usePageAnimation";
+import { useEffect, useState } from "react";
+
+interface AnimatedTextProps {
+  text: string;
+  className?: string;
+  delay: number;
+  letterSpeed?: number;
+}
+
+function AnimatedText({ text, className = "", delay, letterSpeed = 50 }: AnimatedTextProps) {
+  const [visibleLetters, setVisibleLetters] = useState(0);
+  const [isStarted, setIsStarted] = useState(false);
+
+  useEffect(() => {
+    const startTimer = setTimeout(() => {
+      setIsStarted(true);
+    }, delay);
+
+    return () => clearTimeout(startTimer);
+  }, [delay]);
+
+  useEffect(() => {
+    if (!isStarted) return;
+
+    if (visibleLetters < text.length) {
+      const timer = setTimeout(() => {
+        setVisibleLetters(prev => prev + 1);
+      }, letterSpeed);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isStarted, visibleLetters, text.length, letterSpeed]);
+
+  return (
+    <span className={className}>
+      {text.split('').map((char, index) => (
+        <span
+          key={index}
+          className={`inline-block transition-all duration-300 ease-out ${
+            index < visibleLetters 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-4'
+          }`}
+          style={{
+            transitionDelay: `${Math.max(0, (index - visibleLetters) * 20)}ms`
+          }}
+        >
+          {char === ' ' ? '\u00A0' : char}
+        </span>
+      ))}
+    </span>
+  );
+}
 
 const socialLinks = [
   { name: "X", href: "http://x.com/syntonikka/" },
@@ -26,19 +79,37 @@ export default function Info() {
         <div className="mb-8"></div>
 
         <div className="mb-8">
-          <p className={`text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2 transition-all duration-1000 ease-out ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-          }`}>
-            Magic happens when{" "}
-            <span className="italic font-light text-gray-800 dark:text-white">
-              Raw Intuitive Human Creativity
-            </span>{" "}
-            meets
-            <span className="italic font-light text-gray-800 dark:text-white">
-              {" "}
-              Cutting-Edge Frontier Technology
-            </span>
-            .
+          <p className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2">
+            <AnimatedText 
+              text="Magic happens when " 
+              className=""
+              delay={300}
+              letterSpeed={40}
+            />
+            <AnimatedText 
+              text="Raw Intuitive Human Creativity" 
+              className="italic font-light text-gray-800 dark:text-white"
+              delay={1200}
+              letterSpeed={30}
+            />
+            <AnimatedText 
+              text=" meets " 
+              className=""
+              delay={2400}
+              letterSpeed={40}
+            />
+            <AnimatedText 
+              text="Cutting-Edge Frontier Technology" 
+              className="italic font-light text-gray-800 dark:text-white"
+              delay={2800}
+              letterSpeed={30}
+            />
+            <AnimatedText 
+              text="." 
+              className=""
+              delay={3800}
+              letterSpeed={40}
+            />
           </p>
         </div>
 

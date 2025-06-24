@@ -31,10 +31,7 @@ export default function Services() {
           <span className="italic font-light text-gray-800 dark:text-white">
             Comprehensive
           </span>
-          <br />
-          feel-good, bespoke designs for cutting-
-          <br />
-          edge ideas.
+          feel-good, bespoke designs for cutting-edge ideas.
         </h1>
       </div>
 
