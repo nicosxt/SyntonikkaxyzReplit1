@@ -27,6 +27,9 @@ export default function StarfieldBackground({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // Clear any existing content first
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     // Set fixed canvas size to avoid constant resizing
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -100,6 +103,10 @@ export default function StarfieldBackground({
       window.removeEventListener("resize", handleResize);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
+      }
+      // Clear canvas on cleanup
+      if (canvas && ctx) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
     };
   }, []);
