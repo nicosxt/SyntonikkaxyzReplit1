@@ -30,7 +30,7 @@ function Router() {
         backgroundAttachment: "fixed",
       }}
     >
-      {/* Starfield background for dark mode */}
+      {/* Starfield background for dark mode only */}
       {theme === "dark" && (
         <StarfieldBackground />
       )}
