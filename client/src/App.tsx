@@ -31,7 +31,7 @@ function Router() {
       }}
     >
       {/* Starfield background for dark mode only */}
-      <StarfieldBackground theme={theme} />
+      {theme === "dark" && <StarfieldBackground />}
       
       {/* Content overlay */}
       <div className="min-h-screen bg-transparent transition-colors duration-300 relative z-10">
