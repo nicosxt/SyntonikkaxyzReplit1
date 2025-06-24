@@ -160,7 +160,7 @@ export default function Home() {
         isLoaded 
           ? 'opacity-100 translate-y-0' 
           : 'opacity-0 translate-y-8'
-      }`} style={{ transitionDelay: '4500ms' }}>
+      }`} style={{ transitionDelay: '1500ms' }}>
         <Link href="/case-studies">
           <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:translate-x-1 hover:scale-105">
             <span className="text-lg font-light">MORE</span>
