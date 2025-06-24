@@ -11,10 +11,12 @@ interface Star {
 
 interface StarfieldBackgroundProps {
   className?: string;
+  theme?: "light" | "dark";
 }
 
 export default function StarfieldBackground({
   className = "",
+  theme = "dark",
 }: StarfieldBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
@@ -29,6 +31,14 @@ export default function StarfieldBackground({
 
     // Clear any existing content first
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // If light mode, keep canvas clear and stop animation
+    if (theme === "light") {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+      return;
+    }
 
     // Set fixed canvas size to avoid constant resizing
     canvas.width = window.innerWidth;
@@ -109,7 +119,7 @@ export default function StarfieldBackground({
         ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas
@@ -123,7 +133,7 @@ export default function StarfieldBackground({
         height: "100vh",
         zIndex: 15,
         pointerEvents: "none",
-        display: "block",
+        display: theme === "dark" ? "block" : "none",
       }}
     />
   );
