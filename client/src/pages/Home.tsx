@@ -7,6 +7,7 @@ interface AnimatedTextProps {
   className?: string;
   delay: number;
   letterSpeed?: number;
+  startOffset?: number;
 }
 
 // Utility function to prevent word breaking
@@ -37,8 +38,8 @@ function createWordBoundarySpans(text: string) {
   return spans;
 }
 
-function AnimatedText({ text, className = "", delay, letterSpeed = 50 }: AnimatedTextProps) {
-  const [visibleLetters, setVisibleLetters] = useState(0);
+function AnimatedText({ text, className = "", delay, letterSpeed = 50, startOffset = 0 }: AnimatedTextProps) {
+  const [globalVisibleLetters, setGlobalVisibleLetters] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
 
   const charSpans = createWordBoundarySpans(text);
@@ -54,14 +55,12 @@ function AnimatedText({ text, className = "", delay, letterSpeed = 50 }: Animate
   useEffect(() => {
     if (!isStarted) return;
 
-    if (visibleLetters < charSpans.length) {
-      const timer = setTimeout(() => {
-        setVisibleLetters(prev => prev + 1);
-      }, letterSpeed);
+    const timer = setTimeout(() => {
+      setGlobalVisibleLetters(prev => prev + 1);
+    }, letterSpeed);
 
-      return () => clearTimeout(timer);
-    }
-  }, [isStarted, visibleLetters, charSpans.length, letterSpeed]);
+    return () => clearTimeout(timer);
+  }, [isStarted, globalVisibleLetters, letterSpeed]);
 
   // Group characters by words for proper wrapping
   const wordGroups: { chars: typeof charSpans; wordIndex: number }[] = [];
@@ -89,16 +88,18 @@ function AnimatedText({ text, className = "", delay, letterSpeed = 50 }: Animate
         <span key={groupIndex} className="inline-block" style={{ whiteSpace: 'nowrap' }}>
           {wordGroup.chars.map((span, charIndex) => {
             const originalIndex = (span as any).originalIndex;
+            const globalIndex = startOffset + originalIndex;
+            const isVisible = globalIndex < globalVisibleLetters;
             return (
               <span
                 key={originalIndex}
                 className={`inline-block transition-all duration-300 ease-out ${
-                  originalIndex < visibleLetters 
+                  isVisible 
                     ? 'opacity-100 translate-y-0' 
                     : 'opacity-0 translate-y-4'
                 }`}
                 style={{
-                  transitionDelay: `${Math.max(0, (originalIndex - visibleLetters) * 20)}ms`
+                  transitionDelay: `${Math.max(0, (globalIndex - globalVisibleLetters) * 20)}ms`
                 }}
               >
                 {span.char === ' ' ? '\u00A0' : span.char}
@@ -124,10 +125,10 @@ export default function Home() {
   }, []);
 
   const textParts = [
-    { text: "Nico Shi", className: "italic font-light text-gray-800 dark:text-white", delay: 300 },
-    { text: " is a multi-disciplinary designer building ", className: "", delay: 1000 },
-    { text: "Protopian", className: "italic font-light text-gray-800 dark:text-white", delay: 2500 },
-    { text: " brands with AI, XR, and immersive art.", className: "", delay: 3200 }
+    { text: "Nico Shi", className: "italic font-light text-gray-800 dark:text-white" },
+    { text: " is a multi-disciplinary designer building ", className: "" },
+    { text: "Protopian", className: "italic font-light text-gray-800 dark:text-white" },
+    { text: " brands with AI, XR, and immersive art.", className: "" }
   ];
 
   return (
@@ -136,15 +137,20 @@ export default function Home() {
       {/* Left-aligned text section */}
       <div className="mb-12 text-left">
         <span className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2" style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
-          {textParts.map((part, index) => (
-            <AnimatedText
-              key={index}
-              text={part.text}
-              className={part.className}
-              delay={part.delay}
-              letterSpeed={30}
-            />
-          ))}
+          {textParts.map((part, index) => {
+            // Calculate cumulative character offset
+            const startOffset = textParts.slice(0, index).reduce((acc, prevPart) => acc + prevPart.text.length, 0);
+            return (
+              <AnimatedText
+                key={index}
+                text={part.text}
+                className={part.className}
+                delay={300}
+                letterSpeed={30}
+                startOffset={startOffset}
+              />
+            );
+          })}
         </span>
       </div>
         
