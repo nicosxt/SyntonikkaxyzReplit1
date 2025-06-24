@@ -114,14 +114,14 @@ function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpee
 }
 
 const services = [
-  "Graphics Design",
-  "Web Design",
-  "Logo & Branding",
-  "Art Direction",
+  "GRAPHICS DESIGN",
+  "WEB DESIGN",
+  "LOGO & BRANDING",
+  "ART DIRECTION",
   "AR / VR",
-  "Experience Design",
-  "Consulting",
-  "Surprises! 🪄",
+  "EXPERIENCE DESIGN",
+  "CONSULTING",
+  "SURPRISES! 🪄",
 ];
 
 export default function Services() {

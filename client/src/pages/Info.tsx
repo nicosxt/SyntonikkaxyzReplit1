@@ -13,7 +13,7 @@ interface AnimatedTextProps {
 // Utility function to prevent word breaking
 function createWordBoundarySpans(text: string) {
   const words = text.split(" ");
-  const spans: { char: string; isWordEnd: boolean; wordIndex: number }[] = [];
+  const spans: { char: string; isWordEnd: boolean; wordIndex: number; originalIndex?: number }[] = [];
 
   words.forEach((word, wordIndex) => {
     // Add characters of the word
@@ -69,8 +69,8 @@ function AnimatedText({
   }, [isStarted, globalVisibleLetters, letterSpeed]);
 
   // Group characters by words for proper wrapping
-  const wordGroups: { chars: typeof charSpans; wordIndex: number }[] = [];
-  let currentWord: typeof charSpans = [];
+  const wordGroups: { chars: { char: string; isWordEnd: boolean; wordIndex: number; originalIndex?: number }[]; wordIndex: number }[] = [];
+  let currentWord: { char: string; isWordEnd: boolean; wordIndex: number; originalIndex?: number }[] = [];
   let currentWordIndex = -1;
 
   charSpans.forEach((span, index) => {
@@ -193,7 +193,7 @@ export default function Info() {
               className="text-lg font-medium mb-3"
               style={{ color: "var(--text-primary)" }}
             >
-              Design Philosophy
+              DESIGN PHILOSOPHY
             </h3>
             <p>
               I believe great designs should be both intellectually stimulating
@@ -206,7 +206,7 @@ export default function Info() {
               className="text-lg font-medium mb-3 mt-6"
               style={{ color: "var(--text-primary)" }}
             >
-              Creative Process
+              CREATIVE PROCESS
             </h3>
             <p>
               My process begins with deep research and a thorough understanding
@@ -219,10 +219,10 @@ export default function Info() {
               className="text-lg font-medium mb-3 mt-6"
               style={{ color: "var(--text-primary)" }}
             >
-              Staying at the Cutting Edge
+              AT THE CUTTING EDGE
             </h3>
             <p>
-              I’m passionate about emerging technologies like AI, XR, and
+              I'm passionate about emerging technologies like AI, XR, and
               immersive experiences. These tools are not just technical
               solutions but also new languages for creative expression. I stay
               at the forefront of these developments to bring cutting-edge
@@ -233,7 +233,7 @@ export default function Info() {
               className="text-lg font-medium mb-3 mt-6"
               style={{ color: "var(--text-primary)" }}
             >
-              A Creative Lifestyle
+              A CREATIVE LIFESTYLE
             </h3>
             <p>
               Inspiration comes from everywhere - nature, science, technology,
