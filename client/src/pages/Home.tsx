@@ -78,7 +78,7 @@ export default function Home() {
       
       {/* Left-aligned text section */}
       <div className="mb-12 text-left">
-        <span className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2">
+        <span className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2" style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
           {textParts.map((part, index) => (
             <AnimatedText
               key={index}
