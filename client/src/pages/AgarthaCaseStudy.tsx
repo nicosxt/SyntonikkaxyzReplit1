@@ -51,11 +51,18 @@ export default function AgarthaCaseStudy() {
 
         {/* Full width hero image */}
         <div className="mb-8">
-          <ClickableImage
-            src="/images/case-studies/agartha/newweb_intro.gif"
-            alt="Agartha web intro gif"
-            className="bg-white/5 rounded-2xl aspect-video w-full flex items-center justify-center border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
-          />
+          <a
+            href="https://agartha.one/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full cursor-pointer bg-white/5 rounded-2xl aspect-video border border-white/10 hover:bg-white/10 transition-colors"
+          >
+            <img
+              src="/images/case-studies/agartha/newweb_intro.gif"
+              alt="Agartha web intro gif"
+              className="w-full h-full object-cover rounded-2xl"
+            />
+          </a>
         </div>
 
         {/* Description paragraph */}
@@ -289,14 +296,21 @@ export default function AgarthaCaseStudy() {
         {/* Next Steps */}
         <div className="mb-8">
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-            Agartha continues to evolve in the form of research released at the Grid Free Minds newsletter. Follow along my journey <a href="https://agartha1.substack.com" target="_blank" rel="noopener noreferrer" className="text-gray-800 dark:text-white hover:opacity-70 transition-opacity underline">here</a> :)
+            Agartha continues to evolve in the form of research released at the <a href="https://agartha1.substack.com" target="_blank" rel="noopener noreferrer" className="text-gray-800 dark:text-white hover:opacity-70 transition-opacity underline">Grid Free Minds newsletter.</a> :)
           </p>
           <div className="flex justify-center">
-            <ClickableImage
-              src="/images/case-studies/agartha/grid_free_minds.png"
-              alt="Grid Free Minds"
-              className="bg-white/5 rounded-2xl w-auto object-contain border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
-            />
+            <a
+              href="https://agartha1.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block cursor-pointer hover:opacity-70 transition-opacity"
+            >
+              <img
+                src="/images/case-studies/agartha/grid_free_minds.png"
+                alt="Grid Free Minds"
+                className="bg-white/5 rounded-2xl w-auto object-contain border border-white/10"
+              />
+            </a>
           </div>
         </div>
 
