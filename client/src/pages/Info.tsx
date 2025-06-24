@@ -248,14 +248,14 @@ export default function Info() {
       </div>
 
       {/* Social Links */}
-      <div className="grid grid-cols-2 md:grid-cols-6 gap-4 max-w-md">
+      <div className="flex flex-wrap gap-4 items-center">
         {socialLinks.map((link, index) => {
           const animationProps = getAnimationClasses(index + 5, "slide-in-up");
           return (
             <a
               key={link.name}
               href={link.href}
-              className={`text-center py-2 hover:opacity-70 hover:scale-105 transition-all duration-200 ${animationProps.className}`}
+              className={`text-center py-2 px-3 hover:opacity-70 hover:scale-105 transition-all duration-200 ${animationProps.className}`}
               style={{
                 color: "var(--text-secondary)",
                 ...animationProps.style,
