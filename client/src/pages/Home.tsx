@@ -30,11 +30,12 @@ export default function Home() {
           {textParts.map((part, index) => (
             <span
               key={index}
-              className={`inline transition-opacity duration-[6500ms] ease-out ${part.className} ${
+              className={`inline transition-all duration-[3000ms] ease-out ${part.className} ${
                 isLoaded 
                   ? 'opacity-100' 
                   : 'opacity-0'
               }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
             >
               {part.text}
             </span>
@@ -43,11 +44,11 @@ export default function Home() {
       </div>
         
       {/* MORE Button */}
-      <div className={`flex justify-end mt-6 transition-opacity duration-[6500ms] ease-out ${
+      <div className={`flex justify-end mt-6 transition-all duration-[3000ms] ease-out ${
         isLoaded 
           ? 'opacity-100' 
           : 'opacity-0'
-      }`}>
+      }`} style={{ transitionDelay: '800ms' }}>
         <Link href="/case-studies">
           <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:translate-x-1">
             <span className="text-lg font-light">MORE</span>
