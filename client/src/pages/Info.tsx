@@ -1,5 +1,6 @@
 import { usePageAnimation } from "../hooks/usePageAnimation";
 import { useEffect, useState } from "react";
+import { getLetterSpeed } from "../config/animations";
 
 interface AnimatedTextProps {
   text: string;
@@ -37,7 +38,7 @@ function createWordBoundarySpans(text: string) {
   return spans;
 }
 
-function AnimatedText({ text, className = "", delay, letterSpeed = 50, startOffset = 0 }: AnimatedTextProps) {
+function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpeed(), startOffset = 0 }: AnimatedTextProps) {
   const [globalVisibleLetters, setGlobalVisibleLetters] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
 
