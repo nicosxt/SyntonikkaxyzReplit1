@@ -123,7 +123,6 @@ export default function StarfieldBackground({
         height: "100vh",
         zIndex: 15,
         pointerEvents: "none",
-        display: "block",
       }}
     />
   );
