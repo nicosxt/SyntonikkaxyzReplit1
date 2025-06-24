@@ -17,7 +17,7 @@ export interface CaseStudy {
 export const caseStudiesData: CaseStudy[] = [
   {
     id: "edge-city",
-    title: "CASE STUDY: EDGE CITY",
+    title: "EDGE CITY",
     role: "Brand Designer",
     tags: ["#Brand", "#Web", "#Graphics"],
     examples: [
@@ -35,7 +35,7 @@ export const caseStudiesData: CaseStudy[] = [
   },
   {
     id: "agartha",
-    title: "CASE STUDY: AGARTHA",
+    title: "AGARTHA",
     role: "Founder",
     tags: ["#Branding", "#Graphics","#Worldbuilding"],
     examples: [
