@@ -62,29 +62,52 @@ function AnimatedText({ text, className = "", delay, letterSpeed = 50, startOffs
     return () => clearTimeout(timer);
   }, [isStarted, globalVisibleLetters, letterSpeed]);
 
+  // Group characters by words for proper wrapping
+  const wordGroups: { chars: typeof charSpans; wordIndex: number }[] = [];
+  let currentWord: typeof charSpans = [];
+  let currentWordIndex = -1;
+
+  charSpans.forEach((span, index) => {
+    if (span.wordIndex !== currentWordIndex) {
+      if (currentWord.length > 0) {
+        wordGroups.push({ chars: currentWord, wordIndex: currentWordIndex });
+      }
+      currentWord = [];
+      currentWordIndex = span.wordIndex;
+    }
+    currentWord.push({ ...span, originalIndex: index });
+  });
+  
+  if (currentWord.length > 0) {
+    wordGroups.push({ chars: currentWord, wordIndex: currentWordIndex });
+  }
+
   return (
     <span className={className}>
-      {charSpans.map((span, index) => {
-        const adjustedIndex = index + startOffset;
-        const isVisible = adjustedIndex < globalVisibleLetters;
-        
-        return (
-          <span
-            key={index}
-            className={`${span.isWordEnd ? 'inline-block' : 'inline-block'} transition-all duration-300 ease-out ${
-              isVisible 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-4'
-            }`}
-            style={{
-              transitionDelay: `${Math.max(0, (adjustedIndex - globalVisibleLetters) * 20)}ms`,
-              whiteSpace: span.isWordEnd ? 'nowrap' : 'normal'
-            }}
-          >
-            {span.char === ' ' ? '\u00A0' : span.char}
-          </span>
-        );
-      })}
+      {wordGroups.map((wordGroup, groupIndex) => (
+        <span key={groupIndex} className="inline-block" style={{ whiteSpace: 'nowrap' }}>
+          {wordGroup.chars.map((span, charIndex) => {
+            const originalIndex = (span as any).originalIndex;
+            const globalIndex = startOffset + originalIndex;
+            const isVisible = globalIndex < globalVisibleLetters;
+            return (
+              <span
+                key={originalIndex}
+                className={`inline-block transition-all duration-300 ease-out ${
+                  isVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-4'
+                }`}
+                style={{
+                  transitionDelay: `${Math.max(0, (globalIndex - globalVisibleLetters) * 20)}ms`
+                }}
+              >
+                {span.char === ' ' ? '\u00A0' : span.char}
+              </span>
+            );
+          })}
+        </span>
+      ))}
     </span>
   );
 }
