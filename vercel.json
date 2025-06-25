@@ -24,26 +24,26 @@
       ]
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
+      "source": "/assets/(.*)",
+      "destination": "/assets/$1"
     },
     {
-      "src": "/fonts/(.*)",
-      "dest": "/fonts/$1"
+      "source": "/fonts/(.*)",
+      "destination": "/fonts/$1"
     },
     {
-      "src": "/images/(.*)",
-      "dest": "/images/$1"
+      "source": "/images/(.*)",
+      "destination": "/images/$1"
     },
     {
-      "src": "/icons/(.*)",
-      "dest": "/icons/$1"
+      "source": "/icons/(.*)",
+      "destination": "/icons/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
