@@ -752,6 +752,11 @@ export default function PlatformerGame() {
           // Change player color to random pastel only when triggering character animations
           player.color = getRandomPastelColor();
           
+          // Create sparkle particles at collision point
+          const collisionX = player.x + player.width / 2;
+          const collisionY = block.y + block.height;
+          createSparkleParticles(collisionX, collisionY, gameState.particles);
+          
           // Find all characters in this block and trigger their jump animations
           const blockText = block.text;
           let jumpedCount = 0;
@@ -813,6 +818,11 @@ export default function PlatformerGame() {
     for (const character of gameState.characters) {
       character.update(clampedDeltaTime * 1000, gameElapsedTime); // Convert to milliseconds
     }
+
+    // Update particles and remove dead ones
+    gameState.particles = gameState.particles.filter(particle => 
+      particle.update(clampedDeltaTime)
+    );
 
     // No ground rendering - transparent background
 
@@ -877,6 +887,11 @@ export default function PlatformerGame() {
     
     // Restore context
     ctx.restore();
+
+    // Render sparkle particles
+    for (const particle of gameState.particles) {
+      particle.render(ctx);
+    }
 
     animationRef.current = requestAnimationFrame(gameLoop);
   }, []);
