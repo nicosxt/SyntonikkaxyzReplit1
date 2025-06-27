@@ -12,7 +12,7 @@ export default function PlatformerPage() {
       {/* BACK Button - fixed at bottom left under smiley face, non-swipeable */}
       <div className="fixed bottom-8 left-8 z-20 pointer-events-auto" style={{ touchAction: 'none' }}>
         <Link href="/">
-          <button className="glass-button flex items-center gap-2 text-gray-800 dark:text-white hover:translate-x-[-4px] hover:scale-105 px-6 py-3">
+          <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:translate-x-[-4px] hover:scale-105 px-6 py-3">
             <ArrowLeft className="w-6 h-6 transition-transform duration-300 hover:translate-x-[-4px]" />
             <span className="text-lg font-light">BACK</span>
           </button>

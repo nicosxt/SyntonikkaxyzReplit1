@@ -79,7 +79,7 @@ function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpee
       currentWord = [];
       currentWordIndex = span.wordIndex;
     }
-    currentWord.push({ ...span, originalIndex: index } as CharWithIndex);
+    currentWord.push({ ...span, originalIndex: index });
   });
   
   if (currentWord.length > 0) {

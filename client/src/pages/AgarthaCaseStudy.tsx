@@ -55,7 +55,7 @@ export default function AgarthaCaseStudy() {
             href="https://agartha.one/"
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-card block w-full cursor-pointer aspect-video"
+            className="block w-full cursor-pointer bg-white/5 rounded-2xl aspect-video border border-white/10 hover:bg-white/10 transition-colors"
           >
             <img
               src="/images/case-studies/agartha/newweb_intro.gif"

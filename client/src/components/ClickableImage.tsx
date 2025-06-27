@@ -13,7 +13,7 @@ export default function ClickableImage({
   src, 
   alt, 
   placeholderText = "Image Placeholder", 
-  className = "glass-card aspect-video flex items-center justify-center cursor-pointer"
+  className = "bg-white/5 rounded-2xl aspect-video flex items-center justify-center border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
 }: ClickableImageProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
