@@ -785,12 +785,10 @@ export default function PlatformerGame() {
     <div className="fixed inset-0 w-full h-full pointer-events-none">
       <canvas
         ref={canvasRef}
-        className="block w-full h-full pointer-events-auto bg-transparent"
+        className="fixed inset-0 w-full h-full pointer-events-auto bg-transparent"
         style={{
           touchAction: "none",
           backgroundColor: "transparent",
-          width: dimensions.width + "px",
-          height: dimensions.height + "px",
         }}
       />
 
