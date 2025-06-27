@@ -597,9 +597,8 @@ export default function PlatformerGame() {
       gameState.keys["S"] ||
       gameState.touchControls.jump;
 
-    // Test animation with 'T' key
+    // Test animation with 'T' key - trigger jump animation
     if (gameState.keys["t"] || gameState.keys["T"]) {
-      // Trigger animation for first few characters as a test
       gameState.characters.slice(0, 5).forEach(char => char.triggerJump());
     }
 
