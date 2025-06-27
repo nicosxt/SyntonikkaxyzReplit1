@@ -74,6 +74,16 @@ class Character {
     delay: number;
   };
 
+  // Rainbow gradient animation properties
+  rainbowAnimation: {
+    active: boolean;
+    timeRemaining: number;
+    startTime: number;
+    collisionX: number;
+    collisionY: number;
+    progress: number;
+  };
+
   // Styling to match landing page
   textColor: string;
   font: string;
@@ -107,6 +117,15 @@ class Character {
       delay: index * 30 + 500, // Stagger delay like home page: 30ms per character + 500ms initial delay
     };
 
+    this.rainbowAnimation = {
+      active: false,
+      timeRemaining: 0,
+      startTime: 0,
+      collisionX: 0,
+      collisionY: 0,
+      progress: 0,
+    };
+
     // Match landing page styling: text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300
     this.textColor = "#9CA3AF"; // text-gray-400 for better contrast on dark background
     this.font = "'PP Neue Montreal', Arial, Helvetica, sans-serif";
@@ -121,21 +140,6 @@ class Character {
 
     ctx.save();
 
-    // Set text styling to match landing page with fade opacity
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    const baseColor = isDarkMode ? "#D1D5DB" : "#6B7280"; // text-gray-300 : text-gray-500
-
-    // Apply fade opacity to color
-    const r = parseInt(baseColor.slice(1, 3), 16);
-    const g = parseInt(baseColor.slice(3, 5), 16);
-    const b = parseInt(baseColor.slice(5, 7), 16);
-    ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${this.fadeAnimation.opacity})`;
-
-    ctx.font = `300 ${this.fontSize}px ${this.font}`; // 300 = font-light
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.imageSmoothingEnabled = true;
-
     // Calculate text position (centered in character bounds)
     const textX = this.x + this.width / 2;
     const textY = this.y + this.height / 2;
@@ -145,7 +149,52 @@ class Character {
       ? this.jumpAnimation.jumpHeight
       : 0;
 
-    ctx.fillText(this.char, textX, textY + jumpOffset);
+    const finalY = textY + jumpOffset;
+
+    // Set base text styling
+    ctx.font = `300 ${this.fontSize}px ${this.font}`; // 300 = font-light
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.imageSmoothingEnabled = true;
+
+    if (this.rainbowAnimation.active) {
+      // Render rainbow gradient text
+      const distanceFromCollision = Math.sqrt(
+        Math.pow(textX - this.rainbowAnimation.collisionX, 2) +
+        Math.pow(finalY - this.rainbowAnimation.collisionY, 2)
+      );
+      
+      // Create gradient radius based on distance and animation progress
+      const maxRadius = 200; // Maximum gradient radius
+      const gradientRadius = Math.max(50, maxRadius * this.rainbowAnimation.progress);
+      
+      // Create the rainbow gradient
+      const gradient = createRainbowGradient(
+        ctx,
+        this.rainbowAnimation.collisionX,
+        this.rainbowAnimation.collisionY,
+        gradientRadius,
+        this.rainbowAnimation.progress
+      );
+      
+      ctx.fillStyle = gradient;
+      
+      // Apply fade animation opacity
+      ctx.globalAlpha = this.fadeAnimation.opacity;
+      
+    } else {
+      // Normal rendering with theme colors
+      const isDarkMode = document.documentElement.classList.contains("dark");
+      const baseColor = isDarkMode ? "#D1D5DB" : "#6B7280"; // text-gray-300 : text-gray-500
+
+      // Apply fade opacity to color
+      const r = parseInt(baseColor.slice(1, 3), 16);
+      const g = parseInt(baseColor.slice(3, 5), 16);
+      const b = parseInt(baseColor.slice(5, 7), 16);
+      ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${this.fadeAnimation.opacity})`;
+    }
+
+    ctx.fillText(this.char, textX, finalY);
     ctx.restore();
   }
 
@@ -156,6 +205,16 @@ class Character {
     this.jumpAnimation.timeRemaining = 800; // 800ms animation
     this.jumpAnimation.bounceVelocity = -12; // Strong initial upward velocity
     this.jumpAnimation.jumpHeight = 0;
+  }
+
+  // Trigger rainbow gradient animation
+  triggerRainbow(collisionX: number, collisionY: number) {
+    this.rainbowAnimation.active = true;
+    this.rainbowAnimation.timeRemaining = 1000; // 1000ms animation (1 second)
+    this.rainbowAnimation.startTime = performance.now();
+    this.rainbowAnimation.collisionX = collisionX;
+    this.rainbowAnimation.collisionY = collisionY;
+    this.rainbowAnimation.progress = 0;
   }
 
   // Update animation
@@ -193,6 +252,21 @@ class Character {
       if (this.jumpAnimation.timeRemaining <= 0) {
         this.jumpAnimation.active = false;
         this.jumpAnimation.jumpHeight = 0;
+      }
+    }
+
+    // Handle rainbow animation
+    if (this.rainbowAnimation.active) {
+      this.rainbowAnimation.timeRemaining -= deltaTime;
+      
+      // Calculate progress (0 to 1 over the duration)
+      const totalDuration = 1000; // 1 second
+      this.rainbowAnimation.progress = Math.min(1, (totalDuration - this.rainbowAnimation.timeRemaining) / totalDuration);
+      
+      // Stop animation after duration
+      if (this.rainbowAnimation.timeRemaining <= 0) {
+        this.rainbowAnimation.active = false;
+        this.rainbowAnimation.progress = 0;
       }
     }
   }
@@ -344,6 +418,34 @@ const PASTEL_COLORS = [
 // Function to get random pastel color
 const getRandomPastelColor = (): string => {
   return PASTEL_COLORS[Math.floor(Math.random() * PASTEL_COLORS.length)];
+};
+
+// Function to get rainbow color based on progress (0-1)
+const getRainbowColor = (progress: number): string => {
+  // Create a smooth rainbow transition
+  const hue = (progress * 360) % 360;
+  return `hsl(${hue}, 70%, 60%)`;
+};
+
+// Function to create radial rainbow gradient
+const createRainbowGradient = (
+  ctx: CanvasRenderingContext2D,
+  centerX: number,
+  centerY: number,
+  radius: number,
+  progress: number
+): CanvasGradient => {
+  const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
+  
+  // Create rainbow stops
+  const numStops = 7;
+  for (let i = 0; i < numStops; i++) {
+    const stopPosition = i / (numStops - 1);
+    const hue = ((progress * 360) + (stopPosition * 60)) % 360;
+    gradient.addColorStop(stopPosition, `hsla(${hue}, 70%, 60%, ${1 - stopPosition * 0.3})`);
+  }
+  
+  return gradient;
 };
 
 // Function to create sparkle particles at collision point
