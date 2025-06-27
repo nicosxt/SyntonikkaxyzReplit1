@@ -18,7 +18,7 @@ class Particle {
     const speed = Math.random() * 150 + 50; // Speed between 50-200 pixels/second
     this.velocityX = Math.cos(angle) * speed;
     this.velocityY = Math.sin(angle) * speed;
-    this.size = Math.random() * 3 + 2; // Size between 2-5 pixels
+    this.size = Math.random() * 1 + 1; // Size between 2-5 pixels
     this.maxLife = Math.random() * 800 + 600; // Life between 600-1400ms
     this.life = this.maxLife;
     this.color = color;
@@ -28,19 +28,19 @@ class Particle {
     // Update position
     this.x += this.velocityX * deltaTime;
     this.y += this.velocityY * deltaTime;
-    
+
     // Apply light gravity to particles
     this.velocityY += 200 * deltaTime; // Light gravity effect
-    
+
     // Fade out over time
     this.life -= deltaTime * 1000; // Convert to milliseconds
-    
+
     return this.life > 0;
   }
 
   render(ctx: CanvasRenderingContext2D) {
     const opacity = Math.max(0, this.life / this.maxLife);
-    
+
     ctx.save();
     ctx.globalAlpha = opacity;
     ctx.fillStyle = this.color;
@@ -58,7 +58,7 @@ class Character {
   height: number;
   char: string;
   originalY: number;
-  
+
   // Animation properties
   jumpAnimation: {
     active: boolean;
@@ -79,25 +79,32 @@ class Character {
   font: string;
   fontSize: number;
 
-  constructor(x: number, y: number, width: number, height: number, char: string, index: number = 0) {
+  constructor(
+    x: number,
+    y: number,
+    width: number,
+    height: number,
+    char: string,
+    index: number = 0,
+  ) {
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
     this.char = char;
     this.originalY = y;
-    
+
     this.jumpAnimation = {
       active: false,
       timeRemaining: 0,
       jumpHeight: 0,
-      bounceVelocity: 0
+      bounceVelocity: 0,
     };
 
     this.fadeAnimation = {
       opacity: 0,
       isVisible: false,
-      delay: index * 30 + 500 // Stagger delay like home page: 30ms per character + 500ms initial delay
+      delay: index * 30 + 500, // Stagger delay like home page: 30ms per character + 500ms initial delay
     };
 
     // Match landing page styling: text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300
@@ -113,17 +120,17 @@ class Character {
     }
 
     ctx.save();
-    
+
     // Set text styling to match landing page with fade opacity
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    const baseColor = isDarkMode ? '#D1D5DB' : '#6B7280'; // text-gray-300 : text-gray-500
-    
+    const isDarkMode = document.documentElement.classList.contains("dark");
+    const baseColor = isDarkMode ? "#D1D5DB" : "#6B7280"; // text-gray-300 : text-gray-500
+
     // Apply fade opacity to color
     const r = parseInt(baseColor.slice(1, 3), 16);
     const g = parseInt(baseColor.slice(3, 5), 16);
     const b = parseInt(baseColor.slice(5, 7), 16);
     ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${this.fadeAnimation.opacity})`;
-    
+
     ctx.font = `300 ${this.fontSize}px ${this.font}`; // 300 = font-light
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -134,8 +141,10 @@ class Character {
     const textY = this.y + this.height / 2;
 
     // Apply jump animation offset
-    const jumpOffset = this.jumpAnimation.active ? this.jumpAnimation.jumpHeight : 0;
-    
+    const jumpOffset = this.jumpAnimation.active
+      ? this.jumpAnimation.jumpHeight
+      : 0;
+
     ctx.fillText(this.char, textX, textY + jumpOffset);
     ctx.restore();
   }
@@ -152,13 +161,19 @@ class Character {
   // Update animation
   update(deltaTime: number, gameStartTime: number) {
     // Handle fade-in animation
-    if (!this.fadeAnimation.isVisible && gameStartTime >= this.fadeAnimation.delay) {
+    if (
+      !this.fadeAnimation.isVisible &&
+      gameStartTime >= this.fadeAnimation.delay
+    ) {
       this.fadeAnimation.isVisible = true;
     }
-    
+
     if (this.fadeAnimation.isVisible && this.fadeAnimation.opacity < 1) {
       // Fade in over 200ms
-      this.fadeAnimation.opacity = Math.min(1, this.fadeAnimation.opacity + (deltaTime / 200));
+      this.fadeAnimation.opacity = Math.min(
+        1,
+        this.fadeAnimation.opacity + deltaTime / 200,
+      );
     }
 
     // Handle jump animation
@@ -166,14 +181,14 @@ class Character {
       // Apply gravity-like physics to bounce
       this.jumpAnimation.bounceVelocity += 1.5; // Gravity
       this.jumpAnimation.jumpHeight += this.jumpAnimation.bounceVelocity;
-      
+
       // Stop animation when character returns to original position or below
       if (this.jumpAnimation.jumpHeight >= 0) {
         this.jumpAnimation.jumpHeight = 0;
         this.jumpAnimation.active = false;
         this.jumpAnimation.bounceVelocity = 0;
       }
-      
+
       this.jumpAnimation.timeRemaining -= deltaTime;
       if (this.jumpAnimation.timeRemaining <= 0) {
         this.jumpAnimation.active = false;
@@ -270,9 +285,12 @@ class Block {
     if (options.font !== undefined) this.font = options.font;
     if (options.fontSize !== undefined) this.fontSize = options.fontSize;
     if (options.padding !== undefined) this.padding = options.padding;
-    if (options.horizontalPadding !== undefined) this.horizontalPadding = options.horizontalPadding;
-    if (options.borderRadius !== undefined) this.borderRadius = options.borderRadius;
-    if (options.letterSpacing !== undefined) this.letterSpacing = options.letterSpacing;
+    if (options.horizontalPadding !== undefined)
+      this.horizontalPadding = options.horizontalPadding;
+    if (options.borderRadius !== undefined)
+      this.borderRadius = options.borderRadius;
+    if (options.letterSpacing !== undefined)
+      this.letterSpacing = options.letterSpacing;
   }
 }
 
@@ -311,16 +329,16 @@ const BLOCK_GAP = 100; // Uniform gap between aligned blocks in pixels
 
 // Pastel rainbow color palette
 const PASTEL_COLORS = [
-  '#FFB3E6', // Pastel pink
-  '#B3E5FF', // Pastel blue
-  '#B3FFB3', // Pastel green
-  '#FFFFB3', // Pastel yellow
-  '#FFD1B3', // Pastel orange
-  '#E6B3FF', // Pastel purple
-  '#B3FFFF', // Pastel cyan
-  '#FFB3D1', // Pastel rose
-  '#D1FFB3', // Pastel lime
-  '#B3D1FF', // Pastel sky blue
+  "#FFB3E6", // Pastel pink
+  "#B3E5FF", // Pastel blue
+  "#B3FFB3", // Pastel green
+  "#FFFFB3", // Pastel yellow
+  "#FFD1B3", // Pastel orange
+  "#E6B3FF", // Pastel purple
+  "#B3FFFF", // Pastel cyan
+  "#FFB3D1", // Pastel rose
+  "#D1FFB3", // Pastel lime
+  "#B3D1FF", // Pastel sky blue
 ];
 
 // Function to get random pastel color
@@ -329,14 +347,18 @@ const getRandomPastelColor = (): string => {
 };
 
 // Function to create sparkle particles at collision point
-const createSparkleParticles = (x: number, y: number, particles: Particle[]) => {
+const createSparkleParticles = (
+  x: number,
+  y: number,
+  particles: Particle[],
+) => {
   // Get text color based on theme for particles
-  const isDarkMode = document.documentElement.classList.contains('dark');
-  const particleColor = isDarkMode ? '#D1D5DB' : '#6B7280'; // Same as text color
-  
+  const isDarkMode = document.documentElement.classList.contains("dark");
+  const particleColor = isDarkMode ? "#D1D5DB" : "#6B7280"; // Same as text color
+
   // Create 20-50 particles
-  const particleCount = Math.floor(Math.random() * 31) + 20; // 20-50 particles
-  
+  const particleCount = Math.floor(Math.random() * 15) + 10; // 20-50 particles
+
   for (let i = 0; i < particleCount; i++) {
     particles.push(new Particle(x, y, particleColor));
   }
@@ -502,60 +524,63 @@ export default function PlatformerGame() {
   );
 
   // Create individual characters from blocks
-  const createCharactersFromBlocks = useCallback((blocks: Block[]): Character[] => {
-    const characters: Character[] = [];
-    
-    blocks.forEach(block => {
-      const text = block.text;
-      const chars = text.split('');
-      
-      // Measure character spacing
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      
-      ctx.font = `300 29px 'PP Neue Montreal', Arial, Helvetica, sans-serif`;
-      
-      // Calculate total text width and individual character widths
-      const totalTextWidth = ctx.measureText(text).width;
-      const charWidths = chars.map(char => ctx.measureText(char).width);
-      
-      // Calculate starting position to center the text within the block
-      const startX = block.x + (block.width - totalTextWidth) / 2;
-      const charY = block.y;
-      
-      // Create character objects
-      let currentX = startX;
-      chars.forEach((char, charIndex) => {
-        if (char !== ' ') { // Skip spaces
-          const charWidth = charWidths[charIndex];
-          const charHeight = block.height;
-          
-          const newChar = new Character(
-            currentX,
-            charY,
-            charWidth + 10, // Add some padding for collision detection
-            charHeight,
-            char,
-            characters.length // Use total character count as index for staggered animation
-          );
-          
-          characters.push(newChar);
-        }
-        currentX += charWidths[charIndex];
-      });
-    });
-    
+  const createCharactersFromBlocks = useCallback(
+    (blocks: Block[]): Character[] => {
+      const characters: Character[] = [];
 
-    return characters;
-  }, []);
+      blocks.forEach((block) => {
+        const text = block.text;
+        const chars = text.split("");
+
+        // Measure character spacing
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        ctx.font = `300 29px 'PP Neue Montreal', Arial, Helvetica, sans-serif`;
+
+        // Calculate total text width and individual character widths
+        const totalTextWidth = ctx.measureText(text).width;
+        const charWidths = chars.map((char) => ctx.measureText(char).width);
+
+        // Calculate starting position to center the text within the block
+        const startX = block.x + (block.width - totalTextWidth) / 2;
+        const charY = block.y;
+
+        // Create character objects
+        let currentX = startX;
+        chars.forEach((char, charIndex) => {
+          if (char !== " ") {
+            // Skip spaces
+            const charWidth = charWidths[charIndex];
+            const charHeight = block.height;
+
+            const newChar = new Character(
+              currentX,
+              charY,
+              charWidth + 10, // Add some padding for collision detection
+              charHeight,
+              char,
+              characters.length, // Use total character count as index for staggered animation
+            );
+
+            characters.push(newChar);
+          }
+          currentX += charWidths[charIndex];
+        });
+      });
+
+      return characters;
+    },
+    [],
+  );
 
   // Initialize game state
   const initializeGameState = useCallback(
     (canvasWidth: number, canvasHeight: number): GameState => {
       const blocks = initializeBlocks(canvasWidth, canvasHeight);
       const characters = createCharactersFromBlocks(blocks);
-      
+
       return {
         player: {
           x: 50,
@@ -675,7 +700,7 @@ export default function PlatformerGame() {
 
     // Test animation with 'T' key - trigger jump animation
     if (gameState.keys["t"] || gameState.keys["T"]) {
-      gameState.characters.slice(0, 5).forEach(char => char.triggerJump());
+      gameState.characters.slice(0, 5).forEach((char) => char.triggerJump());
     }
 
     // Skip physics on first frame when deltaTime is 0
@@ -716,7 +741,7 @@ export default function PlatformerGame() {
       // Update position using delta time
       player.x += player.velocityX * clampedDeltaTime;
       player.y += player.velocityY * clampedDeltaTime;
-      
+
       // No scaling animation - just color changes on collision
     }
 
@@ -751,38 +776,43 @@ export default function PlatformerGame() {
         if (player.velocityY < 0 && player.y > block.y) {
           // Change player color to random pastel only when triggering character animations
           player.color = getRandomPastelColor();
-          
+
           // Create sparkle particles at collision point
           const collisionX = player.x + player.width / 2;
           const collisionY = block.y + block.height;
           createSparkleParticles(collisionX, collisionY, gameState.particles);
-          
+
           // Find all characters in this block and trigger their jump animations
           const blockText = block.text;
           let jumpedCount = 0;
-          gameState.characters.forEach(character => {
+          gameState.characters.forEach((character) => {
             // More lenient collision detection - check if character overlaps with block area
             const charCenterX = character.x + character.width / 2;
             const charCenterY = character.y + character.height / 2;
             const blockCenterX = block.x + block.width / 2;
             const blockCenterY = block.y + block.height / 2;
-            
+
             // Check if character is close to this block (within reasonable distance)
             const distanceX = Math.abs(charCenterX - blockCenterX);
             const distanceY = Math.abs(charCenterY - blockCenterY);
-            
-            if (distanceX <= block.width / 2 + 20 && distanceY <= block.height / 2 + 10) {
+
+            if (
+              distanceX <= block.width / 2 + 20 &&
+              distanceY <= block.height / 2 + 10
+            ) {
               character.triggerJump();
               jumpedCount++;
             }
           });
-          
+
           // Debug logging for MULTI-DISCIPLINARY block
           if (blockText === "MULTI-DISCIPLINARY") {
-            console.log(`MULTI-DISCIPLINARY: ${jumpedCount} characters jumped out of ${blockText.replace(/\s/g, '').length}`);
+            console.log(
+              `MULTI-DISCIPLINARY: ${jumpedCount} characters jumped out of ${blockText.replace(/\s/g, "").length}`,
+            );
           }
         }
-        
+
         // Top collision (landing on block)
         if (player.velocityY > 0 && player.y < block.y) {
           player.y = block.y - player.height;
@@ -805,13 +835,11 @@ export default function PlatformerGame() {
       }
     }
 
-
-
     // Initialize game start time on first frame
     if (gameStartTimeRef.current === 0) {
       gameStartTimeRef.current = currentTime;
     }
-    
+
     const gameElapsedTime = currentTime - gameStartTimeRef.current;
 
     // Update all characters
@@ -820,8 +848,8 @@ export default function PlatformerGame() {
     }
 
     // Update particles and remove dead ones
-    gameState.particles = gameState.particles.filter(particle => 
-      particle.update(clampedDeltaTime)
+    gameState.particles = gameState.particles.filter((particle) =>
+      particle.update(clampedDeltaTime),
     );
 
     // No ground rendering - transparent background
@@ -829,8 +857,8 @@ export default function PlatformerGame() {
     // Draw characters with landing page styling and jump animations
     for (const character of gameState.characters) {
       // Update character color based on theme to match landing page
-      const isDarkMode = document.documentElement.classList.contains('dark');
-      character.textColor = isDarkMode ? '#D1D5DB' : '#6B7280'; // text-gray-300 : text-gray-500
+      const isDarkMode = document.documentElement.classList.contains("dark");
+      character.textColor = isDarkMode ? "#D1D5DB" : "#6B7280"; // text-gray-300 : text-gray-500
       character.render(ctx);
     }
 
@@ -838,15 +866,15 @@ export default function PlatformerGame() {
     const centerX = player.x + player.width / 2;
     const centerY = player.y + player.height / 2 - 10;
     const baseRadius = (Math.min(player.width, player.height) / 2) * 1.1; // 10% bigger
-    
+
     // Get the block styling for consistent outline - match text block colors
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    const blockBorderColor = isDarkMode ? '#D1D5DB' : '#6B7280'; // Same as text: text-gray-300 : text-gray-500
+    const isDarkMode = document.documentElement.classList.contains("dark");
+    const blockBorderColor = isDarkMode ? "#D1D5DB" : "#6B7280"; // Same as text: text-gray-300 : text-gray-500
     const blockBorderWidth = 1;
-    
+
     // Save context for scaling
     ctx.save();
-    
+
     // Draw main circle (face) with dynamic color
     ctx.beginPath();
     ctx.arc(centerX, centerY, baseRadius, 0, Math.PI * 2);
@@ -855,36 +883,58 @@ export default function PlatformerGame() {
     ctx.strokeStyle = blockBorderColor; // Same color as blocks
     ctx.lineWidth = blockBorderWidth; // Same width as blocks
     ctx.stroke();
-    
+
     // Draw left eye
     const eyeOffsetX = baseRadius * 0.3;
     const eyeOffsetY = baseRadius * 0.25;
     const eyeWidth = baseRadius * 0.15;
     const eyeHeight = baseRadius * 0.3;
-    
+
     ctx.beginPath();
-    ctx.ellipse(centerX - eyeOffsetX, centerY - eyeOffsetY, eyeWidth, eyeHeight, 0, 0, Math.PI * 2);
+    ctx.ellipse(
+      centerX - eyeOffsetX,
+      centerY - eyeOffsetY,
+      eyeWidth,
+      eyeHeight,
+      0,
+      0,
+      Math.PI * 2,
+    );
     ctx.fillStyle = "#000000";
     ctx.fill();
-    
+
     // Draw right eye (scaled with animation)
     ctx.beginPath();
-    ctx.ellipse(centerX + eyeOffsetX, centerY - eyeOffsetY, eyeWidth, eyeHeight, 0, 0, Math.PI * 2);
+    ctx.ellipse(
+      centerX + eyeOffsetX,
+      centerY - eyeOffsetY,
+      eyeWidth,
+      eyeHeight,
+      0,
+      0,
+      Math.PI * 2,
+    );
     ctx.fillStyle = "#000000";
     ctx.fill();
-    
+
     // Draw smile (arc)
     const smileRadius = baseRadius * 0.5;
     const smileStartAngle = Math.PI * 0.2;
     const smileEndAngle = Math.PI * 0.8;
-    
+
     ctx.beginPath();
-    ctx.arc(centerX, centerY + baseRadius * 0.1, smileRadius, smileStartAngle, smileEndAngle);
+    ctx.arc(
+      centerX,
+      centerY + baseRadius * 0.1,
+      smileRadius,
+      smileStartAngle,
+      smileEndAngle,
+    );
     ctx.strokeStyle = "#000000";
     ctx.lineWidth = 3;
     ctx.lineCap = "round";
     ctx.stroke();
-    
+
     // Restore context
     ctx.restore();
 
@@ -1021,7 +1071,6 @@ export default function PlatformerGame() {
           backgroundColor: "transparent",
         }}
       />
-
     </div>
   );
 }
