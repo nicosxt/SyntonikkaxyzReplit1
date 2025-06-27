@@ -39,7 +39,7 @@ class Character {
     // Match landing page styling: text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300
     this.textColor = "#9CA3AF"; // text-gray-400 for better contrast on dark background
     this.font = "'PP Neue Montreal', Arial, Helvetica, sans-serif";
-    this.fontSize = 48; // Larger size for game visibility
+    this.fontSize = 29; // 60% of original 48px size
   }
 
   render(ctx: CanvasRenderingContext2D) {
@@ -397,7 +397,7 @@ export default function PlatformerGame() {
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
       
-      ctx.font = `300 48px 'PP Neue Montreal', Arial, Helvetica, sans-serif`;
+      ctx.font = `300 29px 'PP Neue Montreal', Arial, Helvetica, sans-serif`;
       
       // Calculate total text width and individual character widths
       const totalTextWidth = ctx.measureText(text).width;
