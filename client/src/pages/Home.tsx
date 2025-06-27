@@ -134,7 +134,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col justify-center max-w-6xl mx-auto px-4 md:px-8" style={{ marginLeft: '15%', marginRight: '15%' }}>
+    <div className="h-screen fixed inset-0 flex flex-col justify-center max-w-6xl mx-auto px-4 md:px-8" style={{ marginLeft: '15%', marginRight: '15%' }}>
       
       {/* Left-aligned text section */}
       <div className="mb-12 text-left">
