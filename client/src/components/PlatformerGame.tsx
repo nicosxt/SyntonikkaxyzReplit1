@@ -59,9 +59,7 @@ class Character {
     // Apply jump animation offset
     const jumpOffset = this.jumpAnimation.active ? this.jumpAnimation.jumpHeight : 0;
     
-    if (this.jumpAnimation.active) {
-      console.log(`Character '${this.char}' rendering with jumpOffset: ${jumpOffset}`);
-    }
+
     
     ctx.fillText(this.char, textX, textY + jumpOffset);
     ctx.restore();
@@ -71,19 +69,16 @@ class Character {
   triggerJump() {
     // Always trigger jump, even if already active (for continuous bouncing)
     this.jumpAnimation.active = true;
-    this.jumpAnimation.timeRemaining = 1000; // 1 second animation
-    this.jumpAnimation.bounceVelocity = -25; // Much stronger initial upward velocity
+    this.jumpAnimation.timeRemaining = 800; // 800ms animation
+    this.jumpAnimation.bounceVelocity = -20; // Strong initial upward velocity
     this.jumpAnimation.jumpHeight = 0;
-    console.log(`Character '${this.char}' jump animation STARTED`);
   }
 
   // Update animation
   update(deltaTime: number) {
     if (this.jumpAnimation.active) {
-      console.log(`Character '${this.char}' updating: jumpHeight=${this.jumpAnimation.jumpHeight}, velocity=${this.jumpAnimation.bounceVelocity}`);
-      
       // Apply gravity-like physics to bounce
-      this.jumpAnimation.bounceVelocity += 1.5; // Stronger gravity for faster fall
+      this.jumpAnimation.bounceVelocity += 1.5; // Gravity
       this.jumpAnimation.jumpHeight += this.jumpAnimation.bounceVelocity;
       
       // Stop animation when character returns to original position or below
@@ -91,14 +86,12 @@ class Character {
         this.jumpAnimation.jumpHeight = 0;
         this.jumpAnimation.active = false;
         this.jumpAnimation.bounceVelocity = 0;
-        console.log(`Character '${this.char}' animation ENDED`);
       }
       
       this.jumpAnimation.timeRemaining -= deltaTime;
       if (this.jumpAnimation.timeRemaining <= 0) {
         this.jumpAnimation.active = false;
         this.jumpAnimation.jumpHeight = 0;
-        console.log(`Character '${this.char}' animation TIMED OUT`);
       }
     }
   }
@@ -658,6 +651,19 @@ export default function PlatformerGame() {
         player.bopAnimation.timeRemaining = 0.3; // 300ms animation
         player.bopAnimation.scale = 1.2; // Scale up by 20%
         
+        // TRIGGER CHARACTER ANIMATIONS when hitting block from below
+        if (player.velocityY < 0 && player.y > block.y) {
+          // Find all characters in this block and trigger their jump animations
+          const blockText = block.text;
+          gameState.characters.forEach(character => {
+            // Check if character belongs to this block by position
+            if (character.x >= block.x && character.x <= block.x + block.width &&
+                character.y >= block.y && character.y <= block.y + block.height) {
+              character.triggerJump();
+            }
+          });
+        }
+        
         // Top collision (landing on block)
         if (player.velocityY > 0 && player.y < block.y) {
           player.y = block.y - player.height;
@@ -680,25 +686,7 @@ export default function PlatformerGame() {
       }
     }
 
-    // Character collisions - check if player bops characters from underneath
-    for (const character of gameState.characters) {
-      if (checkCollision(player, character)) {
-        console.log(`COLLISION DETECTED with '${character.char}' - Player velocityY: ${player.velocityY}`);
-        // Simplified collision - trigger jump whenever there's any collision with upward velocity
-        if (player.velocityY < 0) {
-          console.log(`TRIGGERING JUMP for '${character.char}'`);
-          character.triggerJump();
-          
-          // Trigger player bop animation
-          player.bopAnimation.active = true;
-          player.bopAnimation.timeRemaining = 0.3;
-          player.bopAnimation.scale = 1.2;
-          
-          // Bounce the player downward slightly
-          player.velocityY = 100; // Small downward velocity
-        }
-      }
-    }
+
 
     // Update all characters
     for (const character of gameState.characters) {
