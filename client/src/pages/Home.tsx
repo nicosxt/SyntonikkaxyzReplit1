@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Gamepad2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getLetterSpeed } from "../config/animations";
 
@@ -164,9 +164,9 @@ export default function Home() {
       }`} style={{ transitionDelay: '500ms' }}>
         {/* GAME Button - Bottom Left */}
         <Link href="/game">
-          <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:translate-x-1 hover:scale-105">
+          <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:scale-105">
+            <Gamepad2 className="w-6 h-6 transition-transform duration-300" />
             <span className="text-lg font-light">GAME</span>
-            <ArrowRight className="w-6 h-6 transition-transform duration-300 hover:translate-x-1" />
           </button>
         </Link>
         
