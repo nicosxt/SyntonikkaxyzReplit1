@@ -67,16 +67,17 @@ class Character {
   triggerJump() {
     // Always trigger jump, even if already active (for continuous bouncing)
     this.jumpAnimation.active = true;
-    this.jumpAnimation.timeRemaining = 800; // 800ms animation
-    this.jumpAnimation.bounceVelocity = -15; // Stronger initial upward velocity
+    this.jumpAnimation.timeRemaining = 1000; // 1 second animation
+    this.jumpAnimation.bounceVelocity = -25; // Much stronger initial upward velocity
     this.jumpAnimation.jumpHeight = 0;
+    console.log(`Character '${this.char}' jump triggered!`);
   }
 
   // Update animation
   update(deltaTime: number) {
     if (this.jumpAnimation.active) {
       // Apply gravity-like physics to bounce
-      this.jumpAnimation.bounceVelocity += 1.2; // Stronger gravity for faster fall
+      this.jumpAnimation.bounceVelocity += 1.5; // Stronger gravity for faster fall
       this.jumpAnimation.jumpHeight += this.jumpAnimation.bounceVelocity;
       
       // Stop animation when character returns to original position or below
@@ -413,18 +414,21 @@ export default function PlatformerGame() {
           const charWidth = charWidths[index];
           const charHeight = block.height;
           
-          characters.push(new Character(
+          const newChar = new Character(
             currentX,
             charY,
             charWidth + 10, // Add some padding for collision detection
             charHeight,
             char
-          ));
+          );
+          
+          characters.push(newChar);
         }
         currentX += charWidths[index];
       });
     });
     
+
     return characters;
   }, []);
 
@@ -555,6 +559,12 @@ export default function PlatformerGame() {
       gameState.keys["S"] ||
       gameState.touchControls.jump;
 
+    // Test animation with 'T' key
+    if (gameState.keys["t"] || gameState.keys["T"]) {
+      // Trigger animation for first few characters as a test
+      gameState.characters.slice(0, 5).forEach(char => char.triggerJump());
+    }
+
     // Skip physics on first frame when deltaTime is 0
     if (clampedDeltaTime > 0) {
       // Smooth horizontal movement with acceleration and deceleration
@@ -665,12 +675,16 @@ export default function PlatformerGame() {
     // Character collisions - check if player bops characters from underneath
     for (const character of gameState.characters) {
       if (checkCollision(player, character)) {
-        // Check if player is moving upward and hitting character from below (Super Mario style)
-        const playerCenterY = player.y + player.height / 2;
-        const characterCenterY = character.y + character.height / 2;
+        console.log('Character collision detected!', {
+          playerVelocityY: player.velocityY,
+          playerY: player.y,
+          characterY: character.y,
+          char: character.char
+        });
         
-        if (player.velocityY < 0 && playerCenterY > characterCenterY) {
-          // Player is jumping upward and hitting character from underneath
+        // Simplified collision - trigger jump whenever there's any collision with upward velocity
+        if (player.velocityY < 0) {
+          console.log('Triggering jump animation for character:', character.char);
           character.triggerJump();
           
           // Trigger player bop animation
@@ -678,8 +692,8 @@ export default function PlatformerGame() {
           player.bopAnimation.timeRemaining = 0.3;
           player.bopAnimation.scale = 1.2;
           
-          // Optional: Slightly bounce the player downward
-          player.velocityY = Math.max(player.velocityY * 0.5, 50);
+          // Bounce the player downward slightly
+          player.velocityY = 100; // Small downward velocity
         }
       }
     }
