@@ -65,6 +65,7 @@ class Character {
     timeRemaining: number;
     jumpHeight: number;
     bounceVelocity: number;
+    shakeAngle: number;
   };
 
   // Fade-in animation properties
@@ -109,6 +110,7 @@ class Character {
       timeRemaining: 0,
       jumpHeight: 0,
       bounceVelocity: 0,
+      shakeAngle: 0,
     };
 
     this.fadeAnimation = {
@@ -150,6 +152,13 @@ class Character {
       : 0;
 
     const finalY = textY + jumpOffset;
+
+    // Apply shake rotation if jump animation is active
+    if (this.jumpAnimation.active && this.jumpAnimation.shakeAngle !== 0) {
+      ctx.translate(textX, finalY);
+      ctx.rotate(this.jumpAnimation.shakeAngle * Math.PI / 180);
+      ctx.translate(-textX, -finalY);
+    }
 
     // Set base text styling
     ctx.font = `300 ${this.fontSize}px ${this.font}`; // 300 = font-light
@@ -241,17 +250,24 @@ class Character {
       this.jumpAnimation.bounceVelocity += 1.5; // Gravity
       this.jumpAnimation.jumpHeight += this.jumpAnimation.bounceVelocity;
 
+      // Create subtle shake effect - 3 degree oscillation
+      const shakeIntensity = 3; // 3 degrees
+      const shakeSpeed = 0.02; // Speed of oscillation
+      this.jumpAnimation.shakeAngle = Math.sin(performance.now() * shakeSpeed) * shakeIntensity;
+
       // Stop animation when character returns to original position or below
       if (this.jumpAnimation.jumpHeight >= 0) {
         this.jumpAnimation.jumpHeight = 0;
         this.jumpAnimation.active = false;
         this.jumpAnimation.bounceVelocity = 0;
+        this.jumpAnimation.shakeAngle = 0;
       }
 
       this.jumpAnimation.timeRemaining -= deltaTime;
       if (this.jumpAnimation.timeRemaining <= 0) {
         this.jumpAnimation.active = false;
         this.jumpAnimation.jumpHeight = 0;
+        this.jumpAnimation.shakeAngle = 0;
       }
     }
 
@@ -504,7 +520,7 @@ export default function PlatformerGame() {
       // Define block texts for each row
       const topRowTexts = ["BUILDING", "PROTOPIAN", "BRANDS"];
       const centerRowTexts = ["MULTI-DISCIPLINARY", "DESIGNER"];
-      const bottomRowTexts = ["NICO SHI", "XR", "AI", "IMMERSIVE WORLDS"];
+      const bottomRowTexts = ["XR", "AI", "IMMERSIVE WORLDS"];
 
       // Default styling options for all blocks
       const defaultBlockOptions = {
@@ -557,13 +573,8 @@ export default function PlatformerGame() {
         centerRowWidths.reduce((sum, width) => sum + width, 0) +
         BLOCK_GAP * (centerRowWidths.length - 1);
       const bottomRowWidth =
-        bottomRowWidths[0] +
-        100 +
-        bottomRowWidths[1] +
-        BLOCK_GAP +
-        bottomRowWidths[2] +
-        BLOCK_GAP +
-        bottomRowWidths[3]; // Special spacing for NICO SHI
+        bottomRowWidths.reduce((sum, width) => sum + width, 0) +
+        BLOCK_GAP * (bottomRowWidths.length - 1);
 
       const blocks: Block[] = [];
 
@@ -613,12 +624,7 @@ export default function PlatformerGame() {
           ),
         );
 
-        // Special spacing for bottom row
-        if (index === 0) {
-          currentX += bottomRowWidths[index] + 100; // Larger gap after NICO SHI
-        } else {
-          currentX += bottomRowWidths[index] + BLOCK_GAP;
-        }
+        currentX += bottomRowWidths[index] + BLOCK_GAP;
       });
       return blocks;
     },
