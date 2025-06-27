@@ -54,7 +54,7 @@ export default function EdgeCityCaseStudy() {
           <ClickableImage
             src="/images/case-studies/edge-city/edge2.0-branding.jpg"
             alt="Edge City branding example"
-            className="bg-white/5 rounded-2xl aspect-video w-full flex items-center justify-center border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            className="glass-card aspect-video w-full flex items-center justify-center cursor-pointer"
           />
         </div>
 

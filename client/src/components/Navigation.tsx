@@ -29,7 +29,7 @@ export default function Navigation() {
       style={{ width: '70%' }}
     >
       <div className="flex justify-between items-center">
-        <div className={`bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-full px-6 py-3 backdrop-blur-sm transition-all duration-600 ease-out ${
+        <div className={`glass-nav px-6 py-3 transition-all duration-600 ease-out ${
           isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}>
           <ul className="flex justify-between items-center text-sm space-x-6">
