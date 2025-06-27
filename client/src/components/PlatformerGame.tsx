@@ -1,5 +1,101 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 
+class Character {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  char: string;
+  originalY: number;
+  
+  // Animation properties
+  jumpAnimation: {
+    active: boolean;
+    timeRemaining: number;
+    jumpHeight: number;
+    bounceVelocity: number;
+  };
+
+  // Styling to match landing page
+  textColor: string;
+  font: string;
+  fontSize: number;
+
+  constructor(x: number, y: number, width: number, height: number, char: string) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.char = char;
+    this.originalY = y;
+    
+    this.jumpAnimation = {
+      active: false,
+      timeRemaining: 0,
+      jumpHeight: 0,
+      bounceVelocity: 0
+    };
+
+    // Match landing page styling: text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300
+    this.textColor = "#9CA3AF"; // text-gray-400 for better contrast on dark background
+    this.font = "'PP Neue Montreal', Arial, Helvetica, sans-serif";
+    this.fontSize = 48; // Larger size for game visibility
+  }
+
+  render(ctx: CanvasRenderingContext2D) {
+    ctx.save();
+    
+    // Set text styling to match landing page
+    ctx.fillStyle = this.textColor;
+    ctx.font = `300 ${this.fontSize}px ${this.font}`; // 300 = font-light
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.imageSmoothingEnabled = true;
+
+    // Calculate text position (centered in character bounds)
+    const textX = this.x + this.width / 2;
+    const textY = this.y + this.height / 2;
+
+    // Apply jump animation offset
+    const jumpOffset = this.jumpAnimation.active ? this.jumpAnimation.jumpHeight : 0;
+    
+    ctx.fillText(this.char, textX, textY + jumpOffset);
+    ctx.restore();
+  }
+
+  // Trigger jump animation when hit from below
+  triggerJump() {
+    if (!this.jumpAnimation.active) {
+      this.jumpAnimation.active = true;
+      this.jumpAnimation.timeRemaining = 600; // 600ms animation
+      this.jumpAnimation.bounceVelocity = -8; // Initial upward velocity
+      this.jumpAnimation.jumpHeight = 0;
+    }
+  }
+
+  // Update animation
+  update(deltaTime: number) {
+    if (this.jumpAnimation.active) {
+      // Apply gravity-like physics to bounce
+      this.jumpAnimation.bounceVelocity += 0.8; // Gravity
+      this.jumpAnimation.jumpHeight += this.jumpAnimation.bounceVelocity;
+      
+      // Stop animation when character returns to original position
+      if (this.jumpAnimation.jumpHeight >= 0) {
+        this.jumpAnimation.jumpHeight = 0;
+        this.jumpAnimation.active = false;
+        this.jumpAnimation.bounceVelocity = 0;
+      }
+      
+      this.jumpAnimation.timeRemaining -= deltaTime;
+      if (this.jumpAnimation.timeRemaining <= 0) {
+        this.jumpAnimation.active = false;
+        this.jumpAnimation.jumpHeight = 0;
+      }
+    }
+  }
+}
+
 class Block {
   x: number;
   y: number;
@@ -58,81 +154,10 @@ class Block {
     this.letterSpacing = options.letterSpacing || "1px";
   }
 
-  // Method to render the block
+  // Method to render the block (invisible collision box only)
   render(ctx: CanvasRenderingContext2D) {
-    // Save context for block rendering
-    ctx.save();
-    
-    // Create rounded rectangle path
-    const drawRoundedRect = (x: number, y: number, width: number, height: number, radius: number) => {
-      ctx.beginPath();
-      ctx.moveTo(x + radius, y);
-      ctx.lineTo(x + width - radius, y);
-      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-      ctx.lineTo(x + width, y + height - radius);
-      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-      ctx.lineTo(x + radius, y + height);
-      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-      ctx.lineTo(x, y + radius);
-      ctx.quadraticCurveTo(x, y, x + radius, y);
-      ctx.closePath();
-    };
-
-    // Draw block background with rounded corners
-    drawRoundedRect(this.x, this.y, this.width, this.height, this.borderRadius);
-    ctx.fillStyle = this.backgroundColor;
-    ctx.fill();
-
-    // Draw block border with rounded corners
-    ctx.strokeStyle = this.borderColor;
-    ctx.lineWidth = this.borderWidth;
-    ctx.stroke();
-
-    ctx.restore();
-
-    // Draw text with styling and letter spacing
-    ctx.save();
-    ctx.fillStyle = this.textColor;
-    ctx.font = `${this.fontSize}px ${this.font}`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-
-    // Disable smoothing for pixel-perfect text
-    ctx.imageSmoothingEnabled = false;
-
-    // Calculate centered coordinates within the block
-    const textX = this.x + this.width / 2;
-    const textY = this.y + this.height / 2;
-
-    // Apply letter spacing by drawing each character individually
-    if (this.letterSpacing !== "0px" && this.letterSpacing !== "0") {
-      const spacing = parseFloat(this.letterSpacing);
-      const characters = this.text.split('');
-      let totalWidth = 0;
-      
-      // Calculate total width including spacing
-      characters.forEach((char, index) => {
-        totalWidth += ctx.measureText(char).width;
-        if (index < characters.length - 1) {
-          totalWidth += spacing;
-        }
-      });
-      
-      // Start position for centered text
-      let currentX = textX - totalWidth / 2;
-      
-      // Draw each character
-      characters.forEach((char, index) => {
-        const charWidth = ctx.measureText(char).width;
-        ctx.fillText(char, currentX + charWidth / 2, textY);
-        currentX += charWidth + spacing;
-      });
-    } else {
-      // No letter spacing, draw normally
-      ctx.fillText(this.text, textX, textY);
-    }
-
-    ctx.restore();
+    // Block is now invisible - only serves as collision boundary
+    // No visual rendering needed
   }
 
   // Method to update styling
@@ -183,6 +208,7 @@ interface Player {
 interface GameState {
   player: Player;
   blocks: Block[];
+  characters: Character[];
   keys: { [key: string]: boolean };
   touchControls: {
     left: boolean;
@@ -358,9 +384,57 @@ export default function PlatformerGame() {
     [measureTextWidth],
   );
 
+  // Create individual characters from blocks
+  const createCharactersFromBlocks = useCallback((blocks: Block[]): Character[] => {
+    const characters: Character[] = [];
+    
+    blocks.forEach(block => {
+      const text = block.text;
+      const chars = text.split('');
+      
+      // Measure character spacing
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      
+      ctx.font = `300 48px 'PP Neue Montreal', Arial, Helvetica, sans-serif`;
+      
+      // Calculate total text width and individual character widths
+      const totalTextWidth = ctx.measureText(text).width;
+      const charWidths = chars.map(char => ctx.measureText(char).width);
+      
+      // Calculate starting position to center the text within the block
+      const startX = block.x + (block.width - totalTextWidth) / 2;
+      const charY = block.y;
+      
+      // Create character objects
+      let currentX = startX;
+      chars.forEach((char, index) => {
+        if (char !== ' ') { // Skip spaces
+          const charWidth = charWidths[index];
+          const charHeight = block.height;
+          
+          characters.push(new Character(
+            currentX,
+            charY,
+            charWidth + 10, // Add some padding for collision detection
+            charHeight,
+            char
+          ));
+        }
+        currentX += charWidths[index];
+      });
+    });
+    
+    return characters;
+  }, []);
+
   // Initialize game state
   const initializeGameState = useCallback(
     (canvasWidth: number, canvasHeight: number): GameState => {
+      const blocks = initializeBlocks(canvasWidth, canvasHeight);
+      const characters = createCharactersFromBlocks(blocks);
+      
       return {
         player: {
           x: 50,
@@ -377,7 +451,8 @@ export default function PlatformerGame() {
             scale: 1,
           },
         },
-        blocks: initializeBlocks(canvasWidth, canvasHeight),
+        blocks,
+        characters,
         keys: {},
         touchControls: {
           left: false,
@@ -386,7 +461,7 @@ export default function PlatformerGame() {
         },
       };
     },
-    [initializeBlocks],
+    [initializeBlocks, createCharactersFromBlocks],
   );
 
   // Collision detection
@@ -588,24 +663,35 @@ export default function PlatformerGame() {
       }
     }
 
+    // Character collisions - check if player bops characters from underneath
+    for (const character of gameState.characters) {
+      if (checkCollision(player, character)) {
+        // Check if player is hitting character from below (Super Mario style)
+        if (player.velocityY < 0 && player.y + player.height > character.y + character.height * 0.8) {
+          // Player is hitting character from underneath
+          character.triggerJump();
+          
+          // Trigger player bop animation
+          player.bopAnimation.active = true;
+          player.bopAnimation.timeRemaining = 0.3;
+          player.bopAnimation.scale = 1.2;
+        }
+      }
+    }
+
+    // Update all characters
+    for (const character of gameState.characters) {
+      character.update(clampedDeltaTime * 1000); // Convert to milliseconds
+    }
+
     // No ground rendering - transparent background
 
-    // Draw blocks using Block class render method
-    for (const block of gameState.blocks) {
-      // Update block styling for navigation bar appearance
+    // Draw characters with landing page styling and jump animations
+    for (const character of gameState.characters) {
+      // Update character color based on theme to match landing page
       const isDarkMode = document.documentElement.classList.contains('dark');
-      
-      block.updateStyle({
-        backgroundColor: isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
-        textColor: isDarkMode ? '#ffffff' : '#1f2937',
-        borderColor: isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)',
-        borderWidth: 1,
-        borderRadius: 24, // Half of block height (48/2 = 24) for perfect rounded rectangle
-        font: "'PP Neue Montreal', Arial, Helvetica, sans-serif",
-        fontSize: 16
-      });
-      
-      block.render(ctx);
+      character.textColor = isDarkMode ? '#D1D5DB' : '#6B7280'; // text-gray-300 : text-gray-500
+      character.render(ctx);
     }
 
     // Draw player as a round smiley face with bop animation
