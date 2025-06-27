@@ -59,6 +59,10 @@ class Character {
     // Apply jump animation offset
     const jumpOffset = this.jumpAnimation.active ? this.jumpAnimation.jumpHeight : 0;
     
+    if (this.jumpAnimation.active) {
+      console.log(`Character '${this.char}' rendering with jumpOffset: ${jumpOffset}`);
+    }
+    
     ctx.fillText(this.char, textX, textY + jumpOffset);
     ctx.restore();
   }
@@ -70,11 +74,14 @@ class Character {
     this.jumpAnimation.timeRemaining = 1000; // 1 second animation
     this.jumpAnimation.bounceVelocity = -25; // Much stronger initial upward velocity
     this.jumpAnimation.jumpHeight = 0;
+    console.log(`Character '${this.char}' jump animation STARTED`);
   }
 
   // Update animation
   update(deltaTime: number) {
     if (this.jumpAnimation.active) {
+      console.log(`Character '${this.char}' updating: jumpHeight=${this.jumpAnimation.jumpHeight}, velocity=${this.jumpAnimation.bounceVelocity}`);
+      
       // Apply gravity-like physics to bounce
       this.jumpAnimation.bounceVelocity += 1.5; // Stronger gravity for faster fall
       this.jumpAnimation.jumpHeight += this.jumpAnimation.bounceVelocity;
@@ -84,12 +91,14 @@ class Character {
         this.jumpAnimation.jumpHeight = 0;
         this.jumpAnimation.active = false;
         this.jumpAnimation.bounceVelocity = 0;
+        console.log(`Character '${this.char}' animation ENDED`);
       }
       
       this.jumpAnimation.timeRemaining -= deltaTime;
       if (this.jumpAnimation.timeRemaining <= 0) {
         this.jumpAnimation.active = false;
         this.jumpAnimation.jumpHeight = 0;
+        console.log(`Character '${this.char}' animation TIMED OUT`);
       }
     }
   }
@@ -674,8 +683,10 @@ export default function PlatformerGame() {
     // Character collisions - check if player bops characters from underneath
     for (const character of gameState.characters) {
       if (checkCollision(player, character)) {
+        console.log(`COLLISION DETECTED with '${character.char}' - Player velocityY: ${player.velocityY}`);
         // Simplified collision - trigger jump whenever there's any collision with upward velocity
         if (player.velocityY < 0) {
+          console.log(`TRIGGERING JUMP for '${character.char}'`);
           character.triggerJump();
           
           // Trigger player bop animation
