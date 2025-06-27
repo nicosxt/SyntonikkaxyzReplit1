@@ -164,7 +164,7 @@ export default function Home() {
       }`} style={{ transitionDelay: '500ms' }}>
         {/* GAME Button - Bottom Left */}
         <Link href="/game">
-          <button className="glass-button flex items-center gap-2 text-gray-800 dark:text-white px-4 py-2 hover:scale-105">
+          <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:scale-105">
             <Gamepad2 className="w-6 h-6 transition-transform duration-300" />
             {/* <span className="text-lg font-light">GAME</span> */}
           </button>
@@ -172,7 +172,7 @@ export default function Home() {
         
         {/* MORE Button - Bottom Right */}
         <Link href="/case-studies">
-          <button className="glass-button flex items-center gap-2 text-gray-800 dark:text-white px-4 py-2 hover:translate-x-1 hover:scale-105">
+          <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:translate-x-1 hover:scale-105">
             <span className="text-lg font-light">MORE</span>
             <ArrowRight className="w-6 h-6 transition-transform duration-300 hover:translate-x-1" />
           </button>

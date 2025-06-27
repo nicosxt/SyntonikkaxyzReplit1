@@ -66,9 +66,8 @@ function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpee
   }, [isStarted, globalVisibleLetters, letterSpeed]);
 
   // Group characters by words for proper wrapping
-  type CharWithIndex = typeof charSpans[0] & { originalIndex: number };
-  const wordGroups: { chars: CharWithIndex[]; wordIndex: number }[] = [];
-  let currentWord: CharWithIndex[] = [];
+  const wordGroups: { chars: typeof charSpans; wordIndex: number }[] = [];
+  let currentWord: typeof charSpans = [];
   let currentWordIndex = -1;
 
   charSpans.forEach((span, index) => {
@@ -140,7 +139,7 @@ export default function CaseStudies() {
             return (
               <Link key={caseStudy.id} href={caseStudy.link}>
                 <div 
-                  className={`glass-card p-8 cursor-pointer mt-[50px] mb-[50px] hover:scale-105 transition-all duration-300 ${animationProps.className}`}
+                  className={`content-block p-8 hover:opacity-80 cursor-pointer mt-[50px] mb-[50px] hover:scale-105 transition-all duration-300 ${animationProps.className}`}
                   style={animationProps.style}
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -170,7 +169,7 @@ export default function CaseStudies() {
                       </div>
                     </div>
 
-                    <div className="glass-card aspect-video flex items-center justify-center">
+                    <div className="bg-white/5 rounded-2xl aspect-video flex items-center justify-center border border-white/10">
                       {caseStudy.previewImage ? (
                         <img
                           src={caseStudy.previewImage}
