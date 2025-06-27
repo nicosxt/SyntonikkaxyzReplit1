@@ -444,8 +444,8 @@ export default function PlatformerGame() {
           ) + defaultBlockOptions.horizontalPadding,
       );
 
-      // Calculate block height to match navbar height (48px)
-      const blockHeight = 48;
+      // Calculate block height to match navbar height (46px)
+      const blockHeight = 46;
 
       // Calculate total widths for centering
       const topRowWidth =
