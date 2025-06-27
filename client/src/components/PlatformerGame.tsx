@@ -234,11 +234,6 @@ interface Player {
   velocityY: number;
   onGround: boolean;
   color: string;
-  bopAnimation: {
-    active: boolean;
-    timeRemaining: number;
-    scale: number;
-  };
 }
 
 interface GameState {
@@ -261,6 +256,25 @@ const HORIZONTAL_MULTIPLIER = 1.5; // Horizontal movement multiplier
 const DECELERATION = 0.78; // Friction coefficient (frame-rate independent)
 const GROUND_HEIGHT = 100;
 const BLOCK_GAP = 100; // Uniform gap between aligned blocks in pixels
+
+// Pastel rainbow color palette
+const PASTEL_COLORS = [
+  '#FFB3E6', // Pastel pink
+  '#B3E5FF', // Pastel blue
+  '#B3FFB3', // Pastel green
+  '#FFFFB3', // Pastel yellow
+  '#FFD1B3', // Pastel orange
+  '#E6B3FF', // Pastel purple
+  '#B3FFFF', // Pastel cyan
+  '#FFB3D1', // Pastel rose
+  '#D1FFB3', // Pastel lime
+  '#B3D1FF', // Pastel sky blue
+];
+
+// Function to get random pastel color
+const getRandomPastelColor = (): string => {
+  return PASTEL_COLORS[Math.floor(Math.random() * PASTEL_COLORS.length)];
+};
 
 export default function PlatformerGame() {
   const BLOCK_HEIGHT_SPACE = 0.18;
@@ -485,12 +499,7 @@ export default function PlatformerGame() {
           velocityX: 0,
           velocityY: 0,
           onGround: false,
-          color: "#ff6b6b",
-          bopAnimation: {
-            active: false,
-            timeRemaining: 0,
-            scale: 1,
-          },
+          color: "#FFB3E6", // Start with pastel pink
         },
         blocks,
         characters,
@@ -641,18 +650,7 @@ export default function PlatformerGame() {
       player.x += player.velocityX * clampedDeltaTime;
       player.y += player.velocityY * clampedDeltaTime;
       
-      // Update bop animation
-      if (player.bopAnimation.active) {
-        player.bopAnimation.timeRemaining -= clampedDeltaTime;
-        if (player.bopAnimation.timeRemaining <= 0) {
-          player.bopAnimation.active = false;
-          player.bopAnimation.scale = 1;
-        } else {
-          // Ease out animation - scale decreases over time
-          const progress = 1 - (player.bopAnimation.timeRemaining / 0.3);
-          player.bopAnimation.scale = 1 + (0.2 * (1 - progress));
-        }
-      }
+      // No scaling animation - just color changes on collision
     }
 
     // Use display dimensions for game logic, not internal canvas resolution
@@ -682,10 +680,8 @@ export default function PlatformerGame() {
 
     for (const block of gameState.blocks) {
       if (checkCollision(player, block)) {
-        // Trigger bop animation on any collision
-        player.bopAnimation.active = true;
-        player.bopAnimation.timeRemaining = 0.3; // 300ms animation
-        player.bopAnimation.scale = 1.2; // Scale up by 20%
+        // Change player color to random pastel on any collision
+        player.color = getRandomPastelColor();
         
         // TRIGGER CHARACTER ANIMATIONS when hitting block from below
         if (player.velocityY < 0 && player.y > block.y) {
@@ -746,11 +742,10 @@ export default function PlatformerGame() {
       character.render(ctx);
     }
 
-    // Draw player as a round smiley face with bop animation
+    // Draw player as a round smiley face with color changes
     const centerX = player.x + player.width / 2;
     const centerY = player.y + player.height / 2 - 10;
     const baseRadius = (Math.min(player.width, player.height) / 2) * 1.1; // 10% bigger
-    const animatedRadius = baseRadius * player.bopAnimation.scale; // Apply bop animation scale
     
     // Get the block styling for consistent outline
     const isDarkMode = document.documentElement.classList.contains('dark');
