@@ -1,5 +1,56 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 
+class Particle {
+  x: number;
+  y: number;
+  velocityX: number;
+  velocityY: number;
+  size: number;
+  life: number;
+  maxLife: number;
+  color: string;
+
+  constructor(x: number, y: number, color: string) {
+    this.x = x;
+    this.y = y;
+    // Random velocity for firework effect - small radius explosion
+    const angle = Math.random() * Math.PI * 2;
+    const speed = Math.random() * 150 + 50; // Speed between 50-200 pixels/second
+    this.velocityX = Math.cos(angle) * speed;
+    this.velocityY = Math.sin(angle) * speed;
+    this.size = Math.random() * 3 + 2; // Size between 2-5 pixels
+    this.maxLife = Math.random() * 800 + 600; // Life between 600-1400ms
+    this.life = this.maxLife;
+    this.color = color;
+  }
+
+  update(deltaTime: number): boolean {
+    // Update position
+    this.x += this.velocityX * deltaTime;
+    this.y += this.velocityY * deltaTime;
+    
+    // Apply light gravity to particles
+    this.velocityY += 200 * deltaTime; // Light gravity effect
+    
+    // Fade out over time
+    this.life -= deltaTime * 1000; // Convert to milliseconds
+    
+    return this.life > 0;
+  }
+
+  render(ctx: CanvasRenderingContext2D) {
+    const opacity = Math.max(0, this.life / this.maxLife);
+    
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
 class Character {
   x: number;
   y: number;
@@ -240,6 +291,7 @@ interface GameState {
   player: Player;
   blocks: Block[];
   characters: Character[];
+  particles: Particle[];
   keys: { [key: string]: boolean };
   touchControls: {
     left: boolean;
@@ -274,6 +326,20 @@ const PASTEL_COLORS = [
 // Function to get random pastel color
 const getRandomPastelColor = (): string => {
   return PASTEL_COLORS[Math.floor(Math.random() * PASTEL_COLORS.length)];
+};
+
+// Function to create sparkle particles at collision point
+const createSparkleParticles = (x: number, y: number, particles: Particle[]) => {
+  // Get text color based on theme for particles
+  const isDarkMode = document.documentElement.classList.contains('dark');
+  const particleColor = isDarkMode ? '#D1D5DB' : '#6B7280'; // Same as text color
+  
+  // Create 20-50 particles
+  const particleCount = Math.floor(Math.random() * 31) + 20; // 20-50 particles
+  
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle(x, y, particleColor));
+  }
 };
 
 export default function PlatformerGame() {
@@ -503,6 +569,7 @@ export default function PlatformerGame() {
         },
         blocks,
         characters,
+        particles: [],
         keys: {},
         touchControls: {
           left: false,
