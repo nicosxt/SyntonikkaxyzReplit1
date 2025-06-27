@@ -610,7 +610,7 @@ export default function PlatformerGame() {
 
     // Draw player as a round smiley face with bop animation
     const centerX = player.x + player.width / 2;
-    const centerY = player.y + player.height / 2;
+    const centerY = player.y + player.height / 2 - 5;
     const baseRadius = (Math.min(player.width, player.height) / 2) * 1.1; // 10% bigger
     const animatedRadius = baseRadius * player.bopAnimation.scale; // Apply bop animation scale
     
