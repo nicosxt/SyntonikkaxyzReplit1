@@ -884,7 +884,7 @@ export default function PlatformerGame() {
           const collisionY = block.y + block.height;
           createSparkleParticles(collisionX, collisionY, gameState.particles);
 
-          // Find all characters in this block and trigger their jump animations
+          // Find all characters in this block and trigger their jump and rainbow animations
           const blockText = block.text;
           let jumpedCount = 0;
           gameState.characters.forEach((character) => {
@@ -903,6 +903,8 @@ export default function PlatformerGame() {
               distanceY <= block.height / 2 + 10
             ) {
               character.triggerJump();
+              // Trigger rainbow animation with collision point
+              character.triggerRainbow(collisionX, collisionY);
               jumpedCount++;
             }
           });
