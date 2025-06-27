@@ -16,12 +16,19 @@ class Character {
     bounceVelocity: number;
   };
 
+  // Fade-in animation properties
+  fadeAnimation: {
+    opacity: number;
+    isVisible: boolean;
+    delay: number;
+  };
+
   // Styling to match landing page
   textColor: string;
   font: string;
   fontSize: number;
 
-  constructor(x: number, y: number, width: number, height: number, char: string) {
+  constructor(x: number, y: number, width: number, height: number, char: string, index: number = 0) {
     this.x = x;
     this.y = y;
     this.width = width;
@@ -36,6 +43,12 @@ class Character {
       bounceVelocity: 0
     };
 
+    this.fadeAnimation = {
+      opacity: 0,
+      isVisible: false,
+      delay: index * 30 + 500 // Stagger delay like home page: 30ms per character + 500ms initial delay
+    };
+
     // Match landing page styling: text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300
     this.textColor = "#9CA3AF"; // text-gray-400 for better contrast on dark background
     this.font = "'PP Neue Montreal', Arial, Helvetica, sans-serif";
@@ -43,10 +56,23 @@ class Character {
   }
 
   render(ctx: CanvasRenderingContext2D) {
+    // Don't render if not visible yet
+    if (!this.fadeAnimation.isVisible && this.fadeAnimation.opacity === 0) {
+      return;
+    }
+
     ctx.save();
     
-    // Set text styling to match landing page
-    ctx.fillStyle = this.textColor;
+    // Set text styling to match landing page with fade opacity
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    const baseColor = isDarkMode ? '#D1D5DB' : '#6B7280'; // text-gray-300 : text-gray-500
+    
+    // Apply fade opacity to color
+    const r = parseInt(baseColor.slice(1, 3), 16);
+    const g = parseInt(baseColor.slice(3, 5), 16);
+    const b = parseInt(baseColor.slice(5, 7), 16);
+    ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${this.fadeAnimation.opacity})`;
+    
     ctx.font = `300 ${this.fontSize}px ${this.font}`; // 300 = font-light
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -59,8 +85,6 @@ class Character {
     // Apply jump animation offset
     const jumpOffset = this.jumpAnimation.active ? this.jumpAnimation.jumpHeight : 0;
     
-
-    
     ctx.fillText(this.char, textX, textY + jumpOffset);
     ctx.restore();
   }
@@ -70,12 +94,23 @@ class Character {
     // Always trigger jump, even if already active (for continuous bouncing)
     this.jumpAnimation.active = true;
     this.jumpAnimation.timeRemaining = 800; // 800ms animation
-    this.jumpAnimation.bounceVelocity = -20; // Strong initial upward velocity
+    this.jumpAnimation.bounceVelocity = -12; // Strong initial upward velocity
     this.jumpAnimation.jumpHeight = 0;
   }
 
   // Update animation
-  update(deltaTime: number) {
+  update(deltaTime: number, gameStartTime: number) {
+    // Handle fade-in animation
+    if (!this.fadeAnimation.isVisible && gameStartTime >= this.fadeAnimation.delay) {
+      this.fadeAnimation.isVisible = true;
+    }
+    
+    if (this.fadeAnimation.isVisible && this.fadeAnimation.opacity < 1) {
+      // Fade in over 200ms
+      this.fadeAnimation.opacity = Math.min(1, this.fadeAnimation.opacity + (deltaTime / 200));
+    }
+
+    // Handle jump animation
     if (this.jumpAnimation.active) {
       // Apply gravity-like physics to bounce
       this.jumpAnimation.bounceVelocity += 1.5; // Gravity
@@ -233,6 +268,7 @@ export default function PlatformerGame() {
   const gameStateRef = useRef<GameState>();
   const animationRef = useRef<number>();
   const lastTimeRef = useRef<number>(0);
+  const gameStartTimeRef = useRef<number>(0);
   const [dimensions, setDimensions] = useState({
     width: typeof window !== "undefined" ? window.innerWidth : 1920,
     height: typeof window !== "undefined" ? window.innerHeight : 1080,
@@ -410,9 +446,9 @@ export default function PlatformerGame() {
       
       // Create character objects
       let currentX = startX;
-      chars.forEach((char, index) => {
+      chars.forEach((char, charIndex) => {
         if (char !== ' ') { // Skip spaces
-          const charWidth = charWidths[index];
+          const charWidth = charWidths[charIndex];
           const charHeight = block.height;
           
           const newChar = new Character(
@@ -420,12 +456,13 @@ export default function PlatformerGame() {
             charY,
             charWidth + 10, // Add some padding for collision detection
             charHeight,
-            char
+            char,
+            characters.length // Use total character count as index for staggered animation
           );
           
           characters.push(newChar);
         }
-        currentX += charWidths[index];
+        currentX += charWidths[charIndex];
       });
     });
     
@@ -688,9 +725,16 @@ export default function PlatformerGame() {
 
 
 
+    // Initialize game start time on first frame
+    if (gameStartTimeRef.current === 0) {
+      gameStartTimeRef.current = currentTime;
+    }
+    
+    const gameElapsedTime = currentTime - gameStartTimeRef.current;
+
     // Update all characters
     for (const character of gameState.characters) {
-      character.update(clampedDeltaTime * 1000); // Convert to milliseconds
+      character.update(clampedDeltaTime * 1000, gameElapsedTime); // Convert to milliseconds
     }
 
     // No ground rendering - transparent background
