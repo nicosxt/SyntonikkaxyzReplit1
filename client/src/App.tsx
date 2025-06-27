@@ -12,6 +12,7 @@ import EdgeCityCaseStudy from "@/pages/EdgeCityCaseStudy";
 import AgarthaCaseStudy from "@/pages/AgarthaCaseStudy";
 import Services from "@/pages/Services";
 import Info from "@/pages/Info";
+import PlatformerPage from "@/pages/PlatformerPage";
 import cloudsBg from "@assets/sky-clouds-washed.jpeg";
 
 function Router() {
@@ -47,6 +48,7 @@ function Router() {
             <Route path="/case-studies/agartha" component={AgarthaCaseStudy} />
             <Route path="/services" component={Services} />
             <Route path="/info" component={Info} />
+            <Route path="/game" component={PlatformerPage} />
             <Route>
               <div className="min-h-screen flex items-center justify-center">
                 <div className="text-center">

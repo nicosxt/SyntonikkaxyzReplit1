@@ -64,8 +64,9 @@ function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpee
   }, [isStarted, globalVisibleLetters, letterSpeed]);
 
   // Group characters by words for proper wrapping
-  const wordGroups: { chars: typeof charSpans; wordIndex: number }[] = [];
-  let currentWord: typeof charSpans = [];
+  type CharWithIndex = typeof charSpans[0] & { originalIndex: number };
+  const wordGroups: { chars: CharWithIndex[]; wordIndex: number }[] = [];
+  let currentWord: CharWithIndex[] = [];
   let currentWordIndex = -1;
 
   charSpans.forEach((span, index) => {
@@ -76,7 +77,7 @@ function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpee
       currentWord = [];
       currentWordIndex = span.wordIndex;
     }
-    currentWord.push({ ...span, originalIndex: index });
+    currentWord.push({ ...span, originalIndex: index } as CharWithIndex);
   });
   
   if (currentWord.length > 0) {
@@ -155,12 +156,21 @@ export default function Home() {
         </span>
       </div>
         
-      {/* MORE Button */}
-      <div className={`flex justify-end mt-6 transition-all duration-1000 ease-out ${
+      {/* GAME and MORE Buttons */}
+      <div className={`flex justify-between mt-6 transition-all duration-1000 ease-out ${
         isLoaded 
           ? 'opacity-100 translate-y-0' 
           : 'opacity-0 translate-y-8'
       }`} style={{ transitionDelay: '500ms' }}>
+        {/* GAME Button - Bottom Left */}
+        <Link href="/game">
+          <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:translate-x-1 hover:scale-105">
+            <span className="text-lg font-light">GAME</span>
+            <ArrowRight className="w-6 h-6 transition-transform duration-300 hover:translate-x-1" />
+          </button>
+        </Link>
+        
+        {/* MORE Button - Bottom Right */}
         <Link href="/case-studies">
           <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:translate-x-1 hover:scale-105">
             <span className="text-lg font-light">MORE</span>
