@@ -70,7 +70,6 @@ class Character {
     this.jumpAnimation.timeRemaining = 1000; // 1 second animation
     this.jumpAnimation.bounceVelocity = -25; // Much stronger initial upward velocity
     this.jumpAnimation.jumpHeight = 0;
-    console.log(`Character '${this.char}' jump triggered!`);
   }
 
   // Update animation
@@ -675,16 +674,8 @@ export default function PlatformerGame() {
     // Character collisions - check if player bops characters from underneath
     for (const character of gameState.characters) {
       if (checkCollision(player, character)) {
-        console.log('Character collision detected!', {
-          playerVelocityY: player.velocityY,
-          playerY: player.y,
-          characterY: character.y,
-          char: character.char
-        });
-        
         // Simplified collision - trigger jump whenever there's any collision with upward velocity
         if (player.velocityY < 0) {
-          console.log('Triggering jump animation for character:', character.char);
           character.triggerJump();
           
           // Trigger player bop animation
