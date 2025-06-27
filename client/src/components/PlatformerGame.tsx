@@ -65,22 +65,21 @@ class Character {
 
   // Trigger jump animation when hit from below
   triggerJump() {
-    if (!this.jumpAnimation.active) {
-      this.jumpAnimation.active = true;
-      this.jumpAnimation.timeRemaining = 600; // 600ms animation
-      this.jumpAnimation.bounceVelocity = -8; // Initial upward velocity
-      this.jumpAnimation.jumpHeight = 0;
-    }
+    // Always trigger jump, even if already active (for continuous bouncing)
+    this.jumpAnimation.active = true;
+    this.jumpAnimation.timeRemaining = 800; // 800ms animation
+    this.jumpAnimation.bounceVelocity = -15; // Stronger initial upward velocity
+    this.jumpAnimation.jumpHeight = 0;
   }
 
   // Update animation
   update(deltaTime: number) {
     if (this.jumpAnimation.active) {
       // Apply gravity-like physics to bounce
-      this.jumpAnimation.bounceVelocity += 0.8; // Gravity
+      this.jumpAnimation.bounceVelocity += 1.2; // Stronger gravity for faster fall
       this.jumpAnimation.jumpHeight += this.jumpAnimation.bounceVelocity;
       
-      // Stop animation when character returns to original position
+      // Stop animation when character returns to original position or below
       if (this.jumpAnimation.jumpHeight >= 0) {
         this.jumpAnimation.jumpHeight = 0;
         this.jumpAnimation.active = false;
@@ -666,15 +665,21 @@ export default function PlatformerGame() {
     // Character collisions - check if player bops characters from underneath
     for (const character of gameState.characters) {
       if (checkCollision(player, character)) {
-        // Check if player is hitting character from below (Super Mario style)
-        if (player.velocityY < 0 && player.y + player.height > character.y + character.height * 0.8) {
-          // Player is hitting character from underneath
+        // Check if player is moving upward and hitting character from below (Super Mario style)
+        const playerCenterY = player.y + player.height / 2;
+        const characterCenterY = character.y + character.height / 2;
+        
+        if (player.velocityY < 0 && playerCenterY > characterCenterY) {
+          // Player is jumping upward and hitting character from underneath
           character.triggerJump();
           
           // Trigger player bop animation
           player.bopAnimation.active = true;
           player.bopAnimation.timeRemaining = 0.3;
           player.bopAnimation.scale = 1.2;
+          
+          // Optional: Slightly bounce the player downward
+          player.velocityY = Math.max(player.velocityY * 0.5, 50);
         }
       }
     }
