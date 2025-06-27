@@ -792,15 +792,6 @@ export default function PlatformerGame() {
         }}
       />
 
-      {/* Mobile controls instruction */}
-      <div className="md:hidden fixed bottom-4 left-4 text-white text-sm p-2 text-center bg-black bg-opacity-50 rounded">
-        Touch left/right side to move • Two fingers to jump
-      </div>
-
-      {/* Desktop controls instruction */}
-      <div className="hidden md:block fixed bottom-4 left-4 text-white text-sm p-2 text-center bg-black bg-opacity-50 rounded">
-        Arrow keys or WASD to move • Spacebar/W/S/Up/Down to jump
-      </div>
     </div>
   );
 }
