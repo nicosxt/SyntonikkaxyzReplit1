@@ -762,9 +762,9 @@ export default function PlatformerGame() {
     const centerY = player.y + player.height / 2 - 10;
     const baseRadius = (Math.min(player.width, player.height) / 2) * 1.1; // 10% bigger
     
-    // Get the block styling for consistent outline
+    // Get the block styling for consistent outline - match text block colors
     const isDarkMode = document.documentElement.classList.contains('dark');
-    const blockBorderColor = isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)';
+    const blockBorderColor = isDarkMode ? '#D1D5DB' : '#6B7280'; // Same as text: text-gray-300 : text-gray-500
     const blockBorderWidth = 1;
     
     // Save context for scaling
