@@ -680,20 +680,35 @@ export default function PlatformerGame() {
 
     for (const block of gameState.blocks) {
       if (checkCollision(player, block)) {
-        // Change player color to random pastel on any collision
-        player.color = getRandomPastelColor();
-        
         // TRIGGER CHARACTER ANIMATIONS when hitting block from below
         if (player.velocityY < 0 && player.y > block.y) {
+          // Change player color to random pastel only when triggering character animations
+          player.color = getRandomPastelColor();
+          
           // Find all characters in this block and trigger their jump animations
           const blockText = block.text;
+          let jumpedCount = 0;
           gameState.characters.forEach(character => {
-            // Check if character belongs to this block by position
-            if (character.x >= block.x && character.x <= block.x + block.width &&
-                character.y >= block.y && character.y <= block.y + block.height) {
+            // More lenient collision detection - check if character overlaps with block area
+            const charCenterX = character.x + character.width / 2;
+            const charCenterY = character.y + character.height / 2;
+            const blockCenterX = block.x + block.width / 2;
+            const blockCenterY = block.y + block.height / 2;
+            
+            // Check if character is close to this block (within reasonable distance)
+            const distanceX = Math.abs(charCenterX - blockCenterX);
+            const distanceY = Math.abs(charCenterY - blockCenterY);
+            
+            if (distanceX <= block.width / 2 + 20 && distanceY <= block.height / 2 + 10) {
               character.triggerJump();
+              jumpedCount++;
             }
           });
+          
+          // Debug logging for MULTI-DISCIPLINARY block
+          if (blockText === "MULTI-DISCIPLINARY") {
+            console.log(`MULTI-DISCIPLINARY: ${jumpedCount} characters jumped out of ${blockText.replace(/\s/g, '').length}`);
+          }
         }
         
         // Top collision (landing on block)
