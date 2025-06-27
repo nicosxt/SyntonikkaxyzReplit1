@@ -755,20 +755,20 @@ export default function PlatformerGame() {
     // Save context for scaling
     ctx.save();
     
-    // Draw main circle (face)
+    // Draw main circle (face) with dynamic color
     ctx.beginPath();
-    ctx.arc(centerX, centerY, animatedRadius, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(255, 255, 0, 0.8)"; // Yellow face with 80% transparency
+    ctx.arc(centerX, centerY, baseRadius, 0, Math.PI * 2);
+    ctx.fillStyle = player.color; // Use the player's current color
     ctx.fill();
     ctx.strokeStyle = blockBorderColor; // Same color as blocks
     ctx.lineWidth = blockBorderWidth; // Same width as blocks
     ctx.stroke();
     
-    // Draw left eye (scaled with animation)
-    const eyeOffsetX = animatedRadius * 0.3;
-    const eyeOffsetY = animatedRadius * 0.25;
-    const eyeWidth = animatedRadius * 0.15;
-    const eyeHeight = animatedRadius * 0.3;
+    // Draw left eye
+    const eyeOffsetX = baseRadius * 0.3;
+    const eyeOffsetY = baseRadius * 0.25;
+    const eyeWidth = baseRadius * 0.15;
+    const eyeHeight = baseRadius * 0.3;
     
     ctx.beginPath();
     ctx.ellipse(centerX - eyeOffsetX, centerY - eyeOffsetY, eyeWidth, eyeHeight, 0, 0, Math.PI * 2);
@@ -781,15 +781,15 @@ export default function PlatformerGame() {
     ctx.fillStyle = "#000000";
     ctx.fill();
     
-    // Draw smile (arc) (scaled with animation)
-    const smileRadius = animatedRadius * 0.5;
+    // Draw smile (arc)
+    const smileRadius = baseRadius * 0.5;
     const smileStartAngle = Math.PI * 0.2;
     const smileEndAngle = Math.PI * 0.8;
     
     ctx.beginPath();
-    ctx.arc(centerX, centerY + animatedRadius * 0.1, smileRadius, smileStartAngle, smileEndAngle);
+    ctx.arc(centerX, centerY + baseRadius * 0.1, smileRadius, smileStartAngle, smileEndAngle);
     ctx.strokeStyle = "#000000";
-    ctx.lineWidth = 3 * player.bopAnimation.scale; // Scale line width too
+    ctx.lineWidth = 3;
     ctx.lineCap = "round";
     ctx.stroke();
     
