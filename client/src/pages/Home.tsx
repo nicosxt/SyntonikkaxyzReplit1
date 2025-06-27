@@ -166,7 +166,7 @@ export default function Home() {
         <Link href="/game">
           <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:scale-105">
             <Gamepad2 className="w-6 h-6 transition-transform duration-300" />
-            <span className="text-lg font-light">GAME</span>
+            {/* <span className="text-lg font-light">GAME</span> */}
           </button>
         </Link>
         
