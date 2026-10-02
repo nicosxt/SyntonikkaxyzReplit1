@@ -1,17 +1,20 @@
 import { useState, useEffect } from "react";
 
 export function useTheme() {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    try {
+      return localStorage.getItem("theme") === "light" ? "light" : "dark";
+    } catch {
+      return "dark";
     }
-  }, []);
+  });
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      // Keep the toggle usable when browser storage is unavailable.
+    }
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {

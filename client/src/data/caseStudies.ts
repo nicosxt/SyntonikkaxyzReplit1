@@ -7,7 +7,6 @@ export interface CaseStudy {
   id: string;
   title: string;
   role: string;
-  tags: string[];
   examples: CaseStudyExample[];
   link: string;
   preview: string;
@@ -17,9 +16,8 @@ export interface CaseStudy {
 export const caseStudiesData: CaseStudy[] = [
   {
     id: "edge-city",
-    title: "EDGE CITY",
+    title: "Edge City 2025",
     role: "Brand Designer",
-    tags: ["#Branding", "#Graphics"],
     examples: [
       { text: "edgecity.live", url: "https://edgecity.live" },
       { text: "edgeesmeralda.com", url: "https://edgeesmeralda.com" },
@@ -35,9 +33,8 @@ export const caseStudiesData: CaseStudy[] = [
   },
   {
     id: "agartha",
-    title: "AGARTHA",
+    title: "Agartha 2023",
     role: "Founder",
-    tags: ["#Branding", "#Graphics", "#Narrative"],
     examples: [
       { text: "agartha.one", url: "https://agartha.one" },
       { text: "Grid Free Minds", url: "https://agartha1.substack.com" },

@@ -127,10 +127,8 @@ export default function Home() {
   }, []);
 
   const textParts = [
-    { text: "Nico Shi", className: "italic font-light text-gray-800 dark:text-white" },
-    { text: " is a multi-disciplinary designer building ", className: "" },
-    { text: "Protopian", className: "italic font-light text-gray-800 dark:text-white" },
-    { text: " brands with AI, XR, and immersive art.", className: "" }
+    { text: "Nico Shi is a multi-disciplinary artist building ", className: "" },
+    { text: "Protopian worlds.", className: "italic font-bold text-gray-800 dark:text-white" }
   ];
 
   return (

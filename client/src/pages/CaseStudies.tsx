@@ -148,17 +148,6 @@ export default function CaseStudies() {
                         {caseStudy.title}
                       </h2>
 
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {caseStudy.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-3 py-1 bg-black/10 dark:bg-white/10 rounded-full text-sm text-gray-800 dark:text-white"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
                       <div className="mb-6">
                         <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                           ROLE:

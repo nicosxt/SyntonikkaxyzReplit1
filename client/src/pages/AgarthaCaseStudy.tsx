@@ -29,18 +29,6 @@ export default function AgarthaCaseStudy() {
           {caseStudy.title}
         </h1>
 
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-8">
-          {caseStudy.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 bg-black/10 dark:bg-white/10 rounded-full text-sm text-gray-800 dark:text-white"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
         {/* Role */}
         <div className="mb-8">
           <h3 className="text-xl font-medium mb-2 text-gray-800 dark:text-white">
