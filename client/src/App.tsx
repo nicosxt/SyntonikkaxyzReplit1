@@ -10,6 +10,7 @@ import Home from "@/pages/Home";
 import CaseStudies from "@/pages/CaseStudies";
 import EdgeCityCaseStudy from "@/pages/EdgeCityCaseStudy";
 import AgarthaCaseStudy from "@/pages/AgarthaCaseStudy";
+import Galleries, { GalleryDetail } from "@/pages/Galleries";
 import Services from "@/pages/Services";
 import Info from "@/pages/Info";
 import PlatformerPage from "@/pages/PlatformerPage";
@@ -47,6 +48,8 @@ function Router() {
             />
             <Route path="/case-studies/agartha" component={AgarthaCaseStudy} />
             <Route path="/services" component={Services} />
+            <Route path="/galleries/:id" component={GalleryDetail} />
+            <Route path="/galleries" component={Galleries} />
             <Route path="/info" component={Info} />
             <Route path="/game" component={PlatformerPage} />
             <Route>

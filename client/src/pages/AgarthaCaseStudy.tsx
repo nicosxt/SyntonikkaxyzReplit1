@@ -20,7 +20,7 @@ export default function AgarthaCaseStudy() {
         <Link href="/case-studies">
           <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-opacity mb-8">
             <ArrowLeft className="w-5 h-5" />
-            <span>Back to Case Studies</span>
+            <span>Back to Projects</span>
           </button>
         </Link>
 

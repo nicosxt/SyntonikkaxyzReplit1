@@ -16,24 +16,24 @@ export default function Navigation() {
 
   const navItems = [
     { href: "/", label: "HOME", path: "/" },
-    { href: "/case-studies", label: "case studies", path: "/case-studies" },
+    { href: "/case-studies", label: "Projects", path: "/case-studies" },
+    { href: "/galleries", label: "Galleries", path: "/galleries" },
     { href: "/info", label: "About Me", path: "/info" },
   ];
 
   return (
     <nav
-      className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-800 ease-out ${
+      className={`fixed top-4 w-[calc(100%-2rem)] md:w-[70%] left-1/2 transform -translate-x-1/2 z-50 transition-all duration-800 ease-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       }`} 
-      style={{ width: '70%' }}
     >
-      <div className="flex justify-between items-center">
-        <div className={`bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-full px-6 py-3 backdrop-blur-sm transition-all duration-600 ease-out ${
+      <div className="flex justify-between items-center gap-2">
+        <div className={`bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-full px-3 sm:px-6 py-3 backdrop-blur-sm transition-all duration-600 ease-out ${
           isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}>
-          <ul className="flex justify-between items-center text-sm space-x-6">
+          <ul className="flex justify-between items-center text-xs sm:text-sm gap-3 sm:gap-6">
             {navItems.map((item, index) => {
-              const isActive = location === item.path;
+              const isActive = location === item.path || (item.path !== "/" && location.startsWith(`${item.path}/`));
               return (
                 <li 
                   key={item.href}

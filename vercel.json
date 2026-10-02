@@ -26,6 +26,10 @@
   ],
   "rewrites": [
     {
+      "source": "/gallery/(.*)",
+      "destination": "/gallery/$1"
+    },
+    {
       "source": "/assets/(.*)",
       "destination": "/assets/$1"
     },

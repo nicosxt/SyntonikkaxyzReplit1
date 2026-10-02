@@ -1,271 +1,145 @@
+import type { ReactNode } from "react";
 import { usePageAnimation } from "../hooks/usePageAnimation";
-import { useEffect, useState } from "react";
-import { getLetterSpeed } from "../config/animations";
 
-interface AnimatedTextProps {
-  text: string;
-  className?: string;
-  delay: number;
-  letterSpeed?: number;
-  startOffset?: number;
-}
-
-// Utility function to prevent word breaking
-function createWordBoundarySpans(text: string) {
-  const words = text.split(" ");
-  const spans: { char: string; isWordEnd: boolean; wordIndex: number; originalIndex?: number }[] = [];
-
-  words.forEach((word, wordIndex) => {
-    // Add characters of the word
-    for (let i = 0; i < word.length; i++) {
-      spans.push({
-        char: word[i],
-        isWordEnd: i === word.length - 1,
-        wordIndex,
-      });
-    }
-
-    // Add space after word (except for last word)
-    if (wordIndex < words.length - 1) {
-      spans.push({
-        char: " ",
-        isWordEnd: true,
-        wordIndex,
-      });
-    }
-  });
-
-  return spans;
-}
-
-function AnimatedText({
-  text,
-  className = "",
-  delay,
-  letterSpeed = getLetterSpeed(),
-  startOffset = 0,
-}: AnimatedTextProps) {
-  const [globalVisibleLetters, setGlobalVisibleLetters] = useState(0);
-  const [isStarted, setIsStarted] = useState(false);
-
-  const charSpans = createWordBoundarySpans(text);
-
-  useEffect(() => {
-    const startTimer = setTimeout(() => {
-      setIsStarted(true);
-    }, delay);
-
-    return () => clearTimeout(startTimer);
-  }, [delay]);
-
-  useEffect(() => {
-    if (!isStarted) return;
-
-    const timer = setTimeout(() => {
-      setGlobalVisibleLetters((prev) => prev + 1);
-    }, letterSpeed);
-
-    return () => clearTimeout(timer);
-  }, [isStarted, globalVisibleLetters, letterSpeed]);
-
-  // Group characters by words for proper wrapping
-  const wordGroups: { chars: { char: string; isWordEnd: boolean; wordIndex: number; originalIndex?: number }[]; wordIndex: number }[] = [];
-  let currentWord: { char: string; isWordEnd: boolean; wordIndex: number; originalIndex?: number }[] = [];
-  let currentWordIndex = -1;
-
-  charSpans.forEach((span, index) => {
-    if (span.wordIndex !== currentWordIndex) {
-      if (currentWord.length > 0) {
-        wordGroups.push({ chars: currentWord, wordIndex: currentWordIndex });
-      }
-      currentWord = [];
-      currentWordIndex = span.wordIndex;
-    }
-    currentWord.push({ ...span, originalIndex: index });
-  });
-
-  if (currentWord.length > 0) {
-    wordGroups.push({ chars: currentWord, wordIndex: currentWordIndex });
-  }
-
+function ExternalLink({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <span className={className}>
-      {wordGroups.map((wordGroup, groupIndex) => (
-        <span
-          key={groupIndex}
-          className="inline-block"
-          style={{ whiteSpace: "nowrap" }}
-        >
-          {wordGroup.chars.map((span, charIndex) => {
-            const originalIndex = (span as any).originalIndex;
-            const globalIndex = startOffset + originalIndex;
-            const isVisible = globalIndex < globalVisibleLetters;
-            return (
-              <span
-                key={originalIndex}
-                className={`inline-block transition-all duration-300 ease-out ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
-                }`}
-                style={{
-                  transitionDelay: `${Math.max(0, (globalIndex - globalVisibleLetters) * 20)}ms`,
-                }}
-              >
-                {span.char === " " ? "\u00A0" : span.char}
-              </span>
-            );
-          })}
-        </span>
-      ))}
-    </span>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-gray-800 dark:text-white underline underline-offset-4 decoration-current/40 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 rounded-sm"
+    >
+      {children}
+    </a>
   );
 }
 
-const socialLinks = [
-  { name: "X", href: "http://x.com/syntonikka/" },
-  { name: "Substack", href: "https://agartha1.substack.com/" },
-  { name: "Mixcloud", href: "https://www.mixcloud.com/nicole-xin-tong-shi/" },
-  {
-    name: "Snapchat",
-    href: "https://www.snapchat.com/add/nicooo9999?locale=en-US",
-  },
-  { name: "Instagram", href: "https://www.instagram.com/syntonikka" },
-  {
-    name: "Resume",
-    href: "https://docs.google.com/document/d/10kNPjpL49cTcRf7B8hNdjXJYIqILHR2f4fmwjf1KR_Y/edit?usp=sharing",
-  },
-];
-
 export default function Info() {
-  const { isLoaded, getAnimationClasses } = usePageAnimation({
-    delay: 200,
-    staggerDelay: 100,
-  });
+  const { isLoaded } = usePageAnimation({ delay: 200 });
 
   return (
-    <div
-      className="min-h-screen mx-auto flex flex-col justify-center"
-      style={{ marginLeft: "15%", marginRight: "15%" }}
+    <article
+      className={`max-w-3xl mx-auto py-12 md:py-20 space-y-12 text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300 transition-all duration-700 ${
+        isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      }`}
     >
-      <div className="mb-12">
-        <div className="mb-8"></div>
+      <header className="space-y-6">
+        <h1 className="text-3xl md:text-4xl font-light text-gray-800 dark:text-white">
+          Hello! I’m Nico. Welcome to my world
+        </h1>
+        <p>
+          I see brands, businesses, and communities as worlds of their own. I bring
+          life and love to mission-aligned projects, helping people visualize—and
+          build—the futures they believe in.
+        </p>
+      </header>
 
-        <div className="mb-8">
-          <p className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2">
-            <AnimatedText
-              text="Magic happens when "
-              className=""
-              delay={300}
-              letterSpeed={40}
-            />
-            <AnimatedText
-              text="Raw Intuitive Human Creativity"
-              className="italic font-light text-gray-800 dark:text-white"
-              delay={1200}
-              letterSpeed={30}
-            />
-            <AnimatedText
-              text=" meets "
-              className=""
-              delay={2400}
-              letterSpeed={40}
-            />
-            <AnimatedText
-              text="Cutting-Edge Frontier Technology"
-              className="italic font-light text-gray-800 dark:text-white"
-              delay={2800}
-              letterSpeed={30}
-            />
-            <AnimatedText text="." className="" delay={3800} letterSpeed={40} />
+      <section aria-labelledby="background-heading" className="space-y-5">
+        <h2 id="background-heading" className="text-2xl font-medium text-gray-800 dark:text-white">
+          My Background
+        </h2>
+        <p>
+          I began my career making games and virtual worlds. In 2017, while still
+          in school, I launched my first game,{" "}
+          <ExternalLink href="https://apps.apple.com/us/app/chef-umami/id1230818349">Chef Umami</ExternalLink>,
+          with <ExternalLink href="https://chefumami.com/">PINX Studio</ExternalLink>.
+          It became one of Apple’s most downloaded new mobile games for weeks.
+          I later taught Game Development at Parsons and followed{" "}
+          <ExternalLink href="https://www.snapchat.com/@nicooo9999">my experiments with augmented reality</ExternalLink>{" "}
+          to Los Angeles, where I joined Snapchat as an AR engineer.
+        </p>
+        <p>
+          The work was playful and exciting, but I craved a deeper purpose beyond
+          my bubble of frontier technology. In 2022, I shifted my focus toward the
+          interconnected crises of our time—this inspired me to leave the XR
+          industry to explore Solarpunk communities.
+        </p>
+        <p>
+          The journey began at{" "}
+          <ExternalLink href="https://supernuclear.substack.com/p/case-study-mars-college">Mars College</ExternalLink>,
+          an off-grid community of artists, technologists, and punks. It introduced
+          me to intentional living, regeneration, and Solarpunk: a hopeful vision
+          of life with nature and technology.
+        </p>
+        <p>
+          I spent the following years visiting 30+ intentional communities around
+          the world—<ExternalLink href="https://www.smart-village-network.eu/members/community/aardehuis-ecovillage">an Earthship village in the Netherlands</ExternalLink>,{" "}
+          a <ExternalLink href="https://supernuclear.substack.com/p/case-study-agape">co-living home in San Francisco</ExternalLink>,{" "}
+          <ExternalLink href="https://traditionaldreamfactory.com/">Traditional Dream Factory</ExternalLink>{" "}
+          in Portugal, <ExternalLink href="https://www.elpantano.org/">El Pantano</ExternalLink>{" "}
+          in Argentina…
+        </p>
+        <p>
+          Out of this exploration came{" "}
+          <ExternalLink href="https://agartha.one/"><strong>Agartha</strong></ExternalLink>,
+          a Solarpunk creative studio and global community. Through workshops,
+          residencies, and creative world building, I have empowered a global
+          group of people to work toward more meaningful and beautiful ways of living.
+        </p>
+      </section>
+
+      <section aria-labelledby="mission-heading" className="space-y-5">
+        <h2 id="mission-heading" className="text-2xl font-medium text-gray-800 dark:text-white">
+          My Mission
+        </h2>
+        <p>
+          Agartha holds my vision for life in community, where nature, technology,
+          spirituality, and art coexist, and ancient wisdom meets new possibilities.
+        </p>
+        <p>
+          The north star for Agartha is a{" "}
+          <ExternalLink href="https://agartha1.substack.com/p/what-is-a-solarpunk-campus"><strong>Solarpunk Campus</strong></ExternalLink>:
+          a home for people across generations, cultures, and disciplines to
+          create, grow, and share beautiful lives.
+        </p>
+        <p>
+          Explore <ExternalLink href="https://agartha.one/">agartha.one</ExternalLink>{" "}
+          or follow our journey on{" "}
+          <ExternalLink href="https://agartha1.substack.com/">Substack</ExternalLink>.
+        </p>
+      </section>
+
+      <section aria-labelledby="skills-heading" className="space-y-5">
+        <h2 id="skills-heading" className="text-2xl font-medium text-gray-800 dark:text-white">
+          My Skills
+        </h2>
+        <p>I build worlds people can live inside.</p>
+        <p>
+          My practice spans art, branding, world-building, gameplay engineering,
+          creative writing, music, and community organizing. I see art as a way of
+          being, bringing creativity to both technical challenges and human connections.
+        </p>
+        <p>
+          My strength is connecting these disciplines: translating abstract ideas
+          into visual stories, using AI as a creative tool, and shaping physical
+          spaces that influence how we feel and gather. I’m drawn to the cultural
+          meanings behind aesthetics—and to making people feel seen and heard.
+        </p>
+      </section>
+
+      <hr className="border-black/20 dark:border-white/20" />
+
+      <footer className="space-y-6">
+        <p>
+          Outside the studio, I climb, lift, skate, compost, host gatherings,
+          have adventures in nature, and read and live by Hermetic and Taoist philosophies.
+        </p>
+        <p>
+          I believe creativity is a way of being. Through the act of creation,
+          we are directly connecting to the source.
+        </p>
+        <blockquote className="border-l-2 border-black/30 dark:border-white/30 pl-6 py-2">
+          <p className="italic text-xl text-gray-800 dark:text-white">
+            “We are here to awaken from our illusion of separateness.”
           </p>
-        </div>
-
-        {/* Scrollable content section */}
-        <div
-          className={`max-h-96 overflow-y-auto content-block p-6 transition-all duration-1000 ease-out ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-          style={{ transitionDelay: "300ms" }}
-        >
-          <div className="space-y-4" style={{ color: "var(--text-muted)" }}>
-            <h3
-              className="text-lg font-medium mb-3"
-              style={{ color: "var(--text-primary)" }}
-            >
-              DESIGN PHILOSOPHY
-            </h3>
-            <p>
-              I believe great designs should be both intellectually stimulating
-              and emotionally resonant. My work explores the intersection of
-              technology and humanity—--always asking how we can use design to
-              create more flourishing futures.
-            </p>
-
-            <h3
-              className="text-lg font-medium mb-3 mt-6"
-              style={{ color: "var(--text-primary)" }}
-            >
-              CREATIVE PROCESS
-            </h3>
-            <p>
-              My process begins with deep research and a thorough understanding
-              of the problem space. Collaboration is key---I work closely with
-              clients, partners, and other creatives to ensure the final outcome
-              aligns with the mission and exceeds expectations.
-            </p>
-
-            <h3
-              className="text-lg font-medium mb-3 mt-6"
-              style={{ color: "var(--text-primary)" }}
-            >
-              AT THE CUTTING EDGE
-            </h3>
-            <p>
-              I'm passionate about emerging technologies like AI, XR, and
-              immersive experiences. These tools are not just technical
-              solutions but also new languages for creative expression. I stay
-              at the forefront of these developments to bring cutting-edge
-              capabilities to every project.
-            </p>
-
-            <h3
-              className="text-lg font-medium mb-3 mt-6"
-              style={{ color: "var(--text-primary)" }}
-            >
-              A CREATIVE LIFESTYLE
-            </h3>
-            <p>
-              Inspiration comes from everywhere - nature, science, technology,
-              magical gatherings, archetypical stories, meditation and peak
-              experiences, diverse cultures...
-              <br />
-              I'm always immersed in narratives that inspire new forms of art,
-              and 'ways of being' in flourishing environments.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Social Links */}
-      <div className="flex flex-wrap gap-4 items-center">
-        {socialLinks.map((link, index) => {
-          const animationProps = getAnimationClasses(index + 5, "slide-in-up");
-          return (
-            <a
-              key={link.name}
-              href={link.href}
-              className={`text-center py-2 px-3 hover:opacity-70 hover:scale-105 transition-all duration-200 ${animationProps.className}`}
-              style={{
-                color: "var(--text-secondary)",
-                ...animationProps.style,
-              }}
-            >
-              {link.name}
-            </a>
-          );
-        })}
-      </div>
-    </div>
+          <p className="mt-3 text-base">— Thích Nhất Hạnh</p>
+        </blockquote>
+        <p>
+          Find me on <ExternalLink href="https://x.com/syntonikka">X</ExternalLink>,{" "}
+          <ExternalLink href="https://www.instagram.com/syntonikka/">Instagram</ExternalLink>,{" "}
+          and <ExternalLink href="https://agartha1.substack.com/">Substack</ExternalLink>.
+        </p>
+      </footer>
+    </article>
   );
 }

@@ -126,7 +126,7 @@ export default function CaseStudies() {
       <div className="">
         <h1 className="p-4 text-3xl md:text-4xl font-light mb-12 text-gray-800 dark:text-white">
           <AnimatedText 
-            text="Case Studies" 
+            text="Projects"
             className=""
             delay={300}
             letterSpeed={40}

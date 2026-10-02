@@ -5,3 +5,7 @@ server/public
 vite.config.ts.*
 *.tar.gz
 .vercel
+
+# Generated gallery previews and index
+client/public/gallery/
+client/src/data/gallery.ts

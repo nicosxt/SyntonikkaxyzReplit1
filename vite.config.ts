@@ -1,11 +1,14 @@
 import { defineConfig } from "vite";
+import { generateGallery } from "./scripts/generate-gallery.mjs";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-export default defineConfig({
+export default defineConfig(async () => {
+  await generateGallery();
+  return {
   plugins: [
     react(),
     runtimeErrorOverlay(),
@@ -36,4 +39,5 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
+  };
 });
