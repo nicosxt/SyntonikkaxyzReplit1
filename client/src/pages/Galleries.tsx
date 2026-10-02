@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { ArrowLeft, ArrowUpRight, Layers } from "lucide-react";
 import { galleryItems } from "@/data/gallery";
 
-const categories = ["All", "3D Worlds", "AI Art", "Drawings"] as const;
+const categories = ["All", "3D Worlds", "AI Art", "Drawings", "Merch"] as const;
 
 export default function Galleries() {
   const [category, setCategory] = useState<(typeof categories)[number]>("All");
@@ -42,9 +42,7 @@ export default function Galleries() {
           <a
             key={item.id}
             href={`/galleries/${item.id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Open ${item.title}${item.images.length > 1 ? `, collection of ${item.images.length} images` : ""} in a new tab`}
+            aria-label={`Open ${item.title}${item.images.length > 1 ? `, collection of ${item.images.length} images` : ""}`}
             className="group min-w-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 rounded-sm"
           >
             <div className="relative aspect-square overflow-hidden bg-black/10 dark:bg-white/5 rounded-sm">
@@ -114,6 +112,36 @@ export function GalleryDetail({ params }: { params: { id: string } }) {
           </figure>
         ))}
       </div>
+      {item.products.length > 0 && (
+        <section aria-labelledby="shop-design" className="mt-16 pt-10 border-t border-black/15 dark:border-white/15">
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-3">Art you can wear</p>
+              <h2 id="shop-design" className="text-2xl md:text-3xl font-light text-gray-800 dark:text-white">Shop this design</h2>
+            </div>
+            <a href="https://merch.agartha.one/" className="inline-flex items-center gap-2 text-sm underline underline-offset-4 text-gray-700 dark:text-gray-300">
+              Visit Agartha shop <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+            </a>
+          </div>
+          <div className="space-y-12">
+            {item.products.map((product) => (
+              <div key={product.url}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {product.images.map((image) => (
+                    <a key={image.src} href={product.url} aria-label={`View ${product.title} in the Agartha shop`} className="block overflow-hidden rounded-sm bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                      <img src={image.src} alt={image.alt} loading="lazy" decoding="async" className="w-full h-auto" />
+                    </a>
+                  ))}
+                </div>
+                <a href={product.url} className="mt-4 flex flex-wrap items-center justify-between gap-3 text-gray-800 dark:text-white group">
+                  <h3 className="text-base md:text-lg">{product.title}</h3>
+                  <span className="inline-flex items-center gap-2 text-sm underline underline-offset-4 group-hover:opacity-70">View in shop <ArrowUpRight className="w-4 h-4" aria-hidden="true" /></span>
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
       <Link href="/galleries" className="inline-flex items-center gap-2 mt-16 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">
         <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Back to Galleries
       </Link>

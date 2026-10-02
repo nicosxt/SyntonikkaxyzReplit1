@@ -1,4 +1,4 @@
-import { readdir, mkdir, stat, writeFile } from 'node:fs/promises';
+import { readdir, mkdir, stat, writeFile, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
@@ -7,7 +7,7 @@ import sharp from 'sharp';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = path.join(root, 'public/images/Gallery');
 const output = path.join(root, 'client/public/gallery');
-const categories = ['3D Worlds', 'AI Art', 'Drawings'];
+const categories = ['3D Worlds', 'AI Art', 'Drawings', 'Merch'];
 const isImage = (name) => /\.(jpe?g|png|webp|gif|avif)$/i.test(name);
 const sort = (a, b) => a.localeCompare(b, undefined, { numeric: true });
 
@@ -23,10 +23,13 @@ async function imagesIn(directory) {
 export async function generateGallery() {
   await mkdir(output, { recursive: true });
   const items = [];
+  const merch = JSON.parse(await readFile(path.join(root, 'scripts/merch-catalog.json'), 'utf8'));
   for (const category of categories) {
-    const directory = path.join(source, category);
+    const directory = path.join(source, category === 'Merch' ? 'T Shirt Design' : category);
     const entries = (await readdir(directory, { withFileTypes: true })).sort((a, b) => sort(a.name, b.name));
-    const groups = category === '3D Worlds'
+    const groups = category === 'Merch'
+      ? merch.map((design) => ({ ...design, files: design.files.map((file) => path.join(directory, file)) }))
+      : category === '3D Worlds'
       ? (await imagesIn(directory)).map((file) => ({ title: path.parse(file).name, files: [file] }))
       : await Promise.all(entries.filter((entry) => entry.isDirectory() || (category === 'Drawings' && isImage(entry.name))).map(async (entry) => ({
           title: entry.isDirectory() ? entry.name : path.parse(entry.name).name,
@@ -52,9 +55,12 @@ export async function generateGallery() {
         images.push({ src: `/gallery/${filename}`, alt: group.files.length === 1 ? group.title : `${group.title} — artwork ${index + 1}` });
         if (index === 0) group.thumbnail = `/gallery/${thumbnail}`;
       }
-      items.push({ id, title: group.title, category, thumbnail: group.thumbnail, images });
+      items.push({ id, title: group.title, category, thumbnail: group.thumbnail, images, products: group.products ?? [] });
     }
   }
-  await writeFile(path.join(root, 'client/src/data/gallery.ts'), `// Generated from public/images/Gallery by scripts/generate-gallery.mjs.\nexport const galleryItems = ${JSON.stringify(items, null, 2)};\n`);
+  await writeFile(path.join(root, 'client/src/data/gallery.ts'), `// Generated from public/images/Gallery by scripts/generate-gallery.mjs.\nexport interface GalleryImage { src: string; alt: string; }
+export interface GalleryProduct { title: string; url: string; images: GalleryImage[]; }
+export interface GalleryItem { id: string; title: string; category: string; thumbnail: string; images: GalleryImage[]; products: GalleryProduct[]; }
+export const galleryItems: GalleryItem[] = ${JSON.stringify(items, null, 2)};\n`);
   return items;
 }
