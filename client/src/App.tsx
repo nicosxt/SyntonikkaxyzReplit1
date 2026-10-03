@@ -1,4 +1,4 @@
-import { Switch, Route, Redirect } from "wouter";
+import { Switch, Route, Redirect, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -8,7 +8,9 @@ import StarfieldBackground from "@/components/StarfieldBackground";
 import { useTheme } from "@/components/ThemeToggle";
 import Home from "@/pages/Home";
 import EdgeCityCaseStudy from "@/pages/EdgeCityCaseStudy";
+import EdgeCityWebsite2026 from "@/pages/EdgeCityWebsite2026";
 import AgarthaCaseStudy from "@/pages/AgarthaCaseStudy";
+import Agartha2026 from "@/pages/Agartha2026";
 import Galleries, { GalleryDetail } from "@/pages/Galleries";
 import { GameDetail } from "@/pages/Games";
 import VideoDetail from "@/pages/Videos";
@@ -19,6 +21,7 @@ import cloudsBg from "@assets/sky-clouds-washed.jpeg";
 
 function Router() {
   const { theme } = useTheme();
+  const [location] = useLocation();
   
   console.log('App Router: Current theme is', theme);
 
@@ -39,15 +42,18 @@ function Router() {
       {/* Content overlay */}
       <div className="min-h-screen bg-transparent transition-colors duration-300 relative z-10">
         <Navigation />
-        <main className="pt-20 px-4 pb-8">
+        <main className={location === "/" ? "" : "pt-20 px-4 pb-8"}>
           <Switch>
             <Route path="/" component={Home} />
             <Route path="/case-studies"><Redirect to="/" /></Route>
+            <Route path="/case-studies/edge-city-2026"><Redirect to="/case-studies/edge-city" /></Route>
+            <Route path="/case-studies/edge-city-website-2026" component={EdgeCityWebsite2026} />
             <Route
               path="/case-studies/edge-city"
               component={EdgeCityCaseStudy}
             />
             <Route path="/case-studies/agartha" component={AgarthaCaseStudy} />
+            <Route path="/case-studies/agartha-2026" component={Agartha2026} />
             <Route path="/services" component={Services} />
             <Route path="/galleries/:id" component={GalleryDetail} />
             <Route path="/playground" component={Galleries} />

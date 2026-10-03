@@ -28,7 +28,7 @@ export function GameDetail({ params }: { params: { slug: string } }) {
         </dl>
       </header>
       <img src={post.cover} alt={post.title} className="w-full h-auto rounded-sm mb-10 md:mb-16" decoding="async" />
-      <div className="max-w-3xl mx-auto">
+      <div className="w-full mx-auto">
         {post.video && <VideoEmbed url={post.video} title={`${post.title} preview`} />}
         <FramerContent blocks={post.content} title={post.title} />
       </div>

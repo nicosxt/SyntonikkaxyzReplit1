@@ -10,13 +10,58 @@ import merchStoryImages from "@/data/merchStoryImages.json";
 
 const categories = ["All", "Visual Art", "Games", "Merch", "Videos"] as const;
 
-const allGalleryItems: (GalleryItem & { description?: string; source?: string; sourceLabel?: string })[] = [...visualArt, ...galleryItems];
+type Artwork = GalleryItem & { description?: string; source?: string; sourceLabel?: string };
+
+// Editorial details stay separate from the generated image catalog.
+const galleryDetails: Record<string, Partial<Artwork>> = {
+  "ai-art-2025-mystic-future": { title: "Mystic Future [2025]" },
+  "ai-art-2025-constellations": {
+    title: "Constellation [2025]",
+    description: "A collaboration with Colton Orr.",
+    source: "https://www.behance.net/gallery/232206955/Constellation-Brand-Design",
+    sourceLabel: "View Constellation Brand Design on Behance",
+  },
+  "ai-art-2025-renaissance-futurism": { title: "Renaissance Futurism [2025]" },
+};
+
+const allGalleryItems: Artwork[] = [...visualArt, ...galleryItems].map(item => {
+  const details = galleryDetails[item.id];
+  return {
+    ...item,
+    ...details,
+    images: item.images.map(image => ({
+      ...image,
+      alt: details?.title ? image.alt.replace(item.title, details.title) : image.alt,
+    })),
+  };
+});
+
+const featuredOrder = [
+  "3d-worlds-desert-temple",
+  "ai-art-2025-mystic-future",
+  "the-future-i-want",
+  "drawings-faces-in-joshua-tree",
+  "drawings-agartha-in-patagonia",
+  "drawings-animals-in-parallel-universe",
+  "everything-is-alive",
+  "chefumami",
+  "game-reel-2023",
+  "inktober-2025",
+  "astro-cities",
+  "edge-esmeralda-trailer",
+  "the-art-of-chilling",
+  "burping-the-right-way",
+];
+const collectionRank = (id: string) => {
+  const index = featuredOrder.indexOf(id);
+  return index === -1 ? featuredOrder.length : index;
+};
 
 const collectionItems = [
   ...videoProjects.map(project => ({ id: project.slug, title: project.title, category: "Videos", thumbnail: project.cover, images: [{ src: project.cover, alt: project.title }], href: `/videos/${project.slug}` })),
   ...allGalleryItems.map(item => ({ ...item, category: item.category === "Merch" ? "Merch" : "Visual Art", href: `/galleries/${item.id}` })),
   ...gamePosts.filter(post => post.slug !== "reel2023").map(post => ({ id: post.slug, title: post.title, category: "Games", thumbnail: post.cover, images: [{ src: post.cover, alt: post.title }], href: `/games/${post.slug}` })),
-];
+].sort((a, b) => collectionRank(a.id) - collectionRank(b.id));
 
 export default function Playground() {
   const [category, setCategory] = useState<(typeof categories)[number]>("All");
@@ -64,7 +109,11 @@ export default function Playground() {
                 decoding="async"
                 width={640}
                 height={640}
-                className="w-full h-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
+                className={`w-full h-full object-cover transition-transform duration-500 ${
+                  item.id === "the-art-of-chilling"
+                    ? "scale-[1.34] motion-safe:group-hover:scale-[1.4]"
+                    : "motion-safe:group-hover:scale-105"
+                }`}
               />
               {item.images.length > 1 && (
                 <span className="absolute top-2 right-2 md:top-3 md:right-3 flex items-center gap-1.5 rounded-full bg-black/60 text-white px-2 py-1 text-xs backdrop-blur-sm">
@@ -109,7 +158,7 @@ export function GalleryDetail({ params }: { params: { id: string } }) {
       <header className="mb-10 md:mb-14">
         <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-4">{item.category === "Merch" ? "Merch" : "Visual Art"} · {item.images.length} {item.images.length === 1 ? "artwork" : "artworks"}</p>
         <h1 className="text-3xl md:text-5xl font-light text-gray-800 dark:text-white">{item.title}</h1>
-        {item.description && <p className="mt-5 max-w-3xl text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300">{item.description}</p>}
+        {item.description && <p className="mt-5 w-full text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300">{item.description}</p>}
         {item.source && <a href={item.source} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 text-sm underline underline-offset-4 text-gray-600 dark:text-gray-400">{item.sourceLabel || "Read more"} <ArrowUpRight className="w-4 h-4" aria-hidden="true" /></a>}
       </header>
       <div className="space-y-10 md:space-y-16">
@@ -131,7 +180,7 @@ export function GalleryDetail({ params }: { params: { id: string } }) {
       {item.category === "Merch" && merchStories[item.id] && (
         <section aria-labelledby="design-story" className="mt-12 md:mt-16">
           <h2 id="design-story" className="text-2xl md:text-3xl font-light text-gray-800 dark:text-white mb-5">Behind the design</h2>
-          <div className="max-w-3xl space-y-5">
+          <div className="w-full space-y-5">
             {merchStories[item.id].map((paragraph, index) => (
               <p key={index} className="text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300">{paragraph}</p>
             ))}

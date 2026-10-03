@@ -1,3 +1,4 @@
+import EdgeEsmeraldaPosters from "./EdgeCity2026";
 import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 import { getCaseStudyById } from "../data/caseStudies";
@@ -329,6 +330,8 @@ export default function EdgeCityCaseStudy() {
             />
           </div>
         </div>
+
+        <EdgeEsmeraldaPosters />
 
         {/* Additional References */}
         <div className="mb-6">

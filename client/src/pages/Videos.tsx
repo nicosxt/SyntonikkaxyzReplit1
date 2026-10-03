@@ -23,9 +23,9 @@ export default function VideoDetail({ params }: { params: { slug: string } }) {
         <h1 className="text-3xl md:text-5xl font-light text-gray-800 dark:text-white">{project.title}</h1>
       </header>
       <img src={project.cover} alt={`${project.title} — cover artwork`} decoding="async" className="w-full h-auto rounded-sm" />
-      {project.description && <p className="max-w-3xl mt-10 text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300">{project.description}</p>}
+      {project.description && <p className="w-full mt-10 text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300">{project.description}</p>}
       {project.content ? (
-        <div className="max-w-3xl mx-auto mt-10"><FramerContent blocks={project.content} title={project.title} /></div>
+        <div className="w-full mx-auto mt-10"><FramerContent blocks={project.content} title={project.title} /></div>
       ) : (
         <section aria-label="Watch the film" className="mt-10">{project.platform === "x" ? <XEmbed url={project.video} /> : <VideoEmbed url={project.video} title={project.title} />}</section>
       )}

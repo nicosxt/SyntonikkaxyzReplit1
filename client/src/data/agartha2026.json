@@ -1,0 +1,88 @@
+{
+  "residencies": [
+    {
+      "src": "/images/case-studies/agartha-2026/residencies/residency-1-patagonia.webp",
+      "width": 2200,
+      "height": 1237
+    },
+    {
+      "src": "/images/case-studies/agartha-2026/residencies/residency-2-island-time.webp",
+      "width": 1419,
+      "height": 789
+    },
+    {
+      "src": "/images/case-studies/agartha-2026/residencies/residency-3-house-of-games.webp",
+      "width": 1416,
+      "height": 797
+    },
+    {
+      "src": "/images/case-studies/agartha-2026/residencies/residency-4-touch-grass-agartha-2-16x9.webp",
+      "width": 2200,
+      "height": 1235
+    }
+  ],
+  "website": [
+    {
+      "src": "/images/case-studies/agartha-2026/website/web-01.webp",
+      "width": 2200,
+      "height": 1388
+    },
+    {
+      "src": "/images/case-studies/agartha-2026/website/web-02.webp",
+      "width": 2200,
+      "height": 1388
+    },
+    {
+      "src": "/images/case-studies/agartha-2026/website/web-03.webp",
+      "width": 2200,
+      "height": 1388
+    },
+    {
+      "src": "/images/case-studies/agartha-2026/website/web-04.webp",
+      "width": 2200,
+      "height": 1388
+    }
+  ],
+  "posters": [
+    {
+      "src": "/images/case-studies/agartha-2026/posters/a3-print-1-copy-1.webp",
+      "width": 784,
+      "height": 1109
+    },
+    {
+      "src": "/images/case-studies/agartha-2026/posters/a3-print-1-copy-2.webp",
+      "width": 784,
+      "height": 1109
+    },
+    {
+      "src": "/images/case-studies/agartha-2026/posters/a3-print-1-copy-3.webp",
+      "width": 784,
+      "height": 1109
+    },
+    {
+      "src": "/images/case-studies/agartha-2026/posters/a3-print-1-copy-4.webp",
+      "width": 784,
+      "height": 1110
+    },
+    {
+      "src": "/images/case-studies/agartha-2026/posters/a3-print-1-copy-5.webp",
+      "width": 784,
+      "height": 1109
+    },
+    {
+      "src": "/images/case-studies/agartha-2026/posters/a3-print-1-copy-6.webp",
+      "width": 784,
+      "height": 1109
+    },
+    {
+      "src": "/images/case-studies/agartha-2026/posters/a3-print-1-copy-7.webp",
+      "width": 784,
+      "height": 1109
+    },
+    {
+      "src": "/images/case-studies/agartha-2026/posters/a3-print-1-copy.webp",
+      "width": 784,
+      "height": 1109
+    }
+  ]
+}

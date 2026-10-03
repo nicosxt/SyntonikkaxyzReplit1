@@ -1,9 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
-import path from "path";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
-
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const app = express();
 app.use(express.json());
@@ -54,8 +51,7 @@ app.use((req, res, next) => {
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes
   if (app.get("env") === "development") {
-    // Serve static files from public directory in development
-    app.use(express.static(path.resolve(__dirname, "..", "public")));
+    // Vite serves the canonical static assets from client/public.
     await setupVite(app, server);
   } else {
     serveStatic(app);

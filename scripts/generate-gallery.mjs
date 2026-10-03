@@ -1,11 +1,11 @@
-import { readdir, mkdir, stat, writeFile, readFile } from 'node:fs/promises';
+import { readdir, mkdir, stat, writeFile, readFile, unlink } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import sharp from 'sharp';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const source = path.join(root, 'public/images/Gallery');
+const source = path.join(root, 'attached_assets/gallery');
 const output = path.join(root, 'client/public/gallery');
 const categories = ['3D Worlds', 'AI Art', 'Drawings', 'Merch'];
 const isImage = (name) => /\.(jpe?g|png|webp|gif|avif)$/i.test(name);
@@ -23,6 +23,7 @@ async function imagesIn(directory) {
 export async function generateGallery() {
   await mkdir(output, { recursive: true });
   const items = [];
+  const generatedFiles = new Set();
   const merch = JSON.parse(await readFile(path.join(root, 'scripts/merch-catalog.json'), 'utf8'));
   for (const category of categories) {
     const directory = path.join(source, category === 'Merch' ? 'T Shirt Design' : category);
@@ -44,6 +45,8 @@ export async function generateGallery() {
         const key = createHash('sha256').update(`${path.relative(source, file)}:${info.size}:${info.mtimeMs}`).digest('hex').slice(0, 16);
         const filename = `${key}.webp`;
         const thumbnail = `${key}-thumb.webp`;
+        generatedFiles.add(filename);
+        if (index === 0) generatedFiles.add(thumbnail);
         try { await stat(path.join(output, filename)); } catch {
           await sharp(file).rotate().resize({ width: 2400, height: 2400, fit: 'inside', withoutEnlargement: true }).webp({ quality: 88 }).toFile(path.join(output, filename));
         }
@@ -58,9 +61,15 @@ export async function generateGallery() {
       items.push({ id, title: group.title, category, thumbnail: group.thumbnail, images, products: group.products ?? [] });
     }
   }
-  await writeFile(path.join(root, 'client/src/data/gallery.ts'), `// Generated from public/images/Gallery by scripts/generate-gallery.mjs.\nexport interface GalleryImage { src: string; alt: string; }
+  await writeFile(path.join(root, 'client/src/data/gallery.ts'), `// Generated from attached_assets/gallery by scripts/generate-gallery.mjs.\nexport interface GalleryImage { src: string; alt: string; }
 export interface GalleryProduct { title: string; url: string; images: GalleryImage[]; }
 export interface GalleryItem { id: string; title: string; category: string; thumbnail: string; images: GalleryImage[]; products: GalleryProduct[]; }
 export const galleryItems: GalleryItem[] = ${JSON.stringify(items, null, 2)};\n`);
+  // Remove obsolete previews only after the complete gallery has been generated.
+  for (const filename of await readdir(output)) {
+    if (/^[a-f0-9]{16}(-thumb)?\.webp$/.test(filename) && !generatedFiles.has(filename)) {
+      await unlink(path.join(output, filename));
+    }
+  }
   return items;
 }

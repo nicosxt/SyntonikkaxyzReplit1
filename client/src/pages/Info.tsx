@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { usePageAnimation } from "../hooks/usePageAnimation";
 
 function ExternalLink({ href, children }: { href: string; children: ReactNode }) {
   return (
@@ -7,7 +6,7 @@ function ExternalLink({ href, children }: { href: string; children: ReactNode })
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-gray-800 dark:text-white underline underline-offset-4 decoration-current/40 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 rounded-sm"
+      className="text-gray-800 dark:text-white underline underline-offset-4 decoration-current/40 hover:decoration-current focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 rounded-sm"
     >
       {children}
     </a>
@@ -15,27 +14,25 @@ function ExternalLink({ href, children }: { href: string; children: ReactNode })
 }
 
 export default function Info() {
-  const { isLoaded } = usePageAnimation({ delay: 200 });
-
   return (
     <article
-      className={`max-w-3xl mx-auto py-12 md:py-20 space-y-12 text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300 transition-all duration-700 ${
-        isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-      }`}
+      className="max-w-3xl mx-auto py-12 md:py-20 space-y-12 text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300"
     >
       <header className="space-y-6">
         <h1 className="text-3xl md:text-4xl font-light text-gray-800 dark:text-white">
           Welcome to My World.
         </h1>
-        <figure className="space-y-4">
+        <figure className="space-y-4 text-center">
+          <div className="mx-auto w-[48%] max-w-[15.36rem]">
           <img
             src="/images/about/nico.jpg"
             alt="Nico smiling and holding a chicken outdoors."
             width={1126}
             height={1134}
             decoding="async"
-            className="w-4/5 max-w-[25.6rem] aspect-square object-cover rounded-full"
+            className="w-full aspect-square object-cover rounded-full"
           />
+          </div>
           <figcaption>Hi, I'm Nico :)</figcaption>
         </figure>
         <p>
@@ -50,18 +47,17 @@ export default function Info() {
           My Mission
         </h2>
         <p>
-          Agartha holds my vision for life in community, where nature, technology,
+          <ExternalLink href="https://agartha.one/">Agartha</ExternalLink> holds my vision for life in community, where nature, technology,
           spirituality, and art coexist, and ancient wisdom meets new possibilities.
         </p>
         <p>
-          The north star for Agartha is a{" "}
+          The north star for <ExternalLink href="https://agartha.one/">Agartha</ExternalLink> is a{" "}
           <ExternalLink href="https://agartha1.substack.com/p/what-is-a-solarpunk-campus"><strong>Solarpunk Campus</strong></ExternalLink>:
           a home for people across generations, cultures, and disciplines to
           create, grow, and share beautiful lives.
         </p>
         <p>
-          Explore <ExternalLink href="https://agartha.one/">agartha.one</ExternalLink>{" "}
-          or follow our journey on{" "}
+          Follow my journey on{" "}
           <ExternalLink href="https://agartha1.substack.com/">Substack</ExternalLink>.
         </p>
       </section>
@@ -146,9 +142,9 @@ export default function Info() {
           <p className="mt-3 text-base">— Thích Nhất Hạnh</p>
         </blockquote>
         <p>
-          Find me on <ExternalLink href="https://x.com/syntonikka">X</ExternalLink>,{" "}
-          <ExternalLink href="https://www.instagram.com/syntonikka/">Instagram</ExternalLink>,{" "}
-          and <ExternalLink href="https://agartha1.substack.com/">Substack</ExternalLink>.
+          Find me on <ExternalLink href="https://agartha1.substack.com/">Substack</ExternalLink>,{" "}
+          <ExternalLink href="https://x.com/syntonikka">X</ExternalLink>,{" "}
+          and <ExternalLink href="https://www.instagram.com/syntonikka/">Instagram</ExternalLink>.
         </p>
       </footer>
     </article>
