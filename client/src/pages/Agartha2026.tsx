@@ -55,6 +55,7 @@ export default function Agartha2026() {
       <header className="mb-12">
         <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Founder · Worldbuilding, Branding, Web Design</p>
         <h1 className="text-3xl md:text-5xl font-light">Agartha 2026</h1>
+        <p className={`${paragraph} mt-6`}><ExternalLink href="https://www.agartha.one/">Agartha</ExternalLink> is a Solarpunk studio bringing residencies, storytelling, research, art merchandise, and podcasting into one cohesive world.</p>
       </header>
       <div className="space-y-16 md:space-y-24">
         <section aria-labelledby="residencies-heading">
@@ -78,7 +79,6 @@ export default function Agartha2026() {
         <section aria-labelledby="website-heading">
           <h2 id="website-heading" className={heading}>The Website</h2>
           <div className="space-y-5 mb-8">
-            <p className={paragraph}><ExternalLink href="https://www.agartha.one/">Agartha</ExternalLink> is a Solarpunk studio bringing residencies, storytelling, research, art merchandise, and podcasting into one cohesive world.</p>
             <p className={paragraph}>The visual direction moves beyond the familiar Solarpunk image of pristine cities wrapped in greenery. I wanted a future with character, mystery, and room for the unexpected.</p>
             <p className={paragraph}>Drawing on planetary evolution and the <ExternalLink href="https://en.wikipedia.org/wiki/Agartha">myth of a hidden subterranean kingdom</ExternalLink>, the identity combines mystical references with whimsical, otherworldly imagery. The result is a world with its own lore and a distinctive sense of wonder.</p>
           </div>

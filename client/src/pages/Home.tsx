@@ -6,15 +6,6 @@ import { caseStudiesData } from '@/data/caseStudies';
 
 const tagline = 'Nico Shi is a multi-disciplinary artist building Protopian worlds.';
 
-function FlowText({ text }: { text: string }) {
-  let offset = 0;
-  return <span aria-label={text}><span aria-hidden="true">{text.split(' ').map((word, index) => {
-    const start = offset;
-    offset += word.length + 1;
-    return <span key={index} className="inline-block whitespace-nowrap">{Array.from(word).map((char, i) => <span key={i} className="work-tagline-letter" style={{ '--letter-delay': `${(start + i) * 28}ms` } as CSSProperties}>{char}</span>)}{index < text.split(' ').length - 1 ? '\u00a0' : ''}</span>;
-  })}</span></span>;
-}
-
 export default function Home() {
   const [active, setActive] = useState(0);
   const [hovered, setHovered] = useState(false);
@@ -48,7 +39,7 @@ export default function Home() {
       </div>
       <div className="work-landing-footer">
         <Link href={project.link} className="group inline-flex items-center gap-4 min-w-0 text-white">
-          <span key={project.id}><span className="block text-lg md:text-xl font-light"><FlowText text={project.title} /></span><span className="block text-xs text-gray-400 mt-1"><FlowText text={project.role} /></span></span>
+          <span key={project.id}><span className="block text-lg md:text-xl font-light">{project.title}</span><span className="block text-xs text-gray-400 mt-1">{project.role}</span></span>
           <ArrowUpRight aria-hidden="true" className="w-5 h-5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
         </Link>
         <div className="work-landing-tagline">
