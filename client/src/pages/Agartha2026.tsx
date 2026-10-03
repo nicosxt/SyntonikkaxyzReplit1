@@ -90,7 +90,10 @@ export default function Agartha2026() {
           <h2 id="pitch-heading" className={heading}>Pitch Deck</h2>
           <p className={`${paragraph} mb-5`}>The pitch deck translates Agartha’s world into a clear introduction to the project. Mystical imagery, extraterrestrial motifs, and playful details give the presentation a distinctive voice while keeping the vision at its center.</p>
           <p className={`${paragraph} mb-8`}>See the full PDF <ExternalLink href="https://drive.google.com/file/d/1SYoESmCIn27IDwua9DSY0-p_ZlNeoWDB/view?usp=sharing">on Google Drive</ExternalLink> or download it <a href={`${root}/pitch-deck/agartha-patagonia-pitch.pdf`} download className="underline underline-offset-4">here</a>.</p>
-          {artwork({ src: `${root}/pitch-deck/agartha-pitch-cover.webp`, width: 2000, height: 1125 }, 'Agartha pitch deck cover — Be One of a Kind')}
+          <div className="space-y-8">
+            {artwork({ src: `${root}/pitch-deck/agartha-pitch-cover.webp`, width: 2000, height: 1125 }, 'Agartha pitch deck cover — Be One of a Kind')}
+            {[7, 16, 17].map(slide => artwork({ src: `${root}/pitch-deck/agartha-pitch-slide-${slide}.webp`, width: 2000, height: 1125 }, `Agartha pitch deck — slide ${slide}`))}
+          </div>
         </section>
         <section aria-labelledby="art-heading">
           <h2 id="art-heading" className={heading}>Decorative Art</h2>
