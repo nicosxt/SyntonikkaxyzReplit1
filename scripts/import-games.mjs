@@ -10,6 +10,11 @@ const categories = {
   scratchmyitchyback: 'Mobile Games',
   opposites: 'Mobile Games',
 };
+// Keep the curated portfolio covers when importing a fresh Framer export.
+const coverOverrides = {
+  "chefumami": "/images/games/chef-umami/chef-umami-cover.jpeg",
+  "reel2023": "/images/videos/game-reel-2023/game-reel-2023-cover.jpeg"
+};
 const source = JSON.parse(await fs.readFile(process.argv[2], 'utf8'));
 const assets = new Map();
 function image(value) {
@@ -34,7 +39,7 @@ const posts = source.items.filter(({ fields }) => fields.Slug in categories)
   .sort((a, b) => Object.keys(categories).indexOf(a.fields.Slug) - Object.keys(categories).indexOf(b.fields.Slug))
   .map(({ fields: f }) => ({
     slug: f.Slug, title: f.Slug === 'reel2023' ? 'Game Reel 2023' : f.Title, category: categories[f.Slug],
-    client: f.Client, role: f.Role, cover: image(f['Featured Image']),
+    client: f.Client, role: f.Role, cover: coverOverrides[f.Slug] ?? image(f['Featured Image']),
     video: /^https:\/\//.test(f['YouTube URL']) ? f['YouTube URL'] : '',
     content: f.Content.map(block),
   }));

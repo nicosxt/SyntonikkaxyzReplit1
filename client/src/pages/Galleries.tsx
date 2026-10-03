@@ -1,16 +1,21 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, ArrowUpRight, Layers } from "lucide-react";
-import { galleryItems } from "@/data/gallery";
+import { galleryItems, type GalleryItem } from "@/data/gallery";
+import visualArt from "@/data/visualArt.json";
 import gamePosts from "@/data/games.json";
+import { videoProjects } from "@/data/videos";
 import { merchStories, merchStorySource } from "@/data/merchStories";
 import merchStoryImages from "@/data/merchStoryImages.json";
 
-const categories = ["All", "Visual Art", "Games", "Merch"] as const;
+const categories = ["All", "Visual Art", "Games", "Merch", "Videos"] as const;
+
+const allGalleryItems: (GalleryItem & { description?: string; source?: string; sourceLabel?: string })[] = [...visualArt, ...galleryItems];
 
 const collectionItems = [
-  ...galleryItems.map(item => ({ ...item, category: item.category === "Merch" ? "Merch" : "Visual Art", href: `/galleries/${item.id}` })),
-  ...gamePosts.map(post => ({ id: post.slug, title: post.title, category: "Games", thumbnail: post.cover, images: [{ src: post.cover, alt: post.title }], href: `/games/${post.slug}` })),
+  ...videoProjects.map(project => ({ id: project.slug, title: project.title, category: "Videos", thumbnail: project.cover, images: [{ src: project.cover, alt: project.title }], href: `/videos/${project.slug}` })),
+  ...allGalleryItems.map(item => ({ ...item, category: item.category === "Merch" ? "Merch" : "Visual Art", href: `/galleries/${item.id}` })),
+  ...gamePosts.filter(post => post.slug !== "reel2023").map(post => ({ id: post.slug, title: post.title, category: "Games", thumbnail: post.cover, images: [{ src: post.cover, alt: post.title }], href: `/games/${post.slug}` })),
 ];
 
 export default function Playground() {
@@ -20,7 +25,7 @@ export default function Playground() {
   return (
     <div className="max-w-6xl mx-auto py-10 md:py-16">
       <header className="mb-10 md:mb-14">
-        <p className="mt-5 text-gray-600 dark:text-gray-400 text-base md:text-lg">Visual art, games, and things to wear.</p>
+        <p className="mt-5 text-gray-600 dark:text-gray-400 text-base md:text-lg">Visual art, games, videos, and things to wear.</p>
       </header>
 
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-black/15 dark:border-white/15 pb-5 mb-5">
@@ -40,7 +45,7 @@ export default function Playground() {
             </button>
           ))}
         </div>
-        <p className="text-xs text-gray-500 dark:text-gray-400" aria-live="polite">{items.length} entries</p>
+        <p className="text-xs text-gray-500 dark:text-gray-400" aria-live="polite">{items.length} {items.length === 1 ? "entry" : "entries"}</p>
       </div>
 
       <div className="grid grid-cols-3 gap-2 md:gap-5">
@@ -82,7 +87,7 @@ export default function Playground() {
 }
 
 export function GalleryDetail({ params }: { params: { id: string } }) {
-  const item = galleryItems.find((entry) => entry.id === params.id);
+  const item = allGalleryItems.find((entry) => entry.id === params.id);
 
   if (!item) {
     return (
@@ -104,6 +109,8 @@ export function GalleryDetail({ params }: { params: { id: string } }) {
       <header className="mb-10 md:mb-14">
         <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-4">{item.category === "Merch" ? "Merch" : "Visual Art"} · {item.images.length} {item.images.length === 1 ? "artwork" : "artworks"}</p>
         <h1 className="text-3xl md:text-5xl font-light text-gray-800 dark:text-white">{item.title}</h1>
+        {item.description && <p className="mt-5 max-w-3xl text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300">{item.description}</p>}
+        {item.source && <a href={item.source} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 text-sm underline underline-offset-4 text-gray-600 dark:text-gray-400">{item.sourceLabel || "Read more"} <ArrowUpRight className="w-4 h-4" aria-hidden="true" /></a>}
       </header>
       <div className="space-y-10 md:space-y-16">
         {artworkImages.map((image, index) => (

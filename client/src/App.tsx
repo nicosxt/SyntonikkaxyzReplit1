@@ -11,6 +11,7 @@ import EdgeCityCaseStudy from "@/pages/EdgeCityCaseStudy";
 import AgarthaCaseStudy from "@/pages/AgarthaCaseStudy";
 import Galleries, { GalleryDetail } from "@/pages/Galleries";
 import { GameDetail } from "@/pages/Games";
+import VideoDetail from "@/pages/Videos";
 import Services from "@/pages/Services";
 import Info from "@/pages/Info";
 import PlatformerPage from "@/pages/PlatformerPage";
@@ -51,8 +52,10 @@ function Router() {
             <Route path="/galleries/:id" component={GalleryDetail} />
             <Route path="/playground" component={Galleries} />
             <Route path="/galleries"><Redirect to="/playground" /></Route>
+            <Route path="/games/reel2023"><Redirect to="/videos/game-reel-2023" /></Route>
             <Route path="/games/:slug" component={GameDetail} />
             <Route path="/games"><Redirect to="/playground" /></Route>
+            <Route path="/videos/:slug" component={VideoDetail} />
             <Route path="/info" component={Info} />
             <Route path="/game" component={PlatformerPage} />
             <Route>

@@ -1,0 +1,76 @@
+[
+  {
+    "id": "burping-the-right-way",
+    "title": "Burping the Right Way",
+    "category": "Visual Art",
+    "thumbnail": "/images/visual-art/burping-the-right-way/burping-the-right-way-cover.webp",
+    "description": "A short comic.",
+    "source": "https://agartha1.substack.com/p/short-comic-burping-in-the-right",
+    "sourceLabel": "Read the comic on Substack",
+    "images": [
+      {
+        "src": "/images/visual-art/burping-the-right-way/burping-the-right-way-cover.webp",
+        "alt": "Burping the Right Way — first page of the short comic"
+      }
+    ],
+    "products": []
+  },
+  {
+    "id": "inktober-2025",
+    "title": "Inktober 2025",
+    "category": "Visual Art",
+    "thumbnail": "/images/visual-art/inktober/inktober-cover.webp",
+    "description": "A collection of daily visual explorations, drawings, and animated process studies.",
+    "images": [
+      {
+        "src": "/images/visual-art/inktober/inktober-cover.webp",
+        "alt": "First Inktober artwork — colorful eye, hands, leaves, and flames"
+      },
+      {
+        "src": "/images/visual-art/inktober/collection-overview.webp",
+        "alt": "Inktober collection overview"
+      },
+      {
+        "src": "/images/visual-art/inktober/drawing-process.webp",
+        "alt": "Animated Inktober drawing process"
+      },
+      {
+        "src": "/images/visual-art/inktober/god-is-crying.webp",
+        "alt": "God is Crying"
+      },
+      {
+        "src": "/images/visual-art/inktober/my-mother-of-fire.webp",
+        "alt": "My Mother of Fire"
+      },
+      {
+        "src": "/images/visual-art/inktober/hey-easy.webp",
+        "alt": "Hey, Easy"
+      },
+      {
+        "src": "/images/visual-art/inktober/devotion.webp",
+        "alt": "Devotion"
+      },
+      {
+        "src": "/images/visual-art/inktober/flammarion-engraving-and-edge-city.webp",
+        "alt": "Flammarion Engraving and Edge City"
+      }
+    ],
+    "products": []
+  },
+  {
+    "id": "astro-cities",
+    "title": "Astro Cities",
+    "category": "Visual Art",
+    "thumbnail": "/images/visual-art/astro-cities/astro-cities-cancer-cover.webp",
+    "description": "A series of art prints reimagining the twelve zodiac signs as cities and emotional landscapes. Created with Stable Diffusion and ControlNet, each city translates an astrological archetype into architecture, color, and atmosphere. The City of Cancer brings its nurturing, protective character to life through sweeping green forms, lush gardens, and gentle waterways.",
+    "source": "https://www.behance.net/gallery/223089403/Astro-Cities",
+    "sourceLabel": "Explore Astro Cities on Behance",
+    "images": [
+      {
+        "src": "/images/visual-art/astro-cities/astro-cities-cancer-cover.webp",
+        "alt": "The City of Cancer — curling green landscapes, flowering gardens, and waterways from Astro Cities"
+      }
+    ],
+    "products": []
+  }
+]

@@ -16,7 +16,7 @@ export default function Navigation() {
 
   const navItems = [
     { href: "/", label: "Work", active: location === "/" || location.startsWith("/case-studies") },
-    { href: "/playground", label: "Playground", active: ["/playground", "/galleries", "/games"].some(path => location === path || location.startsWith(`${path}/`)) },
+    { href: "/playground", label: "Playground", active: ["/playground", "/galleries", "/games", "/videos"].some(path => location === path || location.startsWith(`${path}/`)) },
     { href: "/info", label: "About", active: location === "/info" },
   ];
 
