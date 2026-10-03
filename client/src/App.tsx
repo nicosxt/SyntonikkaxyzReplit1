@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Redirect } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -7,10 +7,10 @@ import Navigation from "@/components/Navigation";
 import StarfieldBackground from "@/components/StarfieldBackground";
 import { useTheme } from "@/components/ThemeToggle";
 import Home from "@/pages/Home";
-import CaseStudies from "@/pages/CaseStudies";
 import EdgeCityCaseStudy from "@/pages/EdgeCityCaseStudy";
 import AgarthaCaseStudy from "@/pages/AgarthaCaseStudy";
 import Galleries, { GalleryDetail } from "@/pages/Galleries";
+import { GameDetail } from "@/pages/Games";
 import Services from "@/pages/Services";
 import Info from "@/pages/Info";
 import PlatformerPage from "@/pages/PlatformerPage";
@@ -41,7 +41,7 @@ function Router() {
         <main className="pt-20 px-4 pb-8">
           <Switch>
             <Route path="/" component={Home} />
-            <Route path="/case-studies" component={CaseStudies} />
+            <Route path="/case-studies"><Redirect to="/" /></Route>
             <Route
               path="/case-studies/edge-city"
               component={EdgeCityCaseStudy}
@@ -49,7 +49,10 @@ function Router() {
             <Route path="/case-studies/agartha" component={AgarthaCaseStudy} />
             <Route path="/services" component={Services} />
             <Route path="/galleries/:id" component={GalleryDetail} />
-            <Route path="/galleries" component={Galleries} />
+            <Route path="/playground" component={Galleries} />
+            <Route path="/galleries"><Redirect to="/playground" /></Route>
+            <Route path="/games/:slug" component={GameDetail} />
+            <Route path="/games"><Redirect to="/playground" /></Route>
             <Route path="/info" component={Info} />
             <Route path="/game" component={PlatformerPage} />
             <Route>

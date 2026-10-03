@@ -17,10 +17,10 @@ export default function AgarthaCaseStudy() {
     >
       <div className="p-8 md:p-12">
         {/* Back button */}
-        <Link href="/case-studies">
+        <Link href="/">
           <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-opacity mb-8">
             <ArrowLeft className="w-5 h-5" />
-            <span>Back to Projects</span>
+            <span>Back to Work</span>
           </button>
         </Link>
 

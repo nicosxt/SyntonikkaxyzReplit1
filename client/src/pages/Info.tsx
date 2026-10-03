@@ -25,8 +25,19 @@ export default function Info() {
     >
       <header className="space-y-6">
         <h1 className="text-3xl md:text-4xl font-light text-gray-800 dark:text-white">
-          Hello! I’m Nico. Welcome to my world
+          Welcome to My World.
         </h1>
+        <figure className="space-y-4">
+          <img
+            src="/images/about/nico.jpg"
+            alt="Nico smiling and holding a chicken outdoors."
+            width={1126}
+            height={1134}
+            decoding="async"
+            className="w-4/5 max-w-[25.6rem] aspect-square object-cover rounded-full"
+          />
+          <figcaption>Hi, I'm Nico :)</figcaption>
+        </figure>
         <p>
           I see brands, businesses, and communities as worlds of their own. I bring
           life and love to mission-aligned projects, helping people visualize—and
@@ -34,9 +45,48 @@ export default function Info() {
         </p>
       </header>
 
-      <section aria-labelledby="background-heading" className="space-y-5">
-        <h2 id="background-heading" className="text-2xl font-medium text-gray-800 dark:text-white">
-          My Background
+      <section aria-labelledby="mission-heading" className="space-y-5">
+        <h2 id="mission-heading" className="text-2xl font-medium text-gray-800 dark:text-white">
+          My Mission
+        </h2>
+        <p>
+          Agartha holds my vision for life in community, where nature, technology,
+          spirituality, and art coexist, and ancient wisdom meets new possibilities.
+        </p>
+        <p>
+          The north star for Agartha is a{" "}
+          <ExternalLink href="https://agartha1.substack.com/p/what-is-a-solarpunk-campus"><strong>Solarpunk Campus</strong></ExternalLink>:
+          a home for people across generations, cultures, and disciplines to
+          create, grow, and share beautiful lives.
+        </p>
+        <p>
+          Explore <ExternalLink href="https://agartha.one/">agartha.one</ExternalLink>{" "}
+          or follow our journey on{" "}
+          <ExternalLink href="https://agartha1.substack.com/">Substack</ExternalLink>.
+        </p>
+      </section>
+
+      <section aria-labelledby="skills-heading" className="space-y-5">
+        <h2 id="skills-heading" className="text-2xl font-medium text-gray-800 dark:text-white">
+          My Skills
+        </h2>
+        <p>I build worlds people can live inside.</p>
+        <p>
+          My practice spans art, branding, world-building, gameplay engineering,
+          creative writing, music, and community organizing. I see art as a way of
+          being, bringing creativity to both technical challenges and human connections.
+        </p>
+        <p>
+          My strength is connecting these disciplines: translating abstract ideas
+          into visual stories, using AI as a creative tool, and shaping physical
+          spaces that influence how we feel and gather. I’m drawn to the cultural
+          meanings behind aesthetics—and to making people feel seen and heard.
+        </p>
+      </section>
+
+      <section aria-labelledby="story-heading" className="space-y-5">
+        <h2 id="story-heading" className="text-2xl font-medium text-gray-800 dark:text-white">
+          My Story
         </h2>
         <p>
           I began my career making games and virtual worlds. In 2017, while still
@@ -75,45 +125,6 @@ export default function Info() {
           a Solarpunk creative studio and global community. Through workshops,
           residencies, and creative world building, I have empowered a global
           group of people to work toward more meaningful and beautiful ways of living.
-        </p>
-      </section>
-
-      <section aria-labelledby="mission-heading" className="space-y-5">
-        <h2 id="mission-heading" className="text-2xl font-medium text-gray-800 dark:text-white">
-          My Mission
-        </h2>
-        <p>
-          Agartha holds my vision for life in community, where nature, technology,
-          spirituality, and art coexist, and ancient wisdom meets new possibilities.
-        </p>
-        <p>
-          The north star for Agartha is a{" "}
-          <ExternalLink href="https://agartha1.substack.com/p/what-is-a-solarpunk-campus"><strong>Solarpunk Campus</strong></ExternalLink>:
-          a home for people across generations, cultures, and disciplines to
-          create, grow, and share beautiful lives.
-        </p>
-        <p>
-          Explore <ExternalLink href="https://agartha.one/">agartha.one</ExternalLink>{" "}
-          or follow our journey on{" "}
-          <ExternalLink href="https://agartha1.substack.com/">Substack</ExternalLink>.
-        </p>
-      </section>
-
-      <section aria-labelledby="skills-heading" className="space-y-5">
-        <h2 id="skills-heading" className="text-2xl font-medium text-gray-800 dark:text-white">
-          My Skills
-        </h2>
-        <p>I build worlds people can live inside.</p>
-        <p>
-          My practice spans art, branding, world-building, gameplay engineering,
-          creative writing, music, and community organizing. I see art as a way of
-          being, bringing creativity to both technical challenges and human connections.
-        </p>
-        <p>
-          My strength is connecting these disciplines: translating abstract ideas
-          into visual stories, using AI as a creative tool, and shaping physical
-          spaces that influence how we feel and gather. I’m drawn to the cultural
-          meanings behind aesthetics—and to making people feel seen and heard.
         </p>
       </section>
 

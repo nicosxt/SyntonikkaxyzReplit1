@@ -1,0 +1,2945 @@
+[
+  {
+    "slug": "everything-is-alive",
+    "title": "Everything is Alive",
+    "category": "Mixed Reality",
+    "client": "Self",
+    "role": "Artist",
+    "cover": "/images/games/88SKu9uh7isjp2X9mLVLr2GtY.png",
+    "video": "https://youtube.com/shorts/hQReZFZjfnE",
+    "content": [
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Everything is Alive is a Mixed Reality Sandbox Music Game where daily objects, plants, and animals are turned into musical instruments that can be tapped and programmed to create melodies and rhythms. 🎵",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "We want to turn music-making into a fun, wholesome, playful experience with adorable visual elements and an ethos that everything is connected, animated, holistically sensual, and after all, alive.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "DEVELOPING JOURNEY",
+            "bold": true,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "This idea was originally incubated at ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "Xenoform Labs",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://xenoformlabs.com/nico-shi/",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": ", an artist residency in San Francisco, where the original idea was developed.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/nmgh50yk8LtYPHq63KUekyIojQw.png",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Later I brought this project to Edge Esmeralda 2024, where the idea was further developed, and we ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "won the XR hackathon",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://x.com/monaverse/status/1805960121756823636",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": "!",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "August 2, 2024, - ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "work-in-progress video",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://www.youtube.com/watch?v=VDtA3pIc3OI",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": ".",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Making a bird in Everything is Alive - ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "work-in-progress video",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://x.com/syntonikka/status/1825868875423953062",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "August 30, 2024 - ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "work-in-progress tweet",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://x.com/syntonikka/status/1829482139206758634",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": ".",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "In late 2024, I brought this game to the EdgeCity Lanna artist residency, where the game was developed and ready for publishing on the Meta Quest store. See presentation ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "HERE",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://docs.google.com/presentation/d/1IXaG3Xo0GM39X-La2iMPO96IVGUYVSW96mdCsld_zfU/edit#slide=id.g3124c1a061b_0_73",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": ".",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "MOVING FORWARD",
+            "bold": true,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBulletList",
+        "children": [
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "This is the first version of a greater concept that aims to animate daily objects around us and turn them into wonderful musical toys.",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "We will keep pushing more updates and new features down the line, thank you for being an early adopter of the game.",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "By getting this game, you are directly supporting our indie studio to bootstrap our effort to continue working on this game!",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "GAMEPLAY",
+            "bold": true,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBulletList",
+        "children": [
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Pick a creature from the Menu",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Place the creature in the scene",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Touch the creature to make a sound, or trigger the sequencer from above to program beats",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "When a creature is selected, a menu appears from the bottom that allows it to adjust volume, mute, and delete**.**",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "CUSTOMIZATION x MONAVERSE",
+            "bold": true,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBulletList",
+        "children": [
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "You can customize an instrument by downloading 3D assets from Monaverse — a platform that supports the interoperability of the open Metaverse.",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Once you log into Monaverse, you can download the assets, give them a custom audio clip, and save them as an instrument.",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "You can then use this instrument the same way you use other instruments.",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "MORE WILD IDEAS",
+            "bold": true,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Here are a list of ideas we are experimenting with and they would probably all slowly come to the game one by one.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBulletList",
+        "children": [
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Motion Instruments — things that make responsive sounds with hand motions, accelerations, and rotations",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Generative Sounds — objects that have generative rules, like clouds that rain, fish swarm particle systems",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Visual Loopers — imagine flowers where each pedal is a node and the sequencer rotates all around them",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Grabbable Midi — imagine MIDI keys where each key can be grabbed, and dragged along a screen.",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "So many more to come!! 🏵️🌱🎶💓",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "reel2023",
+    "title": "Game Reel 2023",
+    "category": "Reel",
+    "client": "CREATIVE REEL",
+    "role": "GAME DEV, 3D, AR, VISUALS, SOUND",
+    "cover": "/images/games/UN5QJPCZbpek4nJGUF9TnjUQGGk.jpg",
+    "video": "",
+    "content": [
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Introduction",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "This is a summary of my work as a game developer, 3D artist and creative visual designer till 2023.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Reel",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextComponentInstance",
+        "url": "https://www.youtube.com/watch?v=CFQj7OGfxww&t=49s&ab_channel=NicoS"
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Descriptions",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBulletList",
+        "children": [
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[0:08 Agartha Village]",
+                    "bold": true,
+                    "italic": false,
+                    "inlineCode": false
+                  },
+                  {
+                    "type": "TextRun",
+                    "text": " Conceptual art and mini game demo of a virtual eco village where players walk around a village and learn to plant an edible forest according to permaculture principles | Blender + Unity | Solo Development",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[0:23 Chef Umami] ",
+                    "bold": true,
+                    "italic": false,
+                    "inlineCode": false
+                  },
+                  {
+                    "type": "TextRun",
+                    "text": "An immersive iOS sandbox cooking game | Blender + Unity | 3D Modeler + Concept Artist + Gameplay Engineer",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[0:34 Rhythm Animals]",
+                    "bold": true,
+                    "italic": false,
+                    "inlineCode": false
+                  },
+                  {
+                    "type": "TextRun",
+                    "text": " A mobile sequencer game that plays beats with farm animals | Blender + Substance Painter + Unity | Solo Development",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[0:39 Solar Raver]",
+                    "bold": true,
+                    "italic": false,
+                    "inlineCode": false
+                  },
+                  {
+                    "type": "TextRun",
+                    "text": " A strategy game that uses solar energy to throw off-grid raves | Blender + Unity | Solo Development",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[0:46 Snapchat AR]",
+                    "bold": true,
+                    "italic": false,
+                    "inlineCode": false
+                  },
+                  {
+                    "type": "TextRun",
+                    "text": " Augmented Reality Creative Works | Blender + Substance Painter & Designer + Lens Studio | Solo Development",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[1:08 VR Basketball]",
+                    "bold": true,
+                    "italic": false,
+                    "inlineCode": false
+                  },
+                  {
+                    "type": "TextRun",
+                    "text": " VR basketball game demo | Blender + Unity | Solo Development",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[1:21 DANCE DANCE DELIC]",
+                    "bold": true,
+                    "italic": false,
+                    "inlineCode": false
+                  },
+                  {
+                    "type": "TextRun",
+                    "text": " VR flow art game demo | Blender + Unity | Solo Development",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[1:31 Desertopia]",
+                    "bold": true,
+                    "italic": false,
+                    "inlineCode": false
+                  },
+                  {
+                    "type": "TextRun",
+                    "text": " Conceptual VR scene design | Blender + Substance Painter + Unity HDRP | Solo Development",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[1:42 Yellow Mountain]",
+                    "bold": true,
+                    "italic": false,
+                    "inlineCode": false
+                  },
+                  {
+                    "type": "TextRun",
+                    "text": " An interactive art display at the Yellow Mountain National Park, China | PS + Unity | Software development",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[1:53 Arcadia Earth]",
+                    "bold": true,
+                    "italic": false,
+                    "inlineCode": false
+                  },
+                  {
+                    "type": "TextRun",
+                    "text": " AR app for the Arcadia Earth exhibit in NYC | PS + Unity Vuforia | Animator",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[2:05 TouchDesigner VJ Set]",
+                    "bold": true,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "B Roll",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBulletList",
+        "children": [
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[2:26 Virus Simulator] Unity + Blender | Solo development",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[2:33 City Spawner] Unity + Blender | Solo development",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[2:42 Scratch My Itchy Back] Unity + Blender | Solo development (available on iOS & Android)",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[2:50 Let's Pack] A puzzle game about packing luggages | Unity + Blender | Solo development",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "[2:55 Opposites] A puzzle game about Taoism | Unity + Blender | Solo development",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Thank you for watching! <3",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "chefumami",
+    "title": "Chef Umami",
+    "category": "Mobile Games",
+    "client": "iOS",
+    "role": "GAME DEV, 3D, ANIMATION",
+    "cover": "/images/games/Ql87jubyhQ0KgISJuPp5ph0WY.jpeg",
+    "video": "",
+    "content": [
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Introduction",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Chef Umami is an immersive sandbox cooking game on the iOS platform, where players rotate around a kitchen with unlimited ingredients and serve a series of adorable customers their own special delights.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Role",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "I worked on this project as the 3D modeler & animator as well as a gameplay engineer in collaboration with PINX studio.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Gameplay",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Download the game from the ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "App Store",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://apps.apple.com/us/app/chef-umami/id1230818349?ls=1",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": ", or enjoy this gameplay video:",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextComponentInstance",
+        "url": "https://www.youtube.com/watch?v=abpCcjLVtFI&ab_channel=%E2%80%A2avac%C3%B8do%E2%80%A2imchristyhi-"
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Concept Arts",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/loXXXV2EUOjlEd0wBeALflJyYKA.jpeg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/eRR7gSMvUHj2s8n5sIZrIodUIh4.jpeg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/8VYaroyBinSGIpMNJFQYJgOayyw.jpeg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/ngq5zlrrEfqvApVXJhTL09flYY.jpeg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/5I5eOOWwda4QNcTmJKpMXYJ1FYQ.jpeg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/Ql87jubyhQ0KgISJuPp5ph0WY.jpeg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/d4pBRJvuJcy6xtojTOLw8zBTxE.jpeg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/czljwx3KIij7y0H6soOHCNrjNg.jpeg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/yfYiylOaaZkpkzvsup5zVqXqHQ.jpeg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextLineBreak"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "pocketbeats",
+    "title": "Pocket Beats",
+    "category": "Music Games",
+    "client": "iOS & Android (Coming Soon)",
+    "role": "SOLO DEVELOPMENT",
+    "cover": "/images/games/X9SwOmVa8VUuj3JsP7O1BJYJv8.jpg",
+    "video": "",
+    "content": [
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Introduction",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Introducing Pocket Beats: The Ultimate Portable Beat-Making Experience.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextLineBreak"
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Pocket Beats revolutionizes the world of mobile music production by transforming your device into a sophisticated drum machine and sequencer. Designed with both novices and seasoned musicians in mind, this app empowers users to effortlessly craft beats anytime, anywhere!",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextLineBreak"
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "--Intuitive Interface--",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Pocket Beats boasts a user-friendly interface that simplifies beat creation. Whether you're new to music production or a seasoned pro, you'll find the process seamless and engaging.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextLineBreak"
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "--Innovative Design--",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Merging the fun of a mobile game with the precision of professional equipment, Pocket Beats offers an unmatched beat-making experience that is both entertaining and effective.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextLineBreak"
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "--Empower Your Creativity--",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Pocket Beats invites users of all musical backgrounds to dive into the world of rhythm and beat creation. Our app is not just about making music; it's about unleashing your creative potential in the most convenient and enjoyable way possible.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextLineBreak"
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Experience the future of beat-making with Pocket Beats – where professional-grade music production fits right in your pocket ;)",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextLineBreak"
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Gameplay",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextComponentInstance",
+        "url": "https://youtu.be/E8mduCIvpbU"
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Inspiration",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "I've been having loads of fun making beats and patterns in Ableton, I was inspired by old school sequencers that allows you to make beats by placing notes in a sequence. The idea of combining beat making with game making is absolutely fascinating.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "The initial idea for this game is a singing city, where you can drag notes to create a city that sings, here is the first conceptual demo:",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextUnsupportedBlock"
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "I loved how wacky it was, but wondered if I could make it more functional instead of just gimmicky, so I turned the city to a sequence machine, like this:",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextUnsupportedBlock"
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "I really wanted to develop more of the idea of having these characters each being their own instrument, similar to the idea of My Singing Monsters but with a lot more customization. But to avoid the pitfall of being a solo developer and having a complex idea without having the time and resources to finish it, I decided to prioritize creating something small, minimal and deliverable as a first product of the sequencing series, then build more complexity on top of it later on.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "So for now, I decided to make this game to a fun sequencer first, before implementing characters, stories, new instruments, artistic environments, and all other possibilities. The goal is to make music making into a game, and build the most minimal version of this vision, and that concept became ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "Beat Buddy—  a sequencer in your pocket.",
+            "bold": true,
+            "italic": true,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Prototypes",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Here are some twitter posts of various forms of prototypes of this game:",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "First prototype",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://x.com/syntonikka/status/1679343863595671554?s=20",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Character Beats",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://x.com/syntonikka/status/1681429189684236288?s=20",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Roland TR808",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://x.com/syntonikka/status/1682203388010975233?s=20",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Mushroom Marimba",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://x.com/syntonikka/status/1704011557049405845?s=20",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Visual Style",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "The visual style of the game draws inspiration from many well established sequencers, such as the ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "Native Instrument Maschine series",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://www.native-instruments.com/en/products/maschine/production-systems/maschine/",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": ", the classic ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "Roland TR 808",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://www.roland.com/ca/products/rc_tr-808/",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": ", ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "Teenage Engineering",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://teenage.engineering/",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": " and ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "Hapax by Squarb",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://squarp.net/hapax/",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": ".",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Because of the digital nature of the game, sound effects and instruments can be represented in abstract ways that hardware synthesizers are limited to, so I decided to draw inspirations from Y2K-alike abstract visual UI design elements.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/QQia0lpVCMLLp2DfHjFvI70F8lY.jpeg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "I wanted to bring vibrant colors and the retro-synth art style into one imagery, here are some inspo generated with MidJourney.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/CAVjURAE8DPNypLnhglv6kRDE.jpeg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Prototype of the synth design in progress:",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/exLLVfct42tP7bVbBKG9ACR4U.jpg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "As I ported this design into Unity, I realized that the colors together are too distracting, it is very difficult to tell what elements are active, buttons that are not being used are using too much vibrancy to capture unnecessary attention, so I decided to keep vibrant colors for only active elements, and dim out everything else.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "UX",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "UX is crucial in terms of creating a comfortable, intuitive experience. The goal is to make this experience as self-explanatory as possible, I decided to have the left hand area being pads to toggle patterns, bottom right area to toggle play and other necessary functions, and center area for beat making. The less frequently used buttons such as bpm & time signature adjustment are left closer to lower center, where it's slightly less convenient to reach.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/fv5XjgzbpROVMBstOFaqGtRsSdU.jpg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Final Prototype",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "I implemented these two design together, and created the final design (at least for Alpha)",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/LnvCa0BDiPNZSmlU7yAu1WIUJfI.jpeg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Next Steps",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Publishing to iOS",
+            "bold": true,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBulletList",
+        "children": [
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Mid September - iOS Testflight go live",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Nov 1 - alpha version live",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Functional Updates",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBulletList",
+        "children": [
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Implement different sample banks & skins",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Add function to export mp3",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Implement AbletonLink",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Other features by request",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "pocketsolarcalculator",
+    "title": "Pocket Solar Calculator",
+    "category": "Mobile Games",
+    "client": "Mobile",
+    "role": "SOLO DEVELOPMENT",
+    "cover": "/images/games/pUUGbT2Vem5AB5GDiygNJJ4kk.jpg",
+    "video": "",
+    "content": [
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Introduction",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Pocket Solar Calculator",
+            "bold": false,
+            "italic": true,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": " is a mobile game prototype that calculates the best solar configuration for van lifers and off-grid dwellers.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Role",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBulletList",
+        "children": [
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Unity Development",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "UI/UX Design",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Solar Calculation Math",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "I consulted ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "Sam who lives in a magic tool bus",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://www.samsmith.work/",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": " for this project for his expertise in off-grid solar setups. ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "The project used Figma, Adobe Illustrator and Unity.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "See gameplay on Twitter ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "HERE",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://twitter.com/syntonikka/status/1654290923432611843?s=20",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": " or youtube ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "HERE",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://youtube.com/shorts/DMjKjk_gplM",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": ".",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Flowcharts",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "I started by creating flowcharts in figma to help me understand the flow of energy between the solar panels, charge controller, battery, inverter and appliances.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/gpsQFjUrYTo7nvx5Qmwrjyx936E.jpg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "After having a basic understanding of how it shall work, I tried to layout the elements on a vertical screen to see how it would all fit into a phone screen.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/EPejOVoZ23LG8NVJ8AuQr27XQQU.jpg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "I then created some 2D visuals to see how players can connect them.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/O3jQmzWYhwxyVPlgYiEu3F8TeG8.jpg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Design",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "I drew inspirations from the aesthetics of colorful electronics.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/UT6Y53A3wiZNSL7omhCPNWUU.jpeg",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Combined with flowcharts from before, I created some mockups on what the game should look like in illustrator:",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextMediaBlock",
+        "media": {
+          "src": "/images/games/eokMmzl3Lw1VbC8znRO4QwCBdxI.png",
+          "alt": ""
+        }
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Thank you for viewing!",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "scratchmyitchyback",
+    "title": "Scratch My Itchy Back",
+    "category": "Mobile Games",
+    "client": "iOS & Android",
+    "role": "SOLO DEVELOPMENT",
+    "cover": "/images/games/N7Fe5TGBDrbTSchlap329vySJA8.jpg",
+    "video": "",
+    "content": [
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Introduction",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Scratch My Itchy Back is a hyper casual mobile game that simulate the sensation of scratching people's backs in a gamified way.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Player gets prompted to follow directions from voice prompt and find the itchy 'spot', once they do, they scratch as hard as they can to accumulate points and continue to the next level.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Download the game here:",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBulletList",
+        "children": [
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Android",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false,
+                    "link": {
+                      "href": "https://play.google.com/store/apps/details?id=com.animatedreality.scratchmaback&hl=en_US&gl=US",
+                      "openInNewTab": true,
+                      "smoothScroll": false,
+                      "rel": ""
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "iOS",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false,
+                    "link": {
+                      "href": "https://appadvice.com/app/scratch-my-itchy-back/1442862369",
+                      "openInNewTab": true,
+                      "smoothScroll": false,
+                      "rel": ""
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Role",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "I had the inspiration from the game while scratching my friend's back, then I quickly prototyped the game, and launched it in a few months.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "The process:",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBulletList",
+        "children": [
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Prototype game mechanics in Unity",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Find a bunch of friends to take their back pictures",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Record the satisfying voices of these friends saying 'left, right, down, up, ohh yes that's the spot'",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Give artistic twists to the friends' backs so they look like multiple people",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Find background images online such as: the Whitehouse, International Space Station, on a pizza, so player unlocks locations as they progress.",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Find images of scratching tools such as dish sponge, cactus, wooden hand, etc, also for player to unlock",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Find sound samples of scratching, chafing, brushing, mostly record them myself.",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TextListItem",
+            "children": [
+              {
+                "type": "TextBlock",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "TextRun",
+                    "text": "Have a lot of fun while doing all of these ^_^",
+                    "bold": false,
+                    "italic": false,
+                    "inlineCode": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Gameplay",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextComponentInstance",
+        "url": "https://www.youtube.com/watch?v=_ukTuA5mGQ4&ab_channel=BACKSCRATCH"
+      }
+    ]
+  },
+  {
+    "slug": "opposites",
+    "title": "Opposites",
+    "category": "Mobile Games",
+    "client": "Desktop",
+    "role": "SOLO DEV",
+    "cover": "/images/games/ucLPqKEvUyNW1V95ISaGsbW4U.jpg",
+    "video": "",
+    "content": [
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Introduction",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Opposites",
+            "bold": true,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": " is a click-based puzzle game designed for the mobile platform.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Description",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Player goes through different puzzles that are inspired from the quotes of Tao Te Ching",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Level 1:",
+            "bold": true,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": " Player would drag to piece together abstract imageries to form a white cat, click and crack open a black cube to form a black cat.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "'",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "There is no shadow without the light, there is no shape without the empty space around it.'",
+            "bold": false,
+            "italic": true,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Level 2:",
+            "bold": true,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": " Player would click on the screen to drop coins to a bowl, eventually the bowl overfills; click on the screen to activate rain that gives life to a flower, eventually flower dies out of over watering; click on the screen to call birds to a branch, eventually branch falls when too many birds stay on it.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "'The path to overfulfillment leads to emptiness.'",
+            "bold": false,
+            "italic": true,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Level 3: Player would click the screen continuously to go through a series of animations of a round boiling flask, entering it would reveal a little bean that grows a flower, and from within the flower a bird flies out. Camera would follow the bird to fly to a piece of desert, crashes and dies.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "'Dust to dust, we shall return.'",
+            "bold": false,
+            "italic": true,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Full Gameplay",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextComponentInstance",
+        "url": "https://www.youtube.com/watch?v=lpoj2RG_aqk&ab_channel=AnimatedReality"
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "Thank you for viewing 🙏",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      }
+    ]
+  }
+]

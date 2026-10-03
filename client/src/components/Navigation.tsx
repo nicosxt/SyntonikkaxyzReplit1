@@ -15,25 +15,24 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { href: "/", label: "HOME", path: "/" },
-    { href: "/case-studies", label: "Projects", path: "/case-studies" },
-    { href: "/galleries", label: "Galleries", path: "/galleries" },
-    { href: "/info", label: "About Me", path: "/info" },
+    { href: "/", label: "Work", active: location === "/" || location.startsWith("/case-studies") },
+    { href: "/playground", label: "Playground", active: ["/playground", "/galleries", "/games"].some(path => location === path || location.startsWith(`${path}/`)) },
+    { href: "/info", label: "About", active: location === "/info" },
   ];
 
   return (
     <nav
-      className={`fixed top-4 w-[calc(100%-2rem)] md:w-[70%] left-1/2 transform -translate-x-1/2 z-50 transition-all duration-800 ease-out ${
+      className={`fixed top-4 w-[calc(100%-2rem)] max-w-[1600px] left-1/2 transform -translate-x-1/2 z-50 transition-all duration-800 ease-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       }`} 
     >
       <div className="flex justify-between items-center gap-2">
-        <div className={`bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-full px-3 sm:px-6 py-3 backdrop-blur-sm transition-all duration-600 ease-out ${
+        <div className={`bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-full px-2 sm:px-6 py-3 backdrop-blur-sm transition-all duration-600 ease-out ${
           isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}>
-          <ul className="flex justify-between items-center text-xs sm:text-sm gap-3 sm:gap-6">
+          <ul className="flex justify-between items-center text-xs sm:text-sm gap-4 sm:gap-6">
             {navItems.map((item, index) => {
-              const isActive = location === item.path || (item.path !== "/" && location.startsWith(`${item.path}/`));
+              const isActive = item.active;
               return (
                 <li 
                   key={item.href}
@@ -44,7 +43,7 @@ export default function Navigation() {
                 >
                   <Link
                     href={item.href}
-                    className={`nav-link tracking-wide text-gray-800 dark:text-white hover:scale-105 transition-all duration-200 ${
+                    className={`nav-link whitespace-nowrap tracking-wide text-gray-800 dark:text-white hover:scale-105 transition-all duration-200 ${
                       isActive ? "active" : ""
                     }`}
                   >

@@ -1,181 +1,63 @@
-import { Link } from "wouter";
-import { ArrowRight, Gamepad2 } from "lucide-react";
-import { useEffect, useState } from "react";
-import { getLetterSpeed } from "../config/animations";
+import { useEffect, useState, type CSSProperties } from 'react';
+import { Link } from 'wouter';
+import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { caseStudiesData } from '@/data/caseStudies';
 
-interface AnimatedTextProps {
-  text: string;
-  className?: string;
-  delay: number;
-  letterSpeed?: number;
-  startOffset?: number;
-}
-
-// Utility function to prevent word breaking
-function createWordBoundarySpans(text: string) {
-  const words = text.split(' ');
-  const spans: { char: string; isWordEnd: boolean; wordIndex: number }[] = [];
-  
-  words.forEach((word, wordIndex) => {
-    // Add characters of the word
-    for (let i = 0; i < word.length; i++) {
-      spans.push({
-        char: word[i],
-        isWordEnd: i === word.length - 1,
-        wordIndex
-      });
-    }
-    
-    // Add space after word (except for last word)
-    if (wordIndex < words.length - 1) {
-      spans.push({
-        char: ' ',
-        isWordEnd: true,
-        wordIndex
-      });
-    }
-  });
-  
-  return spans;
-}
-
-function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpeed(), startOffset = 0 }: AnimatedTextProps) {
-  const [globalVisibleLetters, setGlobalVisibleLetters] = useState(0);
-  const [isStarted, setIsStarted] = useState(false);
-
-  const charSpans = createWordBoundarySpans(text);
-
-  useEffect(() => {
-    const startTimer = setTimeout(() => {
-      setIsStarted(true);
-    }, delay);
-
-    return () => clearTimeout(startTimer);
-  }, [delay]);
-
-  useEffect(() => {
-    if (!isStarted) return;
-
-    const timer = setTimeout(() => {
-      setGlobalVisibleLetters(prev => prev + 1);
-    }, letterSpeed);
-
-    return () => clearTimeout(timer);
-  }, [isStarted, globalVisibleLetters, letterSpeed]);
-
-  // Group characters by words for proper wrapping
-  type CharWithIndex = typeof charSpans[0] & { originalIndex: number };
-  const wordGroups: { chars: CharWithIndex[]; wordIndex: number }[] = [];
-  let currentWord: CharWithIndex[] = [];
-  let currentWordIndex = -1;
-
-  charSpans.forEach((span, index) => {
-    if (span.wordIndex !== currentWordIndex) {
-      if (currentWord.length > 0) {
-        wordGroups.push({ chars: currentWord, wordIndex: currentWordIndex });
-      }
-      currentWord = [];
-      currentWordIndex = span.wordIndex;
-    }
-    currentWord.push({ ...span, originalIndex: index } as CharWithIndex);
-  });
-  
-  if (currentWord.length > 0) {
-    wordGroups.push({ chars: currentWord, wordIndex: currentWordIndex });
-  }
-
-  return (
-    <span className={className}>
-      {wordGroups.map((wordGroup, groupIndex) => (
-        <span key={groupIndex} className="inline-block" style={{ whiteSpace: 'nowrap' }}>
-          {wordGroup.chars.map((span, charIndex) => {
-            const originalIndex = (span as any).originalIndex;
-            const globalIndex = startOffset + originalIndex;
-            const isVisible = globalIndex < globalVisibleLetters;
-            return (
-              <span
-                key={originalIndex}
-                className={`inline-block transition-all duration-300 ease-out ${
-                  isVisible 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-4'
-                }`}
-                style={{
-                  transitionDelay: `${Math.max(0, (globalIndex - globalVisibleLetters) * 20)}ms`
-                }}
-              >
-                {span.char === ' ' ? '\u00A0' : span.char}
-              </span>
-            );
-          })}
-        </span>
-      ))}
-    </span>
-  );
-}
+const tagline = 'Nico Shi is a multi-disciplinary artist building Protopian worlds.';
 
 export default function Home() {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [active, setActive] = useState(0);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const reducedMotion = useReducedMotion();
+  const playing = !hovered && !focused && !reducedMotion;
+  const project = caseStudiesData[active];
 
   useEffect(() => {
-    // Trigger animation after component mounts
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 200);
+    if (!playing) return;
+    const timer = window.setInterval(() => setActive(index => (index + 1) % caseStudiesData.length), 6500);
+    return () => window.clearInterval(timer);
+  }, [playing, active]);
 
-    return () => clearTimeout(timer);
-  }, []);
+  function move(offset: number) {
+    setActive(index => (index + offset + caseStudiesData.length) % caseStudiesData.length);
+  }
 
-  const textParts = [
-    { text: "Nico Shi is a multi-disciplinary artist building ", className: "" },
-    { text: "Protopian worlds.", className: "italic font-bold text-gray-800 dark:text-white" }
-  ];
-
+  let characterIndex = 0;
   return (
-    <div className="h-screen fixed inset-0 flex flex-col justify-center max-w-6xl mx-auto px-4 md:px-8" style={{ marginLeft: '15%', marginRight: '15%' }}>
-      
-      {/* Left-aligned text section */}
-      <div className="mb-12 text-left">
-        <span className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2" style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
-          {textParts.map((part, index) => {
-            // Calculate cumulative character offset
-            const startOffset = textParts.slice(0, index).reduce((acc, prevPart) => acc + prevPart.text.length, 0);
-            return (
-              <AnimatedText
-                key={index}
-                text={part.text}
-                className={part.className}
-                delay={300}
-                letterSpeed={30}
-                startOffset={startOffset}
-              />
-            );
-          })}
-        </span>
-      </div>
-        
-      {/* GAME and MORE Buttons */}
-      <div className={`flex justify-between mt-6 transition-all duration-1000 ease-out ${
-        isLoaded 
-          ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-8'
-      }`} style={{ transitionDelay: '500ms' }}>
-        {/* GAME Button - Bottom Left */}
-        <Link href="/game">
-          <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:scale-105">
-            <Gamepad2 className="w-6 h-6 transition-transform duration-300" />
-            {/* <span className="text-lg font-light">GAME</span> */}
-          </button>
-        </Link>
-        
-        {/* MORE Button - Bottom Right */}
-        <Link href="/case-studies">
-          <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:translate-x-1 hover:scale-105">
-            <span className="text-lg font-light">MORE</span>
-            <ArrowRight className="w-6 h-6 transition-transform duration-300 hover:translate-x-1" />
-          </button>
-        </Link>
-      </div>
+    <div className="max-w-[1600px] mx-auto [container-type:inline-size] flex min-h-[calc(100svh-7rem)] flex-col gap-7 md:gap-9">
+      <section aria-label="Selected work" aria-roledescription="carousel" className="flex-1 flex flex-col min-h-0" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
+        <div className="relative min-h-[320px] h-[55svh] md:h-[64svh] overflow-hidden rounded-sm bg-black/10 dark:bg-white/5">
+          {caseStudiesData.map((slide, index) => (
+            <motion.div key={slide.id} initial={false} animate={{ opacity: active === index ? 1 : 0 }} transition={{ duration: reducedMotion ? 0 : 1.1 }} aria-hidden={active !== index} className={`absolute inset-0 ${active === index ? 'z-10' : 'pointer-events-none'}`}>
+              <Link href={slide.link} tabIndex={active === index ? 0 : -1} aria-label={`View ${slide.title} case study`} className="block h-full w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-6px]">
+                <img src={slide.previewImage} alt={`${slide.title} — selected work`} className="w-full h-full object-cover" loading="eager" decoding="async" />
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-5">
+          <Link href={project.link} className="group inline-flex items-center gap-4 text-gray-800 dark:text-white">
+            <span><span className="block text-lg md:text-xl font-light">{project.title}</span><span className="block text-xs text-gray-500 dark:text-gray-400 mt-1">{project.role}</span></span>
+            <ArrowUpRight aria-hidden="true" className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+          </Link>
+          <div className="ml-auto flex items-center gap-2 text-gray-800 dark:text-white">
+            <button className="p-3 rounded-full hover:bg-black/10 dark:hover:bg-white/10" onClick={() => move(-1)} aria-label="Previous project"><ArrowLeft className="w-4 h-4" /></button>
+            <span className="text-xs tabular-nums px-1" aria-live={playing ? 'off' : 'polite'}>{String(active + 1).padStart(2, '0')} / {String(caseStudiesData.length).padStart(2, '0')}</span>
+            <button className="p-3 rounded-full hover:bg-black/10 dark:hover:bg-white/10" onClick={() => move(1)} aria-label="Next project"><ArrowRight className="w-4 h-4" /></button>
+          </div>
+        </div>
+      </section>
+      <h1 aria-label={tagline} className="w-full whitespace-nowrap text-[min(1.875rem,3cqw)] font-light leading-relaxed text-gray-600 dark:text-gray-300 pb-2">
+        <span aria-hidden="true">{tagline.split(' ').map((word, index) => {
+          const start = characterIndex;
+          characterIndex += word.length + 1;
+          return <span key={index} className={`inline-block whitespace-nowrap ${index >= 7 ? 'font-bold italic text-gray-800 dark:text-white' : ''}`}>
+            {Array.from(word).map((char, i) => <span key={i} className="work-tagline-letter" style={{ '--letter-delay': `${(start + i) * 28}ms` } as CSSProperties}>{char}</span>)}{'\u00a0'}
+          </span>;
+        })}</span>
+      </h1>
     </div>
   );
 }

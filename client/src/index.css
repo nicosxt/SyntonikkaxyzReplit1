@@ -357,3 +357,18 @@
     transform: translateY(0px) scale(1); 
   }
 }
+
+/* A soft rolling reveal, followed by a long readable hold. */
+.work-tagline-letter {
+  display: inline-block;
+  animation: work-tagline-reveal 30s both infinite;
+  animation-delay: var(--letter-delay);
+}
+@keyframes work-tagline-reveal {
+  0% { opacity: 0; transform: translateY(0.55em); filter: blur(5px); }
+  4.2%, 92% { opacity: 1; transform: translateY(0); filter: blur(0); }
+  97%, 100% { opacity: 0; transform: translateY(-0.3em); filter: blur(3px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-tagline-letter { animation: none; }
+}

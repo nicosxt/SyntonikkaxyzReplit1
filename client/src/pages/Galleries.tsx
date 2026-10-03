@@ -2,23 +2,29 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, ArrowUpRight, Layers } from "lucide-react";
 import { galleryItems } from "@/data/gallery";
+import gamePosts from "@/data/games.json";
+import { merchStories, merchStorySource } from "@/data/merchStories";
+import merchStoryImages from "@/data/merchStoryImages.json";
 
-const categories = ["All", "3D Worlds", "AI Art", "Drawings", "Merch"] as const;
+const categories = ["All", "Visual Art", "Games", "Merch"] as const;
 
-export default function Galleries() {
+const collectionItems = [
+  ...galleryItems.map(item => ({ ...item, category: item.category === "Merch" ? "Merch" : "Visual Art", href: `/galleries/${item.id}` })),
+  ...gamePosts.map(post => ({ id: post.slug, title: post.title, category: "Games", thumbnail: post.cover, images: [{ src: post.cover, alt: post.title }], href: `/games/${post.slug}` })),
+];
+
+export default function Playground() {
   const [category, setCategory] = useState<(typeof categories)[number]>("All");
-  const items = galleryItems.filter((item) => category === "All" || item.category === category);
+  const items = collectionItems.filter((item) => category === "All" || item.category === category);
 
   return (
     <div className="max-w-6xl mx-auto py-10 md:py-16">
       <header className="mb-10 md:mb-14">
-        <p className="text-xs uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400 mb-4">A visual playground</p>
-        <h1 className="text-4xl md:text-6xl font-light tracking-tight text-gray-800 dark:text-white">Galleries</h1>
-        <p className="mt-5 text-gray-600 dark:text-gray-400 text-base md:text-lg">Worlds imagined, drawn, and brought to life.</p>
+        <p className="mt-5 text-gray-600 dark:text-gray-400 text-base md:text-lg">Visual art, games, and things to wear.</p>
       </header>
 
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-black/15 dark:border-white/15 pb-5 mb-5">
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter artworks by category">
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter collection by category">
           {categories.map((name) => (
             <button
               key={name}
@@ -41,7 +47,7 @@ export default function Galleries() {
         {items.map((item, index) => (
           <a
             key={item.id}
-            href={`/galleries/${item.id}`}
+            href={item.href}
             aria-label={`Open ${item.title}${item.images.length > 1 ? `, collection of ${item.images.length} images` : ""}`}
             className="group min-w-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 rounded-sm"
           >
@@ -82,22 +88,25 @@ export function GalleryDetail({ params }: { params: { id: string } }) {
     return (
       <div className="max-w-4xl mx-auto py-20 text-gray-800 dark:text-white">
         <h1 className="text-3xl mb-6">Artwork not found</h1>
-        <Link href="/galleries" className="underline underline-offset-4">Back to Galleries</Link>
+        <Link href="/playground" className="underline underline-offset-4">Back to Playground</Link>
       </div>
     );
   }
 
+  const storyImages = item.category === "Merch" ? merchStoryImages.filter(image => image.section === item.title) : [];
+  const artworkImages = storyImages.length ? [storyImages[0], ...item.images.slice(1)] : item.images;
+
   return (
     <article className="max-w-5xl mx-auto py-10 md:py-16">
-      <Link href="/galleries" className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white mb-10">
-        <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Back to Galleries
+      <Link href="/playground" className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white mb-10">
+        <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Back to Playground
       </Link>
       <header className="mb-10 md:mb-14">
-        <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-4">{item.category} · {item.images.length} {item.images.length === 1 ? "artwork" : "artworks"}</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-4">{item.category === "Merch" ? "Merch" : "Visual Art"} · {item.images.length} {item.images.length === 1 ? "artwork" : "artworks"}</p>
         <h1 className="text-3xl md:text-5xl font-light text-gray-800 dark:text-white">{item.title}</h1>
       </header>
       <div className="space-y-10 md:space-y-16">
-        {item.images.map((image, index) => (
+        {artworkImages.map((image, index) => (
           <figure key={image.src}>
             <img
               src={image.src}
@@ -112,6 +121,27 @@ export function GalleryDetail({ params }: { params: { id: string } }) {
           </figure>
         ))}
       </div>
+      {item.category === "Merch" && merchStories[item.id] && (
+        <section aria-labelledby="design-story" className="mt-12 md:mt-16">
+          <h2 id="design-story" className="text-2xl md:text-3xl font-light text-gray-800 dark:text-white mb-5">Behind the design</h2>
+          <div className="max-w-3xl space-y-5">
+            {merchStories[item.id].map((paragraph, index) => (
+              <p key={index} className="text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300">{paragraph}</p>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 mt-10">
+            {storyImages.slice(1).map((image, index) => (
+              <figure key={image.src} className={storyImages.length === 2 ? "sm:col-span-2" : ""}>
+                <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" className="w-full h-auto rounded-sm" />
+                <figcaption className="mt-3 text-sm leading-relaxed text-gray-500 dark:text-gray-400">{image.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+          <a href={merchStorySource} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 text-sm text-gray-600 dark:text-gray-400 underline underline-offset-4 hover:text-black dark:hover:text-white">
+            Read the full design story on Substack <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+          </a>
+        </section>
+      )}
       {item.products.length > 0 && (
         <section aria-labelledby="shop-design" className="mt-16 pt-10 border-t border-black/15 dark:border-white/15">
           <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
@@ -142,8 +172,8 @@ export function GalleryDetail({ params }: { params: { id: string } }) {
           </div>
         </section>
       )}
-      <Link href="/galleries" className="inline-flex items-center gap-2 mt-16 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">
-        <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Back to Galleries
+      <Link href="/playground" className="inline-flex items-center gap-2 mt-16 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">
+        <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Back to Playground
       </Link>
     </article>
   );
