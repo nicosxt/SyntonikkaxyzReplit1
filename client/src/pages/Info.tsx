@@ -25,12 +25,12 @@ export default function Info() {
         <figure className="space-y-4 text-center">
           <div className="mx-auto w-[48%] max-w-[15.36rem]">
           <img
-            src="/images/about/nico.jpg"
-            alt="Nico smiling and holding a chicken outdoors."
-            width={1126}
-            height={1134}
+            src="/images/about/profile.jpeg"
+            alt="Nico wearing a bandana in a tiled courtyard."
+            width={3024}
+            height={4032}
             decoding="async"
-            className="w-full aspect-square object-cover rounded-full"
+            className="w-full aspect-square object-cover object-[50%_35%] rounded-full"
           />
           </div>
           <figcaption>Hi, I'm Nico :)</figcaption>

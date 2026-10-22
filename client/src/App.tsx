@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Navigation from "@/components/Navigation";
 import StarfieldBackground from "@/components/StarfieldBackground";
 import { useTheme } from "@/components/ThemeToggle";
+import CreationHero from "@/components/CreationHero";
 import Home from "@/pages/Home";
 import EdgeCityCaseStudy from "@/pages/EdgeCityCaseStudy";
 import EdgeCityWebsite2026 from "@/pages/EdgeCityWebsite2026";
@@ -22,6 +23,7 @@ import cloudsBg from "@assets/sky-clouds-washed.jpeg";
 function Router() {
   const { theme } = useTheme();
   const [location] = useLocation();
+  const hasLanding = ["/", "/playground", "/info"].includes(location);
   
   console.log('App Router: Current theme is', theme);
 
@@ -37,11 +39,12 @@ function Router() {
       }}
     >
       {/* Starfield background for dark mode only */}
-      {location !== "/" && <StarfieldBackground className="dark:block hidden" />}
+      {!hasLanding && <StarfieldBackground className="dark:block hidden" />}
       
       {/* Content overlay */}
       <div className="min-h-screen bg-transparent transition-colors duration-300 relative z-10">
-        <Navigation />
+        {hasLanding && <CreationHero />}
+        <Navigation hasLanding={hasLanding} />
         <main className={location === "/" ? "" : "pt-20 px-4 pb-8"}>
           <Switch>
             <Route path="/" component={Home} />

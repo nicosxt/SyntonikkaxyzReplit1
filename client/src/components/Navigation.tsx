@@ -1,10 +1,8 @@
 import { Link, useLocation } from "wouter";
 import { useEffect, useState } from "react";
-import ThemeToggle, { useTheme } from "./ThemeToggle";
 
-export default function Navigation() {
+export default function Navigation({ hasLanding = false }: { hasLanding?: boolean }) {
   const [location] = useLocation();
-  const { theme, toggleTheme } = useTheme();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -22,12 +20,12 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`${location === "/" ? "absolute top-[calc(100svh+1rem)] dark" : "fixed top-4"} w-[calc(100%-2rem)] max-w-[1600px] left-1/2 transform -translate-x-1/2 z-50 transition-all duration-800 ease-out ${
+      className={`${hasLanding ? `absolute top-[calc(100svh+1rem)] ${location === "/" ? "dark" : ""}` : "fixed top-4"} w-[calc(100%-2rem)] max-w-[1600px] left-1/2 transform -translate-x-1/2 z-50 transition-all duration-800 ease-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       }`} 
     >
       <div className="flex justify-between items-center gap-2">
-        <div className={`bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-full px-2 sm:px-6 py-3 backdrop-blur-sm transition-all duration-600 ease-out ${
+        <div className={`px-2 sm:px-6 py-3 transition-all duration-600 ease-out ${
           isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}>
           <ul className="flex justify-between items-center text-xs sm:text-sm gap-4 sm:gap-6">
@@ -55,12 +53,6 @@ export default function Navigation() {
           </ul>
         </div>
 
-        <div className={`transition-all duration-600 ease-out ${
-          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-        }`}
-        style={{ transitionDelay: '300ms' }}>
-          <ThemeToggle theme={theme} onToggle={toggleTheme} />
-        </div>
       </div>
     </nav>
   );

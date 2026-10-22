@@ -361,6 +361,8 @@
 /* The opening screen contains only the interactive sentence. */
 .creation-home { background: #000; color: #fff; }
 .creation-hero {
+  background: #000;
+  color: #fff;
   min-height: 100svh;
   display: grid;
   place-items: center;
