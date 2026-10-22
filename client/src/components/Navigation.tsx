@@ -22,7 +22,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-4 w-[calc(100%-2rem)] max-w-[1600px] left-1/2 transform -translate-x-1/2 z-50 transition-all duration-800 ease-out ${
+      className={`${location === "/" ? "absolute top-[calc(100svh+1rem)] dark" : "fixed top-4"} w-[calc(100%-2rem)] max-w-[1600px] left-1/2 transform -translate-x-1/2 z-50 transition-all duration-800 ease-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       }`} 
     >
