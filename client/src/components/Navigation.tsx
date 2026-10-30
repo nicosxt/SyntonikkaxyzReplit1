@@ -13,22 +13,22 @@ export default function Navigation({ hasLanding = false }: { hasLanding?: boolea
   }, []);
 
   const navItems = [
-    { href: "/", label: "Work", active: location === "/" || location.startsWith("/case-studies") },
+    { href: "/", label: "Recent Work", active: location === "/" || location.startsWith("/case-studies") },
     { href: "/playground", label: "Playground", active: ["/playground", "/galleries", "/games", "/videos"].some(path => location === path || location.startsWith(`${path}/`)) },
-    { href: "/info", label: "About", active: location === "/info" },
+    { href: "/info", label: "Me", active: location === "/info" },
   ];
 
   return (
     <nav
-      className={`${hasLanding ? `absolute top-[calc(100svh+1rem)] ${location === "/" ? "dark" : ""}` : "fixed top-4"} w-[calc(100%-2rem)] max-w-[1600px] left-1/2 transform -translate-x-1/2 z-50 transition-all duration-800 ease-out ${
+      className={`${hasLanding ? `absolute top-[calc(100svh+1rem)] ${location === "/" ? "dark" : ""}` : "fixed top-4"} w-[94vw] left-[3vw] z-50 transition-all duration-800 ease-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       }`} 
     >
       <div className="flex justify-between items-center gap-2">
-        <div className={`px-2 sm:px-6 py-3 transition-all duration-600 ease-out ${
+        <div className={`py-3 transition-all duration-600 ease-out ${
           isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}>
-          <ul className="flex justify-between items-center text-xs sm:text-sm gap-4 sm:gap-6">
+          <ul className="flex justify-between items-center text-xs leading-4 gap-4 sm:gap-6">
             {navItems.map((item, index) => {
               const isActive = item.active;
               return (
@@ -41,7 +41,8 @@ export default function Navigation({ hasLanding = false }: { hasLanding?: boolea
                 >
                   <Link
                     href={item.href}
-                    className={`nav-link whitespace-nowrap tracking-wide text-gray-800 dark:text-white hover:scale-105 transition-all duration-200 ${
+                    aria-current={isActive ? "page" : undefined}
+                    className={`nav-link whitespace-nowrap tracking-widest text-gray-800 dark:text-white hover:scale-105 transition-all duration-200 ${
                       isActive ? "active" : ""
                     }`}
                   >

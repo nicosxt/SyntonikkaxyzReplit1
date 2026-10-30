@@ -68,7 +68,7 @@ export default function Playground() {
   const items = collectionItems.filter((item) => category === "All" || item.category === category);
 
   return (
-    <div className="max-w-6xl mx-auto py-10 md:py-16">
+    <div className="w-full py-10 md:py-16">
       <header className="mb-10 md:mb-14">
         <p className="mt-5 text-gray-600 dark:text-gray-400 text-base md:text-lg">Visual art, games, videos, and things to wear.</p>
       </header>

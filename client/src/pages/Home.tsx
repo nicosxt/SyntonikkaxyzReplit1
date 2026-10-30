@@ -8,8 +8,11 @@ export default function Home() {
       <section className="selected-work-grid" aria-label="Selected work">
         {caseStudiesData.map(project => (
           <Link key={project.id} href={project.link} className="work-card group" aria-label={`View ${project.title} case study`}>
-            <div className="work-card-image">
-              <img src={project.previewImage} alt={`${project.title} — selected work`} loading="lazy" decoding="async" />
+            <div
+              className="work-card-image"
+              style={project.id === 'edge-city-website-2026' ? { backgroundColor: '#fff' } : undefined}
+            >
+              <img style={project.id === 'edge-city-website-2026' ? { scale: '1.05' } : undefined} src={project.previewImage} alt={`${project.title} — selected work`} loading="lazy" decoding="async" />
             </div>
             <div className="flex items-center justify-between gap-4 pt-4">
               <div>

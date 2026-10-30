@@ -181,7 +181,7 @@
 
 @layer components {
   .nav-link {
-    @apply transition-all duration-200 hover:opacity-70;
+    @apply uppercase transition-all duration-200 hover:opacity-70;
   }
   
   .nav-link.active {
@@ -189,7 +189,7 @@
   }
   
   .nav-link:not(.active) {
-    @apply lowercase opacity-70;
+    @apply opacity-70;
   }
   
   .page-transition {
@@ -379,9 +379,8 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 3.5rem 2rem;
-  max-width: 1664px;
-  margin: 0 auto;
-  padding: 7rem 2rem 4rem;
+  margin: 0;
+  padding: 7rem 3vw 4rem;
 }
 .work-card { display: block; min-width: 0; }
 .work-card:focus-visible { outline: 1px solid white; outline-offset: 8px; }
@@ -389,7 +388,7 @@
 .work-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1); }
 .work-card:hover img { transform: scale(1.035); }
 @media (max-width: 600px) {
-  .selected-work-grid { grid-template-columns: 1fr; padding: 6rem 1rem 2rem; gap: 2.5rem; }
+  .selected-work-grid { grid-template-columns: 1fr; padding: 6rem 3vw 2rem; gap: 2.5rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .work-card-image img { transition: none; }

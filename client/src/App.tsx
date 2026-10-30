@@ -45,7 +45,7 @@ function Router() {
       <div className="min-h-screen bg-transparent transition-colors duration-300 relative z-10">
         {hasLanding && <CreationHero />}
         <Navigation hasLanding={hasLanding} />
-        <main className={location === "/" ? "" : "pt-20 px-4 pb-8"}>
+        <main className={location === "/" ? "" : hasLanding ? "pt-20 px-[3vw] pb-8" : "pt-20 px-4 pb-8"}>
           <Switch>
             <Route path="/" component={Home} />
             <Route path="/case-studies"><Redirect to="/" /></Route>
