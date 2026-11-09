@@ -16,8 +16,8 @@ export default function Home() {
             </div>
             <div className="flex items-center justify-between gap-4 pt-4">
               <div>
-                <h3 className="text-lg md:text-xl font-light">{project.title}</h3>
-                <p className="mt-1 text-xs sm:text-sm text-gray-400">{project.role}</p>
+                <h3 className="text-subhead font-light">{project.title}</h3>
+                <p className="mt-1 text-small text-gray-400">{project.role}</p>
               </div>
               <ArrowUpRight aria-hidden="true" className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </div>

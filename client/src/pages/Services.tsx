@@ -133,7 +133,7 @@ export default function Services() {
       style={{ marginLeft: "15%", marginRight: "15%" }}
     >
       <div className="mb-12">
-        <h1 className="text-3xl md:text-4xl font-light text-gray-600 dark:text-gray-300 block mt-2">
+        <h1 className="text-title font-light text-gray-600 dark:text-gray-300 block mt-2">
           <AnimatedText 
             text="Interdisciplinary" 
             className="italic font-light text-gray-800 dark:text-white"

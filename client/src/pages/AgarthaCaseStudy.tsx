@@ -18,20 +18,20 @@ export default function AgarthaCaseStudy() {
       <div className="p-8 md:p-12">
         {/* Back button */}
         <Link href="/">
-          <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-opacity mb-8">
+          <button className="flex items-center gap-2 text-small text-gray-800 dark:text-white hover:opacity-70 transition-opacity mb-8">
             <ArrowLeft className="w-5 h-5" />
             <span>Back to Work</span>
           </button>
         </Link>
 
         {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-light mb-4 text-gray-800 dark:text-white">
+        <h1 className="text-title font-light mb-4 text-gray-800 dark:text-white">
           {caseStudy.title}
         </h1>
 
         {/* Role */}
         <div className="mb-8">
-          <h3 className="text-xl font-medium mb-2 text-gray-800 dark:text-white">
+          <h3 className="text-subhead font-medium mb-2 text-gray-800 dark:text-white">
             ROLE:
           </h3>
           <p className="text-gray-600 dark:text-gray-400">{caseStudy.role}</p>
@@ -55,7 +55,7 @@ export default function AgarthaCaseStudy() {
 
         {/* Description paragraph */}
         <div className="mb-6">
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400">
             Agartha was founded in 2022 at{" "}
             <a
               href="https://mars.college"
@@ -82,10 +82,10 @@ export default function AgarthaCaseStudy() {
 
         {/* Core Ethos Section */}
         <div className="mb-8">
-          <h3 className="text-xl font-medium mb-4 text-gray-800 dark:text-white">
+          <h3 className="text-heading font-medium mb-4 text-gray-800 dark:text-white">
             Core Ethos
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
             The core mission of Agartha is to support and connect local communities to curate lifestyles according to the following ethos:
           </p>
           
@@ -98,10 +98,10 @@ export default function AgarthaCaseStudy() {
           </div>
 
           <div className="mb-6">
-            <h4 className="text-lg font-medium mb-2 text-gray-800 dark:text-white">
+            <h4 className="text-subhead font-medium mb-2 text-gray-800 dark:text-white">
               Building Protopias:
             </h4>
-            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+            <p className="text-gray-600 dark:text-gray-400 mb-4">
               an active improvement of Status Quo, instead of a vision for perfection.
             </p>
             <ClickableImage
@@ -112,10 +112,10 @@ export default function AgarthaCaseStudy() {
           </div>
 
           <div className="mb-6">
-            <h4 className="text-lg font-medium mb-2 text-gray-800 dark:text-white">
+            <h4 className="text-subhead font-medium mb-2 text-gray-800 dark:text-white">
               Starting from Within:
             </h4>
-            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+            <p className="text-gray-600 dark:text-gray-400 mb-4">
               healthy individual cells compose a healthy body. We can only curate a flourishing world if individuals flourish.
             </p>
             <ClickableImage
@@ -128,15 +128,15 @@ export default function AgarthaCaseStudy() {
 
         {/* Project Overview Section */}
         <div className="mb-8">
-          <h3 className="text-xl font-medium mb-4 text-gray-800 dark:text-white">
+          <h3 className="text-heading font-medium mb-4 text-gray-800 dark:text-white">
             Project Overview
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
             Soon after compiling research of these communities and personally visiting them, I launched Agartha.One, a map of Solarpunk communities intersecting art, ecology, and technology.
           </p>
 
           <div className="mb-6">
-            <h4 className="text-lg font-medium mb-4 text-gray-800 dark:text-white">
+            <h4 className="text-subhead font-medium mb-4 text-gray-800 dark:text-white">
               Agartha.One Web Design, 2022:
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -163,7 +163,7 @@ export default function AgarthaCaseStudy() {
             </div>
           </div>
 
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
             Beyond the map, Agartha is an invite to a new regenerative and communal culture, with a branding image that infuses a sense of balance, vibrance and joy.
             <br />
             I chose dark blue, pink, and a variant of rainbow gradient colors to create a mystical, technical, and playful brand identity.
@@ -216,10 +216,10 @@ export default function AgarthaCaseStudy() {
 
         {/* Brand Identity Explorations */}
         <div className="mb-8">
-          <h3 className="text-xl font-medium mb-4 text-gray-800 dark:text-white">
+          <h3 className="text-heading font-medium mb-4 text-gray-800 dark:text-white">
             Brand Identity Explorations
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
             Here are a range of graphic designs & 3D scenes as Brand Identity explorations for Agartha:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
@@ -258,7 +258,7 @@ export default function AgarthaCaseStudy() {
 
         {/* Event & Retreat Designs */}
         <div className="mb-8">
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
             Here are examples of Agartha workshops and retreats Posters:
           </p>
 
@@ -283,7 +283,7 @@ export default function AgarthaCaseStudy() {
 
         {/* Next Steps */}
         <div className="mb-8">
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
             Agartha continues to evolve in the form of research released at the <a href="https://agartha1.substack.com" target="_blank" rel="noopener noreferrer" className="text-gray-800 dark:text-white hover:opacity-70 transition-opacity underline">Grid Free Minds newsletter.</a> :)
           </p>
           <div className="flex justify-center">
@@ -304,7 +304,7 @@ export default function AgarthaCaseStudy() {
 
         {/* Additional References */}
         <div className="mb-6">
-          <h3 className="text-xl font-medium mb-4 text-gray-800 dark:text-white">
+          <h3 className="text-subhead font-medium mb-4 text-gray-800 dark:text-white">
             PROJECT LINKS:
           </h3>
           <div className="space-y-3 text-gray-600 dark:text-gray-400">

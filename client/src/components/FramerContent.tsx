@@ -57,9 +57,9 @@ export default function FramerContent({ blocks, title }: { blocks: ContentBlock[
       case 'TextLineBreak': return <br key={index} />;
       case 'TextMediaBlock': return node.media ? <figure key={index}><img src={node.media.src} alt={node.media.alt || `${title} — project image ${index + 1}`} loading="lazy" decoding="async" className="w-full h-auto rounded-sm" /></figure> : null;
       case 'TextComponentInstance': return node.url ? <VideoEmbed key={index} url={node.url} title={`${title} video`} /> : null;
-      case 'TextUnsupportedBlock': return <p key={index} className="text-sm text-gray-500 dark:text-gray-400 italic">Video unavailable.</p>;
+      case 'TextUnsupportedBlock': return <p key={index} className="text-small text-gray-500 dark:text-gray-400 italic">Video unavailable.</p>;
       default: return <Fragment key={index}>{children}</Fragment>;
     }
   }
-  return <div className="prose prose-gray dark:prose-invert max-w-none prose-headings:font-light prose-a:underline-offset-4 prose-img:my-0 prose-p:leading-relaxed break-words">{blocks.map(render)}</div>;
+  return <div className="prose prose-gray dark:prose-invert max-w-none prose-headings:font-light prose-a:underline-offset-4 prose-img:my-0 break-words">{blocks.map(render)}</div>;
 }

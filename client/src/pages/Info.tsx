@@ -16,7 +16,7 @@ function ExternalLink({ href, children }: { href: string; children: ReactNode })
 export default function Info() {
   return (
     <article
-      className="w-full py-12 md:py-20 space-y-12 text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300"
+      className="w-full py-12 md:py-20 space-y-12 text-body text-gray-600 dark:text-gray-300"
     >
       <header className="space-y-6">
         <figure className="space-y-4 text-center">
@@ -40,7 +40,7 @@ export default function Info() {
       </header>
 
       <section aria-labelledby="mission-heading" className="space-y-5">
-        <h2 id="mission-heading" className="text-2xl font-medium text-gray-800 dark:text-white">
+        <h2 id="mission-heading" className="text-heading font-medium text-gray-800 dark:text-white">
           My Mission
         </h2>
         <p>
@@ -60,7 +60,7 @@ export default function Info() {
       </section>
 
       <section aria-labelledby="skills-heading" className="space-y-5">
-        <h2 id="skills-heading" className="text-2xl font-medium text-gray-800 dark:text-white">
+        <h2 id="skills-heading" className="text-heading font-medium text-gray-800 dark:text-white">
           My Skills
         </h2>
         <p>I build worlds people can live inside.</p>
@@ -78,7 +78,7 @@ export default function Info() {
       </section>
 
       <section aria-labelledby="story-heading" className="space-y-5">
-        <h2 id="story-heading" className="text-2xl font-medium text-gray-800 dark:text-white">
+        <h2 id="story-heading" className="text-heading font-medium text-gray-800 dark:text-white">
           My Story
         </h2>
         <p>
@@ -133,10 +133,10 @@ export default function Info() {
           we are directly connecting to the source.
         </p>
         <blockquote className="border-l-2 border-black/30 dark:border-white/30 pl-6 py-2">
-          <p className="italic text-xl text-gray-800 dark:text-white">
+          <p className="italic text-subhead text-gray-800 dark:text-white">
             “We are here to awaken from our illusion of separateness.”
           </p>
-          <p className="mt-3 text-base">— Thích Nhất Hạnh</p>
+          <p className="mt-3 text-small">— Thích Nhất Hạnh</p>
         </blockquote>
         <p>
           Find me on <ExternalLink href="https://agartha1.substack.com/">Substack</ExternalLink>,{" "}

@@ -19,20 +19,20 @@ export default function EdgeCityCaseStudy() {
       <div className="p-8 md:p-12">
         {/* Back button */}
         <Link href="/">
-          <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-opacity mb-8">
+          <button className="flex items-center gap-2 text-small text-gray-800 dark:text-white hover:opacity-70 transition-opacity mb-8">
             <ArrowLeft className="w-5 h-5" />
             <span>Back to Work</span>
           </button>
         </Link>
 
         {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-light mb-4 text-gray-800 dark:text-white">
+        <h1 className="text-title font-light mb-4 text-gray-800 dark:text-white">
           {caseStudy.title}
         </h1>
 
         {/* Role */}
         <div className="mb-8">
-          <h3 className="text-xl font-medium mb-2 text-gray-800 dark:text-white">
+          <h3 className="text-subhead font-medium mb-2 text-gray-800 dark:text-white">
             ROLE:
           </h3>
           <p className="text-gray-600 dark:text-gray-400">{caseStudy.role}</p>
@@ -49,7 +49,7 @@ export default function EdgeCityCaseStudy() {
 
         {/* Description paragraph */}
         <div className="mb-6">
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400">
             <a href="https://edgecity.live" target="_blank" rel="noopener noreferrer" className="text-gray-800 dark:text-white hover:opacity-70 transition-opacity underline">Edge City</a> is a society incubator that hosts month-long pop-up city
             style un-conferences all around the world, innovating on the way
             people learn, work, live, and gather.
@@ -108,7 +108,7 @@ export default function EdgeCityCaseStudy() {
 
         {/* Additional text section */}
         <div className="mb-6">
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400">
             Understanding and resonating deeply with Edge City's brand philosophy. I work closely
             with the team to design landing images as visual anchors for each event & partner.
             <br />
@@ -152,7 +152,7 @@ export default function EdgeCityCaseStudy() {
 
         {/* Description paragraph */}
         <div className="mb-6">
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400">
             Over time, I've developed a custom creative pipeline to ship cohesive assets on demand.
             <br />
             The tools I use includes: Photoshop, Figma, Midjourney, ChatGPT, and Stable Diffusion.
@@ -161,7 +161,7 @@ export default function EdgeCityCaseStudy() {
 
         {/* Partners Grid Section */}
         <div className="mb-6">
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
             Assets for Sponsors & Partners of Edge City:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -215,7 +215,7 @@ export default function EdgeCityCaseStudy() {
 
         {/* Program Assets Grid Section */}
         <div className="mb-6">
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
               Art for themed tracks for <a href = "https://edgeesmeralda.com" className="underline">Edge Esmeralda 2025</a>:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -335,7 +335,7 @@ export default function EdgeCityCaseStudy() {
 
         {/* Additional References */}
         <div className="mb-6">
-          <h3 className="text-xl font-medium mb-4 text-gray-800 dark:text-white">
+          <h3 className="text-subhead font-medium mb-4 text-gray-800 dark:text-white">
             PROJECT LINKS:
           </h3>
           <div className="space-y-3 text-gray-600 dark:text-gray-400">

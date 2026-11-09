@@ -14,7 +14,7 @@ export default function PlatformerPage() {
         <Link href="/">
           <button className="flex items-center gap-2 text-gray-800 dark:text-white hover:opacity-70 transition-all duration-300 hover:translate-x-[-4px] hover:scale-105 px-6 py-3">
             <ArrowLeft className="w-6 h-6 transition-transform duration-300 hover:translate-x-[-4px]" />
-            <span className="text-lg font-light">BACK</span>
+            <span className="text-subhead font-light">BACK</span>
           </button>
         </Link>
       </div>

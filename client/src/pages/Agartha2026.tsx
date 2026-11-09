@@ -14,8 +14,8 @@ const residencies = [
 ];
 const websiteDescriptions = ['Opening landscape with a mushroom house beneath a blue sky', 'Life at Our Residencies against a warm pastel background', 'The Global Solarpunk Network with an illustrated globe at dusk', 'Building a New Ecosystem with open hands beneath a starry sky'];
 const posterDescriptions = ['A futuristic portrait with sculptural white hair and translucent glasses', 'A whimsical tower on a lush floating island', 'A flying saucer surrounded by colorful fragments', 'A warm interior overlooking a coastal sunset', 'Rounded homes in a mountain meadow', 'A portrait with butterfly-shaped glasses', 'A terraced garden and pools above the clouds', 'A glowing dome beneath a celestial sky'];
-const paragraph = 'w-full text-base md:text-lg leading-relaxed text-muted-foreground';
-const heading = 'text-2xl md:text-3xl font-light mb-5';
+const paragraph = 'w-full text-body text-muted-foreground';
+const heading = 'text-heading font-light mb-5';
 type Art = { src: string; width: number; height: number };
 
 function ExternalLink({ href, children }: { href: string; children: ReactNode }) {
@@ -29,7 +29,7 @@ function WebsiteAnimation({ index }: { index: number }) {
   const path = `${root}/animations/agartha-website-0${index}`;
   return <figure>
     <img src={active ? `${path}.gif` : `${path}-still.webp`} alt={`Agartha website motion study ${index}`} loading="lazy" className="w-full h-auto rounded-sm" />
-    <figcaption className="mt-3 flex justify-between gap-4 text-sm text-muted-foreground">
+    <figcaption className="mt-3 flex justify-between gap-4 text-small text-muted-foreground">
       <span>Website motion study {index}</span>
       <button type="button" onClick={() => setPlaying(!active)} aria-label={`${active ? 'Pause' : 'Play'} website motion study ${index}`} className="underline underline-offset-4">{active ? 'Pause' : 'Play'}</button>
     </figcaption>
@@ -51,10 +51,10 @@ export default function Agartha2026() {
   }
   return (
     <article className="max-w-5xl mx-auto py-10 md:py-16">
-      <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-10"><ArrowLeft className="w-4 h-4" aria-hidden="true" /> Back to Work</Link>
+      <Link href="/" className="inline-flex items-center gap-2 text-small text-muted-foreground hover:text-foreground mb-10"><ArrowLeft className="w-4 h-4" aria-hidden="true" /> Back to Work</Link>
       <header className="mb-12">
-        <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Founder · Worldbuilding, Branding, Web Design</p>
-        <h1 className="text-3xl md:text-5xl font-light">Agartha 2026</h1>
+        <p className="text-label uppercase tracking-[0.2em] text-muted-foreground mb-4">Founder · Worldbuilding, Branding, Web Design</p>
+        <h1 className="text-title font-light">Agartha 2026</h1>
         <p className={`${paragraph} mt-6`}><ExternalLink href="https://www.agartha.one/">Agartha</ExternalLink> is a Solarpunk studio bringing residencies, storytelling, research, art merchandise, and podcasting into one cohesive world.</p>
       </header>
       <div className="space-y-16 md:space-y-24">
@@ -69,7 +69,7 @@ export default function Agartha2026() {
             {assets.residencies.map((image, index) => <figure key={image.src}>
               {artwork(image, `${residencies[index].title} residency poster`)}
               <figcaption className="mt-3">
-                <a href={residencies[index].url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-3 text-sm hover:underline underline-offset-4 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                <a href={residencies[index].url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-3 text-small hover:underline underline-offset-4 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
                   {residencies[index].title}<ArrowUpRight className="w-4 h-4" aria-hidden="true" />
                 </a>
               </figcaption>

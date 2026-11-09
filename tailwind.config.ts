@@ -5,6 +5,16 @@ export default {
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      // Type scale tokens live in client/src/index.css (:root --text-*).
+      fontSize: {
+        display: ["var(--text-display)", { lineHeight: "var(--leading-display)", letterSpacing: "-0.02em" }],
+        title: ["var(--text-title)", { lineHeight: "var(--leading-title)", letterSpacing: "-0.02em" }],
+        heading: ["var(--text-heading)", { lineHeight: "var(--leading-heading)", letterSpacing: "-0.01em" }],
+        subhead: ["var(--text-subhead)", { lineHeight: "var(--leading-subhead)" }],
+        body: ["var(--text-body)", { lineHeight: "var(--leading-body)" }],
+        small: ["var(--text-small)", { lineHeight: "var(--leading-small)" }],
+        label: ["var(--text-label)", { lineHeight: "var(--leading-label)" }],
+      },
       fontFamily: {
         sans: ['PP Neue Montreal', 'Inter', 'system-ui', 'sans-serif'],
       },

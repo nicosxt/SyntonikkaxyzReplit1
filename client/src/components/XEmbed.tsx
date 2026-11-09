@@ -43,7 +43,7 @@ export default function XEmbed({ url }: { url: string }) {
   return (
     <div>
       <div ref={container} />
-      <a href={url} target="_blank" rel="noopener noreferrer" className="inline-block mt-4 text-sm underline underline-offset-4 text-gray-600 dark:text-gray-400">Watch the original post on X</a>
+      <a href={url} target="_blank" rel="noopener noreferrer" className="inline-block mt-4 text-small underline underline-offset-4 text-gray-600 dark:text-gray-400">Watch the original post on X</a>
     </div>
   );
 }

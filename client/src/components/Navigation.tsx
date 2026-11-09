@@ -28,7 +28,7 @@ export default function Navigation({ hasLanding = false }: { hasLanding?: boolea
         <div className={`py-3 transition-all duration-600 ease-out ${
           isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}>
-          <ul className="flex flex-wrap justify-between items-center text-lg md:text-xl font-light leading-tight gap-x-4 gap-y-1 sm:gap-x-6">
+          <ul className="flex flex-wrap justify-between items-center text-subhead font-light leading-tight gap-x-4 gap-y-1 sm:gap-x-6">
             {navItems.map((item, index) => {
               const isActive = item.active;
               return (

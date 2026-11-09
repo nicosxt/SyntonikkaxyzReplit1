@@ -70,7 +70,7 @@ export default function Playground() {
   return (
     <div className="w-full py-10 md:py-16">
       <header className="mb-10 md:mb-14">
-        <p className="mt-5 text-gray-600 dark:text-gray-400 text-base md:text-lg">Visual art, games, videos, and things to wear.</p>
+        <p className="mt-5 text-gray-600 dark:text-gray-400 text-body">Visual art, games, videos, and things to wear.</p>
       </header>
 
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-black/15 dark:border-white/15 pb-5 mb-5">
@@ -80,7 +80,7 @@ export default function Playground() {
               key={name}
               onClick={() => setCategory(name)}
               aria-pressed={category === name}
-              className={`rounded-full px-4 py-2 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 ${
+              className={`rounded-full px-4 py-2 text-small transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 ${
                 category === name
                   ? "bg-gray-900 text-white dark:bg-white dark:text-black"
                   : "text-gray-600 dark:text-gray-400 hover:bg-black/10 dark:hover:bg-white/10"
@@ -90,7 +90,7 @@ export default function Playground() {
             </button>
           ))}
         </div>
-        <p className="text-xs text-gray-500 dark:text-gray-400" aria-live="polite">{items.length} {items.length === 1 ? "entry" : "entries"}</p>
+        <p className="text-small text-gray-500 dark:text-gray-400" aria-live="polite">{items.length} {items.length === 1 ? "entry" : "entries"}</p>
       </div>
 
       <div className="grid grid-cols-3 gap-2 md:gap-5">
@@ -116,7 +116,7 @@ export default function Playground() {
                 }`}
               />
               {item.images.length > 1 && (
-                <span className="absolute top-2 right-2 md:top-3 md:right-3 flex items-center gap-1.5 rounded-full bg-black/60 text-white px-2 py-1 text-xs backdrop-blur-sm">
+                <span className="absolute top-2 right-2 md:top-3 md:right-3 flex items-center gap-1.5 rounded-full bg-black/60 text-white px-2 py-1 text-label backdrop-blur-sm">
                   <Layers className="w-3 h-3" aria-hidden="true" />
                   {item.images.length}
                 </span>
@@ -125,8 +125,8 @@ export default function Playground() {
               <ArrowUpRight aria-hidden="true" className="absolute bottom-3 right-3 w-5 h-5 text-white opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity" />
             </div>
             <div className="pt-3 pb-5">
-              <h2 className="text-xs md:text-base text-gray-800 dark:text-white leading-snug break-words">{item.title}</h2>
-              <p className="mt-1 text-[10px] md:text-xs text-gray-500 dark:text-gray-400">{item.category}</p>
+              <h2 className="text-small md:text-body text-gray-800 dark:text-white leading-snug break-words">{item.title}</h2>
+              <p className="mt-1 text-label text-gray-500 dark:text-gray-400">{item.category}</p>
             </div>
           </a>
         ))}
@@ -141,7 +141,7 @@ export function GalleryDetail({ params }: { params: { id: string } }) {
   if (!item) {
     return (
       <div className="max-w-4xl mx-auto py-20 text-gray-800 dark:text-white">
-        <h1 className="text-3xl mb-6">Artwork not found</h1>
+        <h1 className="text-title mb-6">Artwork not found</h1>
         <Link href="/playground" className="underline underline-offset-4">Back to Playground</Link>
       </div>
     );
@@ -152,14 +152,14 @@ export function GalleryDetail({ params }: { params: { id: string } }) {
 
   return (
     <article className="max-w-5xl mx-auto py-10 md:py-16">
-      <Link href="/playground" className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white mb-10">
+      <Link href="/playground" className="inline-flex items-center gap-2 text-small text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white mb-10">
         <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Back to Playground
       </Link>
       <header className="mb-10 md:mb-14">
-        <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-4">{item.category === "Merch" ? "Merch" : "Visual Art"} · {item.images.length} {item.images.length === 1 ? "artwork" : "artworks"}</p>
-        <h1 className="text-3xl md:text-5xl font-light text-gray-800 dark:text-white">{item.title}</h1>
-        {item.description && <p className="mt-5 w-full text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300">{item.description}</p>}
-        {item.source && <a href={item.source} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 text-sm underline underline-offset-4 text-gray-600 dark:text-gray-400">{item.sourceLabel || "Read more"} <ArrowUpRight className="w-4 h-4" aria-hidden="true" /></a>}
+        <p className="text-label uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-4">{item.category === "Merch" ? "Merch" : "Visual Art"} · {item.images.length} {item.images.length === 1 ? "artwork" : "artworks"}</p>
+        <h1 className="text-title font-light text-gray-800 dark:text-white">{item.title}</h1>
+        {item.description && <p className="mt-5 w-full text-body text-gray-600 dark:text-gray-300">{item.description}</p>}
+        {item.source && <a href={item.source} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 text-small underline underline-offset-4 text-gray-600 dark:text-gray-400">{item.sourceLabel || "Read more"} <ArrowUpRight className="w-4 h-4" aria-hidden="true" /></a>}
       </header>
       <div className="space-y-10 md:space-y-16">
         {artworkImages.map((image, index) => (
@@ -172,28 +172,28 @@ export function GalleryDetail({ params }: { params: { id: string } }) {
               className="w-full h-auto rounded-sm"
             />
             {item.images.length > 1 && (
-              <figcaption className="mt-3 text-xs text-gray-500 dark:text-gray-400">{String(index + 1).padStart(2, "0")} / {String(item.images.length).padStart(2, "0")}</figcaption>
+              <figcaption className="mt-3 text-small text-gray-500 dark:text-gray-400">{String(index + 1).padStart(2, "0")} / {String(item.images.length).padStart(2, "0")}</figcaption>
             )}
           </figure>
         ))}
       </div>
       {item.category === "Merch" && merchStories[item.id] && (
         <section aria-labelledby="design-story" className="mt-12 md:mt-16">
-          <h2 id="design-story" className="text-2xl md:text-3xl font-light text-gray-800 dark:text-white mb-5">Behind the design</h2>
+          <h2 id="design-story" className="text-heading font-light text-gray-800 dark:text-white mb-5">Behind the design</h2>
           <div className="w-full space-y-5">
             {merchStories[item.id].map((paragraph, index) => (
-              <p key={index} className="text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300">{paragraph}</p>
+              <p key={index} className="text-body text-gray-600 dark:text-gray-300">{paragraph}</p>
             ))}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 mt-10">
             {storyImages.slice(1).map((image, index) => (
               <figure key={image.src} className={storyImages.length === 2 ? "sm:col-span-2" : ""}>
                 <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" className="w-full h-auto rounded-sm" />
-                <figcaption className="mt-3 text-sm leading-relaxed text-gray-500 dark:text-gray-400">{image.caption}</figcaption>
+                <figcaption className="mt-3 text-small text-gray-500 dark:text-gray-400">{image.caption}</figcaption>
               </figure>
             ))}
           </div>
-          <a href={merchStorySource} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 text-sm text-gray-600 dark:text-gray-400 underline underline-offset-4 hover:text-black dark:hover:text-white">
+          <a href={merchStorySource} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 text-small text-gray-600 dark:text-gray-400 underline underline-offset-4 hover:text-black dark:hover:text-white">
             Read the full design story on Substack <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
           </a>
         </section>
@@ -202,10 +202,10 @@ export function GalleryDetail({ params }: { params: { id: string } }) {
         <section aria-labelledby="shop-design" className="mt-16 pt-10 border-t border-black/15 dark:border-white/15">
           <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-3">Art you can wear</p>
-              <h2 id="shop-design" className="text-2xl md:text-3xl font-light text-gray-800 dark:text-white">Shop this design</h2>
+              <p className="text-label uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-3">Art you can wear</p>
+              <h2 id="shop-design" className="text-heading font-light text-gray-800 dark:text-white">Shop this design</h2>
             </div>
-            <a href="https://merch.agartha.one/" className="inline-flex items-center gap-2 text-sm underline underline-offset-4 text-gray-700 dark:text-gray-300">
+            <a href="https://merch.agartha.one/" className="inline-flex items-center gap-2 text-small underline underline-offset-4 text-gray-700 dark:text-gray-300">
               Visit Agartha shop <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
             </a>
           </div>
@@ -220,15 +220,15 @@ export function GalleryDetail({ params }: { params: { id: string } }) {
                   ))}
                 </div>
                 <a href={product.url} className="mt-4 flex flex-wrap items-center justify-between gap-3 text-gray-800 dark:text-white group">
-                  <h3 className="text-base md:text-lg">{product.title}</h3>
-                  <span className="inline-flex items-center gap-2 text-sm underline underline-offset-4 group-hover:opacity-70">View in shop <ArrowUpRight className="w-4 h-4" aria-hidden="true" /></span>
+                  <h3 className="text-body">{product.title}</h3>
+                  <span className="inline-flex items-center gap-2 text-small underline underline-offset-4 group-hover:opacity-70">View in shop <ArrowUpRight className="w-4 h-4" aria-hidden="true" /></span>
                 </a>
               </div>
             ))}
           </div>
         </section>
       )}
-      <Link href="/playground" className="inline-flex items-center gap-2 mt-16 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">
+      <Link href="/playground" className="inline-flex items-center gap-2 mt-16 text-small text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">
         <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Back to Playground
       </Link>
     </article>
