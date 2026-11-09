@@ -20,7 +20,7 @@ export default function Navigation({ hasLanding = false }: { hasLanding?: boolea
 
   return (
     <nav
-      className={`${hasLanding ? `absolute top-[calc(100svh+1rem)] ${location === "/" ? "dark" : ""}` : "fixed top-4"} w-[94vw] left-[3vw] z-50 transition-all duration-800 ease-out ${
+      className={`${hasLanding ? `absolute top-[calc(100svh+1rem)] ${location === "/" ? "dark" : ""}` : "fixed top-4"} w-[94vw] left-[3vw] md:w-[70vw] md:left-[15vw] z-50 transition-all duration-800 ease-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       }`} 
     >

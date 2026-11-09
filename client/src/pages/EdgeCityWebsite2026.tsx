@@ -35,7 +35,7 @@ export default function EdgeCityWebsite2026() {
   useEffect(() => {
     window.scrollTo(0, 0);
     const previous = document.title;
-    document.title = 'Edge City Website 2026 — Nico Shi';
+    document.title = 'Edge City 2026 — Nico Shi';
     return () => { document.title = previous; };
   }, []);
 
@@ -49,11 +49,11 @@ export default function EdgeCityWebsite2026() {
   }
 
   return (
-    <article className="max-w-5xl mx-auto py-10 md:py-16">
+    <article className="w-full md:w-[70vw] mx-auto py-10 md:py-16">
       <Link href="/" className="inline-flex items-center gap-2 text-small text-muted-foreground hover:text-foreground mb-10"><ArrowLeft className="w-4 h-4" aria-hidden="true" /> Back to Work</Link>
       <header className="mb-14">
         <p className="text-label uppercase tracking-[0.2em] text-muted-foreground mb-4">Web Design · Motion</p>
-        <h1 className="text-title font-light mb-6">Edge City Website 2026</h1>
+        <h1 className="text-title font-light mb-6">Edge City 2026</h1>
         <p className="w-full text-body text-muted-foreground">Edge City brings people working across technology, science, and culture together in popup villages to experiment with better ways of living. The website gives this growing network a home online, connecting its mission, gatherings, grants, and community. This design exploration pairs clear information with expansive skies and floating worlds, making room for both practical discovery and a sense of possibility.</p>
         <a href="https://edgecity.live/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-6 text-small underline underline-offset-4">Visit edgecity.live <ArrowUpRight className="w-4 h-4" aria-hidden="true" /></a>
       </header>

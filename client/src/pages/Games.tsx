@@ -17,7 +17,7 @@ export function GameDetail({ params }: { params: { slug: string } }) {
   if (!post) return <div className="max-w-4xl mx-auto py-20 text-gray-800 dark:text-white"><h1 className="text-title mb-6">Game not found</h1>{back}</div>;
 
   return (
-    <article className="max-w-5xl mx-auto py-10 md:py-16">
+    <article className="w-full md:w-[70vw] mx-auto py-10 md:py-16">
       <div className="mb-10">{back}</div>
       <header className="mb-10 md:mb-14">
         <p className="text-label uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-4">Games</p>

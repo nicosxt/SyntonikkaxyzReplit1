@@ -436,21 +436,45 @@
 .creation-word-content { display: inline-flex; white-space: nowrap; }
 .creation-letter { display: inline-block; transform-origin: 50% 65%; }
 .selected-work-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 3.5rem 2rem;
-  margin: 0;
-  padding: 7rem 3vw 4rem;
+  --work-gap: clamp(2rem, 5vw, 4.75rem);
+  display: flex;
+  justify-content: center;
+  gap: var(--work-gap);
+  width: 100%;
+  margin: 0 auto;
+  padding: 8rem 3vw 8rem;
 }
-.work-card { display: block; min-width: 0; }
+@media (min-width: 768px) { .selected-work-grid { width: 70vw; padding-inline: 0; } }
+.work-column { display: flex; flex: 1 1 0; min-width: 0; flex-direction: column; }
+/* The right column starts about a third of a square lower. */
+.work-column:nth-child(2) { padding-top: calc((100% - var(--work-gap)) * 0.17); }
+/* Cards are 80% of their column, so the freed 20% becomes extra space around them. */
+.work-reveal { width: 80%; margin-inline: auto; }
+.work-reveal + .work-reveal { margin-top: calc(var(--work-gap) + 20%); }
+/* Outer edges stay on the 70% column; the space goes between the cards. */
+.work-column:first-child .work-reveal { margin-left: 0; }
+.work-column:nth-child(2) .work-reveal { margin-right: 0; }
+.work-card { position: relative; display: block; min-width: 0; color: #fff; }
 .work-card:focus-visible { outline: 1px solid white; outline-offset: 8px; }
-.work-card-image { aspect-ratio: 16 / 10; overflow: hidden; background: #111; }
-.work-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1); }
-.work-card:hover img { transform: scale(1.035); }
+.work-card-image { aspect-ratio: 1; }
+.work-card-image img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: filter 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.work-card.is-active img { filter: blur(22px) saturate(1.1); transform: scale(0.96); }
+.work-card-title {
+  position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none;
+  font-size: var(--text-heading); font-weight: 300; line-height: 1.2; text-align: center;
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.25);
+}
 @media (max-width: 600px) {
-  .selected-work-grid { grid-template-columns: 1fr; padding: 6rem 3vw 2rem; gap: 2.5rem; }
+  .selected-work-grid { flex-direction: column; padding: 6rem 3vw 3rem; gap: 2.5rem; }
+  .work-column { display: contents; }
+  .work-reveal { width: 100%; }
+  .work-reveal + .work-reveal { margin-top: 0; }
+  .work-column:nth-child(2) { padding-top: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .work-card-image img { transition: none; }
-  .work-card:hover img { transform: none; }
+  .work-card.is-active img { transform: none; }
 }

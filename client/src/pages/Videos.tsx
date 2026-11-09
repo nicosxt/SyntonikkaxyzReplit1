@@ -16,7 +16,7 @@ export default function VideoDetail({ params }: { params: { slug: string } }) {
   const back = <Link href="/playground" className="inline-flex items-center gap-2 text-small text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"><ArrowLeft className="w-4 h-4" aria-hidden="true" /> Back to Playground</Link>;
   if (!project) return <div className="max-w-4xl mx-auto py-20"><h1 className="text-title mb-6">Video not found</h1>{back}</div>;
   return (
-    <article className="max-w-5xl mx-auto py-10 md:py-16">
+    <article className="w-full md:w-[70vw] mx-auto py-10 md:py-16">
       <div className="mb-10">{back}</div>
       <header className="mb-10">
         <p className="text-label uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-4">Videos</p>

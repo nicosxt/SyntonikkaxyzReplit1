@@ -50,7 +50,7 @@ export default function Agartha2026() {
     </button>;
   }
   return (
-    <article className="max-w-5xl mx-auto py-10 md:py-16">
+    <article className="w-full md:w-[70vw] mx-auto py-10 md:py-16">
       <Link href="/" className="inline-flex items-center gap-2 text-small text-muted-foreground hover:text-foreground mb-10"><ArrowLeft className="w-4 h-4" aria-hidden="true" /> Back to Work</Link>
       <header className="mb-12">
         <p className="text-label uppercase tracking-[0.2em] text-muted-foreground mb-4">Founder · Worldbuilding, Branding, Web Design</p>

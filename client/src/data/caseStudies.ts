@@ -20,16 +20,25 @@ export const caseStudiesData: CaseStudy[] = [
     role: "Founder · Worldbuilding, Branding, Web Design",
     examples: [{ text: "agartha.one", url: "https://www.agartha.one/" }],
     preview: "agartha.one",
-    previewImage: "/images/case-studies/agartha-2026/website/web-01.webp",
+    previewImage: "/images/case-studies/agartha-2026/home-cover.webp",
     link: "/case-studies/agartha-2026",
   },
   {
+    id: "chrysalis",
+    title: "Chrysalis",
+    role: "Founder · Brand Positioning, Storytelling, Web Design",
+    examples: [{ text: "agartha.one/chrysalis", url: "https://agartha.one/chrysalis" }],
+    preview: "agartha.one/chrysalis",
+    previewImage: "/images/case-studies/chrysalis/cover.webp",
+    link: "/case-studies/chrysalis",
+  },
+  {
     id: "edge-city-website-2026",
-    title: "Edge City Website 2026",
+    title: "Edge City 2026",
     role: "Web Design · Motion",
     examples: [{ text: "edgecity.live", url: "https://edgecity.live/" }],
     preview: "edgecity.live",
-    previewImage: "/images/case-studies/edge-city-website-2026/final-designs/coverimg.webp",
+    previewImage: "/images/case-studies/edge-city-website-2026/home-cover.webp",
     link: "/case-studies/edge-city-website-2026",
   },
   {
@@ -48,18 +57,6 @@ export const caseStudiesData: CaseStudy[] = [
     preview: "edgecity.live",
     previewImage: "/images/case-studies/edge-city/edge2.0-branding.jpg",
     link: "/case-studies/edge-city",
-  },
-  {
-    id: "agartha",
-    title: "Agartha 2023",
-    role: "Founder",
-    examples: [
-      { text: "agartha.one", url: "https://agartha.one" },
-      { text: "Grid Free Minds", url: "https://agartha1.substack.com" },
-    ],
-    preview: "agartha.one",
-    previewImage: "/images/case-studies/agartha/agartha-cover-thumbnail.jpg",
-    link: "/case-studies/agartha",
   },
 ];
 

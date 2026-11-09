@@ -1,0 +1,14 @@
+{
+  "concepts": [
+    { "src": "/images/case-studies/chrysalis/concept-1.webp", "width": 2000, "height": 1125 },
+    { "src": "/images/case-studies/chrysalis/concept-2.webp", "width": 2000, "height": 1125 }
+  ],
+  "explorations": [
+    { "src": "/images/case-studies/chrysalis/explore-1.webp", "width": 3200, "height": 529 },
+    { "src": "/images/case-studies/chrysalis/explore-2.webp", "width": 1920, "height": 1080 },
+    { "src": "/images/case-studies/chrysalis/explore-3.webp", "width": 1920, "height": 1080 },
+    { "src": "/images/case-studies/chrysalis/explore-4.webp", "width": 1920, "height": 1080 }
+  ],
+  "moodboard": { "src": "/images/case-studies/chrysalis/moodboard.webp", "width": 2000, "height": 1222 },
+  "gradient": { "src": "/images/case-studies/chrysalis/gradient.webp", "width": 2000, "height": 1080 }
+}

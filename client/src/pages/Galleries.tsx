@@ -42,6 +42,7 @@ const featuredOrder = [
   "the-future-i-want",
   "drawings-faces-in-joshua-tree",
   "drawings-agartha-in-patagonia",
+  "agartha-2023",
   "drawings-animals-in-parallel-universe",
   "everything-is-alive",
   "chefumami",
@@ -61,6 +62,7 @@ const collectionItems = [
   ...videoProjects.map(project => ({ id: project.slug, title: project.title, category: "Videos", thumbnail: project.cover, images: [{ src: project.cover, alt: project.title }], href: `/videos/${project.slug}` })),
   ...allGalleryItems.map(item => ({ ...item, category: item.category === "Merch" ? "Merch" : "Visual Art", href: `/galleries/${item.id}` })),
   ...gamePosts.filter(post => post.slug !== "reel2023").map(post => ({ id: post.slug, title: post.title, category: "Games", thumbnail: post.cover, images: [{ src: post.cover, alt: post.title }], href: `/games/${post.slug}` })),
+  { id: "agartha-2023", title: "Agartha 2023", category: "Visual Art", thumbnail: "/images/case-studies/agartha/agartha-cover-thumbnail.jpg", images: [{ src: "/images/case-studies/agartha/agartha-cover-thumbnail.jpg", alt: "Agartha 2023" }], href: "/case-studies/agartha" },
 ].sort((a, b) => collectionRank(a.id) - collectionRank(b.id));
 
 export default function Playground() {
@@ -68,7 +70,7 @@ export default function Playground() {
   const items = collectionItems.filter((item) => category === "All" || item.category === category);
 
   return (
-    <div className="w-full py-10 md:py-16">
+    <div className="w-full md:w-[70vw] mx-auto py-10 md:py-16">
       <header className="mb-10 md:mb-14">
         <p className="mt-5 text-gray-600 dark:text-gray-400 text-body">Visual art, games, videos, and things to wear.</p>
       </header>
@@ -151,7 +153,7 @@ export function GalleryDetail({ params }: { params: { id: string } }) {
   const artworkImages = storyImages.length ? [storyImages[0], ...item.images.slice(1)] : item.images;
 
   return (
-    <article className="max-w-5xl mx-auto py-10 md:py-16">
+    <article className="w-full md:w-[70vw] mx-auto py-10 md:py-16">
       <Link href="/playground" className="inline-flex items-center gap-2 text-small text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white mb-10">
         <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Back to Playground
       </Link>

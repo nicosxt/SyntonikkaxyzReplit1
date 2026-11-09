@@ -16,7 +16,7 @@ function ExternalLink({ href, children }: { href: string; children: ReactNode })
 export default function Info() {
   return (
     <article
-      className="w-full py-12 md:py-20 space-y-12 text-body text-gray-600 dark:text-gray-300"
+      className="w-full md:w-[70vw] mx-auto py-12 md:py-20 space-y-12 text-body text-gray-600 dark:text-gray-300"
     >
       <header className="space-y-6">
         <figure className="space-y-4 text-center">
