@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useInView, useReducedMotion } from 'framer-motion';
+import CreationParticles from '@/components/CreationParticles';
 
-const words = ['Divine', 'Messy', 'Protopian', 'Love', 'Everything', 'Salvation'];
+// Each word owns one particle scene: ring, Chladni plate, flock.
+const words = ['Divine', 'Transmission', 'Life'];
 
 export default function CreationHero() {
   const [step, setStep] = useState(0);
@@ -16,7 +18,7 @@ export default function CreationHero() {
     let timer: number | undefined;
     const schedule = () => {
       window.clearTimeout(timer);
-      if (!document.hidden) timer = window.setTimeout(() => setStep(value => value + 1), 5000 / 1.2);
+      if (!document.hidden) timer = window.setTimeout(() => setStep(value => value + 1), 15000);
     };
     schedule();
     document.addEventListener('visibilitychange', schedule);
@@ -27,9 +29,10 @@ export default function CreationHero() {
   }, [step, reducedMotion, focused, inView]);
 
   return (
-      <section ref={hero} className="creation-hero" aria-label="Creation">
+      <section ref={hero} className="creation-hero" aria-label="Creation" onClick={() => setStep(value => value + 1)}>
+        <CreationParticles scene={step % words.length} reducedMotion={!!reducedMotion} />
         <motion.h2 className="creation-heading" layout={reducedMotion ? false : "position"} transition={{ layout: { duration: 0.75, ease: [0.22, 1, 0.36, 1] } }}>
-          <button type="button" className="creation-trigger" onClick={() => setStep(value => value + 1)}
+          <button type="button" className="creation-trigger"
             onFocus={event => setFocused(event.currentTarget.matches(':focus-visible'))} onBlur={() => setFocused(false)}
             aria-label={`Creation is ${word}. Show next word`}>
             <span aria-hidden="true">Creation is </span>

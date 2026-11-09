@@ -1,31 +1,28 @@
+import { lazy, Suspense } from "react";
 import { Switch, Route, Redirect, useLocation } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import Navigation from "@/components/Navigation";
 import StarfieldBackground from "@/components/StarfieldBackground";
-import { useTheme } from "@/components/ThemeToggle";
 import CreationHero from "@/components/CreationHero";
 import Home from "@/pages/Home";
-import EdgeCityCaseStudy from "@/pages/EdgeCityCaseStudy";
-import EdgeCityWebsite2026 from "@/pages/EdgeCityWebsite2026";
-import AgarthaCaseStudy from "@/pages/AgarthaCaseStudy";
-import Agartha2026 from "@/pages/Agartha2026";
-import Galleries, { GalleryDetail } from "@/pages/Galleries";
-import { GameDetail } from "@/pages/Games";
-import VideoDetail from "@/pages/Videos";
-import Services from "@/pages/Services";
-import Info from "@/pages/Info";
-import PlatformerPage from "@/pages/PlatformerPage";
 import cloudsBg from "@assets/sky-clouds-washed.jpeg";
 
+// Everything except the landing page is split into its own chunk, so the first
+// paint only downloads the hero, navigation and project grid.
+const EdgeCityCaseStudy = lazy(() => import("@/pages/EdgeCityCaseStudy"));
+const EdgeCityWebsite2026 = lazy(() => import("@/pages/EdgeCityWebsite2026"));
+const AgarthaCaseStudy = lazy(() => import("@/pages/AgarthaCaseStudy"));
+const Agartha2026 = lazy(() => import("@/pages/Agartha2026"));
+const Galleries = lazy(() => import("@/pages/Galleries"));
+const GalleryDetail = lazy(() => import("@/pages/Galleries").then(m => ({ default: m.GalleryDetail })));
+const GameDetail = lazy(() => import("@/pages/Games").then(m => ({ default: m.GameDetail })));
+const VideoDetail = lazy(() => import("@/pages/Videos"));
+const Services = lazy(() => import("@/pages/Services"));
+const Info = lazy(() => import("@/pages/Info"));
+const PlatformerPage = lazy(() => import("@/pages/PlatformerPage"));
+
 function Router() {
-  const { theme } = useTheme();
   const [location] = useLocation();
   const hasLanding = ["/", "/playground", "/info"].includes(location);
-  
-  console.log('App Router: Current theme is', theme);
 
   return (
     <div
@@ -46,6 +43,7 @@ function Router() {
         {hasLanding && <CreationHero />}
         <Navigation hasLanding={hasLanding} />
         <main className={location === "/" ? "" : hasLanding ? "pt-20 px-[3vw] pb-8" : "pt-20 px-4 pb-8"}>
+          <Suspense fallback={null}>
           <Switch>
             <Route path="/" component={Home} />
             <Route path="/case-studies"><Redirect to="/" /></Route>
@@ -76,21 +74,13 @@ function Router() {
               </div>
             </Route>
           </Switch>
+          </Suspense>
         </main>
       </div>
     </div>
   );
 }
 
-function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
+export default function App() {
+  return <Router />;
 }
-
-export default App;

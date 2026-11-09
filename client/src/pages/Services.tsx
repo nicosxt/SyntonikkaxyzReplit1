@@ -1,4 +1,3 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { usePageAnimation } from "../hooks/usePageAnimation";
 import { useEffect, useState } from "react";
 import { getLetterSpeed } from "../config/animations";
@@ -64,8 +63,9 @@ function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpee
   }, [isStarted, globalVisibleLetters, letterSpeed]);
 
   // Group characters by words for proper wrapping
-  const wordGroups: { chars: typeof charSpans; wordIndex: number }[] = [];
-  let currentWord: typeof charSpans = [];
+  type IndexedChar = (typeof charSpans)[number] & { originalIndex?: number };
+  const wordGroups: { chars: IndexedChar[]; wordIndex: number }[] = [];
+  let currentWord: IndexedChar[] = [];
   let currentWordIndex = -1;
 
   charSpans.forEach((span, index) => {
@@ -88,7 +88,7 @@ function AnimatedText({ text, className = "", delay, letterSpeed = getLetterSpee
       {wordGroups.map((wordGroup, groupIndex) => (
         <span key={groupIndex} className="inline-block" style={{ whiteSpace: 'nowrap' }}>
           {wordGroup.chars.map((span, charIndex) => {
-            const originalIndex = (span as any).originalIndex;
+            const originalIndex = span.originalIndex!;
             const globalIndex = startOffset + originalIndex;
             const isVisible = globalIndex < globalVisibleLetters;
             return (
@@ -125,7 +125,7 @@ const services = [
 ];
 
 export default function Services() {
-  const { isLoaded, getAnimationClasses } = usePageAnimation({ delay: 200, staggerDelay: 150 });
+  const { getAnimationClasses } = usePageAnimation({ delay: 200, staggerDelay: 150 });
 
   return (
     <div

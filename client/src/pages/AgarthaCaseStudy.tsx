@@ -177,7 +177,7 @@ export default function AgarthaCaseStudy() {
                 className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
               />
               <ClickableImage
-                src="/images/case-studies/agartha/pitch2022/pitch_2022_02.png"
+                src="/images/case-studies/agartha/pitch2022/pitch_2022_02.webp"
                 alt="Pitch 2022 02"
                 className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
               />

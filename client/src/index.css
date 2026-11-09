@@ -3,6 +3,7 @@
   src: url('/fonts/PPNeueMontreal-Thin_1750356433739.otf') format('opentype');
   font-weight: 100;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
   src: url('/fonts/PPNeueMontreal-Book_1750356433738.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -17,6 +19,7 @@
   src: url('/fonts/PPNeueMontreal-Medium_1750356433739.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -24,6 +27,7 @@
   src: url('/fonts/PPNeueMontreal-Bold_1750356433738.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -31,6 +35,7 @@
   src: url('/fonts/PPNeueMontreal-Italic_1750356433738.otf') format('opentype');
   font-weight: 300;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -38,6 +43,7 @@
   src: url('/fonts/PPNeueMontreal-SemiBolditalic_1750356433739.otf') format('opentype');
   font-weight: 600;
   font-style: italic;
+  font-display: swap;
 }
 
 
@@ -210,7 +216,7 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
-    font-family: 'PP Neue Montreal', 'Inter', sans-serif;
+    font-family: 'PP Neue Montreal', system-ui, sans-serif;
     font-size: var(--text-body);
     line-height: var(--leading-body);
     /* Only 100/300/500/700 are loaded; an unset weight (400) would silently
@@ -419,8 +425,11 @@
   place-items: center;
   padding: 2rem 1rem;
   overflow: hidden;
+  position: relative;
+  cursor: pointer;
 }
-.creation-heading { margin: 0; font-size: var(--text-display); font-weight: 300; line-height: 1.5; }
+.creation-particles { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+.creation-heading { position: relative; z-index: 1; margin: 0; font-size: var(--text-display); font-weight: 300; line-height: 1.5; }
 .creation-trigger { display: inline-flex; align-items: baseline; gap: 0.25em; white-space: nowrap; padding: 0.4em; cursor: pointer; }
 .creation-trigger:focus-visible { outline: 1px solid #888; outline-offset: 0.5rem; border-radius: 2px; }
 .creation-word { position: relative; display: inline-flex; }

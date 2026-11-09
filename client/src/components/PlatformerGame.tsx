@@ -168,11 +168,6 @@ class Character {
 
     if (this.rainbowAnimation.active) {
       // Render rainbow gradient text
-      const distanceFromCollision = Math.sqrt(
-        Math.pow(textX - this.rainbowAnimation.collisionX, 2) +
-        Math.pow(finalY - this.rainbowAnimation.collisionY, 2)
-      );
-      
       // Create gradient radius based on distance and animation progress
       const maxRadius = 200; // Maximum gradient radius
       const gradientRadius = Math.max(50, maxRadius * this.rainbowAnimation.progress);
@@ -414,7 +409,6 @@ const MAX_MOVE_SPEED = 500; // Maximum horizontal movement speed (pixels/second)
 const ACCELERATION = 2600; // Acceleration per second (pixels/second²)
 const HORIZONTAL_MULTIPLIER = 1.5; // Horizontal movement multiplier
 const DECELERATION = 0.78; // Friction coefficient (frame-rate independent)
-const GROUND_HEIGHT = 100;
 const BLOCK_GAP = 100; // Uniform gap between aligned blocks in pixels
 
 // Pastel rainbow color palette
@@ -434,13 +428,6 @@ const PASTEL_COLORS = [
 // Function to get random pastel color
 const getRandomPastelColor = (): string => {
   return PASTEL_COLORS[Math.floor(Math.random() * PASTEL_COLORS.length)];
-};
-
-// Function to get rainbow color based on progress (0-1)
-const getRainbowColor = (progress: number): string => {
-  // Create a smooth rainbow transition
-  const hue = (progress * 360) % 360;
-  return `hsl(${hue}, 70%, 60%)`;
 };
 
 // Function to create radial rainbow gradient
@@ -891,8 +878,6 @@ export default function PlatformerGame() {
           createSparkleParticles(collisionX, collisionY, gameState.particles);
 
           // Find all characters in this block and trigger their jump and rainbow animations
-          const blockText = block.text;
-          let jumpedCount = 0;
           gameState.characters.forEach((character) => {
             // More lenient collision detection - check if character overlaps with block area
             const charCenterX = character.x + character.width / 2;
@@ -911,16 +896,9 @@ export default function PlatformerGame() {
               character.triggerJump();
               // Trigger rainbow animation with collision point
               character.triggerRainbow(collisionX, collisionY);
-              jumpedCount++;
             }
           });
 
-          // Debug logging for MULTI-DISCIPLINARY block
-          if (blockText === "MULTI-DISCIPLINARY") {
-            console.log(
-              `MULTI-DISCIPLINARY: ${jumpedCount} characters jumped out of ${blockText.replace(/\s/g, "").length}`,
-            );
-          }
         }
 
         // Top collision (landing on block)

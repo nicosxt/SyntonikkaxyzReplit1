@@ -235,12 +235,12 @@ export default function EdgeCityCaseStudy() {
               className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
             />
             <ClickableImage
-              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Consciousness_Week.png"
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Consciousness_Week.webp"
               alt="Consciousness Week"
               className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
             />
             <ClickableImage
-              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Cosmos_Institute.png"
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Cosmos_Institute.webp"
               alt="Cosmos Institute"
               className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
             />
@@ -255,12 +255,12 @@ export default function EdgeCityCaseStudy() {
               className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
             />
             <ClickableImage
-              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_LongJourney.png"
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_LongJourney.webp"
               alt="Long Journey"
               className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
             />
             <ClickableImage
-              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Protocol_Worlds.png"
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Protocol_Worlds.webp"
               alt="Protocol Worlds"
               className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
             />
@@ -270,7 +270,7 @@ export default function EdgeCityCaseStudy() {
               className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
             />
             <ClickableImage
-              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Roots_of_Progress.png"
+              src="/images/case-studies/edge-city/ee25_programassets/ee25_16x9_Roots_of_Progress.webp"
               alt="Roots of Progress"
               className="bg-white/5 rounded-2xl aspect-video border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
             />
