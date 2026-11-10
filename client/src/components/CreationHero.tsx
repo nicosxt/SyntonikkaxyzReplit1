@@ -3,8 +3,8 @@ import { AnimatePresence, motion, useInView, useReducedMotion } from 'framer-mot
 import CreationParticles from '@/components/CreationParticles';
 import { rollingLetterVariants } from '@/lib/rollingLetters';
 
-// Each word owns one particle scene: ring, Chladni plate, flock.
-const words = ['Divine', 'Transmission', 'Life'];
+// Each word owns one particle scene (0 ring, 1 Chladni plate, 2 flock), shown in this order.
+const slides = [{ word: 'Transmission', scene: 1 }, { word: 'Life', scene: 2 }, { word: 'Divine', scene: 0 }];
 
 export default function CreationHero() {
   const [step, setStep] = useState(0);
@@ -12,14 +12,14 @@ export default function CreationHero() {
   const hero = useRef<HTMLElement>(null);
   const inView = useInView(hero, { amount: 0.5 });
   const reducedMotion = useReducedMotion();
-  const word = words[step % words.length];
+  const { word, scene } = slides[step % slides.length];
 
   useEffect(() => {
     if (reducedMotion || focused || !inView) return;
     let timer: number | undefined;
     const schedule = () => {
       window.clearTimeout(timer);
-      if (!document.hidden) timer = window.setTimeout(() => setStep(value => value + 1), 15000);
+      if (!document.hidden) timer = window.setTimeout(() => setStep(value => value + 1), 30000);
     };
     schedule();
     document.addEventListener('visibilitychange', schedule);
@@ -31,7 +31,7 @@ export default function CreationHero() {
 
   return (
       <section ref={hero} className="creation-hero" aria-label="Creation" onClick={() => setStep(value => value + 1)}>
-        <CreationParticles scene={step % words.length} reducedMotion={!!reducedMotion} />
+        <CreationParticles scene={scene} reducedMotion={!!reducedMotion} />
         <motion.h2 className="creation-heading" layout={reducedMotion ? false : "position"} transition={{ layout: { duration: 0.75, ease: [0.22, 1, 0.36, 1] } }}>
           <button type="button" className="creation-trigger"
             onFocus={event => setFocused(event.currentTarget.matches(':focus-visible'))} onBlur={() => setFocused(false)}

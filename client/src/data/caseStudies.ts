@@ -15,15 +15,6 @@ export interface CaseStudy {
 
 export const caseStudiesData: CaseStudy[] = [
   {
-    id: "agartha-2026",
-    title: "Agartha 2026",
-    role: "Founder · Worldbuilding, Branding, Web Design",
-    examples: [{ text: "agartha.one", url: "https://www.agartha.one/" }],
-    preview: "agartha.one",
-    previewImage: "/images/case-studies/agartha-2026/home-cover.webp",
-    link: "/case-studies/agartha-2026",
-  },
-  {
     id: "chrysalis",
     title: "Chrysalis",
     role: "Founder · Brand Positioning, Storytelling, Web Design",
@@ -31,6 +22,15 @@ export const caseStudiesData: CaseStudy[] = [
     preview: "agartha.one/chrysalis",
     previewImage: "/images/case-studies/chrysalis/cover.webp",
     link: "/case-studies/chrysalis",
+  },
+  {
+    id: "agartha-2026",
+    title: "Agartha 2026",
+    role: "Founder · Worldbuilding, Branding, Web Design",
+    examples: [{ text: "agartha.one", url: "https://www.agartha.one/" }],
+    preview: "agartha.one",
+    previewImage: "/images/case-studies/agartha-2026/home-cover.webp",
+    link: "/case-studies/agartha-2026",
   },
   {
     id: "edge-city-website-2026",

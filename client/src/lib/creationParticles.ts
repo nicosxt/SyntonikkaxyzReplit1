@@ -116,7 +116,7 @@ export class CreationParticles {
     if (first || count !== this.n) this.allocate(count, first ? null : { sx, sy });
     else for (let i = 0; i < this.n; i++) { this.px[i] *= sx; this.py[i] *= sy; }
 
-    this.nb = Math.round(clamp((w * h) / 1300, 300, 1000));
+    this.nb = Math.round(clamp((w * h) / 867, 450, 1500));
     this.cols = Math.ceil(w / PERCEPTION) + 1;
     this.rows = Math.ceil(h / PERCEPTION) + 1;
     this.cellHead = new Int32Array(this.cols * this.rows);
