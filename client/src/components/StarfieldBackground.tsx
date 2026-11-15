@@ -121,7 +121,8 @@ export default function StarfieldBackground({
         left: 0,
         width: "100vw",
         height: "100vh",
-        zIndex: 15,
+        // Below the page content (z-10) so stars never draw over images.
+        zIndex: 0,
         pointerEvents: "none",
       }}
     />

@@ -13,7 +13,7 @@ export default function Navigation({ hasLanding = false }: { hasLanding?: boolea
   }, []);
 
   const navItems = [
-    { href: "/", label: "Recent Work", active: location === "/" || location.startsWith("/case-studies") },
+    { href: "/", label: "Branding", active: location === "/" || location.startsWith("/case-studies") },
     { href: "/playground", label: "Playground", active: ["/playground", "/galleries", "/games", "/videos"].some(path => location === path || location.startsWith(`${path}/`)) },
     { href: "/info", label: "Me", active: location === "/info" },
   ];

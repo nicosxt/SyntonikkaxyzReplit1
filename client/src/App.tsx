@@ -13,6 +13,7 @@ const EdgeCityWebsite2026 = lazy(() => import("@/pages/EdgeCityWebsite2026"));
 const AgarthaCaseStudy = lazy(() => import("@/pages/AgarthaCaseStudy"));
 const Agartha2026 = lazy(() => import("@/pages/Agartha2026"));
 const Chrysalis = lazy(() => import("@/pages/Chrysalis"));
+const BrandingCaseStudy = lazy(() => import("@/pages/BrandingCaseStudy"));
 const Galleries = lazy(() => import("@/pages/Galleries"));
 const GalleryDetail = lazy(() => import("@/pages/Galleries").then(m => ({ default: m.GalleryDetail })));
 const GameDetail = lazy(() => import("@/pages/Games").then(m => ({ default: m.GameDetail })));
@@ -57,6 +58,8 @@ function Router() {
             <Route path="/case-studies/agartha" component={AgarthaCaseStudy} />
             <Route path="/case-studies/agartha-2026" component={Agartha2026} />
             <Route path="/case-studies/chrysalis" component={Chrysalis} />
+            {/* Constellation, Dialectica and Mystik share one data-driven page. */}
+            <Route path="/case-studies/:id" component={BrandingCaseStudy} />
             <Route path="/services" component={Services} />
             <Route path="/galleries/:id" component={GalleryDetail} />
             <Route path="/playground" component={Galleries} />
