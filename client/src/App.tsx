@@ -21,6 +21,7 @@ const VideoDetail = lazy(() => import("@/pages/Videos"));
 const Services = lazy(() => import("@/pages/Services"));
 const Info = lazy(() => import("@/pages/Info"));
 const PlatformerPage = lazy(() => import("@/pages/PlatformerPage"));
+const JoyCon2026 = lazy(() => import("@/pages/JoyCon2026"));
 
 function Router() {
   const [location] = useLocation();
@@ -87,5 +88,14 @@ function Router() {
 }
 
 export default function App() {
+  const [location] = useLocation();
+  // JoyCon is a standalone fullscreen experience: no site nav or sky background.
+  if (location === "/joycon2026") {
+    return (
+      <Suspense fallback={<div className="fixed inset-0" style={{ background: "#4cc2f4" }} />}>
+        <JoyCon2026 />
+      </Suspense>
+    );
+  }
   return <Router />;
 }
