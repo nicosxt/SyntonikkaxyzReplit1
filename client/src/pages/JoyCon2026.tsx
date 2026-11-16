@@ -11,7 +11,7 @@ import { FLOWERS, PARADE, THEATER, TRACK_AR, TRACK_PATH } from "./joycon2026.dat
 
 const BASE = "/images/joycon2026";
 // Bump when artwork files are replaced under the same name, so browsers fetch the new ones.
-const V = "?v=4";
+const V = "?v=5";
 
 // Native size of the island artwork (2752x1536). Ride positions are percentages of it.
 const STAGE_W = 1600;
@@ -96,7 +96,7 @@ const RIDES: Ride[] = [
 const OUTLINE_HOVER =
   "drop-shadow(2px 0 0 #fbf3df) drop-shadow(-2px 0 0 #fbf3df) drop-shadow(0 2px 0 #fbf3df) drop-shadow(0 -2px 0 #fbf3df)";
 const OUTLINE_ACTIVE =
-  "drop-shadow(3px 0 0 #fbf3df) drop-shadow(-3px 0 0 #fbf3df) drop-shadow(0 3px 0 #fbf3df) drop-shadow(0 -3px 0 #fbf3df) drop-shadow(2px 0 0 #2b2320) drop-shadow(-2px 0 0 #2b2320) drop-shadow(0 2px 0 #2b2320) drop-shadow(0 -2px 0 #2b2320)";
+  "drop-shadow(3px 0 0 #fbf3df) drop-shadow(-3px 0 0 #fbf3df) drop-shadow(0 3px 0 #fbf3df) drop-shadow(0 -3px 0 #fbf3df) drop-shadow(2px 0 0 #42434b) drop-shadow(-2px 0 0 #42434b) drop-shadow(0 2px 0 #42434b) drop-shadow(0 -2px 0 #42434b)";
 
 function useStageScale() {
   const [scale, setScale] = useState(1);
@@ -329,9 +329,9 @@ const SKY_CLOUDS = [
   { n: 5, w: 17.5, y: 9.5, at: 0.12, flip: false, hue: 0 },
   { n: 3, w: 11, y: 4, at: 0.62, flip: false, hue: 0 },
   { n: 2, w: 6, y: 3.5, at: 0.45, flip: false, hue: 0 },
-  { n: 5, w: 13, y: 2, at: 0.85, flip: true, hue: -40 },
-  { n: 3, w: 15, y: 13, at: 0.98, flip: true, hue: -55 },
-  { n: 2, w: 8, y: 16, at: 0.28, flip: true, hue: -30 },
+  { n: 5, w: 13, y: 2, at: 0.85, flip: true, hue: 200 },
+  { n: 3, w: 15, y: 13, at: 0.98, flip: true, hue: 60 },
+  { n: 2, w: 8, y: 16, at: 0.28, flip: true, hue: 140 },
 ];
 
 function Clouds() {
@@ -564,7 +564,7 @@ function Theater({ src }: { src: string }) {
               top: "34%",
               animationDelay: `${i * 0.62}s`,
               "--dx": `${(i % 2 ? 1 : -1) * (10 + i * 5)}px`,
-              color: ["#e9806a", "#7a5aa8", "#2b2320", "#d4658f", "#3f8f87"][i],
+              color: ["#e9806a", "#7a5aa8", "#42434b", "#d4658f", "#3f8f87"][i],
             } as React.CSSProperties
           }
         >
@@ -787,9 +787,10 @@ function Sky() {
 
 const CSS = `
 .joycon {
-  --jc-ink: #2b2320;
+  --jc-ink: #42434b;
   --jc-paper: #fbf3df;
-  --jc-coral: #e9806a;
+  --jc-coral: #3f8f87;
+  --jc-butter: #ffdc8b;
   --jc-teal: #4fb3a9;
   --jc-sky: #ffdeb0;
   --jc-sea: #68aeb8;
@@ -881,7 +882,7 @@ const CSS = `
 .jc-sub { font-size: clamp(13px, 1.9vh, 18px); margin: 0 0 6px; }
 .jc-chip {
   font-family: var(--jc-caps); font-size: clamp(13px, 1.8vh, 17px); letter-spacing: .04em; color: var(--jc-ink) !important;
-  text-decoration: none; background: var(--jc-coral) !important; border: 2px solid var(--jc-ink) !important; border-radius: 999px;
+  text-decoration: none; background: var(--jc-butter) !important; border: 2px solid var(--jc-ink) !important; border-radius: 999px;
   padding: 3px 14px 2px !important; box-shadow: 0 3px 0 var(--jc-ink); transition: translate 100ms, box-shadow 100ms;
 }
 .jc-chip:hover { translate: 0 2px; box-shadow: 0 1px 0 var(--jc-ink); }
