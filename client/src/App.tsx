@@ -90,7 +90,9 @@ function Router() {
 export default function App() {
   const [location] = useLocation();
   // JoyCon is a standalone fullscreen experience: no site nav or sky background.
-  if (location === "/joycon2026") {
+  // The old address still works and forwards to the new one.
+  if (location === "/joycon2026") return <Redirect to="/joycon2027" replace />;
+  if (location === "/joycon2027") {
     return (
       <Suspense fallback={<div className="fixed inset-0" style={{ background: "#4cc2f4" }} />}>
         <JoyCon2026 />

@@ -118,7 +118,7 @@ export default function JoyCon2026() {
 
   useEffect(() => {
     const prevTitle = document.title;
-    document.title = "JoyCon SF 2026";
+    document.title = "JoyCon SF 2027";
     const font = document.createElement("link");
     font.rel = "stylesheet";
     font.href = "https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap";
