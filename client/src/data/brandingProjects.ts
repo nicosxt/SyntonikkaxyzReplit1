@@ -55,7 +55,8 @@ export const brandingProjects: Record<string, BrandProject> = {
       {
         heading: "The Logo",
         paragraphs: [
-          "The mark draws a “C” as a constellation: points of light connected like neurons, sensors on a scalp, or stars across a night sky. It comes in a thin stroke for large sizes and a heavier stroke for app icons and favicons.",
+          "A company’s logo is deeply personal for its founder. I chatted with Avery about his philosophy for Constellation, and the culture and artefacts that inspire him most. One of his obsessions is [Teenage Engineering](https://teenage.engineering/). When we talked about the logo, he wanted it to feel like a C, referencing brain neurons and electronic wiring diagrams, in the spirit of Teenage Engineering’s thin-line design ethos.",
+          "After a few iterations, this is what we landed on. The mark draws a “C” as a constellation: points of light connected like neurons, sensors on a scalp, or stars across a night sky. It comes in a thin stroke for large sizes and a heavier stroke for app icons and favicons.",
         ],
         images: [
           wide("final-5.webp", "Constellation logo in white on black"),
