@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "tsc"
+    "check": "tsc",
+    "export:joycon": "node scripts/export-joycon/build.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.13.1",

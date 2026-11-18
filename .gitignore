@@ -9,3 +9,6 @@ vite.config.ts.*
 # Generated gallery previews and index
 client/public/gallery/
 client/src/data/gallery.ts
+
+# Client hand-off builds (npm run export:joycon)
+exports/
