@@ -14,21 +14,31 @@ function ExternalLink({ href, children }: { href: string; children: ReactNode })
   );
 }
 
+// An eight-petal flower (a centre disc plus eight overlapping petals) used to crop the profile photo.
+const flowerSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="#000"><circle cx="50" cy="50" r="30"/><circle cx="50" cy="17" r="16"/><circle cx="73.33" cy="26.67" r="16"/><circle cx="83" cy="50" r="16"/><circle cx="73.33" cy="73.33" r="16"/><circle cx="50" cy="83" r="16"/><circle cx="26.67" cy="73.33" r="16"/><circle cx="17" cy="50" r="16"/><circle cx="26.67" cy="26.67" r="16"/></g></svg>`;
+const flowerUrl = `url("data:image/svg+xml,${encodeURIComponent(flowerSvg)}")`;
+const flowerMask = {
+  WebkitMaskImage: flowerUrl, maskImage: flowerUrl,
+  WebkitMaskSize: "100% 100%", maskSize: "100% 100%",
+  WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat",
+} as const;
+
 export default function Info() {
   return (
     <article
       className="w-full md:w-[70vw] mx-auto py-12 md:py-20 space-y-12 text-body text-gray-600 dark:text-gray-300"
     >
       <header className="space-y-6">
-        <figure className="space-y-4 text-center">
-          <div className="mx-auto w-[48%] max-w-[15.36rem]">
+        <figure className="space-y-4">
+          <div className="w-[48%] max-w-[15.36rem]">
           <img
-            src="/images/about/profile.jpeg"
+            src="/images/about/profile.webp"
             alt="Nico wearing a bandana in a tiled courtyard."
-            width={3024}
-            height={4032}
+            width={800}
+            height={800}
             decoding="async"
-            className="w-full aspect-square object-cover object-[50%_35%] rounded-full"
+            className="w-full aspect-square object-cover"
+            style={flowerMask}
           />
           </div>
           <figcaption>Hi, I'm Nico :)</figcaption>
