@@ -20,6 +20,7 @@ const GameDetail = lazy(() => import("@/pages/Games").then(m => ({ default: m.Ga
 const VideoDetail = lazy(() => import("@/pages/Videos"));
 const Services = lazy(() => import("@/pages/Services"));
 const Info = lazy(() => import("@/pages/Info"));
+const Resume = lazy(() => import("@/pages/Resume"));
 const PlatformerPage = lazy(() => import("@/pages/PlatformerPage"));
 const JoyCon2026 = lazy(() => import("@/pages/JoyCon2026"));
 
@@ -70,6 +71,7 @@ function Router() {
             <Route path="/games"><Redirect to="/playground" /></Route>
             <Route path="/videos/:slug" component={VideoDetail} />
             <Route path="/info" component={Info} />
+            <Route path="/resume" component={Resume} />
             <Route path="/game" component={PlatformerPage} />
             <Route>
               <div className="min-h-screen flex items-center justify-center">

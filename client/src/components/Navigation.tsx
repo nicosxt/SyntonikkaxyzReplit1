@@ -16,7 +16,7 @@ export default function Navigation({ hasLanding = false }: { hasLanding?: boolea
     { href: "/", label: "Branding", active: location === "/" || location.startsWith("/case-studies") },
     { href: "/playground", label: "Playground", active: ["/playground", "/galleries", "/games", "/videos"].some(path => location === path || location.startsWith(`${path}/`)) },
     { href: "/info", label: "Me", active: location === "/info" },
-    { href: "/resume.pdf", label: "Resume", active: false, external: true },
+    { href: "/resume", label: "Resume", active: location === "/resume" },
   ];
 
   return (
@@ -40,26 +40,15 @@ export default function Navigation({ hasLanding = false }: { hasLanding?: boolea
                   }`}
                   style={{ transitionDelay: `${200 + index * 100}ms` }}
                 >
-                  {"external" in item && item.external ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="nav-link whitespace-nowrap tracking-widest text-gray-800 dark:text-white hover:scale-105 transition-all duration-200"
-                    >
-                      {item.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      aria-current={isActive ? "page" : undefined}
-                      className={`nav-link whitespace-nowrap tracking-widest text-gray-800 dark:text-white hover:scale-105 transition-all duration-200 ${
-                        isActive ? "active" : ""
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
+                  <Link
+                    href={item.href}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`nav-link whitespace-nowrap tracking-widest text-gray-800 dark:text-white hover:scale-105 transition-all duration-200 ${
+                      isActive ? "active" : ""
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               );
             })}
