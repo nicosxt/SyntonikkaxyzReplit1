@@ -6,7 +6,7 @@ import { rollingLetterVariants } from '@/lib/rollingLetters';
 
 // Staggered two-column layout: the right column starts lower than the left.
 // Reading left, right, left… follows the order in caseStudiesData.
-const columns = [['edge-city-website-2026', 'constellation', 'dialectica', 'mystik'], ['agartha-2026', 'chrysalis', 'edge-city']];
+const columns = [['edge-city-website-2026', 'constellation', 'chrysalis', 'edge-city'], ['agartha-2026', 'edge-city-posters', 'dialectica', 'mystik']];
 // Mobile shows a single column in the data order.
 const mobileOrder = (id: string) => caseStudiesData.findIndex(project => project.id === id);
 // Where to crop each wide cover to fit a square.

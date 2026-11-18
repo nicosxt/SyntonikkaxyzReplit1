@@ -10,6 +10,8 @@ interface VideoProject {
   source?: string;
   description?: string;
   content?: ContentBlock[];
+  /** Playground card opens the video directly instead of a detail page. */
+  linkOut?: boolean;
 }
 
 // Keep the original Framer article and timestamped project breakdown intact.
@@ -34,8 +36,16 @@ export const videoProjects: VideoProject[] = [
   {
     slug: 'the-art-of-chilling',
     title: 'The Art of Chilling [at Essaouira Chill Art Hostel]',
-    cover: '/images/videos/the-art-of-chilling/the-art-of-chilling-cover.jpg',
+    cover: '/images/videos/the-art-of-chilling/the-art-of-chilling-cover.webp',
     video: 'https://www.youtube.com/watch?v=eFYcTnonork',
+    linkOut: true,
+  },
+  {
+    slug: 'why-i-moved-to-bombay-beach',
+    title: 'Why I Moved to Bombay Beach',
+    cover: '/images/videos/why-i-moved-to-bombay-beach/cover.webp',
+    video: 'https://www.youtube.com/watch?v=8oRznpVjOxs',
+    linkOut: true,
   },
   {
     slug: 'edge-esmeralda-trailer',

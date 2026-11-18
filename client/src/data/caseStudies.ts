@@ -42,6 +42,15 @@ export const caseStudiesData: CaseStudy[] = [
     link: "/case-studies/constellation",
   },
   {
+    id: "edge-city-posters",
+    title: "Edge City Posters",
+    role: "Illustration · Art Direction",
+    examples: [{ text: "edgeesmeralda.com", url: "https://www.edgeesmeralda.com/" }],
+    preview: "edgeesmeralda.com",
+    previewImage: "/images/case-studies/edge-city-2026/edge-esmeralda-community-building.webp",
+    link: "/case-studies/edge-city-posters",
+  },
+  {
     id: "chrysalis",
     title: "Chrysalis",
     role: "Founder · Brand Positioning, Storytelling, Web Design",

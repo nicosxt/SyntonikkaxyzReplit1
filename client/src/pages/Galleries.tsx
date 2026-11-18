@@ -8,23 +8,20 @@ import { videoProjects } from "@/data/videos";
 import { merchStories, merchStorySource } from "@/data/merchStories";
 import merchStoryImages from "@/data/merchStoryImages.json";
 
-const categories = ["All", "Visual Art", "Games", "Merch", "Videos"] as const;
+const categories = ["All", "Visual Art", "Games", "Merch", "Videos", "IRL"] as const;
 
 type Artwork = GalleryItem & { description?: string; source?: string; sourceLabel?: string };
 
 // Editorial details stay separate from the generated image catalog.
 const galleryDetails: Record<string, Partial<Artwork>> = {
   "ai-art-2025-mystic-future": { title: "Mystic Future [2025]" },
-  "ai-art-2025-constellations": {
-    title: "Constellation [2025]",
-    description: "A collaboration with Colton Orr.",
-    source: "https://www.behance.net/gallery/232206955/Constellation-Brand-Design",
-    sourceLabel: "View Constellation Brand Design on Behance",
-  },
   "ai-art-2025-renaissance-futurism": { title: "Renaissance Futurism [2025]" },
 };
 
-const allGalleryItems: Artwork[] = [...visualArt, ...galleryItems].map(item => {
+// Generated entries that duplicate a case study and stay off the Playground.
+const hiddenGalleryIds = new Set(["ai-art-2025-constellations"]);
+
+const allGalleryItems: Artwork[] = [...visualArt, ...galleryItems].filter(item => !hiddenGalleryIds.has(item.id)).map(item => {
   const details = galleryDetails[item.id];
   return {
     ...item,
@@ -37,20 +34,24 @@ const allGalleryItems: Artwork[] = [...visualArt, ...galleryItems].map(item => {
 });
 
 const featuredOrder = [
-  "3d-worlds-desert-temple",
   "ai-art-2025-mystic-future",
+  "merch-the-world-is-our-home",
+  "everything-is-alive",
+  "chefumami",
+  "sunflower-lab",
+  "3d-worlds-desert-temple",
+  "fire-spinning",
   "the-future-i-want",
   "drawings-faces-in-joshua-tree",
   "drawings-agartha-in-patagonia",
   "agartha-2023",
   "drawings-animals-in-parallel-universe",
-  "everything-is-alive",
-  "chefumami",
   "game-reel-2023",
   "inktober-2025",
   "astro-cities",
   "edge-esmeralda-trailer",
   "the-art-of-chilling",
+  "why-i-moved-to-bombay-beach",
   "burping-the-right-way",
 ];
 const collectionRank = (id: string) => {
@@ -59,9 +60,11 @@ const collectionRank = (id: string) => {
 };
 
 const collectionItems = [
-  ...videoProjects.map(project => ({ id: project.slug, title: project.title, category: "Videos", thumbnail: project.cover, images: [{ src: project.cover, alt: project.title }], href: `/videos/${project.slug}` })),
+  ...videoProjects.map(project => ({ id: project.slug, title: project.title, category: "Videos", thumbnail: project.cover, images: [{ src: project.cover, alt: project.title }], href: project.linkOut ? project.video : `/videos/${project.slug}` })),
   ...allGalleryItems.map(item => ({ ...item, category: item.category === "Merch" ? "Merch" : "Visual Art", href: `/galleries/${item.id}` })),
   ...gamePosts.filter(post => post.slug !== "reel2023").map(post => ({ id: post.slug, title: post.title, category: "Games", thumbnail: post.cover, images: [{ src: post.cover, alt: post.title }], href: `/games/${post.slug}` })),
+  { id: "sunflower-lab", title: "Sunflower Lab", category: "IRL", thumbnail: "/images/case-studies/sunflower-lab/cover.webp", images: [{ src: "/images/case-studies/sunflower-lab/cover.webp", alt: "Sunflower Lab" }], href: "/case-studies/sunflower-lab" },
+  { id: "fire-spinning", title: "Fire Spinning", category: "IRL", thumbnail: "/images/case-studies/fire-spinning/photo-2.webp", images: [{ src: "/images/case-studies/fire-spinning/photo-2.webp", alt: "Fire Spinning" }], href: "/case-studies/fire-spinning" },
   { id: "agartha-2023", title: "Agartha 2023", category: "Visual Art", thumbnail: "/images/case-studies/agartha/agartha-cover-thumbnail.jpg", images: [{ src: "/images/case-studies/agartha/agartha-cover-thumbnail.jpg", alt: "Agartha 2023" }], href: "/case-studies/agartha" },
 ].sort((a, b) => collectionRank(a.id) - collectionRank(b.id));
 
@@ -70,9 +73,9 @@ export default function Playground() {
   const items = collectionItems.filter((item) => category === "All" || item.category === category);
 
   return (
-    <div className="w-full md:w-[70vw] mx-auto py-10 md:py-16">
+    <div className="w-full md:w-[70vw] mx-auto pt-4 md:pt-6 pb-10 md:pb-16">
       <header className="mb-10 md:mb-14">
-        <p className="mt-5 text-gray-600 dark:text-gray-400 text-body">Visual art, games, videos, and things to wear.</p>
+        <p className="text-gray-600 dark:text-gray-400 text-body">Visual art, games, videos, and things to wear.</p>
       </header>
 
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-black/15 dark:border-white/15 pb-5 mb-5">
@@ -100,6 +103,7 @@ export default function Playground() {
           <a
             key={item.id}
             href={item.href}
+            {...(item.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             aria-label={`Open ${item.title}${item.images.length > 1 ? `, collection of ${item.images.length} images` : ""}`}
             className="group min-w-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 rounded-sm"
           >
@@ -111,11 +115,7 @@ export default function Playground() {
                 decoding="async"
                 width={640}
                 height={640}
-                className={`w-full h-full object-cover transition-transform duration-500 ${
-                  item.id === "the-art-of-chilling"
-                    ? "scale-[1.34] motion-safe:group-hover:scale-[1.4]"
-                    : "motion-safe:group-hover:scale-105"
-                }`}
+                className="w-full h-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
               />
               {item.images.length > 1 && (
                 <span className="absolute top-2 right-2 md:top-3 md:right-3 flex items-center gap-1.5 rounded-full bg-black/60 text-white px-2 py-1 text-label backdrop-blur-sm">

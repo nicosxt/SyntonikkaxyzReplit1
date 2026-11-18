@@ -4,7 +4,7 @@
     "title": "Everything is Alive",
     "category": "Mixed Reality",
     "client": "Self",
-    "role": "Artist",
+    "role": "Solo Founder",
     "cover": "/images/games/88SKu9uh7isjp2X9mLVLr2GtY.webp",
     "video": "https://youtube.com/shorts/hQReZFZjfnE",
     "content": [
@@ -28,6 +28,39 @@
           {
             "type": "TextRun",
             "text": "We want to turn music-making into a fun, wholesome, playful experience with adorable visual elements and an ethos that everything is connected, animated, holistically sensual, and after all, alive.",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "tag": "p",
+        "children": [
+          {
+            "type": "TextRun",
+            "text": "The game is officially on the Meta Quest store. You can ",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false
+          },
+          {
+            "type": "TextRun",
+            "text": "purchase and play the game here",
+            "bold": false,
+            "italic": false,
+            "inlineCode": false,
+            "link": {
+              "href": "https://www.meta.com/experiences/everything-is-alive/26606492178966540/",
+              "openInNewTab": true,
+              "smoothScroll": false,
+              "rel": ""
+            }
+          },
+          {
+            "type": "TextRun",
+            "text": ".",
             "bold": false,
             "italic": false,
             "inlineCode": false
@@ -242,361 +275,6 @@
             "bold": false,
             "italic": false,
             "inlineCode": false
-          }
-        ]
-      },
-      {
-        "type": "TextBlock",
-        "tag": "p",
-        "children": [
-          {
-            "type": "TextRun",
-            "text": "MOVING FORWARD",
-            "bold": true,
-            "italic": false,
-            "inlineCode": false
-          }
-        ]
-      },
-      {
-        "type": "TextBulletList",
-        "children": [
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "This is the first version of a greater concept that aims to animate daily objects around us and turn them into wonderful musical toys.",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "We will keep pushing more updates and new features down the line, thank you for being an early adopter of the game.",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "By getting this game, you are directly supporting our indie studio to bootstrap our effort to continue working on this game!",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "TextBlock",
-        "tag": "p",
-        "children": [
-          {
-            "type": "TextRun",
-            "text": "GAMEPLAY",
-            "bold": true,
-            "italic": false,
-            "inlineCode": false
-          }
-        ]
-      },
-      {
-        "type": "TextBulletList",
-        "children": [
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "Pick a creature from the Menu",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "Place the creature in the scene",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "Touch the creature to make a sound, or trigger the sequencer from above to program beats",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "When a creature is selected, a menu appears from the bottom that allows it to adjust volume, mute, and delete**.**",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "TextBlock",
-        "tag": "p",
-        "children": [
-          {
-            "type": "TextRun",
-            "text": "CUSTOMIZATION x MONAVERSE",
-            "bold": true,
-            "italic": false,
-            "inlineCode": false
-          }
-        ]
-      },
-      {
-        "type": "TextBulletList",
-        "children": [
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "You can customize an instrument by downloading 3D assets from Monaverse — a platform that supports the interoperability of the open Metaverse.",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "Once you log into Monaverse, you can download the assets, give them a custom audio clip, and save them as an instrument.",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "You can then use this instrument the same way you use other instruments.",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "TextBlock",
-        "tag": "p",
-        "children": [
-          {
-            "type": "TextRun",
-            "text": "MORE WILD IDEAS",
-            "bold": true,
-            "italic": false,
-            "inlineCode": false
-          }
-        ]
-      },
-      {
-        "type": "TextBlock",
-        "tag": "p",
-        "children": [
-          {
-            "type": "TextRun",
-            "text": "Here are a list of ideas we are experimenting with and they would probably all slowly come to the game one by one.",
-            "bold": false,
-            "italic": false,
-            "inlineCode": false
-          }
-        ]
-      },
-      {
-        "type": "TextBulletList",
-        "children": [
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "Motion Instruments — things that make responsive sounds with hand motions, accelerations, and rotations",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "Generative Sounds — objects that have generative rules, like clouds that rain, fish swarm particle systems",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "Visual Loopers — imagine flowers where each pedal is a node and the sequencer rotates all around them",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "Grabbable Midi — imagine MIDI keys where each key can be grabbed, and dragged along a screen.",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "TextListItem",
-            "children": [
-              {
-                "type": "TextBlock",
-                "tag": "p",
-                "children": [
-                  {
-                    "type": "TextRun",
-                    "text": "So many more to come!! 🏵️🌱🎶💓",
-                    "bold": false,
-                    "italic": false,
-                    "inlineCode": false
-                  }
-                ]
-              }
-            ]
           }
         ]
       }

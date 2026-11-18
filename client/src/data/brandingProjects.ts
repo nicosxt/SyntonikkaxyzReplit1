@@ -1,7 +1,10 @@
 // Content for the branding case studies rendered by pages/BrandingCaseStudy.tsx.
 // Paragraph text may contain [label](url) links.
 
+import esmeralda2026 from "./edgeCity2026.json";
+
 export interface BrandImage {
+  /** A file name inside the project's image folder, or an absolute path starting with "/". */
   file: string;
   width: number;
   height: number;
@@ -12,8 +15,10 @@ export interface BrandSection {
   heading: string;
   paragraphs: string[];
   images: BrandImage[];
-  /** "stack" shows one image per row; "grid" shows two per row. */
-  layout?: "stack" | "grid";
+  /** Optimized .mp4 clips with a .webp poster frame, in the project's image folder. */
+  videos?: { file: string; poster: string; width: number; height: number; label: string }[];
+  /** "stack" shows one per row; "grid" two per row; "row" three per row, even on phones. */
+  layout?: "stack" | "grid" | "row";
   caption?: string;
 }
 
@@ -24,6 +29,8 @@ export interface BrandProject {
   intro: string[];
   sections: BrandSection[];
   links: { title: string; detail: string; url: string }[];
+  /** Where the back link goes; defaults to the Work page. */
+  back?: { href: string; label: string };
 }
 
 const wide = (file: string, alt: string, width = 2000, height = 1257): BrandImage => ({ file, width, height, alt });
@@ -95,6 +102,157 @@ export const brandingProjects: Record<string, BrandProject> = {
       { title: "Website", detail: "constellationlab.io", url: "https://www.constellationlab.io/" },
       { title: "Full Project", detail: "Behance", url: "https://www.behance.net/gallery/232206955/Constellation-Brand-Design" },
     ],
+  },
+
+  "edge-city-posters": {
+    id: "edge-city-posters",
+    title: "Edge City Posters",
+    role: "Illustration · Art Direction",
+    intro: [
+      "I work closely with the [Edge City](https://edgecity.live/) team to create these assets. Each one is an original concept that portrays a partner, a sponsor, or a themed track: a series of events at an Edge City gathering.",
+      "Before taking on any brief, I trained a custom style in Midjourney and a LoRA on Stable Diffusion, so every piece shares one visual language. For each asset, I define the concept, generate options in Midjourney or Stable Diffusion, select the result that fits best, and finish it with editing and polish in Adobe Firefly.",
+    ],
+    sections: [
+      {
+        heading: "Edge Esmeralda 2026",
+        paragraphs: [
+          "A collection of posters for [Edge Esmeralda 2026](https://www.edgeesmeralda.com/), a month-long gathering bringing people from technology, science, culture, and community together to prototype a brighter future. The illustrations imagine worlds where nature, discovery, and everyday life grow together.",
+        ],
+        images: esmeralda2026
+          .filter(poster => !poster.src.includes("-portrait"))
+          .map(poster => ({ file: poster.src, width: poster.width, height: poster.height, alt: poster.alt })),
+        layout: "grid",
+      },
+      {
+        heading: "Sponsors & Partners",
+        paragraphs: ["Artwork for the sponsors and partners of Edge City, each built around what the organisation stands for."],
+        images: ["Uniswap", "SaunaDAO", "Protocol_Labs", "Metamask", "Lisk", "Gensyn", "Eigenlayer", "CyberFund", "Arbitrum"].map(name => ({
+          file: `/images/case-studies/edge-city/partners/Sponsor_16x9_${name}.jpg`,
+          width: 1920,
+          height: 1095,
+          alt: `Edge City sponsor artwork — ${name.replace(/_/g, " ")}`,
+        })),
+        layout: "grid",
+      },
+      {
+        heading: "Themed Tracks",
+        paragraphs: ["Art for the themed tracks of [Edge Esmeralda 2025](https://edgeesmeralda.com/), giving each week of programming its own visual anchor."],
+        images: [
+          ["ee25_16x9_Agrivision_Agtech Week.jpg", "Agrivision Agtech Week"],
+          ["ee25_16x9_Art on the Edge 0.jpg", "Art on the Edge"],
+          ["ee25_16x9_Cities of Tomorrow1.jpg", "Cities of Tomorrow"],
+          ["ee25_16x9_Consciousness_Week.webp", "Consciousness Week"],
+          ["ee25_16x9_Cosmos_Institute.webp", "Cosmos Institute"],
+          ["ee25_16x9_Decentralized_AI_2.jpg", "Decentralized AI"],
+          ["ee25_16x9_HealthTrack.jpg", "Health Track"],
+          ["ee25_16x9_LongJourney.webp", "Long Journey"],
+          ["ee25_16x9_Protocol_Worlds.webp", "Protocol Worlds"],
+          ["ee25_16x9_Revitalizing American Economies.jpg", "Revitalizing American Economies"],
+          ["ee25_16x9_Roots_of_Progress.webp", "Roots of Progress"],
+          ["ee25_16x9_Tomorrowland.jpg", "Tomorrowland"],
+        ].map(([file, name]) => ({
+          file: `/images/case-studies/edge-city/ee25_programassets/${file}`,
+          width: 1920,
+          height: 1080,
+          alt: `Edge Esmeralda 2025 track artwork — ${name}`,
+        })),
+        layout: "grid",
+      },
+      {
+        heading: "Decorative Art",
+        paragraphs: ["Program assets printed to decorate the spaces at [Edge Esmeralda 2025](https://edgeesmeralda.com/)."],
+        images: [1, 3, 4, 5, 6, 8, 9, 10].map(index => ({
+          file: `/images/case-studies/edge-city/ee25_additionalassets/wallart${index}.jpg`,
+          width: 1556,
+          height: 1038,
+          alt: `Edge Esmeralda 2025 wall art ${index}`,
+        })),
+        layout: "grid",
+      },
+    ],
+    links: [
+      { title: "Edge City", detail: "edgecity.live", url: "https://edgecity.live/" },
+      { title: "Edge Esmeralda", detail: "edgeesmeralda.com", url: "https://www.edgeesmeralda.com/" },
+      { title: "2026 Recap", detail: "Substack", url: "https://edgeesmeralda2026.substack.com/p/edge-esmeralda-2026-month-in-review" },
+    ],
+  },
+
+  "sunflower-lab": {
+    id: "sunflower-lab",
+    title: "Sunflower Lab",
+    role: "Co-founder · Land, Building & Community",
+    back: { href: "/playground", label: "Back to Playground" },
+    intro: [
+      "[Sunflower Lab](https://www.sunflowerlab.xyz/) is a communal home at Bombay Beach, California, co-owned by a sub-community of Mars College. Our vision for this land is to curate healthy communal living, experiment with art, live a Solarpunk lifestyle, and have fun ^_^",
+      "I bought the land in 2023 and lived there for two seasons. We used the space for creative work, ran residencies and retreats, and hosted many dinners and brunches.",
+    ],
+    sections: [
+      {
+        heading: "The Fence",
+        paragraphs: [
+          "Will Simons and I installed the fence around the land ([see the reel](https://www.instagram.com/p/C6FZntqJ2L9/)). I built it from up-cycled CNC off-cuts, turning leftover material into a colourful, patterned wall.",
+        ],
+        images: [
+          wide("fence-1.webp", "The Sunflower Lab fence, built from colourful CNC off-cuts, at dusk", 2000, 1500),
+          wide("fence-2.webp", "Close-up of the patterned CNC off-cut fence in yellow, black and blue", 2000, 1500),
+        ],
+        layout: "grid",
+      },
+      {
+        heading: "The Flower Stool",
+        paragraphs: [
+          "I learned to design and cut furniture on a CNC machine, starting with this flower stool: a scalloped seat on slot-together legs, painted pink and red.",
+        ],
+        images: [wide("flower-stool.webp", "A pink and red flower-shaped stool made with a CNC machine, standing on desert ground", 772, 1029)],
+        layout: "grid",
+      },
+      {
+        heading: "Life at Sun Lab",
+        paragraphs: ["Residencies, retreats, creative work, and long communal meals. See more in the [photo album](https://photos.google.com/share/AF1QipMQep_GNYUAcdQ_KGWHnBV-kLiWOR-7xIRGoll3pFUzMHpiswCg99axMSJSE1Z0TQ?key=b1RVNXlPVG5GbkVTUE5qVkNPcXVaQjVreVNzVXFR)."],
+        images: [
+          wide("pink-trailer.webp", "The pink trailer at Sunflower Lab under a blue desert sky", 2000, 1500),
+          wide("zen-cabin.webp", "The wooden Zen Cabin at Sunflower Lab", 2000, 1500),
+          wide("friends.webp", "Friends relaxing in front of the fence at Sunflower Lab", 2000, 1125),
+          wide("gate.webp", "The red gate at the entrance to Sunflower Lab", 1504, 844),
+        ],
+        layout: "grid",
+      },
+    ],
+    links: [
+      { title: "Sunflower Lab", detail: "sunflowerlab.xyz", url: "https://www.sunflowerlab.xyz/" },
+      { title: "Photo Album", detail: "Google Photos", url: "https://photos.google.com/share/AF1QipMQep_GNYUAcdQ_KGWHnBV-kLiWOR-7xIRGoll3pFUzMHpiswCg99axMSJSE1Z0TQ?key=b1RVNXlPVG5GbkVTUE5qVkNPcXVaQjVreVNzVXFR" },
+      { title: "Building the Fence", detail: "Instagram", url: "https://www.instagram.com/p/C6FZntqJ2L9/" },
+    ],
+  },
+
+  "fire-spinning": {
+    id: "fire-spinning",
+    title: "Fire Spinning",
+    role: "Flow Art · Performance",
+    back: { href: "/playground", label: "Back to Playground" },
+    intro: [
+      "I started practising flow art as a hobby during Covid in 2022. Since then, I have found a lovely community of flow artists in LA and all over the world.",
+      "Fire spinning is one of my favourite hobbies. I love dancing with the physics of the flow toy, literally playing with fire, and the community that has grown around it.",
+    ],
+    sections: [
+      {
+        heading: "Photos",
+        paragraphs: [],
+        images: [1, 2, 3].map(index => ({ file: `photo-${index}.webp`, width: 960, height: 1280, alt: `Nico spinning fire on stage at night, photo ${index}` })),
+        layout: "row",
+      },
+      {
+        heading: "Videos",
+        paragraphs: [],
+        images: [],
+        videos: [
+          { file: "video-1.mp4", poster: "video-1-poster.webp", width: 464, height: 848, label: "Fire spinning performance in front of a stage at night" },
+          { file: "video-2.mp4", poster: "video-2-poster.webp", width: 480, height: 640, label: "Fire staff spinning at dusk" },
+        ],
+        layout: "row",
+      },
+    ],
+    links: [],
   },
 
   dialectica: {
