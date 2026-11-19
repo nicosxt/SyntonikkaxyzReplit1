@@ -1,4 +1,7 @@
 import { useRef, type MouseEvent } from "react";
+// Link areas from the PDF's own link annotations, as % of the page.
+// Regenerate with: python3 scripts/resume-links.py client/public/resume.pdf > client/src/data/resume-links.json
+import resumeLinks from "@/data/resume-links.json";
 
 // Max tilt in degrees — same feel as the residency cards on agartha.one/residencies.
 const TILT_MAX = 5;
@@ -33,7 +36,7 @@ export default function Resume() {
       >
         <div
           ref={cardRef}
-          className="w-full max-w-3xl overflow-hidden rounded-2xl shadow-2xl transition-transform duration-300 ease-out will-change-transform"
+          className="relative w-full max-w-3xl overflow-hidden rounded-2xl shadow-2xl transition-transform duration-300 ease-out will-change-transform"
           style={{ transform: "rotateX(0deg) rotateY(0deg)" }}
         >
           <img
@@ -44,6 +47,22 @@ export default function Resume() {
             decoding="async"
             className="block w-full h-auto"
           />
+          {resumeLinks.map((link) => (
+            <a
+              key={`${link.href}-${link.top}`}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.href.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+              className="absolute rounded-sm hover:bg-white/15 focus-visible:bg-white/15 focus-visible:outline focus-visible:outline-1 focus-visible:outline-white transition-colors"
+              style={{
+                left: `${link.left}%`,
+                top: `${link.top}%`,
+                width: `${link.width}%`,
+                height: `${link.height}%`,
+              }}
+            />
+          ))}
         </div>
       </div>
       <p className="text-small text-center">
